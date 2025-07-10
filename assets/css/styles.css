@@ -286,10 +286,11 @@ main {
 
 .book-container {
     display: flex;
-    gap: 3rem;
-    align-items: center;
+    gap: 2rem;
+    align-items: flex-start;
     max-width: 900px;
     margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 .book-cover {
@@ -298,12 +299,13 @@ main {
 }
 
 .book-image {
-    width: 280px;
+    width: 180px;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(11, 42, 43, 0.3);
     transition: transform 324ms ease;
     display: block;
+    max-width: 100%;
 }
 
 .book-image:hover {
@@ -312,6 +314,7 @@ main {
 
 .book-details {
     flex: 1;
+    min-width: 280px;
 }
 
 .book-details h3 {
@@ -1081,11 +1084,13 @@ h4.name-heading {
     .book-container {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
     }
     
     .book-image {
-        width: 240px;
+        width: 150px;
         transform: none;
+        margin: 0 auto;
     }
     
     .book-meta {
