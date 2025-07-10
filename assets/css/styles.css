@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('/assets/images/starfield-header.jpg');
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('/assets/images/starfield-header.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
