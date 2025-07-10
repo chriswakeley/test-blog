@@ -2,15 +2,74 @@
 layout: default
 ---
 
-<article style="padding: 2rem;">
-    <h2>{{ page.title }}</h2>
-    <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
-    
-    <div style="margin-top: 2rem;">
+<article class="blog-post">
+    <header class="post-header">
+        <div class="post-meta">
+            <span class="post-date">📅 {{ page.date | date: "%B %d, %Y" }}</span>
+            <span class="reading-time">☕ {{ content | number_of_words | divided_by: 200 }} min read</span>
+        </div>
+        <h1 class="post-title">{{ page.title }}</h1>
+        {% if page.excerpt %}
+        <p class="post-excerpt">{{ page.excerpt }}</p>
+        {% endif %}
+    </header>
+
+    <div class="post-content">
         {{ content }}
     </div>
-    
-    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee;">
-        <a href="{{ '/posts/' | relative_url }}" style="color: #667eea; text-decoration: none;">&larr; Back to Posts</a>
-    </div>
+
+    <footer class="post-footer">
+        <div class="post-tags">
+            <span class="tag-label">Topics:</span>
+            <span class="tag">🧘‍♀️ Yoga Practice</span>
+            <span class="tag">🌱 Wellness</span>
+            <span class="tag">🧠 Mindfulness</span>
+        </div>
+        
+        <div class="post-navigation">
+            {% if page.previous.url %}
+            <a class="nav-link prev" href="{{ page.previous.url | relative_url }}">
+                ← {{ page.previous.title | truncate: 30 }}
+            </a>
+            {% endif %}
+            
+            {% if page.next.url %}
+            <a class="nav-link next" href="{{ page.next.url | relative_url }}">
+                {{ page.next.title | truncate: 30 }} →
+            </a>
+            {% endif %}
+        </div>
+
+        <div class="post-cta">
+            <h3>Ready to Experience This in Practice?</h3>
+            <p>Join us at Serenity Flow Yoga and discover how these concepts can transform your daily life.</p>
+            <div class="cta-buttons">
+                <a href="{{ '/classes/' | relative_url }}" class="cta-button">View Classes</a>
+                <a href="#" class="secondary-button" onclick="alert('Contact us at hello@serenityflow.com or (555) 123-YOGA')">Contact Us</a>
+            </div>
+        </div>
+    </footer>
 </article>
+
+<section class="related-content">
+    <div class="section-content">
+        <h2>Continue Your Journey</h2>
+        <div class="related-grid">
+            <div class="related-card">
+                <h3>🧘‍♀️ Join Our Classes</h3>
+                <p>Experience these teachings in person with our supportive community.</p>
+                <a href="{{ '/classes/' | relative_url }}" class="card-link">View Schedule →</a>
+            </div>
+            <div class="related-card">
+                <h3>📚 More Insights</h3>
+                <p>Explore our other articles on yoga, wellness, and mindful living.</p>
+                <a href="{{ '/posts/' | relative_url }}" class="card-link">Read More →</a>
+            </div>
+            <div class="related-card">
+                <h3>🤝 Our Community</h3>
+                <p>Learn about our studio, teachers, and the welcoming space we've created.</p>
+                <a href="{{ '/about/' | relative_url }}" class="card-link">About Us →</a>
+            </div>
+        </div>
+    </div>
+</section>

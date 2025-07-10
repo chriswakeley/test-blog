@@ -1,19 +1,19 @@
 # Site settings
-title: "Chris Wakeley's Test Blog"
-description: "A simple test blog site hosted on GitHub Pages"
-author: "Chris Wakeley"
-email: your-email@example.com
+title: "Serenity Flow Yoga"
+description: "Find your inner peace through mindful movement and breath. Join our yoga community for classes, workshops, and wellness guidance."
+author: "Maya Chen"
+email: hello@serenityflow.com
 baseurl: "/test-blog" # the subpath of your site, e.g. /blog
 url: "https://chriswakeley.github.io" # the base hostname & protocol for your site
 github_username: chriswakeley
 
-# Social Media Links (FAKE - for testing only)
+# Social Media Links (YOGA THEMED - for testing only)
 social_links:
-  twitter: "testuser_blog"
-  linkedin: "test-user-blog-123"
-  instagram: "fake_test_blogger"
-  facebook: "testblogpage456"
-  youtube: "FakeTestChannel"
+  instagram: "serenity_flow_yoga"
+  youtube: "SerenityFlowYogaStudio"
+  facebook: "serenityflowcommunity"
+  twitter: "serenityflow_om"
+  pinterest: "serenityflowwellness"
 
 # Build settings
 markdown: kramdown
