@@ -24,6 +24,32 @@
             <p>This is a simple test blog site hosted on GitHub Pages. Feel free to explore and see what's here!</p>
         </section>
 
+        <section class="book-feature">
+            <div class="book-container">
+                <div class="book-cover">
+                    <div class="book-spine">
+                        <h3>The Developer's Journey</h3>
+                        <p>A Guide to Modern Web Development</p>
+                    </div>
+                </div>
+                <div class="book-details">
+                    <h3>📚 New Book Available!</h3>
+                    <h4>The Developer's Journey: A Guide to Modern Web Development</h4>
+                    <p class="book-author">by Chris Wakeley</p>
+                    <p class="book-description">
+                        Discover the essential skills and mindset needed to thrive in modern web development. 
+                        From foundational concepts to advanced techniques, this comprehensive guide will take you 
+                        through the complete journey of becoming a proficient developer.
+                    </p>
+                    <div class="book-meta">
+                        <span class="price">$24.99</span>
+                        <span class="format">Available in paperback & digital</span>
+                    </div>
+                    <a href="#" class="buy-button" onclick="handlePurchase(); return false;">Buy Now 📖</a>
+                </div>
+            </div>
+        </section>
+
         <section class="recent-posts">
             <h3>Recent Posts</h3>
             <article class="post-preview">
@@ -43,5 +69,11 @@
     <footer>
         <p>&copy; 2024 Chris Wakeley. All rights reserved.</p>
     </footer>
+
+    <script>
+        function handlePurchase() {
+            alert('Thanks for your interest! This is a demo book - no actual purchase will be made. 😊');
+        }
+    </script>
 </body>
 </html>
