@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<article style="padding: 2rem;">
+    <h2>{{ page.title }}</h2>
+    <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
+    
+    <div style="margin-top: 2rem;">
+        {{ content }}
+    </div>
+    
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee;">
+        <a href="{{ '/posts/' | relative_url }}" style="color: #667eea; text-decoration: none;">&larr; Back to Posts</a>
+    </div>
+</article>
