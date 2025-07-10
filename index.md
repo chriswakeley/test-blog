@@ -67,7 +67,10 @@ title: "Home"
         <div class="book-details">
             <h3>📖 Featured Book</h3>
             <h4>Stress Burner Tips for Busy People</h4>
-            <p class="book-author">by Unyong Kim</p>
+            <div class="author-section">
+                <img src="{{ '/assets/images/unyong-kim-author.jpg' | relative_url }}" alt="Unyong Kim, Author" class="author-photo">
+                <p class="book-author">by Unyong Kim</p>
+            </div>
             <p class="book-description">
                 Discover 25 quick and effective ways to avoid burnout, reduce daily stress, and live in the flow. 
                 Perfect for busy professionals seeking practical wellness solutions that fit into hectic schedules. 
