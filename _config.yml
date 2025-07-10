@@ -7,6 +7,14 @@ baseurl: "/test-blog" # the subpath of your site, e.g. /blog
 url: "https://chriswakeley.github.io" # the base hostname & protocol for your site
 github_username: chriswakeley
 
+# Social Media Links (FAKE - for testing only)
+social_links:
+  twitter: "testuser_blog"
+  linkedin: "test-user-blog-123"
+  instagram: "fake_test_blogger"
+  facebook: "testblogpage456"
+  youtube: "FakeTestChannel"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge

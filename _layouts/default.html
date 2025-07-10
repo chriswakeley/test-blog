@@ -24,6 +24,40 @@
         </main>
 
         <footer>
+            <div class="social-links">
+                <h3>Follow Me (Test Links Only)</h3>
+                <div class="social-icons">
+                    {% if site.social_links.twitter %}
+                    <a href="https://twitter.com/{{ site.social_links.twitter }}" target="_blank" rel="noopener">
+                        <span class="social-icon">🐦</span> Twitter
+                    </a>
+                    {% endif %}
+                    
+                    {% if site.social_links.linkedin %}
+                    <a href="https://linkedin.com/in/{{ site.social_links.linkedin }}" target="_blank" rel="noopener">
+                        <span class="social-icon">💼</span> LinkedIn
+                    </a>
+                    {% endif %}
+                    
+                    {% if site.social_links.instagram %}
+                    <a href="https://instagram.com/{{ site.social_links.instagram }}" target="_blank" rel="noopener">
+                        <span class="social-icon">📷</span> Instagram
+                    </a>
+                    {% endif %}
+                    
+                    {% if site.social_links.facebook %}
+                    <a href="https://facebook.com/{{ site.social_links.facebook }}" target="_blank" rel="noopener">
+                        <span class="social-icon">👥</span> Facebook
+                    </a>
+                    {% endif %}
+                    
+                    {% if site.social_links.youtube %}
+                    <a href="https://youtube.com/c/{{ site.social_links.youtube }}" target="_blank" rel="noopener">
+                        <span class="social-icon">📺</span> YouTube
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
             <p>&copy; 2024 {{ site.author }}. All rights reserved.</p>
         </footer>
     </div>
