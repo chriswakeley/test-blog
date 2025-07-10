@@ -3,7 +3,7 @@ title: "Chris Wakeley's Test Blog"
 description: "A simple test blog site hosted on GitHub Pages"
 author: "Chris Wakeley"
 email: your-email@example.com
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/test-blog" # the subpath of your site, e.g. /blog
 url: "https://chriswakeley.github.io" # the base hostname & protocol for your site
 github_username: chriswakeley
 
