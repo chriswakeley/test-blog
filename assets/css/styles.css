@@ -297,38 +297,17 @@ main {
     perspective: 1000px;
 }
 
-.book-spine {
-    width: 180px;
-    height: 260px;
-    background: #0b2a2b;
-    border-radius: 28px;
-    padding: 2rem 1.5rem;
-    color: #ebdbc2;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 10px 25px rgba(11, 42, 43, 0.3);
-    transform: rotateY(-5deg);
+.book-image {
+    width: 280px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(11, 42, 43, 0.3);
     transition: transform 324ms ease;
+    display: block;
 }
 
-.book-spine:hover {
-    transform: rotateY(0deg) scale(1.05);
-}
-
-.book-spine h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.book-spine p {
-    font-size: 1rem;
-    opacity: 0.9;
-    font-weight: 300;
+.book-image:hover {
+    transform: scale(1.05) rotateY(-2deg);
 }
 
 .book-details {
@@ -1104,7 +1083,8 @@ h4.name-heading {
         text-align: center;
     }
     
-    .book-spine {
+    .book-image {
+        width: 240px;
         transform: none;
     }
     

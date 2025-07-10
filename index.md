@@ -62,25 +62,22 @@ title: "Home"
 <section class="book-feature">
     <div class="book-container">
         <div class="book-cover">
-            <div class="book-spine">
-                <h3>Mindful Flow</h3>
-                <p>A Guide to Inner Peace Through Yoga</p>
-            </div>
+            <img src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Stress Burner Tips for Busy People by Unyong Kim" class="book-image">
         </div>
         <div class="book-details">
-            <h3>📖 New Book Available!</h3>
-            <h4>Mindful Flow: A Guide to Inner Peace Through Yoga</h4>
-            <p class="book-author">by {{ site.author }}</p>
+            <h3>📖 Featured Book</h3>
+            <h4>Stress Burner Tips for Busy People</h4>
+            <p class="book-author">by Unyong Kim</p>
             <p class="book-description">
-                Discover the transformative power of yoga in this comprehensive guide that blends ancient wisdom 
-                with modern practice. Learn breathing techniques, meditation, and poses that will help you find 
-                balance in your daily life and cultivate lasting inner peace.
+                Discover 25 quick and effective ways to avoid burnout, reduce daily stress, and live in the flow. 
+                Perfect for busy professionals seeking practical wellness solutions that fit into hectic schedules. 
+                Learn to transform stress into strength through mindful practices and sustainable habits.
             </p>
             <div class="book-meta">
-                <span class="price">$24.99</span>
-                <span class="format">Available in paperback & digital</span>
+                <span class="price">$19.99</span>
+                <span class="format">Available in digital & paperback</span>
             </div>
-            <a href="#" class="buy-button" onclick="handlePurchase(); return false;">Buy Now 📖</a>
+            <a href="#" class="buy-button" onclick="alert('Visit our partner bookstore or contact us for availability!'); return false;">Learn More 📖</a>
         </div>
     </div>
 </section>
