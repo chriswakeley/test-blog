@@ -10,15 +10,38 @@
 <body>
     <div class="site-wrapper">
         <header>
-            <h1>{{ site.title }}</h1>
-            <nav>
+            <div class="header-content">
+                <h1>{{ site.title }}</h1>
+                
+                <!-- Mobile hamburger button -->
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <!-- Desktop navigation -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                        <li><a href="{{ '/classes/' | relative_url }}">Classes</a></li>
+                        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+                        <li><a href="{{ '/posts/' | relative_url }}">Blog</a></li>
+                        <li><a href="#" onclick="alert('Schedule coming soon! Call us at (555) 123-YOGA')">Schedule</a></li>
+                        <li><a href="#" onclick="alert('Contact us at hello@serenityflow.com')">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Mobile navigation overlay -->
+            <nav class="mobile-nav">
                 <ul>
-                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
-                    <li><a href="{{ '/classes/' | relative_url }}">Classes</a></li>
-                    <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-                    <li><a href="{{ '/posts/' | relative_url }}">Blog</a></li>
-                    <li><a href="#" onclick="alert('Schedule coming soon! Call us at (555) 123-YOGA')">Schedule</a></li>
-                    <li><a href="#" onclick="alert('Contact us at hello@serenityflow.com')">Contact</a></li>
+                    <li><a href="{{ '/' | relative_url }}" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="{{ '/classes/' | relative_url }}" onclick="closeMobileMenu()">Classes</a></li>
+                    <li><a href="{{ '/about/' | relative_url }}" onclick="closeMobileMenu()">About</a></li>
+                    <li><a href="{{ '/posts/' | relative_url }}" onclick="closeMobileMenu()">Blog</a></li>
+                    <li><a href="#" onclick="alert('Schedule coming soon! Call us at (555) 123-YOGA'); closeMobileMenu()">Schedule</a></li>
+                    <li><a href="#" onclick="alert('Contact us at hello@serenityflow.com'); closeMobileMenu()">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -74,6 +97,58 @@
         function handlePurchase() {
             alert('Thanks for your interest in "Mindful Flow"! This is a demo book - visit our studio to learn about our real yoga resources and workshops. 🧘‍♀️');
         }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            const hamburger = document.querySelector('.mobile-menu-toggle');
+            
+            if (mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                mobileNav.classList.add('active');
+                hamburger.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            const hamburger = document.querySelector('.mobile-menu-toggle');
+            
+            mobileNav.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Add event listener when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.mobile-menu-toggle');
+            if (hamburger) {
+                hamburger.addEventListener('click', toggleMobileMenu);
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const mobileNav = document.querySelector('.mobile-nav');
+                const hamburger = document.querySelector('.mobile-menu-toggle');
+                
+                if (mobileNav && mobileNav.classList.contains('active') && 
+                    !mobileNav.contains(event.target) && 
+                    !hamburger.contains(event.target)) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeMobileMenu();
+                }
+            });
+        });
     </script>
 </body>
 </html>
