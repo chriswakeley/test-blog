@@ -5,7 +5,7 @@ title: "About"
 
 <section class="page-hero">
     <div class="hero-content">
-        <h1>About Serenity Flow Yoga</h1>
+        <h1>About Stress Burner</h1>
         <p>Your sanctuary for mindful movement and inner peace</p>
     </div>
 </section>
@@ -116,6 +116,33 @@ title: "About"
                         <div class="credentials">
                             <span>RYT-200</span>
                             <span>Prenatal & Postnatal Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured-author-section">
+            <h2>Our Wellness Expert</h2>
+            <div class="author-spotlight">
+                <div class="author-content">
+                    <div class="author-photo">
+                        <img src="{{ '/assets/images/unyong-kim-author.jpg' | relative_url }}" alt="Unyong Kim, Wellness Expert and Author" class="author-image">
+                    </div>
+                    <div class="author-bio">
+                        <h3>Unyong Kim</h3>
+                        <p class="author-title">Wellness Expert & Author</p>
+                        <p>Unyong Kim is a certified stress management consultant, mindfulness coach, and bestselling author of "Stress Burner Tips for Busy People." With over 15 years of experience helping professionals transform their relationship with stress, she combines ancient Eastern wisdom with modern neuroscience to create practical, sustainable wellness solutions.</p>
+                        
+                        <p>As a former corporate executive who experienced severe burnout, Unyong understands firsthand the challenges of maintaining well-being in high-pressure environments. Her evidence-based approach has helped thousands of busy professionals reclaim their energy, focus, and joy through simple daily practices.</p>
+                        
+                        <p>Unyong regularly leads workshops at our studio, offering specialized classes on stress reduction, mindful breathing, and work-life integration. Her warm, approachable teaching style makes complex wellness concepts accessible to everyone, regardless of their experience level.</p>
+                        
+                        <div class="author-credentials">
+                            <span>📚 Published Author</span>
+                            <span>🧠 Certified Stress Management Consultant</span>
+                            <span>🧘‍♀️ 500-Hour Mindfulness Teacher</span>
+                            <span>💼 Corporate Wellness Specialist</span>
                         </div>
                     </div>
                 </div>
