@@ -5,7 +5,7 @@ title: "Home"
 
 <section class="hero">
     <div class="hero-content">
-        <h2>Find Your Flow</h2>
+        <h2>Burn Stress, Find Peace</h2>
         <p class="hero-subtitle">Transform your life through mindful movement, breath, and community</p>
         <div class="hero-offer">
             <span class="offer-badge">New Students</span>
