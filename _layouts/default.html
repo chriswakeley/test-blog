@@ -269,8 +269,55 @@
 
             // Notify parent that script is ready
             if (window.parent !== window) {
-                parent.postMessage({ type: 'webBuilderReady' }, '*');
+                parent.postMessage({ 
+                    type: 'webBuilderReady',
+                    url: window.location.pathname
+                }, '*');
             }
+
+            // Track navigation changes and notify parent
+            let lastUrl = window.location.pathname;
+            const checkForNavigation = () => {
+                if (window.location.pathname !== lastUrl) {
+                    lastUrl = window.location.pathname;
+                    if (window.parent !== window) {
+                        parent.postMessage({ 
+                            type: 'navigation',
+                            url: window.location.pathname
+                        }, '*');
+                    }
+                }
+            };
+
+            // Check for navigation changes periodically (for SPA-style navigation)
+            setInterval(checkForNavigation, 500);
+
+            // Also listen for popstate events (back/forward navigation)
+            window.addEventListener('popstate', () => {
+                setTimeout(checkForNavigation, 100);
+            });
+
+            // Track navigation changes and notify parent
+            let lastUrl = window.location.pathname;
+            const checkForNavigation = () => {
+                if (window.location.pathname !== lastUrl) {
+                    lastUrl = window.location.pathname;
+                    if (window.parent !== window) {
+                        parent.postMessage({ 
+                            type: 'navigation',
+                            url: window.location.pathname
+                        }, '*');
+                    }
+                }
+            };
+
+            // Check for navigation changes periodically (for SPA-style navigation)
+            setInterval(checkForNavigation, 500);
+
+            // Also listen for popstate events (back/forward navigation)
+            window.addEventListener('popstate', () => {
+                setTimeout(checkForNavigation, 100);
+            });
         })();
     </script>
 </body>
