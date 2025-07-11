@@ -1060,18 +1060,42 @@ footer {
     flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+    .author-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+
 .author-photo {
     flex-shrink: 0;
     text-align: center;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 769px) {
+    .author-photo {
+        margin-bottom: 0;
+    }
 }
 
 .author-image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(11, 42, 43, 0.2);
     transition: transform 324ms ease;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .author-image {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 .author-image:hover {
