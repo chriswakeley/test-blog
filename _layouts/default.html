@@ -150,5 +150,128 @@
             });
         });
     </script>
+
+    <!-- Web Builder integration script -->
+    <script>
+        (function() {
+            console.log('Web Builder integration script loaded');
+            
+            let selectModeEnabled = false;
+            let clickHandler = null;
+
+            // Add CSS for highlighting
+            const style = document.createElement('style');
+            style.id = 'web-builder-style';
+            style.textContent = `
+                .web-builder-highlight {
+                    outline: 2px solid #3b82f6 !important;
+                    outline-offset: 2px !important;
+                    background-color: rgba(59, 130, 246, 0.1) !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Listen for messages from parent (React app)
+            window.addEventListener('message', function(event) {
+                console.log('Received message:', event.data);
+                
+                if (event.data.type === 'setSelectMode') {
+                    selectModeEnabled = event.data.enabled;
+                    console.log('Select mode', selectModeEnabled ? 'enabled' : 'disabled');
+                    
+                    // Remove all highlights when disabling
+                    if (!selectModeEnabled) {
+                        document.querySelectorAll('.web-builder-highlight').forEach(el => {
+                            el.classList.remove('web-builder-highlight');
+                        });
+                    }
+                } else if (event.data.type === 'injectScript') {
+                    selectModeEnabled = event.data.selectMode;
+                    console.log('Script injection requested, select mode:', selectModeEnabled);
+                } else if (event.data.type === 'clearHighlights') {
+                    console.log('Clearing all highlights');
+                    document.querySelectorAll('.web-builder-highlight').forEach(el => {
+                        el.classList.remove('web-builder-highlight');
+                    });
+                }
+            });
+
+            // Create click handler
+            clickHandler = function(e) {
+                if (!selectModeEnabled) return;
+                
+                console.log('Element clicked in select mode:', e.target);
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Remove previous highlights
+                document.querySelectorAll('.web-builder-highlight').forEach(el => {
+                    el.classList.remove('web-builder-highlight');
+                });
+                
+                // Add highlight to clicked element
+                e.target.classList.add('web-builder-highlight');
+                
+                // Generate CSS selector
+                const selector = generateSelector(e.target);
+                console.log('Generated selector:', selector);
+                
+                // Send selector to backend
+                fetch('http://localhost:8000/api/selection', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ selector: selector })
+                }).then(response => {
+                    console.log('Backend response:', response.status);
+                    return response.json();
+                }).then(data => {
+                    console.log('Selection saved:', data);
+                    // Notify parent window
+                    parent.postMessage({ type: 'elementSelected', selector: selector }, '*');
+                }).catch(error => {
+                    console.error('Failed to save selection:', error);
+                });
+            };
+
+            // Add click handler
+            document.addEventListener('click', clickHandler, true);
+
+            function generateSelector(element) {
+                if (element.id) {
+                    return '#' + element.id;
+                }
+                
+                let selector = element.tagName.toLowerCase();
+                
+                if (element.className) {
+                    const classes = element.className.split(' ').filter(c => c && !c.includes('web-builder'));
+                    if (classes.length > 0) {
+                        selector += '.' + classes.join('.');
+                    }
+                }
+                
+                // Add parent context if needed for uniqueness
+                let parent = element.parentElement;
+                if (parent && parent !== document.body) {
+                    const siblings = Array.from(parent.children).filter(child => 
+                        child.tagName === element.tagName
+                    );
+                    if (siblings.length > 1) {
+                        const index = siblings.indexOf(element);
+                        selector += ':nth-of-type(' + (index + 1) + ')';
+                    }
+                }
+                
+                return selector;
+            }
+
+            // Notify parent that script is ready
+            if (window.parent !== window) {
+                parent.postMessage({ type: 'webBuilderReady' }, '*');
+            }
+        })();
+    </script>
 </body>
 </html>

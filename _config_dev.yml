@@ -1,3 +1,8 @@
 # Development-specific settings
 # This file overrides _config.yml for local builds.
+# It sets baseurl to empty string so assets work correctly 
+# when served from the /preview endpoint locally.
 baseurl: ""
+# Use relative URLs for assets to work in iframe
+url: ""
+relative_permalinks: false
