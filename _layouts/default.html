@@ -4,152 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
     <div class="site-wrapper">
-        <header>
-            <div class="header-content">
-                <h1>{{ site.title }}</h1>
-                
-                <!-- Mobile hamburger button -->
-                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-                
-                <!-- Desktop navigation -->
-                <nav class="desktop-nav">
-                    <ul>
-                        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-                        <li><a href="{{ '/classes/' | relative_url }}">Classes</a></li>
-                        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-                        <li><a href="{{ '/posts/' | relative_url }}">Blog</a></li>
-                        <li><a href="#" onclick="alert('Schedule coming soon! Call us at (555) 123-YOGA')">Schedule</a></li>
-                        <li><a href="#" onclick="alert('Contact us at hello@serenityflow.com')">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <!-- Mobile navigation overlay -->
-            <nav class="mobile-nav">
-                <ul>
-                    <li><a href="{{ '/' | relative_url }}" onclick="closeMobileMenu()">Home</a></li>
-                    <li><a href="{{ '/classes/' | relative_url }}" onclick="closeMobileMenu()">Classes</a></li>
-                    <li><a href="{{ '/about/' | relative_url }}" onclick="closeMobileMenu()">About</a></li>
-                    <li><a href="{{ '/posts/' | relative_url }}" onclick="closeMobileMenu()">Blog</a></li>
-                    <li><a href="#" onclick="alert('Schedule coming soon! Call us at (555) 123-YOGA'); closeMobileMenu()">Schedule</a></li>
-                    <li><a href="#" onclick="alert('Contact us at hello@serenityflow.com'); closeMobileMenu()">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
 
         <main class="main-content">
             {{ content }}
         </main>
 
-        <footer>
-            <div class="social-links">
-                <h3>Connect With Our Community</h3>
-                <div class="social-icons">
-                    {% if site.social_links.instagram %}
-                    <a href="https://instagram.com/{{ site.social_links.instagram }}" target="_blank" rel="noopener">
-                        <span class="social-icon">📷</span> Instagram
-                    </a>
-                    {% endif %}
-                    
-                    {% if site.social_links.youtube %}
-                    <a href="https://youtube.com/c/{{ site.social_links.youtube }}" target="_blank" rel="noopener">
-                        <span class="social-icon">📺</span> YouTube
-                    </a>
-                    {% endif %}
-                    
-                    {% if site.social_links.facebook %}
-                    <a href="https://facebook.com/{{ site.social_links.facebook }}" target="_blank" rel="noopener">
-                        <span class="social-icon">👥</span> Facebook
-                    </a>
-                    {% endif %}
-                    
-                    {% if site.social_links.twitter %}
-                    <a href="https://twitter.com/{{ site.social_links.twitter }}" target="_blank" rel="noopener">
-                        <span class="social-icon">🐦</span> Twitter
-                    </a>
-                    {% endif %}
-                    
-                    {% if site.social_links.pinterest %}
-                    <a href="https://pinterest.com/{{ site.social_links.pinterest }}" target="_blank" rel="noopener">
-                        <span class="social-icon">📌</span> Pinterest
-                    </a>
-                    {% endif %}
-                </div>
-                <div style="margin-top: 1rem;">
-                    <p>📧 {{ site.email }} | 📱 (555) 123-YOGA</p>
-                    <p>🧘‍♀️ "Find your inner peace through mindful movement"</p>
-                </div>
-            </div>
-            <p style="margin-top: 1rem; opacity: 0.8;">&copy; 2024 {{ site.author }}. All rights reserved.</p>
-        </footer>
     </div>
-
-    <script>
-        function handlePurchase() {
-            alert('Thanks for your interest in "Mindful Flow"! This is a demo book - visit our studio to learn about our real yoga resources and workshops. 🧘‍♀️');
-        }
-
-        // Mobile menu functionality
-        function toggleMobileMenu() {
-            const mobileNav = document.querySelector('.mobile-nav');
-            const hamburger = document.querySelector('.mobile-menu-toggle');
-            
-            if (mobileNav.classList.contains('active')) {
-                mobileNav.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.style.overflow = '';
-            } else {
-                mobileNav.classList.add('active');
-                hamburger.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeMobileMenu() {
-            const mobileNav = document.querySelector('.mobile-nav');
-            const hamburger = document.querySelector('.mobile-menu-toggle');
-            
-            mobileNav.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Add event listener when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.mobile-menu-toggle');
-            if (hamburger) {
-                hamburger.addEventListener('click', toggleMobileMenu);
-            }
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                const mobileNav = document.querySelector('.mobile-nav');
-                const hamburger = document.querySelector('.mobile-menu-toggle');
-                
-                if (mobileNav && mobileNav.classList.contains('active') && 
-                    !mobileNav.contains(event.target) && 
-                    !hamburger.contains(event.target)) {
-                    closeMobileMenu();
-                }
-            });
-
-            // Close menu on escape key
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape') {
-                    closeMobileMenu();
-                }
-            });
-        });
-    </script>
 
     <!-- Web Builder integration script -->
     <script>
