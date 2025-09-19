@@ -1,10 +1,16 @@
-// Color Variables - Watercolor Theme
-$color-maroon: #900C3F; // Deeper maroon for accents
-$color-soft-maroon: #C77D9B; // Softer, lighter maroon
-$color-teal: #4A8C8C; // Teal for contrast
-$color-soft-teal: #7ACCC1; // Softer teal
-$color-light-bg: #F8F8F8; // Very light background color
-$color-text-dark: #333;
+// Watercolor Color Palette
+$color-burgundy: #8B2F4A; // Deep burgundy/wine
+$color-burgundy-light: rgba(139, 47, 74, 0.15); // Light burgundy wash
+$color-sage: #6B8E7F; // Sage green
+$color-sage-light: rgba(107, 142, 127, 0.12); // Light sage wash
+$color-dusty-rose: #C77D9B; // Dusty rose pink
+$color-dusty-rose-light: rgba(199, 125, 155, 0.15); // Light pink wash
+$color-lavender: #BAA2C4; // Soft lavender
+$color-lavender-light: rgba(186, 162, 196, 0.10); // Light lavender wash
+$color-gold: #d4af37; // Metallic gold for accents
+$color-cream: #fdfcfb; // Cream background
+$color-warm-white: #f5f3f0; // Warm white
+$color-text-dark: #3a3a3a;
 $color-text-light: #fff;
 
 // Typography
@@ -24,8 +30,7 @@ $breakpoint-tablet: 1024px;
 $breakpoint-desktop: 1440px;
 
 // Effects
-$blur-watercolor: blur(80px);
-$blur-watercolor-mobile: blur(50px);
-$shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.2);
-$shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.3);
-$shadow-text-light: 1px 1px 3px rgba(0, 0, 0, 0.2);
+$blur-watercolor: blur(0px); // No blur for crisp watercolor edges
+$shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
+$shadow-text: 2px 2px 4px rgba(139, 47, 74, 0.3);
+$shadow-text-light: 1px 1px 3px rgba(0, 0, 0, 0.15);
