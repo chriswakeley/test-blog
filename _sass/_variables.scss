@@ -1,31 +1,31 @@
-// Modern color palette - stress relief theme with trendy gradients
-$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-$secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-$calm-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-$warm-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-
-// Base colors
-$dark: #0a0e27;
-$light: #ffffff;
-$accent: #667eea;
-$accent-2: #764ba2;
-$text-dark: #1a202c;
-$text-light: #e2e8f0;
+// Color Variables - Watercolor Theme
+$color-maroon: #900C3F; // Deeper maroon for accents
+$color-soft-maroon: #C77D9B; // Softer, lighter maroon
+$color-teal: #4A8C8C; // Teal for contrast
+$color-soft-teal: #7ACCC1; // Softer teal
+$color-light-bg: #F8F8F8; // Very light background color
+$color-text-dark: #333;
+$color-text-light: #fff;
 
 // Typography
-$font-display: 'Clash Display', 'Inter', sans-serif;
-$font-body: 'Inter', system-ui, -apple-system, sans-serif;
+$font-heading: 'Montserrat', sans-serif;
+$font-body: 'Open Sans', sans-serif;
 
 // Spacing
-$spacing-unit: 8px;
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 3rem;
+$spacing-xl: 4rem;
 
 // Breakpoints
-$mobile: 640px;
-$tablet: 768px;
-$desktop: 1024px;
-$wide: 1280px;
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1440px;
 
 // Effects
-$blur-glass: blur(10px);
-$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.08);
-$shadow-glow: 0 0 60px rgba(102, 126, 234, 0.4);
+$blur-watercolor: blur(80px);
+$blur-watercolor-mobile: blur(50px);
+$shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.2);
+$shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.3);
+$shadow-text-light: 1px 1px 3px rgba(0, 0, 0, 0.2);

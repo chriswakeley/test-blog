@@ -1,327 +1,106 @@
-// Hero Section - Modern, Abstract, Artistic
-.hero {
-  min-height: 100vh;
+// Hero Section with Watercolor Background
+.hero-section {
   position: relative;
-  overflow: hidden;
+  height: 100vh;
   display: flex;
+  justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  overflow: hidden;
+  text-align: center;
+  color: $color-text-light;
   
-  // Animated gradient background
+  // Watercolor abstract background
   &::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      45deg,
-      #667eea,
-      #764ba2,
-      #f093fb,
-      #4facfe,
-      #667eea
-    );
-    background-size: 400% 400%;
-    opacity: 0.15;
-    animation: gradient-shift 15s ease infinite;
-  }
-  
-  // Abstract floating shapes
-  &__shapes {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    z-index: -1;
+    opacity: 0.9;
+    background:
+      // Large soft maroon blob
+      radial-gradient(circle at 10% 20%, $color-soft-maroon 0%, transparent 70%),
+      radial-gradient(circle at 80% 90%, $color-maroon 0%, transparent 60%),
+      // Medium soft teal blob
+      radial-gradient(circle at 70% 30%, $color-soft-teal 0%, transparent 65%),
+      radial-gradient(circle at 20% 75%, $color-teal 0%, transparent 60%),
+      // Smaller accent blobs
+      radial-gradient(circle at 45% 10%, $color-maroon 0%, transparent 50%),
+      radial-gradient(circle at 55% 85%, $color-soft-teal 0%, transparent 55%);
+    background-size: 1000px 1000px, 800px 800px, 900px 900px, 700px 700px, 400px 400px, 600px 600px;
+    background-position: -200px -200px, 300px 400px, 100px -100px, -100px 200px, 500px 500px, -50px 0;
+    background-repeat: no-repeat;
+    filter: $blur-watercolor;
+    animation: backgroundShift 20s infinite alternate ease-in-out;
     
-    .shape {
-      position: absolute;
-      background: $primary-gradient;
-      filter: blur(80px);
-      opacity: 0.3;
-      animation: float 20s ease-in-out infinite;
-      
-      &--1 {
-        width: 400px;
-        height: 400px;
-        top: -10%;
-        right: -5%;
-        animation-delay: 0s;
-        background: $calm-gradient;
-      }
-      
-      &--2 {
-        width: 300px;
-        height: 300px;
-        bottom: -10%;
-        left: -5%;
-        animation-delay: 5s;
-        background: $warm-gradient;
-      }
-      
-      &--3 {
-        width: 250px;
-        height: 250px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        animation-delay: 10s;
-        opacity: 0.2;
-      }
-    }
-  }
-  
-  // Morphing blob background
-  &__blob {
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-    opacity: 0.1;
-    animation: morph 15s ease-in-out infinite;
-    filter: blur(40px);
-    
-    @media (max-width: $tablet) {
-      width: 300px;
-      height: 300px;
-      right: -10%;
-    }
-  }
-  
-  // Content container
-  &__content {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    padding: $spacing-unit * 10 0;
-    
-    @media (max-width: $tablet) {
-      padding: $spacing-unit * 6 0;
-    }
-  }
-  
-  // Text content
-  &__text {
-    max-width: 650px;
-    animation: fade-in-up 1s ease-out;
-  }
-  
-  &__badge {
-    display: inline-block;
-    padding: $spacing-unit $spacing-unit * 2;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: $blur-glass;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    color: $text-light;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: $spacing-unit * 3;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: fade-in-up 0.8s ease-out;
-  }
-  
-  &__title {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 700;
-    color: $light;
-    margin-bottom: $spacing-unit * 3;
-    line-height: 1.1;
-    animation: fade-in-up 1s ease-out 0.2s both;
-    
-    .gradient-text {
-      background: linear-gradient(135deg, #667eea 0%, #f093fb 50%, #4facfe 100%);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradient-shift 8s ease infinite;
-    }
-  }
-  
-  &__subtitle {
-    font-size: clamp(1.125rem, 3vw, 1.5rem);
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: $spacing-unit * 5;
-    line-height: 1.6;
-    animation: fade-in-up 1s ease-out 0.4s both;
-  }
-  
-  // CTA Buttons
-  &__cta {
-    display: flex;
-    gap: $spacing-unit * 2;
-    flex-wrap: wrap;
-    animation: fade-in-up 1s ease-out 0.6s both;
-    
-    @media (max-width: $mobile) {
-      flex-direction: column;
-      width: 100%;
-    }
-  }
-  
-  // Modern button styles
-  .btn {
-    padding: $spacing-unit * 2 $spacing-unit * 4;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
-    align-items: center;
-    gap: $spacing-unit;
-    cursor: pointer;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    
-    @media (max-width: $mobile) {
-      width: 100%;
-      justify-content: center;
-    }
-    
-    &--primary {
-      background: $primary-gradient;
-      color: $light;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateX(-100%);
-        transition: transform 0.3s;
-      }
-      
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-        
-        &::before {
-          transform: translateX(0);
-        }
-      }
-    }
-    
-    &--glass {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: $blur-glass;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: $light;
-      
-      &:hover {
-        background: rgba(255, 255, 255, 0.15);
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-    }
-  }
-  
-  // Decorative elements
-  &__decoration {
-    position: absolute;
-    bottom: $spacing-unit * 4;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: pulse-glow 3s ease-in-out infinite;
-    
-    .scroll-indicator {
-      width: 30px;
-      height: 50px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
-      position: relative;
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: 8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 6px;
-        height: 10px;
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 3px;
-        animation: float 2s ease-in-out infinite;
-      }
-    }
-  }
-  
-  // Floating particles
-  &__particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      animation: float 20s linear infinite;
-      
-      @for $i from 1 through 20 {
-        &:nth-child(#{$i}) {
-          top: random(100) * 1%;
-          left: random(100) * 1%;
-          animation-delay: random(20) * 1s;
-          animation-duration: (15 + random(10)) * 1s;
-          opacity: 0.2 + (random(8) / 10);
-        }
-      }
+    @media (max-width: $breakpoint-mobile) {
+      filter: $blur-watercolor-mobile;
     }
   }
 }
 
-// Author badge
-.author-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: $spacing-unit * 2;
-  margin-top: $spacing-unit * 4;
-  padding: $spacing-unit * 1.5 $spacing-unit * 3;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: $blur-glass;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  animation: fade-in-up 1s ease-out 0.8s both;
+.hero-content {
+  z-index: 1;
+  max-width: 800px;
+  padding: 20px;
+  animation: fadeIn 1.5s ease-out;
   
-  &__avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: $primary-gradient;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    color: $light;
+  h1 {
+    margin-bottom: 10px;
+    text-shadow: $shadow-text;
+    color: $color-text-light;
   }
   
-  &__text {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.875rem;
+  p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    text-shadow: $shadow-text-light;
+    color: $color-text-light;
     
-    span {
-      display: block;
-      font-size: 0.75rem;
-      opacity: 0.7;
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 1.1em;
     }
+  }
+}
+
+// Logo placeholder
+.logo-placeholder {
+  margin-bottom: 20px;
+  animation: gentleFloat 3s ease-in-out infinite;
+  
+  svg {
+    fill: none;
+    stroke: $color-soft-maroon;
+    stroke-width: 2;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+// Button styles
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: $color-maroon;
+  color: $color-text-light;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: $shadow-soft;
+  letter-spacing: 1px;
+  
+  &:hover {
+    background-color: darken($color-maroon, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: 12px 25px;
+    font-size: 1em;
   }
 }

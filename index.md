@@ -1,67 +1,24 @@
 ---
 layout: default
-title: "Stress Burner - Transform Stress Into Sustainable Well-Being"
+title: "Stress Burner - Master Your Calm, Reclaim Your Joy"
 ---
 
-<!-- Hero Section -->
-<section class="hero">
-  <!-- Abstract floating shapes -->
-  <div class="hero__shapes">
-    <div class="shape shape--1"></div>
-    <div class="shape shape--2"></div>
-    <div class="shape shape--3"></div>
-  </div>
-  
-  <!-- Morphing blob -->
-  <div class="hero__blob"></div>
-  
-  <!-- Floating particles -->
-  <div class="hero__particles">
-    {% for i in (1..20) %}
-    <span class="particle"></span>
-    {% endfor %}
-  </div>
-  
-  <!-- Main content -->
-  <div class="hero__content">
-    <div class="container">
-      <div class="hero__text">
-        <span class="hero__badge">✨ 5-Week Transformation Journey</span>
-        
-        <h1 class="hero__title">
-          Burn Through Stress,<br>
-          <span class="gradient-text">Reclaim Your Joy</span>
-        </h1>
-        
-        <p class="hero__subtitle">
-          Join the Stress Burner Blueprint—a revolutionary approach to self-care that delivers immediate relief and lasting resilience. Built for change makers, leaders, and visionaries ready to thrive.
-        </p>
-        
-        <div class="hero__cta">
-          <a href="#" class="btn btn--primary">
-            Start Your Journey
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="#" class="btn btn--glass">
-            Learn More
-          </a>
-        </div>
-        
-        <div class="author-badge">
-          <div class="author-badge__avatar">UK</div>
-          <div class="author-badge__text">
-            With Unyong Kim
-            <span>Published Author & Wellness Expert</span>
-          </div>
-        </div>
-      </div>
+<!-- Hero Section with Watercolor Background -->
+<header class="hero-section">
+  <div class="hero-content">
+    <!-- Lotus logo placeholder -->
+    <div class="logo-placeholder">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3c0 0 -3 3 -3 6c0 3 3 3 3 3s3 0 3 -3c0 -3 -3 -6 -3 -6z" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M7.5 7.5c0 0 -3 1.5 -3 4.5c0 3 3 3 3 3s1.5 0 2.5 -1" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M16.5 7.5c0 0 3 1.5 3 4.5c0 3 -3 3 -3 3s-1.5 0 -2.5 -1" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M12 12v9" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
     </div>
+    
+    <h1>STRESS BURNER</h1>
+    <p>Master Your Calm. Reclaim Your Joy.</p>
+    
+    <a href="#blueprint" class="btn">DISCOVER THE BLUEPRINT</a>
   </div>
-  
-  <!-- Scroll indicator -->
-  <div class="hero__decoration">
-    <div class="scroll-indicator"></div>
-  </div>
-</section>
+</header>
