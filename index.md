@@ -7,8 +7,8 @@ title: Home
   <div class="container">
     <img class="lotus" src="{{ '/assets/images/logo-large.png' | relative_url }}" alt="Stress Burner lotus" />
     <div class="tag">Stress Burner Blueprint</div>
-    <h1>Stressburner</h1>
-    <p>A 5‑week blueprint for busy change makers to build easy, elegant self‑care habits that last. Bite‑sized lessons, weekly group coaching, and lifetime resources—led by Unyong Kim.</p>
+  <h1>Stressburner</h1>
+  <p class="subtitle">Master Your Calm. Reclaim Your Joy.</p>
     <div class="cta-row">
       <a class="btn" href="{{ site.purchase_url }}" target="_blank" rel="noopener">Discover the Blueprint</a>
       <a class="btn secondary" href="{{ '/about/' | relative_url }}">Meet Unyong</a>
