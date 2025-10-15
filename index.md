@@ -5,7 +5,7 @@ title: Home
 
 <section class="hero">
   <div class="container">
-    <img class="lotus" src="{{ '/assets/images/logo-large.png' | relative_url }}" alt="Stress Burner lotus" />
+  <img class="lotus" src="{{ '/assets/images/stressburner-lotus.png' | relative_url }}" alt="Stress Burner lotus" />
     <div class="tag">Stress Burner Blueprint</div>
   <h1>Stressburner</h1>
   <p class="subtitle">Master Your Calm. Reclaim Your Joy.</p>
