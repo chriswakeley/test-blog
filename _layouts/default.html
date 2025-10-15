@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="{{ '/assets/images/stressburner-faviconlogo.png' | relative_url }}">
   <meta name="theme-color" content="#9A0C0C">
 </head>
-<body>
+<body class="page-{{ page.title | downcase | replace: ' ', '-' }}">
   <header class="sb-header">
     <div class="container header-inner">
       <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">

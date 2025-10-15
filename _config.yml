@@ -44,8 +44,6 @@ nav:
     url: /
   - title: Course
     url: /course/
-  - title: Blog
-    external: https://stressburner.systeme.io/
   - title: Book
     url: /book/
   - title: Testimonials

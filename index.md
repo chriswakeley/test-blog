@@ -5,13 +5,13 @@ title: Home
 
 <section class="hero">
   <div class="container">
+    <img class="lotus" src="{{ '/assets/images/logo-large.png' | relative_url }}" alt="Stress Burner lotus" />
     <div class="tag">Stress Burner Blueprint</div>
-    <h1>Reduce Stress. Prevent Burnout. Reclaim Joy.</h1>
+    <h1>Stressburner</h1>
     <p>A 5‑week blueprint for busy change makers to build easy, elegant self‑care habits that last. Bite‑sized lessons, weekly group coaching, and lifetime resources—led by Unyong Kim.</p>
     <div class="cta-row">
-      <a class="btn" href="{{ site.purchase_url }}" target="_blank" rel="noopener">Enroll for $497</a>
+      <a class="btn" href="{{ site.purchase_url }}" target="_blank" rel="noopener">Discover the Blueprint</a>
       <a class="btn secondary" href="{{ '/about/' | relative_url }}">Meet Unyong</a>
-      <a class="btn secondary" href="https://stressburner.systeme.io/" target="_blank" rel="noopener">Read the Blog</a>
     </div>
   </div>
 </section>
