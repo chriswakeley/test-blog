@@ -35,13 +35,13 @@ body{
 .nav-toggle{display:none;background:transparent;border:0;font-size:26px;line-height:1;padding:10px;margin-left:auto}
 
 /* Hero */
-.hero{position:relative;isolation:isolate;padding:92px 0 96px;background: url('../images/stressburner-hero-background.png') center/contain no-repeat}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,.66), rgba(255,255,255,.46) 35%, rgba(255,255,255,.56));z-index:-1}
+.hero{position:relative;isolation:isolate;padding:92px 0 96px;background-image: url('../images/stressburner-hero-background.png');background-position:center;background-repeat:no-repeat;background-size:90% auto}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.34), rgba(255,255,255,.16) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 .hero .container{display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero .lotus{width:72px;height:auto;opacity:.9;margin-bottom:16px;filter:drop-shadow(0 2px 8px rgba(154,12,12,.15))}
 .hero .tag{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .hero h1{font-size:56px;letter-spacing:.02em;text-transform:uppercase;line-height:1.05;margin:.3rem 0 0.75rem;text-shadow:0 2px 12px rgba(0,0,0,.08)}
-.hero p{max-width:820px;font-size:1.1rem;opacity:.9}
+.hero p{max-width:920px;font-size:1.1rem;opacity:.9}
 .hero .subtitle{font-family:"Playfair Display", Georgia, serif;color:#6a3e3e;font-style:italic;font-weight:600;letter-spacing:.02em;margin-top:.25rem;margin-bottom:.5rem;font-size:1.35rem}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;justify-content:center}
 .btn{display:inline-block;background:var(--sb-red);color:#fff;padding:13px 22px;border-radius:999px;font-weight:800;letter-spacing:.02em;box-shadow:0 8px 24px rgba(154,12,12,.18);transition:transform .08s ease, box-shadow .2s ease, background-color .15s ease}
@@ -63,7 +63,7 @@ body{
 /* Responsive */
 @media (max-width: 900px){
   .grid.cols-3{grid-template-columns:1fr}
-  .hero{padding:72px 0 72px}
+  .hero{padding:72px 0 72px;background-size:120% auto}
   .hero h1{font-size:40px}
   .header-inner{gap:8px}
   .nav-toggle{display:block}
