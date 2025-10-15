@@ -2,8 +2,8 @@ title: "Stress Burner"
 description: "Reduce stress, prevent burnout, and reclaim joy with easy, elegant self-care."
 author: "Unyong Kim"
 email: ""
-url: "" # set if using a custom domain
-baseurl: "" # keep empty; use relative_url in templates
+url: "https://www.stressburner.me" # custom domain
+baseurl: "" # root of domain
 logo: "/assets/images/logo-large.png"
 
 twitter:
