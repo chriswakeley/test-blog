@@ -1,35 +1,20 @@
-# Site settings
 title: "Stress Burner"
-description: "Find your inner peace through mindful movement and breath. Join our yoga community for classes, workshops, and wellness guidance."
-author: "Maya Chen"
-email: hello@serenityflow.com
-baseurl: "/test-blog" # the subpath of your site, e.g. /blog
-url: "https://chriswakeley.github.io" # the base hostname & protocol for your site
-github_username: chriswakeley
-
-# Social Media Links (YOGA THEMED - for testing only)
-social_links:
-  instagram: "serenity_flow_yoga"
-  youtube: "SerenityFlowYogaStudio"
-  facebook: "serenityflowcommunity"
-  twitter: "serenityflow_om"
-  pinterest: "serenityflowwellness"
+description: "Reduce stress, prevent burnout, and reclaim joy with easy, elegant self-care."
+author: "Unyong Kim"
+email: ""
+url: "" # set if using a custom domain
+baseurl: "" # keep empty; use relative_url in templates
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: /posts/:title/
-
-# Collections
-collections:
-  posts:
-    output: true
-    permalink: /posts/:title/
+permalink: pretty
 
 # Plugins
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Exclude from processing
 exclude:
@@ -42,15 +27,23 @@ exclude:
   - vendor/ruby/
   - README.md
 
-# Default front matter
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
+# Navigation
+nav:
+  - title: Home
+    url: /
+  - title: Course
+    url: /course/
+  - title: Blog
+    external: https://stressburner.systeme.io/
+  - title: Book
+    url: /book/
+  - title: Testimonials
+    url: /testimonials/
+  - title: About
+    url: /about/
+  - title: Contact
+    url: /contact/
+
+# External links
+purchase_url: https://stressburner.systeme.io/3c6ca66b
+student_portal_url: https://stressburner.systeme.io/school/course/stressburnerblueprint/

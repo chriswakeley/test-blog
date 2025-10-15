@@ -1,0 +1,49 @@
+/* Stress Burner theme */
+:root{
+  --sb-red:#9A0C0C; /* deep red */
+  --sb-charcoal:#333333;
+  --sb-warm:#F6F3F1;
+  --sb-gold:#B68A5A;
+  --sb-green:#6F8D7B;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;color:var(--sb-charcoal);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;}
+h1,h2,h3,h4{font-family:"Playfair Display", Georgia, serif;color:var(--sb-charcoal);margin:0 0 .5rem}
+p{line-height:1.7;margin:.5rem 0 1rem}
+a{color:var(--sb-red);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.sb-header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand img{height:42px;width:auto;display:block}
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav-link{color:var(--sb-charcoal);font-weight:600;padding:16px 4px;border-bottom:2px solid transparent}
+.nav-link.active,.nav-link:hover{border-color:var(--sb-red)}
+
+/* Hero */
+.hero{background:linear-gradient(0deg, rgba(255,255,255,.75), rgba(255,255,255,.75)), url('../images/stressburner-hero-background.png') center/cover no-repeat;padding:72px 0}
+.hero .tag{color:var(--sb-gold);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.hero h1{font-size:44px;margin:.3rem 0 1rem}
+.hero p{max-width:760px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-block;background:var(--sb-red);color:#fff;padding:12px 18px;border-radius:6px;font-weight:700}
+.btn.secondary{background:transparent;color:var(--sb-red);border:2px solid var(--sb-red)}
+
+/* Sections */
+.section{padding:48px 0}
+.grid{display:grid;gap:18px}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid #eee;border-radius:10px;padding:18px}
+.card h3{margin:.25rem 0 .25rem}
+
+/* Footer */
+.sb-footer{background:var(--sb-warm);border-top:1px solid #eee;padding:24px 0;margin-top:48px}
+
+/* Responsive */
+@media (max-width: 900px){
+  .grid.cols-3{grid-template-columns:1fr}
+  .hero{padding:56px 0}
+}
