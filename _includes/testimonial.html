@@ -1,0 +1,7 @@
+<figure class="card">
+  {% if include.avatar %}
+    <img src="{{ include.avatar | relative_url }}" alt="{{ include.name | default: 'Client' }} headshot" style="width:64px;height:64px;border-radius:9999px;object-fit:cover;margin-bottom:0.5rem;" />
+  {% endif %}
+  <blockquote style="margin:0 0 0.5rem 0;">“{{ include.quote }}”</blockquote>
+  <figcaption style="font-weight:600;">{{ include.name }}{% if include.title %}, <span style="font-weight:400;opacity:.85;">{{ include.title }}</span>{% endif %}</figcaption>
+</figure>

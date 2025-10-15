@@ -4,6 +4,17 @@ author: "Unyong Kim"
 email: ""
 url: "" # set if using a custom domain
 baseurl: "" # keep empty; use relative_url in templates
+logo: "/assets/images/logo-large.png"
+
+twitter:
+  username: stressburner
+  card: summary_large_image
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: "/assets/images/stress-burner-book.jpg"
 
 # Build settings
 markdown: kramdown

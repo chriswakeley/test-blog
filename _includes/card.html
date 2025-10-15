@@ -1,0 +1,11 @@
+<div class="card">
+  {% if include.image %}
+    <img src="{{ include.image | relative_url }}" alt="{{ include.image_alt | default: '' }}" class="w-full rounded" />
+  {% endif %}
+  {% if include.kicker %}<div class="tag">{{ include.kicker }}</div>{% endif %}
+  {% if include.title %}<h3>{{ include.title }}</h3>{% endif %}
+  {% if include.text %}<p>{{ include.text }}</p>{% endif %}
+  {% if include.cta_url and include.cta_label %}
+    <p><a class="btn {% if include.cta_variant == 'secondary' %}secondary{% endif %}" href="{{ include.cta_url }}" {% if include.cta_external %}target="_blank" rel="noopener"{% endif %}>{{ include.cta_label }}</a></p>
+  {% endif %}
+</div>

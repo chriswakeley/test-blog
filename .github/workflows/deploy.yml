@@ -35,6 +35,18 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
       
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install Node deps
+        run: npm ci
+      
+      - name: Build CSS
+        run: npm run build:css
+      
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:

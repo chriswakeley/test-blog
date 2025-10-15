@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DaisyUI themes are optional; we'll keep default and rely on custom colors */
