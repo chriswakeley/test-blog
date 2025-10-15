@@ -22,6 +22,7 @@ a:hover{text-decoration:underline}
 .nav{display:flex;gap:18px;flex-wrap:wrap}
 .nav-link{color:var(--sb-charcoal);font-weight:600;padding:16px 4px;border-bottom:2px solid transparent}
 .nav-link.active,.nav-link:hover{border-color:var(--sb-red)}
+.nav-toggle{display:none;background:transparent;border:0;font-size:26px;line-height:1;padding:10px;margin-left:auto}
 
 /* Hero */
 .hero{background:linear-gradient(0deg, rgba(255,255,255,.75), rgba(255,255,255,.75)), url('../images/stressburner-hero-background.png') center/cover no-repeat;padding:72px 0}
@@ -46,4 +47,9 @@ a:hover{text-decoration:underline}
 @media (max-width: 900px){
   .grid.cols-3{grid-template-columns:1fr}
   .hero{padding:56px 0}
+  .header-inner{gap:8px}
+  .nav-toggle{display:block}
+  .nav{display:none;flex-direction:column;gap:0;background:#fff;position:absolute;top:64px;left:0;right:0;border-bottom:1px solid #eee}
+  .nav.open{display:flex}
+  .nav-link{padding:14px 20px;border-bottom:1px solid #f0f0f0}
 }

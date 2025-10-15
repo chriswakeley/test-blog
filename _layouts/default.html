@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% seo %}
+  <link rel="icon" type="image/png" href="{{ '/assets/images/stressburner-faviconlogo.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/stressburner-faviconlogo.png' | relative_url }}">
 </head>
 <body>
   <header class="sb-header">
@@ -16,7 +18,8 @@
       <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
         <img src="{{ '/assets/images/logo-large.png' | relative_url }}" alt="Stress Burner lotus logo" />
       </a>
-      <nav class="nav">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
+      <nav id="primary-nav" class="nav">
         {% for item in site.nav %}
           {% if item.external %}
             <a href="{{ item.external }}" class="nav-link" target="_blank" rel="noopener">{{ item.title }}</a>
@@ -37,5 +40,18 @@
       <p>© {{ site.time | date: '%Y' }} {{ site.title }} · <a href="{{ '/contact/' | relative_url }}">Contact</a></p>
     </div>
   </footer>
+  <script>
+    (function(){
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-nav');
+      if(btn && nav){
+        btn.addEventListener('click', () => {
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!open));
+          nav.classList.toggle('open', !open);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
