@@ -1,0 +1,4 @@
+{
+  "capturedAt": "desktop-1440x900",
+  "data": {"url":"https://designbeyondbarriers.com/?ref=siteinspire","viewport":{"w":1440,"h":900,"dpr":1},"fonts":{"body":{"family":"PT Serif - Regular","size":"16px","weight":"400","lh":"normal"},"h1":{"family":"GT America - Bold","size":"128px","weight":"400","lh":"128px","letterSpacing":"-2.56px"}},"colors":{"bodyBg":"rgba(0, 0, 0, 0)","bodyColor":"rgb(0, 0, 0)","link":"rgb(0, 0, 0)","button":{"bg":"rgb(32, 32, 33)","color":"rgb(255, 255, 255)","radius":"32px","shadow":"none"}},"layout":{"header":null,"h1Box":{"w":992,"fs":"128px","weight":"400"},"structure":{"grids":6,"flexes":19}},"motion":{"reduced":false}}
+}
