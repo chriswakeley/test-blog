@@ -75,6 +75,15 @@ main{flex:1}
 .panel-body p{margin:.25rem 0 1rem}
 .grid{display:grid;gap:22px}
 .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+/* Editorial features (no cards) */
+.features{display:grid;gap:28px}
+.features.cols-3{grid-template-columns:repeat(3,1fr)}
+.feature{display:flex;flex-direction:column;gap:8px}
+.feature .icon{width:28px;height:28px;display:block;opacity:.95}
+.feature h3{margin:.15rem 0 .25rem}
+.feature p{margin:0}
+
+/* Legacy card (kept for testimonials or specific use) */
 .card{background:rgba(255,255,255,.6);backdrop-filter:saturate(150%) blur(8px);-webkit-backdrop-filter:saturate(150%) blur(8px);border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
 .card h3{margin:.35rem 0 .35rem}
 .card img{border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
@@ -84,8 +93,13 @@ main{flex:1}
 .sb-footer{background:transparent;border-top:1px solid rgba(0,0,0,.06);padding:28px 0;margin-top:56px}
 
 /* Responsive */
+/* Split layout to pair media with features */
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+.split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
+
 @media (max-width: 900px){
   .grid.cols-3{grid-template-columns:1fr}
+  .features.cols-3{grid-template-columns:1fr}
   .hero{margin-top:-64px;padding:calc(72px + 64px) 0 72px;background-size:100% auto}
   .hero h1{font-size:44px}
   .header-inner{gap:8px}
@@ -97,4 +111,5 @@ main{flex:1}
   .panel{grid-template-columns:1fr;gap:16px}
   .panel.image-right .panel-media{order:0}
   .panel-media img{max-height:320px}
+  .split{grid-template-columns:1fr}
 }

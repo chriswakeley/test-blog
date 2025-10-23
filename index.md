@@ -19,10 +19,10 @@ title: Home
 <section class="section">
   <div class="container">
     {% include section-intro.html eyebrow="The Blueprint" title="Build calm into your day" text="Practical tools and gentle structure to reduce stress, prevent burnout, and make space for joy." %}
-    <div class="grid cols-3">
-    {% include card.html icon="/assets/images/leaf.svg" title="On‑the‑spot stress reduction" text="Quick, practical tools you can use anywhere—no mat or special setup required." %}
-    {% include card.html icon="/assets/images/calendar.svg" title="Prevent burnout before it starts" text="Build sustainable micro‑habits that protect your energy and restore clarity." %}
-    {% include card.html icon="/assets/images/check.svg" title="Transform root‑cause habits" text="Shift patterns that keep stress stuck so you can enjoy more ease and flow." %}
+    <div class="features cols-3">
+      {% include feature.html icon="/assets/images/leaf.svg" title="On‑the‑spot stress reduction" text="Quick, practical tools you can use anywhere—no mat or special setup required." %}
+      {% include feature.html icon="/assets/images/calendar.svg" title="Prevent burnout before it starts" text="Build sustainable micro‑habits that protect your energy and restore clarity." %}
+      {% include feature.html icon="/assets/images/check.svg" title="Transform root‑cause habits" text="Shift patterns that keep stress stuck so you can enjoy more ease and flow." %}
     </div>
   </div>
 </section>
@@ -36,10 +36,21 @@ title: Home
 <section class="section">
   <div class="container">
     {% include section-intro.html accent=true eyebrow="What you'll get" title="Course, coaching, and support" text="Focused weekly lessons, supportive group calls, and tools you can keep forever." %}
-    <div class="grid cols-3">
-    {% include card.html image="/assets/images/stress-burner-book.jpg" image_alt="Stress Burner book" title="Stress Burner Tips for Busy People" text="25 quick ways to avoid burnout and reduce daily stress." cta_url="https://www.amazon.com/Stress-Burner-Tips-Busy-People/dp/B0B92RJMGV" cta_label="Get the Book" cta_variant="secondary" cta_external=true %}
-    {% include card.html title="What’s inside the course" text="5 weeks of 10–15 minute video modules, weekly 45‑min group coaching, 1:1 laser coaching, and lifetime access to recordings." cta_url="/course/" cta_label="See Course Details →" %}
-    {% include card.html title="Already enrolled?" text="Access your student portal to continue the Stress Burner Blueprint." cta_url=site.student_portal_url cta_label="Open Student Portal" %}
+    <div class="split">
+      <div>
+        <div class="features">
+          {% include feature.html icon="/assets/images/notebook.svg" title="Short weekly lessons" text="10–15 minute videos you can take on your own time." %}
+          {% include feature.html icon="/assets/images/calendar.svg" title="Live group calls" text="Weekly 45‑minute sessions to get unstuck and stay motivated." %}
+          {% include feature.html icon="/assets/images/clock-logo.svg" title="Lifetime access" text="Keep recordings and tools so the practices stick." %}
+          {% include feature.html icon="/assets/images/check.svg" title="Already enrolled?" text="Jump back into your student portal to continue the Blueprint." cta_url=site.student_portal_url cta_label="Open Student Portal" %}
+        </div>
+      </div>
+      <div class="split-media">
+        <figure>
+          <img src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Stress Burner book" loading="lazy">
+          <figcaption style="margin-top:.5rem"><a class="btn secondary" href="https://www.amazon.com/Stress-Burner-Tips-Busy-People/dp/B0B92RJMGV" target="_blank" rel="noopener">Get the Book</a></figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>

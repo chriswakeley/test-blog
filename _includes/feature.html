@@ -1,0 +1,10 @@
+<div class="feature">
+  {% if include.icon %}
+    <img class="icon" src="{{ include.icon | relative_url }}" alt="" aria-hidden="true" />
+  {% endif %}
+  {% if include.title %}<h3>{{ include.title }}</h3>{% endif %}
+  {% if include.text %}<p>{{ include.text }}</p>{% endif %}
+  {% if include.cta_url and include.cta_label %}
+    <p><a class="btn secondary" href="{{ include.cta_url | relative_url }}"{% if include.cta_external %} target="_blank" rel="noopener"{% endif %}>{{ include.cta_label }}</a></p>
+  {% endif %}
+</div>
