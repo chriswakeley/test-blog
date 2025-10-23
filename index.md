@@ -29,7 +29,7 @@ title: Home
 
 <section class="section">
   <div class="container">
-    {% include panel.html image="/assets/images/stock-yoga.png" alt="A woman practicing calm breathing in a sunlit room" eyebrow="Find calm where you are" title="Simple tools for busy days" text="Use Stress Burner practices at home, at work, or between meetings—in minutes." cta_url="/about/" cta_label="Meet Unyong" image_side="left" %}
+    {% include panel.html image="/assets/images/stock-yoga.png" alt="A woman practicing calm breathing in a sunlit room" eyebrow="Find calm where you are" title="Simple tools for busy days" text="Use Stress Burner practices at home, at work, or between meetings—in minutes." cta_url="/course/" cta_label="See how it works" image_side="left" %}
   </div>
 </section>
 
@@ -41,5 +41,11 @@ title: Home
     {% include card.html title="What’s inside the course" text="5 weeks of 10–15 minute video modules, weekly 45‑min group coaching, 1:1 laser coaching, and lifetime access to recordings." cta_url="/course/" cta_label="See Course Details →" %}
     {% include card.html title="Already enrolled?" text="Access your student portal to continue the Stress Burner Blueprint." cta_url=site.student_portal_url cta_label="Open Student Portal" %}
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% include panel.html image="/assets/images/clayobjects.png" alt="A calm still-life of a mug, hourglass, stones, and a small laptop with a lotus sticker" image_side="right" eyebrow="Designed for everyday life" title="A calmer rhythm, one small step at a time" text="Gentle, repeatable practices that fit your schedule—and actually stick." cta_url="/course/" cta_label="See what's inside" %}
   </div>
 </section>
