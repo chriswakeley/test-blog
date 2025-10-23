@@ -16,10 +16,10 @@ title: Home
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    {% include section-intro.html eyebrow="The Blueprint" title="Build calm into your day" text="Practical tools and gentle structure to reduce stress, prevent burnout, and make space for joy." %}
-    <div class="features cols-3">
+<section class="section gallery-left-warm">
+  <div class="container container-narrow">
+    {% include section-intro.html align='left' eyebrow="The Blueprint" title="Build calm into your day" text="Practical tools and gentle structure to reduce stress, prevent burnout, and make space for joy." %}
+    <div class="feature-list">
       {% include feature.html icon="/assets/images/leaf.svg" title="On‑the‑spot stress reduction" text="Quick, practical tools you can use anywhere—no mat or special setup required." %}
       {% include feature.html icon="/assets/images/calendar.svg" title="Prevent burnout before it starts" text="Build sustainable micro‑habits that protect your energy and restore clarity." %}
       {% include feature.html icon="/assets/images/check.svg" title="Transform root‑cause habits" text="Shift patterns that keep stress stuck so you can enjoy more ease and flow." %}
@@ -33,12 +33,12 @@ title: Home
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    {% include section-intro.html accent=true eyebrow="What you'll get" title="Course, coaching, and support" text="Focused weekly lessons, supportive group calls, and tools you can keep forever." %}
+<section class="section gallery-right-warm">
+  <div class="container container-narrow">
+    {% include section-intro.html align='left' accent=true eyebrow="What you'll get" title="Course, coaching, and support" text="Focused weekly lessons, supportive group calls, and tools you can keep forever." %}
     <div class="split">
       <div>
-        <div class="features">
+        <div class="feature-list">
           {% include feature.html icon="/assets/images/notebook.svg" title="Short weekly lessons" text="10–15 minute videos you can take on your own time." %}
           {% include feature.html icon="/assets/images/calendar.svg" title="Live group calls" text="Weekly 45‑minute sessions to get unstuck and stay motivated." %}
           {% include feature.html icon="/assets/images/clock-logo.svg" title="Lifetime access" text="Keep recordings and tools so the practices stick." %}

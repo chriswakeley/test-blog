@@ -27,6 +27,7 @@ body{
 main{flex:1}
 
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
+.container-narrow{max-width:860px}
 
 /* Header */
 .sb-header{background:rgba(255,255,255,.75);backdrop-filter:saturate(140%) blur(6px);-webkit-backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:10}
@@ -62,6 +63,12 @@ main{flex:1}
 .section-intro .eyebrow{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;display:block;margin-bottom:.25rem}
 .section-intro h2{font-size:40px;line-height:1.1;margin:0 0 .4rem}
 .section-intro p{max-width:780px;margin:0 auto;opacity:.9}
+/* Left-aligned editorial variant */
+.section-intro.align-left{text-align:left}
+.section-intro.align-left p{margin-left:0}
+.section-intro.align-left h2{position:relative;padding-bottom:8px}
+.section-intro.align-left h2::after{content:"";position:absolute;left:0;bottom:0;width:56px;height:2px;background:var(--sb-gold)}
+.lede{font-family:"Playfair Display", Georgia, serif;font-size:1.35rem;line-height:1.6;color:#6a3e3e;opacity:.95}
 /* Optional accent image behind section intro */
 .section-intro.has-accent{position:relative;isolation:isolate}
 .section-intro.has-accent::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-14px;width:min(900px,90%);height:220px;background:url('../images/chaos-order.png') center/cover no-repeat;opacity:.08;pointer-events:none;z-index:-1}
@@ -83,6 +90,17 @@ main{flex:1}
 .feature h3{margin:.15rem 0 .25rem}
 .feature p{margin:0}
 
+/* Gallery/Museum style blocking */
+.gallery-left-warm{background:linear-gradient(90deg, rgba(246,243,241,.85) 0 68%, rgba(246,243,241,0) 68%)}
+.gallery-right-warm{background:linear-gradient(90deg, rgba(246,243,241,0) 0 32%, rgba(246,243,241,.85) 32%)}
+
+/* Editorial feature list */
+.feature-list{display:grid;gap:18px}
+.feature-list .feature{display:grid;grid-template-columns:32px 1fr;gap:14px;align-items:start}
+.feature-list .feature .icon{width:28px;height:28px}
+.feature-list .feature h3{margin:.1rem 0 .15rem}
+.feature-list .feature p{margin:0}
+
 /* Legacy card (kept for testimonials or specific use) */
 .card{background:rgba(255,255,255,.6);backdrop-filter:saturate(150%) blur(8px);-webkit-backdrop-filter:saturate(150%) blur(8px);border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
 .card h3{margin:.35rem 0 .35rem}
@@ -100,6 +118,7 @@ main{flex:1}
 @media (max-width: 900px){
   .grid.cols-3{grid-template-columns:1fr}
   .features.cols-3{grid-template-columns:1fr}
+  .gallery-left-warm,.gallery-right-warm{background:none}
   .hero{margin-top:-64px;padding:calc(72px + 64px) 0 72px;background-size:100% auto}
   .hero h1{font-size:44px}
   .header-inner{gap:8px}
