@@ -1,6 +1,9 @@
 <div class="card">
+  {% if include.icon %}
+    <img src="{{ include.icon | relative_url }}" alt="" aria-hidden="true" class="icon" />
+  {% endif %}
   {% if include.image %}
-    <img src="{{ include.image | relative_url }}" alt="{{ include.image_alt | default: '' }}" class="w-full rounded" />
+    <img src="{{ include.image | relative_url }}" alt="{{ include.image_alt | default: '' }}" loading="lazy" class="w-full rounded" />
   {% endif %}
   {% if include.kicker %}<div class="tag">{{ include.kicker }}</div>{% endif %}
   {% if include.title %}<h3>{{ include.title }}</h3>{% endif %}

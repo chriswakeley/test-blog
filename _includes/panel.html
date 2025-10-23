@@ -1,0 +1,15 @@
+<div class="panel{% if include.image_side == 'right' %} image-right{% endif %}">
+  <div class="panel-media">
+    {% if include.image %}
+      <img src="{{ include.image | relative_url }}" alt="{{ include.alt | default: '' }}" loading="lazy" />
+    {% endif %}
+  </div>
+  <div class="panel-body">
+    {% if include.eyebrow %}<div class="tag">{{ include.eyebrow }}</div>{% endif %}
+    {% if include.title %}<h2>{{ include.title }}</h2>{% endif %}
+    {% if include.text %}<p>{{ include.text }}</p>{% endif %}
+    {% if include.cta_url and include.cta_label %}
+      <p><a class="btn secondary" href="{{ include.cta_url | relative_url }}"{% if include.cta_external %} target="_blank" rel="noopener"{% endif %}>{{ include.cta_label }}</a></p>
+    {% endif %}
+  </div>
+</div>

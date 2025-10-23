@@ -20,16 +20,22 @@ title: Home
   <div class="container">
     {% include section-intro.html eyebrow="The Blueprint" title="Build calm into your day" text="Practical tools and gentle structure to reduce stress, prevent burnout, and make space for joy." %}
     <div class="grid cols-3">
-    {% include card.html title="On‑the‑spot stress reduction" text="Quick, practical tools you can use anywhere—no mat or special setup required." %}
-    {% include card.html title="Prevent burnout before it starts" text="Build sustainable micro‑habits that protect your energy and restore clarity." %}
-    {% include card.html title="Transform root‑cause habits" text="Shift patterns that keep stress stuck so you can enjoy more ease and flow." %}
+    {% include card.html icon="/assets/images/leaf.svg" title="On‑the‑spot stress reduction" text="Quick, practical tools you can use anywhere—no mat or special setup required." %}
+    {% include card.html icon="/assets/images/calendar.svg" title="Prevent burnout before it starts" text="Build sustainable micro‑habits that protect your energy and restore clarity." %}
+    {% include card.html icon="/assets/images/check.svg" title="Transform root‑cause habits" text="Shift patterns that keep stress stuck so you can enjoy more ease and flow." %}
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    {% include section-intro.html eyebrow="What you'll get" title="Course, coaching, and support" text="Focused weekly lessons, supportive group calls, and tools you can keep forever." %}
+    {% include panel.html image="/assets/images/stock-yoga.png" alt="A woman practicing calm breathing in a sunlit room" eyebrow="Find calm where you are" title="Simple tools for busy days" text="Use Stress Burner practices at home, at work, or between meetings—in minutes." cta_url="/about/" cta_label="Meet Unyong" image_side="left" %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% include section-intro.html accent=true eyebrow="What you'll get" title="Course, coaching, and support" text="Focused weekly lessons, supportive group calls, and tools you can keep forever." %}
     <div class="grid cols-3">
     {% include card.html image="/assets/images/stress-burner-book.jpg" image_alt="Stress Burner book" title="Stress Burner Tips for Busy People" text="25 quick ways to avoid burnout and reduce daily stress." cta_url="https://www.amazon.com/Stress-Burner-Tips-Busy-People/dp/B0B92RJMGV" cta_label="Get the Book" cta_variant="secondary" cta_external=true %}
     {% include card.html title="What’s inside the course" text="5 weeks of 10–15 minute video modules, weekly 45‑min group coaching, 1:1 laser coaching, and lifetime access to recordings." cta_url="/course/" cta_label="See Course Details →" %}
