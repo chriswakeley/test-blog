@@ -97,9 +97,10 @@ main{flex:1}
 /* Editorial feature list */
 .feature-list{display:grid;gap:18px}
 .feature-list .feature{display:grid;grid-template-columns:32px 1fr;gap:14px;align-items:start}
-.feature-list .feature .icon{width:28px;height:28px}
-.feature-list .feature h3{margin:.1rem 0 .15rem}
-.feature-list .feature p{margin:0}
+.feature-list .feature .icon{width:28px;height:28px;grid-column:1;grid-row:1 / span 2;align-self:start}
+.feature-list .feature h3{margin:.1rem 0 .15rem;grid-column:2}
+.feature-list .feature p{margin:0;grid-column:2}
+.feature-list .feature .btn{grid-column:2}
 
 /* Legacy card (kept for testimonials or specific use) */
 .card{background:rgba(255,255,255,.6);backdrop-filter:saturate(150%) blur(8px);-webkit-backdrop-filter:saturate(150%) blur(8px);border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
