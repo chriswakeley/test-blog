@@ -30,8 +30,17 @@ main{flex:1}
 .container-narrow{max-width:860px}
 
 /* Header */
-.sb-header{background:rgba(255,255,255,.75);backdrop-filter:saturate(140%) blur(6px);-webkit-backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:10}
-.page-home .sb-header{background:transparent;border-color:transparent}
+.sb-header{
+  /* Progressive values controlled via CSS variables (JS updates on scroll for home page) */
+  background: rgba(255,255,255, var(--header-bg, .75));
+  backdrop-filter: saturate(140%) blur(var(--header-blur, 6px));
+  -webkit-backdrop-filter: saturate(140%) blur(var(--header-blur, 6px));
+  border-bottom: 1px solid rgba(0,0,0, var(--header-border, .06));
+  position:sticky;top:0;z-index:10;
+  transition: background-color .28s ease, border-color .28s ease, backdrop-filter .28s ease, -webkit-backdrop-filter .28s ease;
+}
+/* Start transparent at top of home and let JS animate variables */
+.page-home .sb-header{ --header-bg: 0; --header-blur: 0px; --header-border: 0 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand img{height:44px;width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
 .nav{display:flex;gap:18px;flex-wrap:wrap}
