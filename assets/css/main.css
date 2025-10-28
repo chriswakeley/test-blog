@@ -51,9 +51,10 @@ main{flex:1}
 .nav-toggle:focus-visible{outline:2px solid var(--sb-red);outline-offset:2px;border-radius:8px}
 
 /* Hero */
-.hero{position:relative;isolation:isolate;margin-top:-64px;padding:calc(92px + 64px) 0 96px;background-image: url('../images/stressburner-hero-background.png');background-position:center;background-repeat:no-repeat;background-size:70% auto}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
-.hero .container{display:flex;flex-direction:column;align-items:center;text-align:center}
+/* Constrain hero visuals to the same width as primary content by moving background to the inner .container */
+.hero{position:relative;isolation:isolate;margin-top:-64px}
+.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(92px + 64px) 0 96px;background-image: url('../images/stressburner-hero-background.png');background-position:center;background-repeat:no-repeat;background-size:70% auto}
+.hero .container::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 .hero .lotus{width:72px;height:auto;opacity:.9;margin-bottom:16px;filter:drop-shadow(0 2px 8px rgba(154,12,12,.15))}
 .tag{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .hero h1{font-size:68px;letter-spacing:.01em;text-transform:uppercase;line-height:1.06;margin:.3rem 0 0.75rem;text-shadow:0 2px 12px rgba(0,0,0,.08)}
@@ -129,7 +130,8 @@ main{flex:1}
   .grid.cols-3{grid-template-columns:1fr}
   .features.cols-3{grid-template-columns:1fr}
   .gallery-left-warm,.gallery-right-warm{background:none}
-  .hero{margin-top:-64px;padding:calc(72px + 64px) 0 72px;background-size:100% auto}
+  .hero{margin-top:-64px}
+  .hero .container{padding:calc(72px + 64px) 0 72px;background-size:100% auto}
   .hero h1{font-size:44px}
   .header-inner{gap:8px}
   .nav-toggle{display:block}
