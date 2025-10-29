@@ -114,10 +114,14 @@
         const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         let flowers = null;
         let ticking2 = false;
-        // Device tilt state (mobile additive parallax)
-        let tiltY = 0;          // smoothed [-1, 1]
-        let targetTiltY = 0;    // instantaneous [-1, 1]
-        let tiltEnabled = false;
+  // Device tilt state (mobile additive parallax)
+  let tiltY = 0;          // smoothed [-1, 1] (front-back)
+  let tiltX = 0;          // smoothed [-1, 1] (left-right)
+  let targetTiltY = 0;    // instantaneous [-1, 1]
+  let targetTiltX = 0;    // instantaneous [-1, 1]
+  let beta0 = null;       // baseline beta (pitch)
+  let gamma0 = null;      // baseline gamma (roll)
+  let tiltEnabled = false;
 
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
         const px = (n) => `${Math.round(n)}px`;
@@ -135,21 +139,26 @@
           const mf = 60 * scale;    // flowers overlay (smallest)
           const m1 = 250 * scale;   // foreground (middle)
           const m0 = 340 * scale;   // far background (largest)
-          // Smooth tilt easing
+          // Smooth tilt easing for both axes
           tiltY += (targetTiltY - tiltY) * 0.12;
-          // Convert tilt to additive px motion on Y (mobile only)
-          const tyFactor = isMobile ? 1 : 0; // only enable on mobile widths
-          const add0 = tyFactor * (tiltY * 50); // strongest on far background
-          const add1 = tyFactor * (tiltY * 32);
-          const addF = tyFactor * (tiltY * 14);
-          if (bg0) bg0.style.setProperty('--scroll-y', px((t * m0) + add0));
-          if (bg1) bg1.style.setProperty('--scroll-y', px((t * m1) + add1));
-          if (flowers) flowers.style.setProperty('--scroll-y', px((t * mf) + addF));
+          tiltX += (targetTiltX - tiltX) * 0.12;
+          // Convert tilt to additive px motion (mobile only)
+          const tFactor = isMobile ? 1 : 0; // only enable on mobile widths
+          const add0y = tFactor * (tiltY * 50); // strongest on far background
+          const add1y = tFactor * (tiltY * 32);
+          const addFy = tFactor * (tiltY * 14);
+          const add0x = tFactor * (tiltX * 30);
+          const add1x = tFactor * (tiltX * 20);
+          const addFx = tFactor * (tiltX * 8);
+          if (bg0) { bg0.style.setProperty('--scroll-y', px((t * m0) + add0y)); bg0.style.setProperty('--scroll-x', px(add0x)); }
+          if (bg1) { bg1.style.setProperty('--scroll-y', px((t * m1) + add1y)); bg1.style.setProperty('--scroll-x', px(add1x)); }
+          if (flowers) { flowers.style.setProperty('--scroll-y', px((t * mf) + addFy)); flowers.style.setProperty('--scroll-x', px(addFx)); }
           ticking2 = false;
         };
         const onScroll = () => { if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); } };
         window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', () => { requestAnimationFrame(updateParallax); }, { passive: true });
+  window.addEventListener('resize', () => { requestAnimationFrame(updateParallax); }, { passive: true });
+  window.addEventListener('orientationchange', () => { beta0 = null; gamma0 = null; }, { passive: true });
         updateParallax();
 
         // Device orientation activation (with iOS permission flow)
@@ -164,10 +173,17 @@
               if (res !== 'granted') return;
             }
             const onOrient = (e) => {
-              // beta: front-back tilt, clamp to [-30, 30] degrees
+              // beta: front-back tilt (pitch), gamma: left-right tilt (roll)
               const beta = typeof e.beta === 'number' ? e.beta : 0;
-              const norm = clamp(beta / 30, -1, 1);
-              targetTiltY = norm;
+              const gamma = typeof e.gamma === 'number' ? e.gamma : 0;
+              // Capture baseline on first reading
+              if (beta0 === null) beta0 = beta;
+              if (gamma0 === null) gamma0 = gamma;
+              const dBeta = beta - beta0;
+              const dGamma = gamma - gamma0;
+              // Normalize to [-1, 1] using +/-30° saturation for sensitivity
+              targetTiltY = clamp(dBeta / 30, -1, 1);
+              targetTiltX = clamp(dGamma / 30, -1, 1);
               if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); }
             };
             window.addEventListener('deviceorientation', onOrient, true);
