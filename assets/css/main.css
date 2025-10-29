@@ -31,11 +31,15 @@ main{flex:1}
 
 /* Header */
 .sb-header{
-  /* Neumorphic header: soft dual shadows on warm base */
+  /* Neumorphic header: soft dual shadows that appear as you scroll */
+  --hdr-s: var(--header-shadow, 0);
   background: var(--sb-warm);
   border-bottom: 1px solid rgba(0,0,0,.04);
   position:sticky;top:0;z-index:10;
-  box-shadow: -8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.45);
+  box-shadow:
+    -8px -8px 18px rgba(255,255,255, calc(.85 * var(--hdr-s))),
+    8px 8px 18px rgba(0,0,0, calc(.08 * var(--hdr-s))),
+    inset 0 1px 0 rgba(255,255,255, calc(.45 * var(--hdr-s)));
   transition: background-color .28s ease, border-color .28s ease, box-shadow .28s ease;
 }
 /* Start transparent at top of home and let JS animate variables */
@@ -44,9 +48,8 @@ main{flex:1}
 .brand img{height:44px;width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
 
 .nav{display:flex;gap:18px;flex-wrap:wrap}
-.nav-link{color:var(--sb-ink);font-weight:600;padding:16px 6px;text-decoration:none}
-.nav-link{border-radius:999px}
-.nav-link:hover,.nav-link.active{ text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; text-decoration-color: var(--sb-red); background: var(--sb-warm); box-shadow: -4px -4px 10px rgba(255,255,255,.85), 4px 4px 10px rgba(0,0,0,.06) }
+.nav-link{color:var(--sb-ink);font-weight:600;padding:16px 6px;text-decoration:none; border-radius:0; transition: box-shadow .18s ease, background-color .18s ease}
+.nav-link:hover,.nav-link.active{ text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; text-decoration-color: var(--sb-red); background: var(--sb-warm); box-shadow: -4px -4px 10px rgba(255,255,255,.85), 4px 4px 10px rgba(0,0,0,.06) }
 .nav-link:focus-visible{outline:2px solid var(--sb-red);outline-offset:2px;border-radius:6px}
 .nav-toggle{display:none;background:var(--sb-warm);border:0;font-size:26px;line-height:1;padding:10px;margin-left:auto;border-radius:12px;box-shadow:-6px -6px 14px rgba(255,255,255,.85), 6px 6px 14px rgba(0,0,0,.08)}
 .nav-toggle:focus-visible{outline:2px solid var(--sb-red);outline-offset:2px;border-radius:8px}

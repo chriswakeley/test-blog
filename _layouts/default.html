@@ -55,16 +55,17 @@
       }
       // Progressive header blur/background on scroll (home page only)
       const header = document.querySelector('.sb-header');
-      const isHome = document.body.classList.contains('page-home');
-      if (header && isHome) {
+      if (header) {
         let ticking = false;
         const max = 180; // px of scroll to reach full effect
         const update = () => {
           const y = window.scrollY || window.pageYOffset || 0;
           const t = Math.max(0, Math.min(1, y / max));
+          // Variables (some legacy), plus shadow intensity
           header.style.setProperty('--header-bg', (0.75 * t).toFixed(3));
           header.style.setProperty('--header-blur', (8 * t).toFixed(2) + 'px');
           header.style.setProperty('--header-border', (0.06 * t).toFixed(3));
+          header.style.setProperty('--header-shadow', t.toFixed(3));
           ticking = false;
         };
         update();
