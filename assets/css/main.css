@@ -96,14 +96,15 @@ main{flex:1}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px;justify-content:center}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--sb-red);color:#fff;padding:12px 22px;border-radius:999px;font-weight:800;letter-spacing:.01em;line-height:1;text-decoration:none;border:0;min-height:44px;outline:none;
   box-shadow: -4px -4px 10px rgba(255,255,255,.35), 6px 6px 14px rgba(154,12,12,.28), inset 0 1px 0 rgba(255,255,255,.20);
-  transition: box-shadow .18s ease, background-color .15s ease, transform .06s ease;
+  transition: box-shadow .2s ease, background-color .18s ease, transform .12s ease, filter .2s ease;
 }
-.btn:hover{box-shadow: -6px -6px 14px rgba(255,255,255,.45), 8px 8px 18px rgba(154,12,12,.30), inset 0 1px 0 rgba(255,255,255,.22); background-color:#8e0f0f; text-decoration:none}
-.btn:active{transform:translateY(1px); box-shadow: inset 4px 4px 10px rgba(0,0,0,.20), inset -4px -4px 10px rgba(255,255,255,.25)}
+.btn:hover{box-shadow: -8px -8px 16px rgba(255,255,255,.45), 10px 10px 22px rgba(154,12,12,.34), inset 0 1px 0 rgba(255,255,255,.24); background-color:#8e0f0f; filter:saturate(115%); text-decoration:none}
+/* Smoothly animate into the pressed state (also toggled by JS with .is-pressed) */
+.btn:active, .btn.is-pressed{transform:translateY(2px); box-shadow: inset 5px 5px 12px rgba(0,0,0,.22), inset -5px -5px 12px rgba(255,255,255,.24)}
 .btn:focus-visible{outline:2px solid #fff;outline-offset:2px;box-shadow:0 0 0 3px rgba(154,12,12,.35)}
-.btn.secondary{background:var(--sb-warm);color:var(--sb-red);border:0;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.05)}
-.btn.secondary:hover{box-shadow:-10px -10px 22px rgba(255,255,255,.9), 10px 10px 22px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.5)}
-.btn.secondary:active{transform:translateY(1px); box-shadow: inset 4px 4px 10px rgba(0,0,0,.12), inset -4px -4px 10px rgba(255,255,255,.25)}
+.btn.secondary{background:var(--sb-warm);color:var(--sb-red);border:0;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.05);transition: box-shadow .22s ease, transform .12s ease, background-color .18s ease}
+.btn.secondary:hover{box-shadow:-12px -12px 24px rgba(255,255,255,.92), 12px 12px 24px rgba(0,0,0,.11), inset 0 1px 0 rgba(255,255,255,.54), inset 0 -1px 0 rgba(0,0,0,.06)}
+.btn.secondary:active, .btn.secondary.is-pressed{transform:translateY(2px); box-shadow: inset 6px 6px 14px rgba(0,0,0,.14), inset -6px -6px 14px rgba(255,255,255,.25)}
 
 /* Sections */
 .section{padding:72px 0}

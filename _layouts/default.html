@@ -77,6 +77,22 @@
         }, { passive: true });
       }
 
+      // Smooth pressed animation for buttons (adds/removes .is-pressed)
+      try {
+        const pressables = document.querySelectorAll('.btn');
+        const add = (el) => el.classList.add('is-pressed');
+        const remove = (el) => el.classList.remove('is-pressed');
+        pressables.forEach(btn => {
+          btn.addEventListener('pointerdown', () => add(btn));
+          btn.addEventListener('pointerup', () => remove(btn));
+          btn.addEventListener('pointerleave', () => remove(btn));
+          btn.addEventListener('pointercancel', () => remove(btn));
+          btn.addEventListener('blur', () => remove(btn));
+          btn.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'Enter') add(btn); });
+          btn.addEventListener('keyup', () => remove(btn));
+        });
+      } catch {}
+
       // Inject flowers SVG inline into hero so we can style stroke/fill via CSS (no edits to the SVG file itself)
       const heroContainer = document.querySelector('.hero .container');
       if (heroContainer) {
