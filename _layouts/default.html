@@ -154,7 +154,8 @@
               if (svgEl) {
                 svgEl.removeAttribute('width');
                 svgEl.removeAttribute('height');
-                svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                // Use 'slice' to mimic CSS background-size: cover behavior within the hero container
+                svgEl.setAttribute('preserveAspectRatio', 'xMidYMid slice');
               }
               heroContainer.appendChild(wrap);
               flowers = wrap;
