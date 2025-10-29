@@ -57,7 +57,8 @@ main{flex:1}
 .hero .container{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(92px + 64px) 0 96px;background-image: url('../images/hero-background-layer-1.png'), url('../images/hero-background-layer-0.png');background-position:center, center;background-repeat:no-repeat, no-repeat;background-size:100% auto, 100% auto}
 .hero .container::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 /* Inline-placed flowers SVG overlay (injected via JS) */
-.hero .flowers-layer{position:absolute;inset:0;pointer-events:none;z-index:0;display:flex;align-items:stretch;justify-content:center}
+.hero .flowers-layer{position:absolute;inset:0;pointer-events:none;z-index:0;display:block;overflow:hidden}
+/* Match PNG background scaling: width fits container, height auto; overflow hidden clips excess */
 .hero .flowers-layer svg{width:100%;height:auto;display:block}
 /* Ensure hero content sits above the overlay */
 .hero .container > *:not(.flowers-layer){position:relative;z-index:1}
@@ -69,8 +70,9 @@ main{flex:1}
 .hero .flowers-layer svg circle,
 .hero .flowers-layer svg ellipse,
 .hero .flowers-layer svg polygon{
-  stroke: var(--sb-gold) !important;
-  fill: transparent !important;
+  stroke: #af9c8817 !important;
+  fill: #b7994b !important;
+  stroke-width: 1px;
 }
 .hero .lotus{width:72px;height:auto;opacity:.9;margin-bottom:16px;filter:drop-shadow(0 2px 8px rgba(154,12,12,.15))}
 .tag{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
