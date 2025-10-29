@@ -111,9 +111,10 @@
           const m0 = 120 * scale;   // far background
           const m1 = 220 * scale;   // foreground
           const mf = 320 * scale;   // flowers overlay
-          if (bg0) bg0.style.setProperty('--scroll-y', px(t * m0));
-          if (bg1) bg1.style.setProperty('--scroll-y', px(t * m1));
-          if (flowers) flowers.style.setProperty('--scroll-y', px(t * mf));
+          // Use negative offset so layers start slightly above and move further up as you scroll down
+          if (bg0) bg0.style.setProperty('--scroll-y', px(-t * m0));
+          if (bg1) bg1.style.setProperty('--scroll-y', px(-t * m1));
+          if (flowers) flowers.style.setProperty('--scroll-y', px(-t * mf));
           ticking2 = false;
         };
         const onScroll = () => { if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); } };
