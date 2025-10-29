@@ -54,8 +54,8 @@ main{flex:1}
 /* Constrain hero visuals to the same width as primary content by moving background to the inner .container */
 .hero{position:relative;isolation:isolate;margin-top:24px}
 /* Layered backgrounds: foreground (1) over background (0) */
-.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:min(96svh, 1100px);padding:calc(48px + 64px) 0 96px;background-image:none;overflow:hidden;z-index:0;border-radius:24px;border:1px solid rgba(0,0,0,.06);background-clip:padding-box}
-.hero .container::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
+.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:min(96svh, 1100px);padding:calc(48px + 64px) 0 96px;background-image:none;overflow:hidden;z-index:0;border-radius:32px;border:1px solid rgba(0,0,0,.08);background-clip:padding-box;box-shadow: inset 0 1px 0 rgba(255,255,255,.65), inset 0 -6px 18px rgba(0,0,0,.06);filter: drop-shadow(0 18px 36px rgba(0,0,0,.14)) drop-shadow(0 6px 14px rgba(0,0,0,.10))}
+.hero .container::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 /* Individual hero image layers for animation & parallax */
 .hero .bg-layer{position:absolute;inset:0;--base-scale:1.08;--scroll-y:0px;transform:scale(var(--base-scale)) translate3d(0,var(--scroll-y),0);transform-origin:50% 50%;background-position:center 0;background-repeat:no-repeat;background-size:100% auto;pointer-events:none;opacity:0;will-change:transform,opacity}
 .hero .bg-layer.bg-0{background-image:url('../images/hero-background-layer-0.png');z-index:-3;animation:fadeInOpacity .45s ease-out .02s both}
