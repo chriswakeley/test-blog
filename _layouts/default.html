@@ -111,8 +111,8 @@
           const scale = isMobile ? 1.0 : 1.3;
           // Downward movement: flowers (least), foreground (more), background 0 (most)
           const mf = 60 * scale;    // flowers overlay (smallest)
-          const m1 = 140 * scale;   // foreground (middle)
-          const m0 = 220 * scale;   // far background (largest)
+          const m1 = 200 * scale;   // foreground (middle) — increased
+          const m0 = 340 * scale;   // far background (largest) — increased
           if (bg0) bg0.style.setProperty('--scroll-y', px(t * m0));
           if (bg1) bg1.style.setProperty('--scroll-y', px(t * m1));
           if (flowers) flowers.style.setProperty('--scroll-y', px(t * mf));
