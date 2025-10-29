@@ -87,6 +87,13 @@
               const wrap = document.createElement('div');
               wrap.className = 'flowers-layer';
               wrap.innerHTML = svgText;
+              // Normalize dimensions and aspect ratio handling so CSS centering works consistently
+              const svgEl = wrap.querySelector('svg');
+              if (svgEl) {
+                svgEl.removeAttribute('width');
+                svgEl.removeAttribute('height');
+                svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+              }
               heroContainer.appendChild(wrap);
             })
             .catch(() => { /* no-op if SVG fails to load */ });
