@@ -72,7 +72,7 @@ main{flex:1}
 /* Inline-placed flowers SVG overlay (injected via JS) */
 .hero .flowers-layer{position:absolute;inset:0;pointer-events:none;z-index:0;display:block;overflow:hidden;opacity:0;animation:fadeInOpacity .55s ease-out .12s both;will-change:transform,opacity;--scroll-y:0px;transform:translate3d(0,var(--scroll-y),0)}
 /* Match PNG background scaling: width fits container, height auto; overflow hidden clips excess */
-.hero .flowers-layer svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;height:auto;display:block}
+.hero .flowers-layer svg{position:absolute;inset:0;transform:none;width:100%;height:100%;display:block}
 /* Removed continuous SVG float animation for a calmer hero; parallax remains */
 /* Ensure hero content sits above the overlay */
 .hero .container > *:not(.flowers-layer):not(.bg-layer){position:relative;z-index:1}
