@@ -150,8 +150,8 @@
           const add0x = tFactor * (tiltX * 30);
           const add1x = tFactor * (tiltX * 20);
           const addFx = tFactor * (tiltX * 8);
-          if (bg0) { bg0.style.setProperty('--scroll-y', px((t * m0) + add0y)); bg0.style.setProperty('--scroll-x', px(add0x)); }
-          if (bg1) { bg1.style.setProperty('--scroll-y', px((t * m1) + add1y)); bg1.style.setProperty('--scroll-x', px(add1x)); }
+          if (bg0) { bg0.style.setProperty('--scroll-y', px((t * m0) + add0y)); bg0.style.setProperty('--bg-x', px(add0x)); }
+          if (bg1) { bg1.style.setProperty('--scroll-y', px((t * m1) + add1y)); bg1.style.setProperty('--bg-x', px(add1x)); }
           if (flowers) { flowers.style.setProperty('--scroll-y', px((t * mf) + addFy)); flowers.style.setProperty('--scroll-x', px(addFx)); }
           ticking2 = false;
         };
