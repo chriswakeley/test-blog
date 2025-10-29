@@ -11,7 +11,6 @@ title: Home
   <p class="subtitle">Master Your Calm. Reclaim Your Joy.</p>
     <div class="cta-row">
       <a class="btn" href="{{ site.purchase_url }}" target="_blank" rel="noopener">Discover the Blueprint</a>
-      <a class="btn secondary" href="{{ '/about/' | relative_url }}">Meet Unyong</a>
     </div>
   </div>
 </section>
