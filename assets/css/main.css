@@ -198,6 +198,8 @@ main{flex:1}
   .nav-link{padding:14px 20px;border-bottom:1px solid #f0f0f0}
   .section{padding:48px 0}
   .panel{grid-template-columns:1fr;grid-template-areas:"media" "body";gap:16px}
+  /* Ensure right-sided panels also stack vertically on mobile (override higher specificity) */
+  .panel.image-right{grid-template-columns:1fr;grid-template-areas:"media" "body"}
   .panel-media img{max-height:320px}
   .split{grid-template-columns:1fr}
 }

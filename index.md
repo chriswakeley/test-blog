@@ -46,7 +46,10 @@ title: Home
       </div>
       <div class="split-media">
         <figure>
-          <img src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Stress Burner book" loading="lazy">
+          <picture>
+            <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Stress Burner book" loading="lazy">
+          </picture>
           <figcaption style="margin-top:.5rem"><a class="btn secondary" href="https://www.amazon.com/Stress-Burner-Tips-Busy-People/dp/B0B92RJMGV" target="_blank" rel="noopener">Get the Book</a></figcaption>
         </figure>
       </div>
