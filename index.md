@@ -7,7 +7,7 @@ title: Home
   <div class="container">
   <img class="lotus" src="{{ '/assets/images/stressburner-lotus.png' | relative_url }}" alt="Stress Burner lotus" />
     <div class="tag">Stress Burner Blueprint</div>
-  <h1>Stressburner</h1>
+  <h1>Stress Burner</h1>
   <p class="subtitle">Master Your Calm. Reclaim Your Joy.</p>
     <div class="cta-row">
       <a class="btn" href="{{ site.purchase_url }}" target="_blank" rel="noopener">Discover the Blueprint</a>
