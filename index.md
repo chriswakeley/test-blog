@@ -28,7 +28,7 @@ title: Home
 
 <section class="section">
   <div class="container">
-    {% include panel.html image="/assets/images/stock-yoga.png" alt="A woman practicing calm breathing in a sunlit room" eyebrow="Find calm where you are" title="Simple tools for busy days" text="Use Stress Burner practices at home, at work, or between meetings—in minutes." cta_url="/course/" cta_label="See how it works" image_side="left" %}
+  {% include panel.html image="/assets/images/stock-yoga.png" image_webp="/assets/images/stock-yoga.webp" alt="A woman practicing calm breathing in a sunlit room" eyebrow="Find calm where you are" title="Simple tools for busy days" text="Use Stress Burner practices at home, at work, or between meetings—in minutes." cta_url="/course/" cta_label="See how it works" image_side="left" %}
   </div>
 </section>
 
