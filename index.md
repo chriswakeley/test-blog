@@ -56,6 +56,6 @@ title: Home
 
 <section class="section">
   <div class="container">
-    {% include panel.html image="/assets/images/clayobjects.png" alt="A calm still-life of a mug, hourglass, stones, and a small laptop with a lotus sticker" image_side="right" eyebrow="Designed for everyday life" title="A calmer rhythm, one small step at a time" text="Gentle, repeatable practices that fit your schedule—and actually stick." cta_url="/course/" cta_label="See what's inside" %}
+  {% include panel.html image="/assets/images/clayobjects.png" image_webp="/assets/images/clayobjects.webp" alt="A calm still-life of a mug, hourglass, stones, and a small laptop with a lotus sticker" image_side="right" eyebrow="Designed for everyday life" title="A calmer rhythm, one small step at a time" text="Gentle, repeatable practices that fit your schedule—and actually stick." cta_url="/course/" cta_label="See what's inside" %}
   </div>
 </section>
