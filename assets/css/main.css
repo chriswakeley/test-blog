@@ -54,7 +54,7 @@ main{flex:1}
 /* Constrain hero visuals to the same width as primary content by moving background to the inner .container */
 .hero{position:relative;isolation:isolate;margin-top:-64px}
 /* Layered backgrounds: foreground (1) over background (0) */
-.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:1280px;padding:calc(140px + 64px) 0 140px;background-image: url('../images/hero-background-layer-1.png'), url('../images/hero-background-layer-0.png');background-position:center, center;background-repeat:no-repeat, no-repeat;background-size:100% auto, 100% auto}
+.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:min(88svh, 900px);padding:calc(48px + 64px) 0 96px;background-image: url('../images/hero-background-layer-1.png'), url('../images/hero-background-layer-0.png');background-position:center, center;background-repeat:no-repeat, no-repeat;background-size:100% auto, 100% auto}
 .hero .container::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 /* Inline-placed flowers SVG overlay (injected via JS) */
 .hero .flowers-layer{position:absolute;inset:0;pointer-events:none;z-index:0;display:block;overflow:hidden}
@@ -150,7 +150,7 @@ main{flex:1}
   .features.cols-3{grid-template-columns:1fr}
   .gallery-left-warm,.gallery-right-warm{background:none}
   .hero{margin-top:-64px}
-  .hero .container{padding:calc(84px + 64px) 0 96px;background-size:100% auto, 100% auto}
+  .hero .container{min-height:calc(100svh - 64px);padding:calc(36px + 64px) 0 64px;background-size:100% auto, 100% auto}
   .hero h1{font-size:44px}
   .header-inner{gap:8px}
   .nav-toggle{display:block}
