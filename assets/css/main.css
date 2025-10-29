@@ -53,8 +53,25 @@ main{flex:1}
 /* Hero */
 /* Constrain hero visuals to the same width as primary content by moving background to the inner .container */
 .hero{position:relative;isolation:isolate;margin-top:-64px}
-.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(92px + 64px) 0 96px;background-image: url('../images/stressburner-hero-background.png');background-position:center;background-repeat:no-repeat;background-size:100% auto}
+/* Layered backgrounds: foreground (1) over background (0) */
+.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(92px + 64px) 0 96px;background-image: url('../images/hero-background-layer-1.png'), url('../images/hero-background-layer-0.png');background-position:center, center;background-repeat:no-repeat, no-repeat;background-size:100% auto, 100% auto}
 .hero .container::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
+/* Inline-placed flowers SVG overlay (injected via JS) */
+.hero .flowers-layer{position:absolute;inset:0;pointer-events:none;z-index:0;display:flex;align-items:stretch;justify-content:center}
+.hero .flowers-layer svg{width:100%;height:auto;display:block}
+/* Ensure hero content sits above the overlay */
+.hero .container > *:not(.flowers-layer){position:relative;z-index:1}
+/* Color the flowers via CSS without editing the SVG file */
+.hero .flowers-layer svg path,
+.hero .flowers-layer svg line,
+.hero .flowers-layer svg polyline,
+.hero .flowers-layer svg rect,
+.hero .flowers-layer svg circle,
+.hero .flowers-layer svg ellipse,
+.hero .flowers-layer svg polygon{
+  stroke: var(--sb-gold) !important;
+  fill: transparent !important;
+}
 .hero .lotus{width:72px;height:auto;opacity:.9;margin-bottom:16px;filter:drop-shadow(0 2px 8px rgba(154,12,12,.15))}
 .tag{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .hero h1{font-size:68px;letter-spacing:.01em;text-transform:uppercase;line-height:1.06;margin:.3rem 0 0.75rem;text-shadow:0 2px 12px rgba(0,0,0,.08)}
@@ -131,7 +148,7 @@ main{flex:1}
   .features.cols-3{grid-template-columns:1fr}
   .gallery-left-warm,.gallery-right-warm{background:none}
   .hero{margin-top:-64px}
-  .hero .container{padding:calc(72px + 64px) 0 72px;background-size:100% auto}
+  .hero .container{padding:calc(72px + 64px) 0 72px;background-size:100% auto, 100% auto}
   .hero h1{font-size:44px}
   .header-inner{gap:8px}
   .nav-toggle{display:block}

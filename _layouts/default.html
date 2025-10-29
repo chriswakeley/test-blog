@@ -75,6 +75,23 @@
           }
         }, { passive: true });
       }
+
+      // Inject flowers SVG inline into hero so we can style stroke/fill via CSS (no edits to the SVG file itself)
+      const heroContainer = document.querySelector('.hero .container');
+      if (heroContainer) {
+        const svgUrl = '{{ "/assets/images/hero-background-layer-flowers.svg" | relative_url }}';
+        try {
+          fetch(svgUrl, { cache: 'force-cache' })
+            .then(r => r.ok ? r.text() : Promise.reject(r.status))
+            .then(svgText => {
+              const wrap = document.createElement('div');
+              wrap.className = 'flowers-layer';
+              wrap.innerHTML = svgText;
+              heroContainer.appendChild(wrap);
+            })
+            .catch(() => { /* no-op if SVG fails to load */ });
+        } catch { /* ignore */ }
+      }
     })();
   </script>
 </body>
