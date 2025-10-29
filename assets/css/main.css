@@ -34,22 +34,27 @@ main{flex:1}
   /* Neumorphic header: soft dual shadows that appear as you scroll */
   --hdr-s: var(--header-shadow, 0);
   background: var(--sb-warm);
-  border-bottom: 1px solid rgba(0,0,0,.04);
   position:sticky;top:0;z-index:10;
   box-shadow:
     -8px -8px 18px rgba(255,255,255, calc(.85 * var(--hdr-s))),
     8px 8px 18px rgba(0,0,0, calc(.08 * var(--hdr-s))),
-    inset 0 1px 0 rgba(255,255,255, calc(.45 * var(--hdr-s)));
-  transition: background-color .28s ease, border-color .28s ease, box-shadow .28s ease;
+    inset 0 1px 0 rgba(255,255,255, calc(.45 * var(--hdr-s))),
+    inset 0 -1px 0 rgba(0,0,0, calc(.06 * var(--hdr-s)));
+  transition: background-color .28s ease, box-shadow .28s ease;
 }
 /* Start transparent at top of home and let JS animate variables */
 .page-home .sb-header{ --header-bg: 0; --header-blur: 0px; --header-border: 0 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand img{height:44px;width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
 
-.nav{display:flex;gap:18px;flex-wrap:wrap}
-.nav-link{color:var(--sb-ink);font-weight:600;padding:16px 6px;text-decoration:none; border-radius:0; transition: box-shadow .18s ease, background-color .18s ease}
-.nav-link:hover,.nav-link.active{ text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; text-decoration-color: var(--sb-red); background: var(--sb-warm); box-shadow: -4px -4px 10px rgba(255,255,255,.85), 4px 4px 10px rgba(0,0,0,.06) }
+.nav{display:flex;gap:var(--nav-gap, 18px);flex-wrap:wrap;--nav-gap:18px}
+.nav-link{color:var(--sb-ink);font-weight:600;padding:16px 6px;text-decoration:none;border-radius:0;position:relative;z-index:0;transition: color .18s ease}
+/* Underline is lighter and closer */
+.nav-link:hover,.nav-link.active{ text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; text-decoration-color: var(--sb-red) }
+/* Pop-out background that extends half the gap on each side to remove gaps between neighbors */
+.nav-link::before{content:"";position:absolute;top:0;bottom:0;left:0;right:0;background:transparent;box-shadow:none;z-index:-1;opacity:0;transition:left .18s ease,right .18s ease,opacity .18s ease,box-shadow .18s ease,background-color .18s ease}
+.nav-link:hover::before,
+.nav-link.active::before{left:calc(-.5 * var(--nav-gap));right:calc(-.5 * var(--nav-gap));background:var(--sb-warm);opacity:1;box-shadow:-4px -4px 10px rgba(255,255,255,.85), 4px 4px 10px rgba(0,0,0,.06)}
 .nav-link:focus-visible{outline:2px solid var(--sb-red);outline-offset:2px;border-radius:6px}
 .nav-toggle{display:none;background:var(--sb-warm);border:0;font-size:26px;line-height:1;padding:10px;margin-left:auto;border-radius:12px;box-shadow:-6px -6px 14px rgba(255,255,255,.85), 6px 6px 14px rgba(0,0,0,.08)}
 .nav-toggle:focus-visible{outline:2px solid var(--sb-red);outline-offset:2px;border-radius:8px}
