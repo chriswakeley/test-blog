@@ -79,6 +79,18 @@
       // Inject flowers SVG inline into hero so we can style stroke/fill via CSS (no edits to the SVG file itself)
       const heroContainer = document.querySelector('.hero .container');
       if (heroContainer) {
+        // Ensure background layers exist for animation/parallax
+        const ensureLayer = (cls) => {
+          let el = heroContainer.querySelector(`.${cls}`);
+          if (!el) {
+            el = document.createElement('div');
+            el.className = `bg-layer ${cls}`;
+            heroContainer.insertBefore(el, heroContainer.firstChild);
+          }
+          return el;
+        };
+        const bg0 = ensureLayer('bg-0');
+        const bg1 = ensureLayer('bg-1');
         const svgUrl = '{{ "/assets/images/hero-background-layer-flowers.svg" | relative_url }}';
         try {
           fetch(svgUrl, { cache: 'force-cache' })
@@ -95,6 +107,28 @@
                 svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
               }
               heroContainer.appendChild(wrap);
+              // Parallax setup
+              const flowers = wrap;
+              const heroSection = document.querySelector('.hero');
+              let ticking2 = false;
+              const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+              const px = (n) => `${Math.round(n)}px`;
+              const updateParallax = () => {
+                if (!heroSection) { ticking2 = false; return; }
+                const start = heroSection.offsetTop;
+                const end = start + heroSection.offsetHeight;
+                const y = window.scrollY || 0;
+                const t = clamp((y - start) / (end - start), 0, 1);
+                // Subtle offsets (lower moves slower)
+                if (bg0) bg0.style.transform = `translate3d(0, ${px(t * 8)}, 0)`;
+                if (bg1) bg1.style.transform = `translate3d(0, ${px(t * 14)}, 0)`;
+                if (flowers) flowers.style.transform = `translate3d(0, ${px(t * 20)}, 0)`;
+                ticking2 = false;
+              };
+              updateParallax();
+              window.addEventListener('scroll', () => {
+                if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); }
+              }, { passive: true });
             })
             .catch(() => { /* no-op if SVG fails to load */ });
         } catch { /* ignore */ }
