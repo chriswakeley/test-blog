@@ -107,10 +107,10 @@
           const t = clamp((vh - rect.top) / (vh + rect.height), 0, 1);
           // Scale motion, slightly stronger so it's noticeable but still subtle
           const isMobile = (window.innerWidth || 0) <= 900;
-          const scale = isMobile ? 0.7 : 1;
-          const m0 = 24 * scale;   // far background
-          const m1 = 44 * scale;   // foreground
-          const mf = 64 * scale;   // flowers overlay
+          const scale = isMobile ? 0.95 : 1.3;
+          const m0 = 60 * scale;   // far background
+          const m1 = 110 * scale;  // foreground
+          const mf = 160 * scale;  // flowers overlay
           if (bg0) bg0.style.transform = `translate3d(0, ${px(t * m0)}, 0)`;
           if (bg1) bg1.style.transform = `translate3d(0, ${px(t * m1)}, 0)`;
           if (flowers) flowers.style.transform = `translate3d(0, ${px(t * mf)}, 0)`;
