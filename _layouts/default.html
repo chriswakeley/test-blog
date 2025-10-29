@@ -114,6 +114,11 @@
         const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         let flowers = null;
         let ticking2 = false;
+        // Device tilt state (mobile additive parallax)
+        let tiltY = 0;          // smoothed [-1, 1]
+        let targetTiltY = 0;    // instantaneous [-1, 1]
+        let tiltEnabled = false;
+
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
         const px = (n) => `${Math.round(n)}px`;
         const updateParallax = () => {
@@ -128,17 +133,55 @@
           const scale = isMobile ? 1.0 : 1.3;
           // Downward movement: flowers (least), foreground (more), background 0 (most)
           const mf = 60 * scale;    // flowers overlay (smallest)
-          const m1 = 250 * scale;   // foreground (middle) — increased
-          const m0 = 340 * scale;   // far background (largest) — increased
-          if (bg0) bg0.style.setProperty('--scroll-y', px(t * m0));
-          if (bg1) bg1.style.setProperty('--scroll-y', px(t * m1));
-          if (flowers) flowers.style.setProperty('--scroll-y', px(t * mf));
+          const m1 = 250 * scale;   // foreground (middle)
+          const m0 = 340 * scale;   // far background (largest)
+          // Smooth tilt easing
+          tiltY += (targetTiltY - tiltY) * 0.12;
+          // Convert tilt to additive px motion on Y (mobile only)
+          const tyFactor = isMobile ? 1 : 0; // only enable on mobile widths
+          const add0 = tyFactor * (tiltY * 50); // strongest on far background
+          const add1 = tyFactor * (tiltY * 32);
+          const addF = tyFactor * (tiltY * 14);
+          if (bg0) bg0.style.setProperty('--scroll-y', px((t * m0) + add0));
+          if (bg1) bg1.style.setProperty('--scroll-y', px((t * m1) + add1));
+          if (flowers) flowers.style.setProperty('--scroll-y', px((t * mf) + addF));
           ticking2 = false;
         };
         const onScroll = () => { if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); } };
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', () => { requestAnimationFrame(updateParallax); }, { passive: true });
         updateParallax();
+
+        // Device orientation activation (with iOS permission flow)
+        const tryEnableTilt = async () => {
+          if (tiltEnabled || prefersReduced) return;
+          const isMobile = (window.innerWidth || 0) <= 900;
+          if (!isMobile) return;
+          try {
+            if (typeof window.DeviceOrientationEvent !== 'undefined' && typeof window.DeviceOrientationEvent.requestPermission === 'function') {
+              // iOS requires a user gesture
+              const res = await window.DeviceOrientationEvent.requestPermission();
+              if (res !== 'granted') return;
+            }
+            const onOrient = (e) => {
+              // beta: front-back tilt, clamp to [-30, 30] degrees
+              const beta = typeof e.beta === 'number' ? e.beta : 0;
+              const norm = clamp(beta / 30, -1, 1);
+              targetTiltY = norm;
+              if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); }
+            };
+            window.addEventListener('deviceorientation', onOrient, true);
+            tiltEnabled = true;
+          } catch { /* ignore permission errors */ }
+        };
+        // For Android and browsers that don't need explicit permission, try enabling immediately
+        if (typeof window.DeviceOrientationEvent !== 'undefined' && typeof window.DeviceOrientationEvent.requestPermission !== 'function') {
+          tryEnableTilt();
+        }
+        // Fallback: enable tilt after first user interaction (for iOS)
+        const onceActivate = () => { tryEnableTilt(); window.removeEventListener('touchend', onceActivate); window.removeEventListener('click', onceActivate); };
+        window.addEventListener('touchend', onceActivate, { passive: true, once: true });
+        window.addEventListener('click', onceActivate, { once: true });
 
         // Fetch and inline the flowers SVG (so CSS can style it)
         const svgUrl = '{{ "/assets/images/hero-background-layer-flowers.svg" | relative_url }}';
