@@ -18,7 +18,14 @@
   <header class="sb-header">
     <div class="container header-inner">
       <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
-        <img src="{{ '/assets/images/stress-burner-logo.svg' | relative_url }}" alt="Stress Burner lotus logo" />
+        <span class="logo" aria-hidden="true">
+          <img class="logo-icon" src="{{ '/assets/images/stress-burner-lotus.svg' | relative_url }}" alt="" />
+          <span class="logo-text">
+            <span class="logo-line">Stress</span>
+            <span class="logo-line">Burner</span>
+          </span>
+        </span>
+        <span class="sr-only">{{ site.title }}</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
       <nav id="primary-nav" class="nav">

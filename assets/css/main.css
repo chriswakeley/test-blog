@@ -2,7 +2,7 @@
 /* Local Walkway font faces (replacing Raleway) */
 @font-face{
   font-family:"Walkway";
-  src:url('../fonts/Walkway Expand.ttf') format('truetype');
+  src:url('../fonts/Walkway rounded.ttf') format('truetype');
   font-weight:400;
   font-style:normal;
   font-display:swap;
@@ -74,7 +74,10 @@ main{flex:1}
 /* Start transparent at top of home and let JS animate variables */
 .page-home .sb-header{ --header-bg: 0; --header-blur: 0px; --header-border: 0 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand img{height:44px;width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
+.brand .logo{display:flex;align-items:center;gap:10px}
+.brand .logo-icon{height:44px;width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
+.brand .logo-text{display:flex;flex-direction:column;line-height:1}
+.brand .logo-line{font-family:"Walkway", Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.02em; color:var(--sb-ink); font-size:14px}
 
 .nav{display:flex;gap:var(--nav-gap, 18px);flex-wrap:wrap;--nav-gap:18px}
 .nav-link{color:var(--sb-ink);font-weight:600;padding:16px 6px;text-decoration:none;border-radius:0;position:relative;z-index:0;transition: color .18s ease}
