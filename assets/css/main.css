@@ -74,7 +74,7 @@ main{flex:1}
 /* Start transparent at top of home and let JS animate variables */
 .page-home .sb-header{ --header-bg: 0; --header-blur: 0px; --header-border: 0 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand .logo{--logo-icon-size:44px;display:flex;align-items:center;gap:10px}
+.brand .logo{--logo-icon-size:50px;display:flex;align-items:center;gap:10px}
 .brand .logo-icon{height:var(--logo-icon-size);width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
 .brand .logo-text{display:flex;flex-direction:column;line-height:1}
 .brand .logo-line{font-family:"Walkway", Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; font-weight:600; text-transform:none; letter-spacing:.02em; color:var(--sb-ink); font-size:calc(var(--logo-icon-size) / 2)}
@@ -215,7 +215,7 @@ main{flex:1}
 .split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
 
 @media (max-width: 900px){
-  .brand .logo{ --logo-icon-size:36px }
+  .brand .logo{ --logo-icon-size:40px }
   .grid.cols-3{grid-template-columns:1fr}
   .features.cols-3{grid-template-columns:1fr}
   .gallery-left-warm,.gallery-right-warm{background:none}
