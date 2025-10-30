@@ -62,18 +62,24 @@ main{flex:1}
 .sb-header{
   /* Neumorphic header: soft dual shadows that appear as you scroll */
   --hdr-s: var(--header-shadow, 0);
-  background: var(--sb-warm);
+  background: transparent; /* island is now applied to the inner content width */
   position:sticky;top:0;z-index:10;
-  /* Island shape (rounded corners become apparent once shadows fade in) */
-  border-radius: 18px;
-  margin: 0 12px; /* keep flush to top so shape is invisible at page top */
-  padding-block: 6px; /* breathing room for rounded nav hovers */
+  box-shadow: none;
+  transition: background-color .28s ease, box-shadow .28s ease, backdrop-filter .28s ease;
+}
+/* Rounded pill island confined to header content width (container) */
+.sb-header .header-inner{
+  border-radius: 999px;
+  padding: 8px 14px; /* space so rounded nav hovers don't touch edges */
+  background: rgba(246,243,241, calc(.75 * var(--hdr-s))); /* #F6F3F1 with scroll-activated alpha */
+  backdrop-filter: blur(calc(8px * var(--hdr-s))) saturate(1.05);
+  -webkit-backdrop-filter: blur(calc(8px * var(--hdr-s))) saturate(1.05);
   box-shadow:
     -8px -8px 18px rgba(255,255,255, calc(.85 * var(--hdr-s))),
     8px 8px 18px rgba(0,0,0, calc(.08 * var(--hdr-s))),
     inset 0 1px 0 rgba(255,255,255, calc(.45 * var(--hdr-s))),
     inset 0 -1px 0 rgba(0,0,0, calc(.06 * var(--hdr-s)));
-  transition: background-color .28s ease, box-shadow .28s ease;
+  transition: background-color .28s ease, box-shadow .28s ease, backdrop-filter .28s ease;
 }
 /* Start transparent at top of home and let JS animate variables */
 .page-home .sb-header{ --header-bg: 0; --header-blur: 0px; --header-border: 0 }
