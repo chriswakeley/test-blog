@@ -96,8 +96,8 @@
       if (normalHeader && fixedHeader) {
         let ticking = false;
         let lastY = window.scrollY || window.pageYOffset || 0;
-        const DELTA_MIN = 4;
-        const TOP_THRESH = 10; // px near top treated as top
+  const DELTA_MIN = 4;
+  const TOP_THRESH = 0; // swap back only at the true top
         const max = 180;
         const applyVars = (el, t) => {
           el.style.setProperty('--header-bg', (0.75 * t).toFixed(3));
