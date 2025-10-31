@@ -88,49 +88,42 @@ permalink: /course/
     <h2>What you’ll walk away with</h2>
     <p>Clarity, tools, and a calmer baseline—so stress no longer runs the day.</p>
   </div>
-  <div class="split">
-    <div>
-      <div class="outcomes-cloud">
-        <div class="outcome">
-          <div class="outcome-badge" aria-hidden="true">
-            <img src="{{ '/assets/images/check.svg' | relative_url }}" alt="" />
-          </div>
-          <div>
-            <h3>On‑the‑spot relief</h3>
-            <p>Fast resets to downshift nervous‑system load in 2–5 minutes.</p>
-          </div>
-        </div>
-        <div class="outcome">
-          <div class="outcome-badge" aria-hidden="true">
-            <img src="{{ '/assets/images/check.svg' | relative_url }}" alt="" />
-          </div>
-          <div>
-            <h3>Daily flow, not force</h3>
-            <p>Replace stress loops with tiny, elegant habits that are easy to keep.</p>
-          </div>
-        </div>
-        <div class="outcome">
-          <div class="outcome-badge" aria-hidden="true">
-            <img src="{{ '/assets/images/check.svg' | relative_url }}" alt="" />
-          </div>
-          <div>
-            <h3>Resilience you can feel</h3>
-            <p>More focus, steadier energy, and better sleep within a few weeks.</p>
-          </div>
-        </div>
-        <div class="outcome">
-          <div class="outcome-badge" aria-hidden="true">
-            <img src="{{ '/assets/images/check.svg' | relative_url }}" alt="" />
-          </div>
-          <div>
-            <h3>Clarity and calm</h3>
-            <p>Know what matters next and move through the day with less noise.</p>
-          </div>
-        </div>
+  <div class="outcomes-cloud">
+    <div class="outcome">
+      <div class="outcome-badge" aria-hidden="true">
+        <img src="{{ '/assets/images/check.svg' | relative_url }}" alt="" />
+      </div>
+      <div>
+        <h3>On‑the‑spot relief</h3>
+        <p>Fast resets to downshift nervous‑system load in 2–5 minutes.</p>
       </div>
     </div>
-    <div class="split-media">
-      <img src="{{ '/assets/images/chaos-order.webp' | relative_url }}" alt="From chaos to order" loading="lazy" style="display:block; width:100%; height:auto" />
+    <div class="outcome">
+      <div class="outcome-badge" aria-hidden="true">
+        <img src="{{ '/assets/images/check.svg' | relative_url }}" alt="" />
+      </div>
+      <div>
+        <h3>Daily flow, not force</h3>
+        <p>Replace stress loops with tiny, elegant habits that are easy to keep.</p>
+      </div>
+    </div>
+    <div class="outcome">
+      <div class="outcome-badge" aria-hidden="true">
+        <img src="{{ '/assets/images/check.svg' | relative_url }}" alt="" />
+      </div>
+      <div>
+        <h3>Resilience you can feel</h3>
+        <p>More focus, steadier energy, and better sleep within a few weeks.</p>
+      </div>
+    </div>
+    <div class="outcome">
+      <div class="outcome-badge" aria-hidden="true">
+        <img src="{{ '/assets/images/check.svg' | relative_url }}" alt="" />
+      </div>
+      <div>
+        <h3>Clarity and calm</h3>
+        <p>Know what matters next and move through the day with less noise.</p>
+      </div>
     </div>
   </div>
 </div>

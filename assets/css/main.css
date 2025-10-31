@@ -37,7 +37,7 @@
   --sb-ink:#3b2e2e; /* warm ink */
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;color:var(--sb-ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;font-size:18px;}
+html,body{margin:0;padding:0;color:var(--sb-ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;font-size:18px;overflow-x:hidden}
 html{min-height:100%;background:var(--sb-warm) !important}
 h1,h2,h3,h4{font-family:"Walkway", Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; font-weight:600; letter-spacing:.02em; color:var(--sb-ink); margin:0 0 .5rem}
 p{line-height:1.8;margin:.5rem 0 1rem}
@@ -332,6 +332,8 @@ main{flex:1}
 .split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
 
 @media (max-width: 900px){
+  .container{padding:0 16px}
+  .outcomes-cloud{grid-template-columns:1fr;gap:18px}
   .section-intro .course-title{font-size:38px}
   .section-intro .course-kicker{font-size:18px;margin-bottom:.5rem}
   /* Module flow responsive: vertical timeline with slightly smaller badges */
