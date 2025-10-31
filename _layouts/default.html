@@ -15,7 +15,7 @@
   <meta name="theme-color" content="#9A0C0C">
 </head>
 <body class="page-{{ page.title | downcase | replace: ' ', '-' }}">
-  <header class="sb-header">
+  <header class="sb-header" id="sb-header-normal">
     <div class="container header-inner">
       <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
         <span class="logo" aria-hidden="true">
@@ -23,8 +23,30 @@
         </span>
         <span class="sr-only">{{ site.title }}</span>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
-      <nav id="primary-nav" class="nav">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav-normal">☰</button>
+      <nav id="primary-nav-normal" class="nav">
+        {% for item in site.nav %}
+          {% if item.external %}
+            <a href="{{ item.external }}" class="nav-link" target="_blank" rel="noopener">{{ item.title }}</a>
+          {% else %}
+            <a href="{{ item.url | relative_url }}" class="nav-link{% if page.url == item.url %} active{% endif %}">{{ item.title }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    </div>
+  </header>
+
+  <!-- Fixed clone header for scroll-up reveal -->
+  <header class="sb-header sb-header--fixed" id="sb-header-fixed" aria-hidden="true">
+    <div class="container header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
+        <span class="logo" aria-hidden="true">
+          <img class="logo-icon" src="{{ '/assets/images/stress-burner-lotus.svg' | relative_url }}" alt="" />
+        </span>
+        <span class="sr-only">{{ site.title }}</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav-fixed">☰</button>
+      <nav id="primary-nav-fixed" class="nav">
         {% for item in site.nav %}
           {% if item.external %}
             <a href="{{ item.external }}" class="nav-link" target="_blank" rel="noopener">{{ item.title }}</a>
@@ -47,85 +69,73 @@
   </footer>
   <script>
     (function(){
-      const btn = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('primary-nav');
-      if(btn && nav){
+      // Wire up all nav toggles to their respective nav containers
+      const navToggles = Array.from(document.querySelectorAll('.nav-toggle'));
+      navToggles.forEach(btn => {
+        const targetId = btn.getAttribute('aria-controls');
+        const nav = targetId ? document.getElementById(targetId) : null;
+        if (!nav) return;
         btn.addEventListener('click', () => {
           const open = btn.getAttribute('aria-expanded') === 'true';
           btn.setAttribute('aria-expanded', String(!open));
           nav.classList.toggle('open', !open);
-          // Ensure header is visible when menu opens
-          if (!open) {
-            const headerEl = document.querySelector('.sb-header');
-            if (headerEl) headerEl.classList.remove('is-hidden');
+          // Ensure fixed header remains visible when its menu opens
+          const fixedHeader = document.getElementById('sb-header-fixed');
+          if (fixedHeader && fixedHeader.contains(btn) && !open) {
+            fixedHeader.classList.add('is-visible');
+            fixedHeader.setAttribute('aria-hidden', 'false');
+            const normalHeader = document.getElementById('sb-header-normal');
+            if (normalHeader) normalHeader.classList.add('is-invisible');
           }
         });
-      }
-      // Progressive header blur/background on scroll (home page only)
-      const header = document.querySelector('.sb-header');
-      if (header) {
+      });
+
+      // Progressive header blur/background on scroll (apply to both headers)
+      const normalHeader = document.getElementById('sb-header-normal');
+      const fixedHeader = document.getElementById('sb-header-fixed');
+      if (normalHeader && fixedHeader) {
         let ticking = false;
-  let lastY = window.scrollY || window.pageYOffset || 0;
-  const DELTA_MIN = 4;   // minimal movement to react
-  const SHOW_AT_TOP = 0; // start simulating immediately at the top
-        const max = 180; // px of scroll to reach full effect
+        let lastY = window.scrollY || window.pageYOffset || 0;
+        const DELTA_MIN = 4;
+        const TOP_THRESH = 10; // px near top treated as top
+        const max = 180;
+        const applyVars = (el, t) => {
+          el.style.setProperty('--header-bg', (0.75 * t).toFixed(3));
+          el.style.setProperty('--header-blur', (8 * t).toFixed(2) + 'px');
+          el.style.setProperty('--header-border', (0.06 * t).toFixed(3));
+          el.style.setProperty('--header-shadow', t.toFixed(3));
+        };
         const update = () => {
           const y = window.scrollY || window.pageYOffset || 0;
           const t = Math.max(0, Math.min(1, y / max));
-          // Variables (some legacy), plus shadow intensity
-          header.style.setProperty('--header-bg', (0.75 * t).toFixed(3));
-          header.style.setProperty('--header-blur', (8 * t).toFixed(2) + 'px');
-          header.style.setProperty('--header-border', (0.06 * t).toFixed(3));
-          header.style.setProperty('--header-shadow', t.toFixed(3));
-          // Auto-hide when scrolling down; show when scrolling up
-          const navOpen = !!(btn && btn.getAttribute('aria-expanded') === 'true');
+          applyVars(normalHeader, t);
+          applyVars(fixedHeader, t);
           const dy = y - lastY;
-          const H = header.offsetHeight || 64; // header height for top-of-page simulation
-          if (navOpen) {
-            // Menu open: always show, reset any inline transform
-            header.classList.remove('is-hidden');
-            header.classList.remove('no-anim');
-            header.style.transform = '';
-            document.body.style.paddingTop = H + 'px';
-          } else if (y <= SHOW_AT_TOP) {
-            // At the very top: always show, no transform
-            header.classList.remove('is-hidden');
-            header.classList.remove('no-anim');
-            header.style.transform = '';
-            document.body.style.paddingTop = H + 'px';
+          const fixedNavOpenBtn = fixedHeader.querySelector('.nav-toggle');
+          const fixedNavOpen = !!(fixedNavOpenBtn && fixedNavOpenBtn.getAttribute('aria-expanded') === 'true');
+
+          if (y <= TOP_THRESH) {
+            // At the top: show normal header, hide fixed clone
+            fixedHeader.classList.remove('is-visible');
+            fixedHeader.setAttribute('aria-hidden', 'true');
+            normalHeader.classList.remove('is-invisible');
+          } else if (dy < -DELTA_MIN || fixedNavOpen) {
+            // Scrolling up (or fixed menu open): show fixed clone and hide normal visually
+            fixedHeader.classList.add('is-visible');
+            fixedHeader.setAttribute('aria-hidden', 'false');
+            normalHeader.classList.add('is-invisible');
           } else if (dy > DELTA_MIN) {
-            // Scrolling down
-            if (y <= H) {
-              // Special case: from the very top, behave like a normal non-sticky element
-              // Move the header up proportionally with scroll until it's fully out
-              header.classList.remove('is-hidden');
-              header.classList.add('no-anim');
-              header.style.transform = `translateY(${-y}px)`;
-              const pad = Math.max(0, H - y);
-              document.body.style.paddingTop = pad + 'px';
-            } else {
-              // Past the header height: hide using the standard slide-away class
-              header.classList.remove('no-anim');
-              header.style.transform = '';
-              header.classList.add('is-hidden');
-              document.body.style.paddingTop = H + 'px';
-            }
-          } else if (dy < -DELTA_MIN) {
-            // Scrolling up: reveal header and clear any simulated transform
-            header.classList.remove('is-hidden');
-            header.classList.remove('no-anim');
-            header.style.transform = '';
-            document.body.style.paddingTop = H + 'px';
+            // Scrolling down: hide fixed clone; normal remains invisible but off-screen naturally
+            fixedHeader.classList.remove('is-visible');
+            fixedHeader.setAttribute('aria-hidden', 'true');
+            // Keep normal header invisible while mid-page to avoid double header near threshold
           }
           lastY = y;
           ticking = false;
         };
         update();
         window.addEventListener('scroll', () => {
-          if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(update);
-          }
+          if (!ticking) { ticking = true; requestAnimationFrame(update); }
         }, { passive: true });
       }
 

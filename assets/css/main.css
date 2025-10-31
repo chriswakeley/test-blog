@@ -47,8 +47,6 @@ a:hover{text-decoration:underline}
 /* Page background: soft warm wash */
 body{
   min-height:100vh;display:flex;flex-direction:column;
-  /* Offset fixed header so content starts below it */
-  padding-top:64px;
   background:
     radial-gradient(1200px 600px at 20% -10%, rgba(182,138,90,.15), transparent 60%),
     radial-gradient(800px 400px at 120% 10%, rgba(111,141,123,.12), transparent 40%),
@@ -69,16 +67,15 @@ main{flex:1}
   --nav-pill-py: 8px;         /* top/bottom padding */
   --nav-pill-px: 14px;        /* left/right padding */
   background: transparent; /* island is now applied to the inner content width */
-  position:fixed; top:0; left:0; right:0; z-index:10;
+  position:relative; z-index:10;
   box-shadow: none;
-  transform: translateY(0);
-  will-change: transform;
-  transition: transform .24s ease, background-color .28s ease, box-shadow .28s ease, backdrop-filter .28s ease;
+  transition: background-color .28s ease, box-shadow .28s ease, backdrop-filter .28s ease;
 }
-/* Auto-hide header when scrolling down */
-.sb-header.is-hidden{ transform: translateY(calc(-100% - 16px)); pointer-events: none }
-/* Disable transitions during top-of-page simulation so it feels native */
-.sb-header.no-anim{ transition: none !important }
+/* Fixed clone header that appears when scrolling up mid-page */
+.sb-header.sb-header--fixed{ position:fixed; top:0; left:0; right:0; z-index:20; transform:translateY(-100%); will-change: transform; pointer-events:none; }
+.sb-header.sb-header--fixed.is-visible{ transform:translateY(0); pointer-events:auto; transition: transform .24s ease }
+/* Hide normal in-flow header visually (keep space) when fixed clone is visible */
+.sb-header.is-invisible{ visibility:hidden }
 /* Rounded pill island confined to header content width (container) */
 .sb-header .header-inner{
   border-radius: 999px;
