@@ -279,6 +279,17 @@ main{flex:1}
 .feature-list .feature p{margin:0;grid-column:2}
 .feature-list .feature .btn{grid-column:2}
 
+/* Outcomes cloud (non-card, staggered two-column list with circular badges) */
+.outcomes-cloud{display:grid;grid-template-columns:1fr 1fr;gap:22px 26px;align-items:start}
+.outcome{display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:start;position:relative}
+.outcome-badge{width:60px;height:60px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06)}
+.outcome-badge img, .outcome-badge svg{width:26px;height:26px;display:block;opacity:.95}
+.outcome h3{margin:.05rem 0 .15rem;font-size:20px}
+.outcome p{margin:0;opacity:.92}
+/* Subtle stagger for visual rhythm */
+.outcomes-cloud .outcome:nth-child(odd){transform:translateY(6px)}
+.outcomes-cloud .outcome:nth-child(even){transform:translateY(-6px)}
+
 /* Course modules: vertical timeline with circular badges */
 /* Increase overall spacing for larger modules */
 .module-flow{position:relative;display:flex;flex-direction:column;gap:28px;margin-top:12px}
