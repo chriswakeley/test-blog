@@ -144,14 +144,42 @@
               normalHeader.classList.add('is-invisible');
             } else {
               // Still within buffer near the top: keep using normal header without showing fixed
-              fixedHeader.classList.remove('is-visible');
-              fixedHeader.setAttribute('aria-hidden', 'true');
+              if (fixedHeader.classList.contains('is-visible')) {
+                // Hide instantly (no animation) inside the buffer to avoid flicker
+                fixedHeader.classList.add('no-anim');
+                fixedHeader.style.setProperty('transition', 'none', 'important');
+                fixedHeader.classList.remove('is-visible');
+                fixedHeader.setAttribute('aria-hidden', 'true');
+                void fixedHeader.getBoundingClientRect();
+                requestAnimationFrame(() => {
+                  fixedHeader.style.removeProperty('transition');
+                  fixedHeader.classList.remove('no-anim');
+                });
+              } else {
+                fixedHeader.classList.remove('is-visible');
+                fixedHeader.setAttribute('aria-hidden', 'true');
+              }
               normalHeader.classList.remove('is-invisible');
             }
           } else if (dy > DELTA_MIN) {
-            // Scrolling down: hide fixed clone; normal remains invisible but off-screen naturally
-            fixedHeader.classList.remove('is-visible');
-            fixedHeader.setAttribute('aria-hidden', 'true');
+            // Scrolling down: hide fixed clone
+            if (y <= TOP_BUFFER && fixedHeader.classList.contains('is-visible')) {
+              // Inside buffer: hide instantly to keep top behavior snappy
+              fixedHeader.classList.add('no-anim');
+              fixedHeader.style.setProperty('transition', 'none', 'important');
+              fixedHeader.classList.remove('is-visible');
+              fixedHeader.setAttribute('aria-hidden', 'true');
+              void fixedHeader.getBoundingClientRect();
+              requestAnimationFrame(() => {
+                fixedHeader.style.removeProperty('transition');
+                fixedHeader.classList.remove('no-anim');
+              });
+              normalHeader.classList.remove('is-invisible');
+            } else {
+              // Normal animated hide mid-page
+              fixedHeader.classList.remove('is-visible');
+              fixedHeader.setAttribute('aria-hidden', 'true');
+            }
             // Keep normal header invisible while mid-page to avoid double header near threshold
           }
           lastY = y;
