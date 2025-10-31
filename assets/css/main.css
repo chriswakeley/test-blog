@@ -38,6 +38,8 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;color:var(--sb-ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;font-size:18px;overflow-x:hidden}
+/* Ensure media doesn't overflow horizontally on small screens */
+img,svg,video{max-width:100%;height:auto}
 html{min-height:100%;background:var(--sb-warm) !important}
 h1,h2,h3,h4{font-family:"Walkway", Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; font-weight:600; letter-spacing:.02em; color:var(--sb-ink); margin:0 0 .5rem}
 p{line-height:1.8;margin:.5rem 0 1rem}
@@ -326,13 +328,27 @@ main{flex:1}
 /* Footer */
 .sb-footer{background:transparent;border-top:1px solid rgba(0,0,0,.04);padding:28px 0;margin-top:56px;box-shadow: inset 0 1px 0 rgba(255,255,255,.65)}
 
+/* Subtle background wave for outcomes section */
+.outcomes-section{position:relative;isolation:isolate}
+.outcomes-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(140% 80% at 0% 40%, rgba(182,138,90,.10), rgba(182,138,90,0) 60%),
+    radial-gradient(140% 80% at 100% 60%, rgba(111,141,123,.10), rgba(111,141,123,0) 60%);
+}
+
 /* Responsive */
 /* Split layout to pair media with features */
 .split{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
 .split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
 
 @media (max-width: 900px){
-  .container{padding:0 16px}
+  .container{padding:0 24px}
   .outcomes-cloud{grid-template-columns:1fr;gap:18px}
   .section-intro .course-title{font-size:38px}
   .section-intro .course-kicker{font-size:18px;margin-bottom:.5rem}
