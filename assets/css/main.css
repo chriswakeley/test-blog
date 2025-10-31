@@ -67,7 +67,7 @@ main{flex:1}
   --nav-pill-py: 8px;         /* top/bottom padding */
   --nav-pill-px: 14px;        /* left/right padding */
   background: transparent; /* island is now applied to the inner content width */
-  position:sticky;top:0;z-index:10;
+  position:fixed; top:0; left:0; right:0; z-index:10;
   box-shadow: none;
   transform: translateY(0);
   will-change: transform;
