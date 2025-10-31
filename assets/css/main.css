@@ -79,24 +79,16 @@ main{flex:1}
 /* Prevent brief drop-shadow flash on icon during instant swap */
 .sb-header.sb-header--fixed.no-anim .logo-icon{ filter: none !important }
 /* While the fixed header is animating at the true top, neutralize any compositing effects */
-.sb-header.sb-header--fixed.is-top-animating{ filter:none !important; pointer-events:none !important; isolation:isolate }
-/* While in top-animating or no-anim instant-swap states, fully neutralize any shadows/filters on all children */
-.sb-header.sb-header--fixed.is-top-animating *,
-.sb-header.sb-header--fixed.no-anim *{
+.sb-header.sb-header--fixed.is-top-animating{ isolation:isolate }
+/* During top-animating/instant-swap, suppress only logo/text drop-shadow filters (keep nav/link shadows and header borders) */
+.sb-header.sb-header--fixed.is-top-animating .brand .logo-icon,
+.sb-header.sb-header--fixed.is-top-animating .brand .logo-text,
+.sb-header.sb-header--fixed.no-anim .brand .logo-icon,
+.sb-header.sb-header--fixed.no-anim .brand .logo-text{
   filter: none !important;
   -webkit-filter: none !important;
   text-shadow: none !important;
-  box-shadow: none !important;
 }
-.sb-header.sb-header--fixed.is-top-animating .header-inner,
-.sb-header.sb-header--fixed.no-anim .header-inner{
-  background: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  transition: none !important;
-}
-.sb-header.sb-header--fixed.is-top-animating .brand .logo-icon{ filter:none !important }
 /* Hide normal in-flow header visually (keep space) when fixed clone is visible */
 .sb-header.is-invisible{ visibility:hidden }
 /* Rounded pill island confined to header content width (container) */
