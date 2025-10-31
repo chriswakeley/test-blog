@@ -29,68 +29,79 @@ permalink: /course/
 <div class="container section">
   <div class="section-intro align-left">
     <span class="eyebrow">Overview</span>
-    <h2>How the Blueprint is structured</h2>
-    <p>Five focused modules. Bite‑sized lessons, guided practices, and tiny experiments that compound into lasting calm.</p>
+    <h2>Your five‑week journey</h2>
+    <p>A light, flowing structure—no heavy lifts. Learn, try, and integrate without overwhelm.</p>
   </div>
 
-  <div class="feature-list" style="margin-top:14px">
-    <!-- Module 1: Conscious breath -->
-    <div class="feature">
-      <svg role="img" aria-label="Module 1 — Conscious breath" viewBox="0 0 120 72" width="64" height="64" class="icon" style="width:48px;height:48px">
-        <circle cx="36" cy="36" r="20" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
-        <path d="M24 36 q12 -10 24 0 q-12 10 -24 0Z" fill="#9A0C0C" opacity=".18" />
-        <path d="M28 30 q8 -6 16 0" fill="none" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" opacity=".6" />
-        <path d="M28 42 q8 6 16 0" fill="none" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" opacity=".6" />
-      </svg>
-      <h3>Module 1 — Conscious breath</h3>
+  <div class="module-flow">
+    <!-- Step 1 -->
+    <div class="step">
+      <div class="badge" aria-hidden="true">
+        <svg role="img" aria-label="Conscious breath" viewBox="0 0 120 72">
+          <circle cx="36" cy="36" r="20" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
+          <path d="M24 36 q12 -10 24 0 q-12 10 -24 0Z" fill="#9A0C0C" opacity=".18" />
+          <path d="M28 30 q8 -6 16 0" fill="none" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" opacity=".6" />
+          <path d="M28 42 q8 6 16 0" fill="none" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" opacity=".6" />
+        </svg>
+      </div>
+      <span class="step-num">Module 1</span>
+      <h3>Conscious breath</h3>
       <p>Use breath to quickly shift state and lower stress load.</p>
     </div>
-
-    <!-- Module 2: EFT Tapping -->
-    <div class="feature">
-      <svg role="img" aria-label="Module 2 — EFT (Tapping)" viewBox="0 0 120 72" width="64" height="64" class="icon" style="width:48px;height:48px">
-        <path d="M64 46 c-8 0 -12 -6 -12 -14 v-8 c0 -3 2 -5 5 -5 h2 c3 0 5 2 5 5 v6 h6 c3 0 5 2 5 5 v2 c0 6 -5 9 -11 9Z" fill="#9A0C0C" opacity=".2" />
-        <path d="M42 30 l10 -6" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round"/>
-        <path d="M40 36 l12 -2" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round"/>
-        <path d="M42 42 l10 2" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <h3>Module 2 — Emotional Freedom Technique</h3>
+    <!-- Step 2 -->
+    <div class="step">
+      <div class="badge" aria-hidden="true">
+        <svg role="img" aria-label="EFT (tapping)" viewBox="0 0 120 72">
+          <path d="M64 46 c-8 0 -12 -6 -12 -14 v-8 c0 -3 2 -5 5 -5 h2 c3 0 5 2 5 5 v6 h6 c3 0 5 2 5 5 v2 c0 6 -5 9 -11 9Z" fill="#9A0C0C" opacity=".2" />
+          <path d="M42 30 l10 -6" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round"/>
+          <path d="M40 36 l12 -2" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round"/>
+          <path d="M42 42 l10 2" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="step-num">Module 2</span>
+      <h3>Emotional Freedom Technique</h3>
       <p>Gentle tapping patterns to calm the body‑mind in minutes.</p>
     </div>
-
-    <!-- Module 3: Thoughts are things -->
-    <div class="feature">
-      <svg role="img" aria-label="Module 3 — Thoughts are things" viewBox="0 0 120 72" width="64" height="64" class="icon" style="width:48px;height:48px">
-        <circle cx="48" cy="36" r="16" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
-        <path d="M64 26 l12 6 l-12 6Z" fill="#9A0C0C" opacity=".35" />
-        <circle cx="44" cy="32" r="2" fill="#9A0C0C" />
-        <circle cx="52" cy="32" r="2" fill="#9A0C0C" />
-        <path d="M44 40 q4 4 8 0" stroke="#9A0C0C" stroke-width="2" fill="none" stroke-linecap="round" />
-      </svg>
-      <h3>Module 3 — Thoughts are things</h3>
+    <!-- Step 3 -->
+    <div class="step">
+      <div class="badge" aria-hidden="true">
+        <svg role="img" aria-label="Thoughts are things" viewBox="0 0 120 72">
+          <circle cx="48" cy="36" r="16" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
+          <path d="M64 26 l12 6 l-12 6Z" fill="#9A0C0C" opacity=".35" />
+          <circle cx="44" cy="32" r="2" fill="#9A0C0C" />
+          <circle cx="52" cy="32" r="2" fill="#9A0C0C" />
+          <path d="M44 40 q4 4 8 0" stroke="#9A0C0C" stroke-width="2" fill="none" stroke-linecap="round" />
+        </svg>
+      </div>
+      <span class="step-num">Module 3</span>
+      <h3>Thoughts are things</h3>
       <p>Shift your inner narrative to change how stress lands.</p>
     </div>
-
-    <!-- Module 4: Eisenhower Matrix + W.W.I.T.? -->
-    <div class="feature">
-      <svg role="img" aria-label="Module 4 — Eisenhower Matrix and What would it take?" viewBox="0 0 120 72" width="64" height="64" class="icon" style="width:48px;height:48px">
-        <rect x="28" y="20" width="40" height="32" rx="4" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
-        <path d="M48 20 v32 M28 36 h40" stroke="#9A0C0C" stroke-width="2" />
-        <path d="M56 28 l6 6 l-6 6" fill="none" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
-      </svg>
-      <h3>Module 4 — Priorities that work</h3>
-      <p>Use the Eisenhower Matrix and W.W.I.T.? to create calm focus.</p>
+    <!-- Step 4 -->
+    <div class="step">
+      <div class="badge" aria-hidden="true">
+        <svg role="img" aria-label="Eisenhower Matrix and WWIT" viewBox="0 0 120 72">
+          <rect x="28" y="20" width="40" height="32" rx="4" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
+          <path d="M48 20 v32 M28 36 h40" stroke="#9A0C0C" stroke-width="2" />
+          <path d="M56 28 l6 6 l-6 6" fill="none" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <span class="step-num">Module 4</span>
+      <h3>Priorities that work</h3>
+      <p>Use the Eisenhower Matrix and WWIT to create calm focus.</p>
     </div>
-
-    <!-- Module 5: Integration -->
-    <div class="feature">
-      <svg role="img" aria-label="Module 5 — Integration" viewBox="0 0 120 72" width="64" height="64" class="icon" style="width:48px;height:48px">
-        <circle cx="40" cy="36" r="12" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
-        <path d="M40 24 v6 M40 42 v6 M28 36 h6 M46 36 h6" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
-        <path d="M56 36 h16" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
-        <path d="M72 36 l-4 -4 M72 36 l-4 4" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
-      </svg>
-      <h3>Module 5 — Integration</h3>
+    <!-- Step 5 -->
+    <div class="step">
+      <div class="badge" aria-hidden="true">
+        <svg role="img" aria-label="Integration" viewBox="0 0 120 72">
+          <circle cx="40" cy="36" r="12" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
+          <path d="M40 24 v6 M40 42 v6 M28 36 h6 M46 36 h6" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
+          <path d="M56 36 h16" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
+          <path d="M72 36 l-4 -4 M72 36 l-4 4" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <span class="step-num">Module 5</span>
+      <h3>Integration</h3>
       <p>Pull it all together and leverage your life right now.</p>
     </div>
   </div>
