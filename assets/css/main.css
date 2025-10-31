@@ -277,11 +277,11 @@ main{flex:1}
 .feature-list .feature .btn{grid-column:2}
 
 /* Course modules: vertical timeline with circular badges */
-.module-flow{position:relative;display:flex;flex-direction:column;gap:22px;margin-top:12px;padding-left:128px}
+.module-flow{position:relative;display:flex;flex-direction:column;gap:22px;margin-top:12px}
 /* Vertical connector line centered through badges */
 .module-flow::before{content:"";position:absolute;left:48px;top:0;bottom:0;width:2px;background:linear-gradient(180deg, rgba(154,12,12,.18), rgba(154,12,12,.06));z-index:0}
 /* Each step aligns text to the right of the badge */
-.module-flow .step{position:relative;text-align:left}
+.module-flow .step{position:relative;text-align:left;padding-left:128px;min-height:96px}
 .module-flow .badge{position:absolute;left:0;top:0;width:96px;height:96px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);z-index:1}
 .module-flow .badge svg{width:56px;height:56px;display:block}
 .module-flow .badge img{width:56px;height:56px;display:block}
@@ -305,8 +305,9 @@ main{flex:1}
 
 @media (max-width: 900px){
   /* Module flow responsive: vertical timeline with slightly smaller badges */
-  .module-flow{padding-left:100px;gap:16px}
+  .module-flow{gap:16px}
   .module-flow::before{left:36px}
+  .module-flow .step{padding-left:92px;min-height:72px}
   .module-flow .badge{width:72px;height:72px}
   .module-flow .badge svg{width:44px;height:44px}
   .module-flow .badge img{width:44px;height:44px}
