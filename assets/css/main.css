@@ -282,6 +282,7 @@ main{flex:1}
 .module-flow .step{display:flex;flex-direction:column;align-items:center;text-align:center}
 .module-flow .badge{width:80px;height:80px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);z-index:1}
 .module-flow .badge svg{width:44px;height:44px;display:block}
+.module-flow .badge img{width:44px;height:44px;display:block}
 .module-flow .step-num{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;margin-top:8px}
 .module-flow h3{font-size:18px;line-height:1.2;margin:.15rem 0 .2rem}
 .module-flow p{margin:0;opacity:.9;max-width:28ch}
@@ -307,6 +308,7 @@ main{flex:1}
   .module-flow .step{align-items:start;text-align:left;display:grid;grid-template-columns:64px 1fr;gap:12px}
   .module-flow .badge{width:64px;height:64px;margin:0}
   .module-flow .badge svg{width:32px;height:32px}
+  .module-flow .badge img{width:32px;height:32px}
   .brand .logo{ --logo-icon-size:40px }
   .grid.cols-3{grid-template-columns:1fr}
   .features.cols-3{grid-template-columns:1fr}
