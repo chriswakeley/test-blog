@@ -114,6 +114,30 @@
             fixedHeader.classList.remove('no-anim');
           });
         };
+        // Gently fade out fixed header's island shadows/background before swapping to normal at top
+        const fadeOutHeaderThenSwap = () => {
+          // Keep normal hidden during fade to avoid double header
+          normalHeader.classList.add('is-invisible');
+          // Trigger fade on the fixed header island
+          fixedHeader.classList.add('is-fading');
+          const headerInner = fixedHeader.querySelector('.header-inner');
+          let done = false;
+          const finish = () => {
+            if (done) return; done = true;
+            fixedHeader.classList.remove('is-fading');
+            instantHideFixed();
+            normalHeader.classList.remove('is-invisible');
+          };
+          const onEnd = (e) => {
+            if (!headerInner || e.target !== headerInner) return;
+            if (e.propertyName !== 'background-color' && e.propertyName !== 'backdrop-filter' && e.propertyName !== '-webkit-backdrop-filter') return;
+            headerInner.removeEventListener('transitionend', onEnd);
+            finish();
+          };
+          if (headerInner) headerInner.addEventListener('transitionend', onEnd);
+          // Fallback timeout in case transitionend is missed
+          setTimeout(finish, 300);
+        };
         // Listen for the end of the transform transition to honor delayed top swap
         fixedHeader.addEventListener('transitionend', (e) => {
           if (e.propertyName !== 'transform') return;
@@ -123,8 +147,7 @@
             if (pendingTopSwap) {
               const yNow = window.scrollY || window.pageYOffset || 0;
               if (yNow <= TOP_THRESH) {
-                instantHideFixed();
-                normalHeader.classList.remove('is-invisible');
+                fadeOutHeaderThenSwap();
               }
               pendingTopSwap = false;
             }
@@ -161,9 +184,8 @@
                 fixedHeader.classList.add('is-top-animating');
                 normalHeader.classList.add('is-invisible');
               } else {
-                // Fixed is visible but not animating: hide it instantly and show normal
-                instantHideFixed();
-                normalHeader.classList.remove('is-invisible');
+                // Fixed is visible but not animating: fade shadows out, then swap
+                fadeOutHeaderThenSwap();
               }
             } else {
               // Fixed is not visible, show normal
