@@ -7,7 +7,7 @@ permalink: /course/
 <!-- Intro / Hook with stacked stones image -->
 <div class="container section">
   <div class="panel image-right" style="min-height:600px; align-items:stretch">
-    <div class="panel-body">
+  <div class="panel-body" style="display:flex; flex-direction:column; justify-content:center">
       <div class="section-intro align-left" style="margin:0">
         <h1 class="course-title">Stress Burner Blueprint</h1>
         <p class="course-kicker">Build calm that lasts</p>
