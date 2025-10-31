@@ -74,6 +74,8 @@ main{flex:1}
 /* Fixed clone header that appears when scrolling up mid-page */
 .sb-header.sb-header--fixed{ position:fixed; top:0; left:0; right:0; z-index:20; transform:translateY(-100%); will-change: transform; pointer-events:none; transition: transform .24s ease }
 .sb-header.sb-header--fixed.is-visible{ transform:translateY(0); pointer-events:auto }
+/* Utility to disable transition for instant swap at top */
+.sb-header.sb-header--fixed.no-anim{ transition: none !important }
 /* Hide normal in-flow header visually (keep space) when fixed clone is visible */
 .sb-header.is-invisible{ visibility:hidden }
 /* Rounded pill island confined to header content width (container) */
