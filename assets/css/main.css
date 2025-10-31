@@ -105,6 +105,8 @@ main{flex:1}
     inset 0 -1px 0 rgba(0,0,0, calc(.06 * var(--hdr-s)));
   transition: background-color .28s ease, box-shadow .28s ease, backdrop-filter .28s ease;
 }
+/* Fixed clone: keep a constant background opacity instead of fading with --hdr-s near the top */
+.sb-header.sb-header--fixed .header-inner{ background: rgba(246,243,241,.92) }
 /* Start transparent at top of home and let JS animate variables */
 .page-home .sb-header{ --header-bg: 0; --header-blur: 0px; --header-border: 0 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
