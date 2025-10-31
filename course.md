@@ -9,8 +9,8 @@ permalink: /course/
   <div class="panel image-right" style="min-height:600px; align-items:stretch">
     <div class="panel-body">
       <div class="section-intro align-left" style="margin:0">
-        <span class="eyebrow">Stress Burner Blueprint</span>
-        <h2>Build calm that lasts</h2>
+        <h1 class="course-title">Stress Burner Blueprint</h1>
+        <p class="course-kicker">Build calm that lasts</p>
         <p><strong>Five focused weeks.</strong> Turn stress into steady energy with simple practices that actually fit real life.</p>
       </div>
       <ul>

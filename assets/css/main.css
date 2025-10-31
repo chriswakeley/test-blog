@@ -234,6 +234,9 @@ main{flex:1}
 .section-intro .eyebrow{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;display:block;margin-bottom:.25rem}
 .section-intro h2{font-size:40px;line-height:1.1;margin:0 0 .4rem}
 .section-intro p{max-width:780px;margin:0 auto;opacity:.9}
+/* Course title hierarchy within section-intro */
+.section-intro .course-title{font-size:52px;line-height:1.08;margin:0 0 .3rem}
+.section-intro .course-kicker{font-size:22px;font-weight:600;letter-spacing:.01em;margin:.05rem 0 .6rem;color:var(--sb-ink);opacity:.95}
 /* Left-aligned editorial variant */
 .section-intro.align-left{text-align:left}
 .section-intro.align-left p{margin-left:0}
@@ -305,6 +308,8 @@ main{flex:1}
 .split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
 
 @media (max-width: 900px){
+  .section-intro .course-title{font-size:38px}
+  .section-intro .course-kicker{font-size:18px;margin-bottom:.5rem}
   /* Module flow responsive: vertical timeline with slightly smaller badges */
   .module-flow{gap:20px}
   .module-flow::before{left:44px}
