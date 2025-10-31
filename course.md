@@ -37,7 +37,7 @@ permalink: /course/
     <!-- Step 1 -->
     <div class="step">
       <div class="badge" aria-hidden="true">
-        <svg role="img" aria-label="Conscious breath" viewBox="0 0 120 72">
+  <svg role="img" aria-label="Conscious breath" viewBox="16 16 40 40">
           <circle cx="36" cy="36" r="20" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
           <path d="M24 36 q12 -10 24 0 q-12 10 -24 0Z" fill="#9A0C0C" opacity=".18" />
           <path d="M28 30 q8 -6 16 0" fill="none" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" opacity=".6" />
@@ -51,7 +51,7 @@ permalink: /course/
     <!-- Step 2 -->
     <div class="step">
       <div class="badge" aria-hidden="true">
-        <svg role="img" aria-label="EFT (tapping)" viewBox="0 0 120 72">
+  <svg role="img" aria-label="EFT (tapping)" viewBox="36 20 40 40">
           <path d="M64 46 c-8 0 -12 -6 -12 -14 v-8 c0 -3 2 -5 5 -5 h2 c3 0 5 2 5 5 v6 h6 c3 0 5 2 5 5 v2 c0 6 -5 9 -11 9Z" fill="#9A0C0C" opacity=".2" />
           <path d="M42 30 l10 -6" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round"/>
           <path d="M40 36 l12 -2" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round"/>
@@ -65,7 +65,7 @@ permalink: /course/
     <!-- Step 3 -->
     <div class="step">
       <div class="badge" aria-hidden="true">
-        <svg role="img" aria-label="Thoughts are things" viewBox="0 0 120 72">
+  <svg role="img" aria-label="Thoughts are things" viewBox="28 16 56 40">
           <circle cx="48" cy="36" r="16" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
           <path d="M64 26 l12 6 l-12 6Z" fill="#9A0C0C" opacity=".35" />
           <circle cx="44" cy="32" r="2" fill="#9A0C0C" />
@@ -80,7 +80,7 @@ permalink: /course/
     <!-- Step 4 -->
     <div class="step">
       <div class="badge" aria-hidden="true">
-        <svg role="img" aria-label="Eisenhower Matrix and WWIT" viewBox="0 0 120 72">
+  <svg role="img" aria-label="Eisenhower Matrix and WWIT" viewBox="24 16 52 40">
           <rect x="28" y="20" width="40" height="32" rx="4" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
           <path d="M48 20 v32 M28 36 h40" stroke="#9A0C0C" stroke-width="2" />
           <path d="M56 28 l6 6 l-6 6" fill="none" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
@@ -93,7 +93,7 @@ permalink: /course/
     <!-- Step 5 -->
     <div class="step">
       <div class="badge" aria-hidden="true">
-        <svg role="img" aria-label="Integration" viewBox="0 0 120 72">
+  <svg role="img" aria-label="Integration" viewBox="24 20 56 32">
           <circle cx="40" cy="36" r="12" fill="#F6F3F1" stroke="#9A0C0C" stroke-width="2" />
           <path d="M40 24 v6 M40 42 v6 M28 36 h6 M46 36 h6" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
           <path d="M56 36 h16" stroke="#9A0C0C" stroke-width="2" stroke-linecap="round" />
