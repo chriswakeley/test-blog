@@ -293,6 +293,19 @@ main{flex:1}
 .module-flow h3{font-size:22px;line-height:1.2;margin:.12rem 0 .25rem}
 .module-flow p{margin:0;opacity:.9;max-width:54ch;font-size:1rem}
 
+/* Options comparison (card-less, airy columns) */
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:start}
+.option{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:center;position:relative}
+.option-badge{width:120px;height:120px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06)}
+.option-badge svg{width:72px;height:72px;display:block}
+.option-badge img{width:72px;height:72px;display:block}
+.option h3{margin:.1rem 0 .25rem;font-size:22px}
+.option .price{font-weight:800;font-size:1.35rem;margin:.15rem 0 .35rem}
+.option ul{margin:.1rem 0 .35rem;padding-left:18px}
+.option ul li{margin:.12rem 0}
+.option .cta-row{margin-top:6px}
+.option:hover .option-badge{box-shadow:-10px -10px 22px rgba(255,255,255,.9), 10px 10px 22px rgba(0,0,0,.11)}
+
 /* Legacy card (kept for testimonials or specific use) */
 .card{background:var(--sb-warm);border-radius:16px;padding:22px;box-shadow:-10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.05)}
 .card h3{margin:.35rem 0 .35rem}
@@ -318,6 +331,11 @@ main{flex:1}
   .module-flow .badge svg{width:56px;height:56px}
   .module-flow .badge img{width:56px;height:56px}
   .module-flow h3{font-size:20px}
+  /* Options responsive */
+  .options{grid-template-columns:1fr;gap:18px}
+  .option{grid-template-columns:112px 1fr}
+  .option-badge{width:100px;height:100px}
+  .option-badge svg,.option-badge img{width:60px;height:60px}
   .brand .logo{ --logo-icon-size:40px }
   .grid.cols-3{grid-template-columns:1fr}
   .features.cols-3{grid-template-columns:1fr}

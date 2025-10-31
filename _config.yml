@@ -4,7 +4,7 @@ author: "Unyong Kim"
 email: ""
 url: "https://www.stressburner.me" # custom domain
 baseurl: "" # root of domain
-logo: "/assets/images/logo-large.png"
+logo: "/assets/images/stress-burner-logo.svg"
 
 twitter:
   username: stressburner
@@ -56,3 +56,5 @@ nav:
 # External links
 purchase_url: https://stressburner.systeme.io/3c6ca66b
 student_portal_url: https://stressburner.systeme.io/school/course/stressburnerblueprint/
+purchase_coaching_url: https://stressburner.systeme.io/3c6ca66b # TODO: update if a distinct coaching checkout URL exists
+purchase_modules_url: https://stressburner.systeme.io/3c6ca66b # TODO: update if a distinct self-directed modules URL exists
