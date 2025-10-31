@@ -99,6 +99,36 @@
   const DELTA_MIN = 4;
   const TOP_THRESH = 0; // swap back only at the true top
         const max = 180;
+        let animatingIn = false;
+        let pendingTopSwap = false;
+        // Helper: instant-hide the fixed header (no animation)
+        const instantHideFixed = () => {
+          fixedHeader.classList.add('no-anim');
+          fixedHeader.style.setProperty('transition', 'none', 'important');
+          fixedHeader.classList.remove('is-visible');
+          fixedHeader.setAttribute('aria-hidden', 'true');
+          // Force reflow so styles apply immediately
+          void fixedHeader.getBoundingClientRect();
+          requestAnimationFrame(() => {
+            fixedHeader.style.removeProperty('transition');
+            fixedHeader.classList.remove('no-anim');
+          });
+        };
+        // Listen for the end of the transform transition to honor delayed top swap
+        fixedHeader.addEventListener('transitionend', (e) => {
+          if (e.propertyName !== 'transform') return;
+          if (animatingIn) {
+            animatingIn = false;
+            if (pendingTopSwap) {
+              const yNow = window.scrollY || window.pageYOffset || 0;
+              if (yNow <= TOP_THRESH) {
+                instantHideFixed();
+                normalHeader.classList.remove('is-invisible');
+              }
+              pendingTopSwap = false;
+            }
+          }
+        });
         const applyVars = (el, t) => {
           el.style.setProperty('--header-bg', (0.75 * t).toFixed(3));
           el.style.setProperty('--header-blur', (8 * t).toFixed(2) + 'px');
@@ -124,18 +154,12 @@
           if (y <= TOP_THRESH) {
             // At the very top: show normal header, hide fixed clone instantly (no animation)
             if (fixedHeader.classList.contains('is-visible')) {
-              // Hard-disable transition for this swap to avoid any slide-out animation
-              fixedHeader.classList.add('no-anim');
-              fixedHeader.style.setProperty('transition', 'none', 'important');
-              fixedHeader.classList.remove('is-visible');
-              fixedHeader.setAttribute('aria-hidden', 'true');
-              // Force reflow to apply style changes immediately
-              void fixedHeader.getBoundingClientRect();
-              // Restore transitions on next frame for future interactions
-              requestAnimationFrame(() => {
-                fixedHeader.style.removeProperty('transition');
-                fixedHeader.classList.remove('no-anim');
-              });
+              if (animatingIn) {
+                // Defer the instant swap until the slide-in completes
+                pendingTopSwap = true;
+              } else {
+                instantHideFixed();
+              }
             } else {
               fixedHeader.classList.remove('is-visible');
               fixedHeader.setAttribute('aria-hidden', 'true');
@@ -145,6 +169,9 @@
             // Scrolling up (or fixed menu open): only reveal fixed clone after passing buffer depth
             if (fixedNavOpen || y > TOP_BUFFER) {
               // Past the buffer: reveal fixed clone and hide normal visually
+              if (!fixedHeader.classList.contains('is-visible')) {
+                animatingIn = true;
+              }
               fixedHeader.classList.add('is-visible');
               fixedHeader.setAttribute('aria-hidden', 'false');
               normalHeader.classList.add('is-invisible');
@@ -162,6 +189,8 @@
             }
           } else if (dy > DELTA_MIN) {
             // Scrolling down: hide fixed clone (animated)
+            animatingIn = false; // cancel any pending 'in' state
+            pendingTopSwap = false; // cancel delayed top swap on downward scroll
             fixedHeader.classList.remove('is-visible');
             fixedHeader.setAttribute('aria-hidden', 'true');
             if (y <= TOP_BUFFER) {
