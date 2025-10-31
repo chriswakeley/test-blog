@@ -139,46 +139,29 @@
           } else if (dy < -DELTA_MIN || fixedNavOpen) {
             // Scrolling up (or fixed menu open): only reveal fixed clone after passing buffer depth
             if (fixedNavOpen || y > TOP_BUFFER) {
+              // Past the buffer: reveal fixed clone and hide normal visually
               fixedHeader.classList.add('is-visible');
               fixedHeader.setAttribute('aria-hidden', 'false');
               normalHeader.classList.add('is-invisible');
             } else {
-              // Still within buffer near the top: keep using normal header without showing fixed
-              if (fixedHeader.classList.contains('is-visible')) {
-                // Hide instantly (no animation) inside the buffer to avoid flicker
-                fixedHeader.classList.add('no-anim');
-                fixedHeader.style.setProperty('transition', 'none', 'important');
+              // Inside buffer: do not trigger instant swap; keep current state
+              if (!fixedHeader.classList.contains('is-visible')) {
+                // Keep fixed hidden and show normal header
                 fixedHeader.classList.remove('is-visible');
                 fixedHeader.setAttribute('aria-hidden', 'true');
-                void fixedHeader.getBoundingClientRect();
-                requestAnimationFrame(() => {
-                  fixedHeader.style.removeProperty('transition');
-                  fixedHeader.classList.remove('no-anim');
-                });
+                normalHeader.classList.remove('is-invisible');
               } else {
-                fixedHeader.classList.remove('is-visible');
-                fixedHeader.setAttribute('aria-hidden', 'true');
+                // Fixed is already visible (coming from deeper): keep it visible until true top
+                // No class changes here
               }
-              normalHeader.classList.remove('is-invisible');
             }
           } else if (dy > DELTA_MIN) {
-            // Scrolling down: hide fixed clone
-            if (y <= TOP_BUFFER && fixedHeader.classList.contains('is-visible')) {
-              // Inside buffer: hide instantly to keep top behavior snappy
-              fixedHeader.classList.add('no-anim');
-              fixedHeader.style.setProperty('transition', 'none', 'important');
-              fixedHeader.classList.remove('is-visible');
-              fixedHeader.setAttribute('aria-hidden', 'true');
-              void fixedHeader.getBoundingClientRect();
-              requestAnimationFrame(() => {
-                fixedHeader.style.removeProperty('transition');
-                fixedHeader.classList.remove('no-anim');
-              });
+            // Scrolling down: hide fixed clone (animated)
+            fixedHeader.classList.remove('is-visible');
+            fixedHeader.setAttribute('aria-hidden', 'true');
+            if (y <= TOP_BUFFER) {
+              // Inside buffer: show normal header (no instant swap unless true top branch handles it)
               normalHeader.classList.remove('is-invisible');
-            } else {
-              // Normal animated hide mid-page
-              fixedHeader.classList.remove('is-visible');
-              fixedHeader.setAttribute('aria-hidden', 'true');
             }
             // Keep normal header invisible while mid-page to avoid double header near threshold
           }
