@@ -47,6 +47,8 @@ a:hover{text-decoration:underline}
 /* Page background: soft warm wash */
 body{
   min-height:100vh;display:flex;flex-direction:column;
+  /* Offset fixed header so content starts below it */
+  padding-top:64px;
   background:
     radial-gradient(1200px 600px at 20% -10%, rgba(182,138,90,.15), transparent 60%),
     radial-gradient(800px 400px at 120% 10%, rgba(111,141,123,.12), transparent 40%),
