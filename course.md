@@ -6,21 +6,21 @@ permalink: /course/
 
 <!-- Intro / Hook with stacked stones image -->
 <div class="container section">
-  <div class="panel image-right">
+  <div class="panel image-right" style="min-height:600px; align-items:stretch">
     <div class="panel-body">
       <div class="section-intro align-left" style="margin:0">
         <span class="eyebrow">Stress Burner Blueprint</span>
         <h2>Build calm that lasts</h2>
-        <p>Five focused weeks to turn stress into steady energy. You’ll learn simple, elegant practices that fit real life—so you can feel clearer, sleep deeper, and show up as your best self without adding more to your plate.</p>
+        <p><strong>Five focused weeks.</strong> Turn stress into steady energy with simple practices that actually fit real life.</p>
       </div>
       <ul>
-        <li>Short, practical modules you can do anywhere</li>
-        <li>Guided practices that reduce stress in minutes</li>
-        <li>Lightweight, repeatable rituals that stick</li>
+        <li><strong>Bite‑sized lessons</strong> you can do anywhere</li>
+        <li><strong>On‑the‑spot resets</strong> to lower stress in minutes</li>
+        <li><strong>Tiny rituals</strong> that are easy to repeat (and keep)</li>
       </ul>
     </div>
-    <div class="panel-media">
-      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" width="960" height="640" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06);transform:translateY(-18px)" />
+    <div class="panel-media" style="align-self:stretch">
+      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" style="display:block;width:100%;height:100%;max-height:none;object-fit:cover;object-position:bottom;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)" />
     </div>
   </div>
 </div>
