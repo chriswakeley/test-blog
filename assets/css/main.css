@@ -90,10 +90,10 @@ main{flex:1}
 .brand .logo{--logo-icon-size:50px;display:flex;align-items:center;gap:10px;padding:6px 10px;border-radius:12px;background:transparent;box-shadow:none}
 .brand:hover .logo, .brand:focus-visible .logo{background:transparent;box-shadow:none}
 .brand:active .logo{box-shadow:none}
-.brand .logo-icon, .brand .logo-text{ transition: filter .18s ease }
-.brand:hover .logo-icon, .brand:focus-visible .logo-icon{ filter: drop-shadow(0 1px 0 rgba(255,255,255,.75)) drop-shadow(0 6px 12px rgba(0,0,0,.12)) }
-.brand:hover .logo-text, .brand:focus-visible .logo-text{ filter: drop-shadow(0 6px 12px rgba(0,0,0,.12)) }
-.brand:active .logo-icon, .brand:active .logo-text{ filter: drop-shadow(0 4px 8px rgba(0,0,0,.16)) }
+.brand .logo-icon, .brand .logo-text{ transition: filter .22s ease }
+.brand:hover .logo-icon, .brand:focus-visible .logo-icon{ filter: drop-shadow(0 1px 0 rgba(255,255,255,.75)) drop-shadow(0 10px 20px rgba(0,0,0,.22)) }
+.brand:hover .logo-text, .brand:focus-visible .logo-text{ filter: drop-shadow(0 10px 20px rgba(0,0,0,.22)) }
+.brand:active .logo-icon, .brand:active .logo-text{ filter: drop-shadow(0 6px 12px rgba(0,0,0,.24)) }
 .brand .logo-icon{height:var(--logo-icon-size);width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
 .brand .logo-text{display:flex;flex-direction:column;line-height:1}
 .brand .logo-line{font-family:"Walkway", Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; font-weight:600; text-transform:none; letter-spacing:.02em; color:var(--sb-ink); font-size:calc(var(--logo-icon-size) / 2)}
