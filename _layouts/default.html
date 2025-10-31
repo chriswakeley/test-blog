@@ -119,11 +119,18 @@
           if (y <= TOP_THRESH) {
             // At the very top: show normal header, hide fixed clone instantly (no animation)
             if (fixedHeader.classList.contains('is-visible')) {
+              // Hard-disable transition for this swap to avoid any slide-out animation
               fixedHeader.classList.add('no-anim');
+              fixedHeader.style.setProperty('transition', 'none', 'important');
               fixedHeader.classList.remove('is-visible');
               fixedHeader.setAttribute('aria-hidden', 'true');
-              // Remove no-anim on next frame to restore animations for future transitions
-              requestAnimationFrame(() => fixedHeader.classList.remove('no-anim'));
+              // Force reflow to apply style changes immediately
+              void fixedHeader.getBoundingClientRect();
+              // Restore transitions on next frame for future interactions
+              requestAnimationFrame(() => {
+                fixedHeader.style.removeProperty('transition');
+                fixedHeader.classList.remove('no-anim');
+              });
             } else {
               fixedHeader.classList.remove('is-visible');
               fixedHeader.setAttribute('aria-hidden', 'true');
