@@ -119,6 +119,7 @@
           if (e.propertyName !== 'transform') return;
           if (animatingIn) {
             animatingIn = false;
+            fixedHeader.classList.remove('is-top-animating');
             if (pendingTopSwap) {
               const yNow = window.scrollY || window.pageYOffset || 0;
               if (yNow <= TOP_THRESH) {
@@ -157,6 +158,7 @@
               if (animatingIn) {
                 // Defer the instant swap until the slide-in completes
                 pendingTopSwap = true;
+                fixedHeader.classList.add('is-top-animating');
               } else {
                 instantHideFixed();
               }
@@ -175,6 +177,12 @@
               fixedHeader.classList.add('is-visible');
               fixedHeader.setAttribute('aria-hidden', 'false');
               normalHeader.classList.add('is-invisible');
+              // If at the true top during animation, ensure top-animating state is set
+              if (y <= TOP_THRESH) {
+                fixedHeader.classList.add('is-top-animating');
+              } else {
+                fixedHeader.classList.remove('is-top-animating');
+              }
             } else {
               // Inside buffer: do not trigger instant swap; keep current state
               if (!fixedHeader.classList.contains('is-visible')) {
@@ -193,6 +201,7 @@
             pendingTopSwap = false; // cancel delayed top swap on downward scroll
             fixedHeader.classList.remove('is-visible');
             fixedHeader.setAttribute('aria-hidden', 'true');
+            fixedHeader.classList.remove('is-top-animating');
             if (y <= TOP_BUFFER) {
               // Inside buffer: show normal header (no instant swap unless true top branch handles it)
               normalHeader.classList.remove('is-invisible');

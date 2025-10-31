@@ -78,6 +78,15 @@ main{flex:1}
 .sb-header.sb-header--fixed.no-anim{ transition: none !important }
 /* Prevent brief drop-shadow flash on icon during instant swap */
 .sb-header.sb-header--fixed.no-anim .logo-icon{ filter: none !important }
+/* While the fixed header is animating at the true top, neutralize any compositing effects */
+.sb-header.sb-header--fixed.is-top-animating{ filter:none !important }
+.sb-header.sb-header--fixed.is-top-animating .header-inner{
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.sb-header.sb-header--fixed.is-top-animating .brand .logo-icon{ filter:none !important }
 /* Hide normal in-flow header visually (keep space) when fixed clone is visible */
 .sb-header.is-invisible{ visibility:hidden }
 /* Rounded pill island confined to header content width (container) */
