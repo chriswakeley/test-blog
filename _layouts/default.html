@@ -108,13 +108,18 @@
         const update = () => {
           const y = window.scrollY || window.pageYOffset || 0;
           const t = Math.max(0, Math.min(1, y / max));
-          applyVars(normalHeader, t);
+          // Keep the in-flow header visually neutral (no shadow/blur/background)
+          normalHeader.style.setProperty('--header-bg', '0');
+          normalHeader.style.setProperty('--header-blur', '0px');
+          normalHeader.style.setProperty('--header-border', '0');
+          normalHeader.style.setProperty('--header-shadow', '0');
+          // Animate effects only on the fixed clone
           applyVars(fixedHeader, t);
           const dy = y - lastY;
           const fixedNavOpenBtn = fixedHeader.querySelector('.nav-toggle');
           const fixedNavOpen = !!(fixedNavOpenBtn && fixedNavOpenBtn.getAttribute('aria-expanded') === 'true');
           const H = normalHeader.offsetHeight || 64;
-          const TOP_BUFFER = H + 500; // testing: larger buffer to verify clone suppression
+          const TOP_BUFFER = H + 256; // testing: larger buffer to verify clone suppression
 
           if (y <= TOP_THRESH) {
             // At the very top: show normal header, hide fixed clone instantly (no animation)
