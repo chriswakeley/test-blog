@@ -269,10 +269,10 @@ main{flex:1}
 
 /* Course modules: flowing steps (no rectangular cards) */
 .module-flow{display:grid;gap:22px;grid-template-columns:repeat(5, minmax(0,1fr));position:relative;margin-top:12px}
-.module-flow::before{content:"";position:absolute;top:34px;left:0;right:0;height:2px;background:linear-gradient(90deg, rgba(154,12,12,.18), rgba(154,12,12,.06));z-index:0}
+.module-flow::before{content:"";position:absolute;top:40px;left:0;right:0;height:2px;background:linear-gradient(90deg, rgba(154,12,12,.18), rgba(154,12,12,.06));z-index:0}
 .module-flow .step{display:flex;flex-direction:column;align-items:center;text-align:center}
-.module-flow .badge{width:64px;height:64px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);z-index:1}
-.module-flow .badge svg{width:34px;height:34px;display:block}
+.module-flow .badge{width:80px;height:80px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);z-index:1}
+.module-flow .badge svg{width:44px;height:44px;display:block}
 .module-flow .step-num{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;margin-top:8px}
 .module-flow h3{font-size:18px;line-height:1.2;margin:.15rem 0 .2rem}
 .module-flow p{margin:0;opacity:.9;max-width:28ch}
@@ -295,9 +295,9 @@ main{flex:1}
   /* Module flow responsive: stack steps, remove horizontal connector, use media-like layout */
   .module-flow{grid-template-columns:1fr;gap:16px}
   .module-flow::before{display:none}
-  .module-flow .step{align-items:start;text-align:left;display:grid;grid-template-columns:56px 1fr;gap:12px}
-  .module-flow .badge{width:56px;height:56px;margin:0}
-  .module-flow .badge svg{width:28px;height:28px}
+  .module-flow .step{align-items:start;text-align:left;display:grid;grid-template-columns:64px 1fr;gap:12px}
+  .module-flow .badge{width:64px;height:64px;margin:0}
+  .module-flow .badge svg{width:32px;height:32px}
   .brand .logo{ --logo-icon-size:40px }
   .grid.cols-3{grid-template-columns:1fr}
   .features.cols-3{grid-template-columns:1fr}
