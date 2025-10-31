@@ -153,20 +153,24 @@
           const TOP_BUFFER = H + 256; // testing: larger buffer to verify clone suppression
 
           if (y <= TOP_THRESH) {
-            // At the very top: show normal header, hide fixed clone instantly (no animation)
+            // At the very top
             if (fixedHeader.classList.contains('is-visible')) {
               if (animatingIn) {
-                // Defer the instant swap until the slide-in completes
+                // Defer the instant swap until the slide-in completes; keep normal hidden to avoid double headers
                 pendingTopSwap = true;
                 fixedHeader.classList.add('is-top-animating');
+                normalHeader.classList.add('is-invisible');
               } else {
+                // Fixed is visible but not animating: hide it instantly and show normal
                 instantHideFixed();
+                normalHeader.classList.remove('is-invisible');
               }
             } else {
+              // Fixed is not visible, show normal
               fixedHeader.classList.remove('is-visible');
               fixedHeader.setAttribute('aria-hidden', 'true');
+              normalHeader.classList.remove('is-invisible');
             }
-            normalHeader.classList.remove('is-invisible');
           } else if (dy < -DELTA_MIN || fixedNavOpen) {
             // Scrolling up (or fixed menu open): only reveal fixed clone after passing buffer depth
             if (fixedNavOpen || y > TOP_BUFFER) {
