@@ -20,10 +20,6 @@
       <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
         <span class="logo" aria-hidden="true">
           <img class="logo-icon" src="{{ '/assets/images/stress-burner-lotus.svg' | relative_url }}" alt="" />
-          <span class="logo-text">
-            <span class="logo-line">stress</span>
-            <span class="logo-line">burner</span>
-          </span>
         </span>
         <span class="sr-only">{{ site.title }}</span>
       </a>
@@ -58,12 +54,20 @@
           const open = btn.getAttribute('aria-expanded') === 'true';
           btn.setAttribute('aria-expanded', String(!open));
           nav.classList.toggle('open', !open);
+          // Ensure header is visible when menu opens
+          if (!open) {
+            const headerEl = document.querySelector('.sb-header');
+            if (headerEl) headerEl.classList.remove('is-hidden');
+          }
         });
       }
       // Progressive header blur/background on scroll (home page only)
       const header = document.querySelector('.sb-header');
       if (header) {
         let ticking = false;
+        let lastY = window.scrollY || window.pageYOffset || 0;
+        const DELTA_MIN = 4;   // minimal movement to react
+        const SHOW_AT_TOP = 10; // always show near top
         const max = 180; // px of scroll to reach full effect
         const update = () => {
           const y = window.scrollY || window.pageYOffset || 0;
@@ -73,6 +77,21 @@
           header.style.setProperty('--header-blur', (8 * t).toFixed(2) + 'px');
           header.style.setProperty('--header-border', (0.06 * t).toFixed(3));
           header.style.setProperty('--header-shadow', t.toFixed(3));
+          // Auto-hide when scrolling down; show when scrolling up
+          const navOpen = !!(btn && btn.getAttribute('aria-expanded') === 'true');
+          if (navOpen || y <= SHOW_AT_TOP) {
+            header.classList.remove('is-hidden');
+          } else {
+            const dy = y - lastY;
+            if (dy > DELTA_MIN) {
+              // scrolling down
+              header.classList.add('is-hidden');
+            } else if (dy < -DELTA_MIN) {
+              // scrolling up
+              header.classList.remove('is-hidden');
+            }
+          }
+          lastY = y;
           ticking = false;
         };
         update();

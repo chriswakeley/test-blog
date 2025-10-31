@@ -69,8 +69,12 @@ main{flex:1}
   background: transparent; /* island is now applied to the inner content width */
   position:sticky;top:0;z-index:10;
   box-shadow: none;
-  transition: background-color .28s ease, box-shadow .28s ease, backdrop-filter .28s ease;
+  transform: translateY(0);
+  will-change: transform;
+  transition: transform .24s ease, background-color .28s ease, box-shadow .28s ease, backdrop-filter .28s ease;
 }
+/* Auto-hide header when scrolling down */
+.sb-header.is-hidden{ transform: translateY(calc(-100% - 16px)); pointer-events: none }
 /* Rounded pill island confined to header content width (container) */
 .sb-header .header-inner{
   border-radius: 999px;
@@ -88,7 +92,7 @@ main{flex:1}
 /* Start transparent at top of home and let JS animate variables */
 .page-home .sb-header{ --header-bg: 0; --header-blur: 0px; --header-border: 0 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
-/* Brand link: remove underline; simple drop shadow on hover (no neuromorphic background) */
+/* Brand link: remove underline; hover matches nav pill neuromorphism */
 .brand{ text-decoration:none }
 .brand:hover, .brand:focus, .brand:focus-visible{ text-decoration:none }
 .brand .logo{
@@ -104,12 +108,7 @@ main{flex:1}
 .brand:hover .logo-icon, .brand:focus-visible .logo-icon,
 .brand:hover .logo-text, .brand:focus-visible .logo-text,
 .brand:active .logo-icon, .brand:active .logo-text{ filter:none !important }
-.brand:hover .logo, .brand:focus-visible .logo{background:transparent;box-shadow:none}
-.brand:active .logo{box-shadow:none}
 .brand .logo-icon, .brand .logo-text{ transition: filter .22s ease }
-.brand:hover .logo-icon, .brand:focus-visible .logo-icon{ filter: drop-shadow(0 1px 0 rgba(255,255,255,.75)) drop-shadow(0 10px 20px rgba(0,0,0,.22)) }
-.brand:hover .logo-text, .brand:focus-visible .logo-text{ filter: drop-shadow(0 10px 20px rgba(0,0,0,.22)) }
-.brand:active .logo-icon, .brand:active .logo-text{ filter: drop-shadow(0 6px 12px rgba(0,0,0,.24)) }
 .brand .logo-icon{height:var(--logo-icon-size);width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
 .brand .logo-text{display:flex;flex-direction:column;line-height:1}
 .brand .logo-line{font-family:"Walkway", Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; font-weight:600; text-transform:none; letter-spacing:.02em; color:var(--sb-ink); font-size:calc(var(--logo-icon-size) / 2)}
@@ -145,7 +144,7 @@ main{flex:1}
 /* Constrain hero visuals to the same width as primary content by moving background to the inner .container */
 .hero{position:relative;isolation:isolate;margin-top:0}
 /* Layered backgrounds: foreground (1) over background (0) */
-.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:min(96svh, 1100px);padding:calc(48px + 64px) 0 96px;background-image:none;overflow:hidden;z-index:0;border-radius:36px;background-color:var(--sb-warm);background-clip:padding-box;box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06)}
+.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:calc(100svh - 64px - 24px);padding:calc(48px + 64px) 0 96px;background-image:none;overflow:hidden;z-index:0;border-radius:36px;background-color:var(--sb-warm);background-clip:padding-box;box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06)}
 .hero .container::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 /* Individual hero image layers for animation & parallax */
 .hero .bg-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;transform:scale(var(--base-scale)) translate3d(0, var(--scroll-y), 0);transform-origin:50% 50%;background-position:calc(50% + var(--bg-x, 0px)) center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:0;will-change:transform,opacity}
