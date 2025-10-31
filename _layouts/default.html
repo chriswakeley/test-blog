@@ -65,9 +65,9 @@
       const header = document.querySelector('.sb-header');
       if (header) {
         let ticking = false;
-        let lastY = window.scrollY || window.pageYOffset || 0;
-        const DELTA_MIN = 4;   // minimal movement to react
-        const SHOW_AT_TOP = 10; // always show near top
+  let lastY = window.scrollY || window.pageYOffset || 0;
+  const DELTA_MIN = 4;   // minimal movement to react
+  const SHOW_AT_TOP = 0; // start simulating immediately at the top
         const max = 180; // px of scroll to reach full effect
         const update = () => {
           const y = window.scrollY || window.pageYOffset || 0;
@@ -84,27 +84,38 @@
           if (navOpen) {
             // Menu open: always show, reset any inline transform
             header.classList.remove('is-hidden');
+            header.classList.remove('no-anim');
             header.style.transform = '';
+            document.body.style.paddingTop = H + 'px';
           } else if (y <= SHOW_AT_TOP) {
             // At the very top: always show, no transform
             header.classList.remove('is-hidden');
+            header.classList.remove('no-anim');
             header.style.transform = '';
+            document.body.style.paddingTop = H + 'px';
           } else if (dy > DELTA_MIN) {
             // Scrolling down
             if (y <= H) {
               // Special case: from the very top, behave like a normal non-sticky element
               // Move the header up proportionally with scroll until it's fully out
               header.classList.remove('is-hidden');
+              header.classList.add('no-anim');
               header.style.transform = `translateY(${-y}px)`;
+              const pad = Math.max(0, H - y);
+              document.body.style.paddingTop = pad + 'px';
             } else {
               // Past the header height: hide using the standard slide-away class
+              header.classList.remove('no-anim');
               header.style.transform = '';
               header.classList.add('is-hidden');
+              document.body.style.paddingTop = H + 'px';
             }
           } else if (dy < -DELTA_MIN) {
             // Scrolling up: reveal header and clear any simulated transform
             header.classList.remove('is-hidden');
+            header.classList.remove('no-anim');
             header.style.transform = '';
+            document.body.style.paddingTop = H + 'px';
           }
           lastY = y;
           ticking = false;

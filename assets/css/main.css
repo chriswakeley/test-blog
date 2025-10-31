@@ -77,6 +77,8 @@ main{flex:1}
 }
 /* Auto-hide header when scrolling down */
 .sb-header.is-hidden{ transform: translateY(calc(-100% - 16px)); pointer-events: none }
+/* Disable transitions during top-of-page simulation so it feels native */
+.sb-header.no-anim{ transition: none !important }
 /* Rounded pill island confined to header content width (container) */
 .sb-header .header-inner{
   border-radius: 999px;
