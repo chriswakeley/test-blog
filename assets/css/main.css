@@ -276,16 +276,18 @@ main{flex:1}
 .feature-list .feature p{margin:0;grid-column:2}
 .feature-list .feature .btn{grid-column:2}
 
-/* Course modules: flowing steps (no rectangular cards) */
-.module-flow{display:grid;gap:22px;grid-template-columns:repeat(5, minmax(0,1fr));position:relative;margin-top:12px}
-.module-flow::before{content:"";position:absolute;top:40px;left:0;right:0;height:2px;background:linear-gradient(90deg, rgba(154,12,12,.18), rgba(154,12,12,.06));z-index:0}
-.module-flow .step{display:flex;flex-direction:column;align-items:center;text-align:center}
-.module-flow .badge{width:80px;height:80px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);z-index:1}
-.module-flow .badge svg{width:44px;height:44px;display:block}
-.module-flow .badge img{width:44px;height:44px;display:block}
-.module-flow .step-num{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;margin-top:8px}
-.module-flow h3{font-size:18px;line-height:1.2;margin:.15rem 0 .2rem}
-.module-flow p{margin:0;opacity:.9;max-width:28ch}
+/* Course modules: vertical timeline with circular badges */
+.module-flow{position:relative;display:flex;flex-direction:column;gap:22px;margin-top:12px;padding-left:128px}
+/* Vertical connector line centered through badges */
+.module-flow::before{content:"";position:absolute;left:48px;top:0;bottom:0;width:2px;background:linear-gradient(180deg, rgba(154,12,12,.18), rgba(154,12,12,.06));z-index:0}
+/* Each step aligns text to the right of the badge */
+.module-flow .step{position:relative;text-align:left}
+.module-flow .badge{position:absolute;left:0;top:0;width:96px;height:96px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);z-index:1}
+.module-flow .badge svg{width:56px;height:56px;display:block}
+.module-flow .badge img{width:56px;height:56px;display:block}
+.module-flow .step-num{display:inline-block;color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;margin-bottom:4px}
+.module-flow h3{font-size:20px;line-height:1.2;margin:.1rem 0 .2rem}
+.module-flow p{margin:0;opacity:.9;max-width:46ch}
 
 /* Legacy card (kept for testimonials or specific use) */
 .card{background:var(--sb-warm);border-radius:16px;padding:22px;box-shadow:-10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.05)}
@@ -302,13 +304,12 @@ main{flex:1}
 .split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
 
 @media (max-width: 900px){
-  /* Module flow responsive: stack steps, remove horizontal connector, use media-like layout */
-  .module-flow{grid-template-columns:1fr;gap:16px}
-  .module-flow::before{display:none}
-  .module-flow .step{align-items:start;text-align:left;display:grid;grid-template-columns:64px 1fr;gap:12px}
-  .module-flow .badge{width:64px;height:64px;margin:0}
-  .module-flow .badge svg{width:32px;height:32px}
-  .module-flow .badge img{width:32px;height:32px}
+  /* Module flow responsive: vertical timeline with slightly smaller badges */
+  .module-flow{padding-left:100px;gap:16px}
+  .module-flow::before{left:36px}
+  .module-flow .badge{width:72px;height:72px}
+  .module-flow .badge svg{width:44px;height:44px}
+  .module-flow .badge img{width:44px;height:44px}
   .brand .logo{ --logo-icon-size:40px }
   .grid.cols-3{grid-template-columns:1fr}
   .features.cols-3{grid-template-columns:1fr}
