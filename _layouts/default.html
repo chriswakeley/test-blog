@@ -114,7 +114,7 @@
           const fixedNavOpenBtn = fixedHeader.querySelector('.nav-toggle');
           const fixedNavOpen = !!(fixedNavOpenBtn && fixedNavOpenBtn.getAttribute('aria-expanded') === 'true');
           const H = normalHeader.offsetHeight || 64;
-          const TOP_BUFFER = H + 32; // px beyond header height to prevent early fixed reveal (increased)
+          const TOP_BUFFER = H + 128; // testing: larger buffer to verify clone suppression
 
           if (y <= TOP_THRESH) {
             // At the very top: show normal header, hide fixed clone instantly (no animation)
