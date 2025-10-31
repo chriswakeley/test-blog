@@ -62,8 +62,10 @@ main{flex:1}
 .sb-header{
   /* Neumorphic header: soft dual shadows that appear as you scroll */
   --hdr-s: var(--header-shadow, 0);
-  /* Unified pill height for brand and nav items */
-  --nav-pill-height: 44px;
+  /* Unified pill dimensions for brand and nav items */
+  --nav-pill-height: 44px;    /* total height INCLUDING padding (box-sizing: border-box) */
+  --nav-pill-py: 8px;         /* top/bottom padding */
+  --nav-pill-px: 14px;        /* left/right padding */
   background: transparent; /* island is now applied to the inner content width */
   position:sticky;top:0;z-index:10;
   box-shadow: none;
@@ -89,7 +91,13 @@ main{flex:1}
 /* Brand link: remove underline; simple drop shadow on hover (no neuromorphic background) */
 .brand{ text-decoration:none }
 .brand:hover, .brand:focus, .brand:focus-visible{ text-decoration:none }
-.brand .logo{--logo-icon-size:44px;display:flex;align-items:center;gap:10px;min-height:var(--nav-pill-height);padding:0 12px;border-radius:999px;background:transparent;box-shadow:none}
+.brand .logo{
+  --logo-icon-size: calc(var(--nav-pill-height) - (2 * var(--nav-pill-py)));
+  display:inline-flex;align-items:center;gap:10px;
+  height: var(--nav-pill-height);
+  padding: var(--nav-pill-py) var(--nav-pill-px);
+  border-radius:999px;background:transparent;box-shadow:none
+}
 .brand:hover .logo, .brand:focus-visible .logo{background:var(--sb-warm);box-shadow:-6px -6px 14px rgba(255,255,255,.85), 6px 6px 14px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.05)}
 .brand:active .logo{transform:translateY(1px);box-shadow: inset 6px 6px 14px rgba(0,0,0,.14), inset -6px -6px 14px rgba(255,255,255,.25)}
 /* Ensure no inner element drop-shadows on hover for brand */
@@ -111,8 +119,9 @@ main{flex:1}
 .nav-link{
   color:var(--sb-ink);
   font-weight:600;
-  display:flex;align-items:center;min-height:var(--nav-pill-height);
-  padding:0 14px;
+  display:inline-flex;align-items:center;
+  height: var(--nav-pill-height);
+  padding: var(--nav-pill-py) var(--nav-pill-px);
   text-decoration:none;
   border-radius:999px;
   position:relative;
