@@ -95,7 +95,7 @@
       const fixedHeader = document.getElementById('sb-header-fixed');
       if (normalHeader && fixedHeader) {
         let ticking = false;
-        let lastY = window.scrollY || window.pageYOffset || 0;
+  let lastY = window.scrollY || window.pageYOffset || 0;
   const DELTA_MIN = 4;
   const TOP_THRESH = 0; // swap back only at the true top
         const max = 180;
@@ -113,6 +113,8 @@
           const dy = y - lastY;
           const fixedNavOpenBtn = fixedHeader.querySelector('.nav-toggle');
           const fixedNavOpen = !!(fixedNavOpenBtn && fixedNavOpenBtn.getAttribute('aria-expanded') === 'true');
+          const H = normalHeader.offsetHeight || 64;
+          const TOP_BUFFER = H + 12; // px beyond header height to prevent early fixed reveal
 
           if (y <= TOP_THRESH) {
             // At the very top: show normal header, hide fixed clone instantly (no animation)
@@ -128,10 +130,17 @@
             }
             normalHeader.classList.remove('is-invisible');
           } else if (dy < -DELTA_MIN || fixedNavOpen) {
-            // Scrolling up (or fixed menu open): show fixed clone and hide normal visually
-            fixedHeader.classList.add('is-visible');
-            fixedHeader.setAttribute('aria-hidden', 'false');
-            normalHeader.classList.add('is-invisible');
+            // Scrolling up (or fixed menu open): only reveal fixed clone after passing buffer depth
+            if (fixedNavOpen || y > TOP_BUFFER) {
+              fixedHeader.classList.add('is-visible');
+              fixedHeader.setAttribute('aria-hidden', 'false');
+              normalHeader.classList.add('is-invisible');
+            } else {
+              // Still within buffer near the top: keep using normal header without showing fixed
+              fixedHeader.classList.remove('is-visible');
+              fixedHeader.setAttribute('aria-hidden', 'true');
+              normalHeader.classList.remove('is-invisible');
+            }
           } else if (dy > DELTA_MIN) {
             // Scrolling down: hide fixed clone; normal remains invisible but off-screen naturally
             fixedHeader.classList.remove('is-visible');
