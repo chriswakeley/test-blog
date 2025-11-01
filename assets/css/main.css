@@ -492,9 +492,10 @@ main{flex:1}
 .hero .cta-row{animation:rise .44s ease-out .36s both}
 
 /* Course title hero with parallax inside container width */
-.title-hero .title-hero-inner{ position:relative; min-height:480px; display:flex; align-items:center; overflow:hidden; border-radius:12px; border:2px solid var(--sb-gold);
+.title-hero .title-hero-inner{ position:relative; min-height:560px; display:flex; align-items:center; overflow:hidden; border-radius:12px;
   box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
 .title-hero .course-title{ color:#fff }
+.title-hero .section-intro.on-parallax .course-kicker{ max-width: 60ch }
 .title-hero .title-hero-inner .parallax-stack{ position:absolute; inset:0; height:100%; min-height:0; z-index:0 }
 .title-hero .title-hero-inner .section-intro.on-parallax{ position:relative; z-index:1 }
 /* Use wide stones images for title background */

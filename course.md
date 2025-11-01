@@ -74,8 +74,6 @@ permalink: /course/
     </div>
       </div>
     </div>
-    
-  </div>
   </div>
 </div>
 <!-- Outcomes & benefits (staggered cloud layout, not cards) -->
@@ -128,11 +126,10 @@ permalink: /course/
 <!-- Laser Coaching Spotlight — Variant B: Card on edge (dark spotlight, simplified) -->
 <div class="container section laser-spotlight is-dark is-simple" id="laser-coaching">
   <div class="laser-card edge">
-    <!-- Simplified: keep just the three value pillars, with title and subheader above -->
     <div class="laser-copy">
-  <span class="overline-label">Personalized support</span>
-  <h2>Laser Coaching</h2>
-  <p>A precision 1:1 session with Unyong to remove blockers fast—so you keep moving without the stress spiral.</p>
+      <span class="overline-label">Personalized support</span>
+      <h2>Laser Coaching</h2>
+      <p>A precision 1:1 session with Unyong to remove blockers fast—so you keep moving without the stress spiral.</p>
 
       <ul class="feature-list pillars">
         <li class="feature">
@@ -148,10 +145,7 @@ permalink: /course/
           <p>7‑day micro check‑ins to keep momentum.</p>
         </li>
       </ul>
-
-      
     </div>
-    
   </div>
 </div>
 
