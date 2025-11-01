@@ -326,13 +326,31 @@ main{flex:1}
 .options-compare::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);border-left:2px dashed var(--sb-gold);opacity:.55;pointer-events:none}
 .overline-label{letter-spacing:.06em;text-transform:uppercase;color:var(--sb-gold);font-weight:700;font-size:.78rem;margin:0 0 10px 4px}
 .price-card{background:var(--sb-warm);border:3px solid var(--sb-gold);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:0;display:flex;flex-direction:column;gap:12px;overflow:hidden;--pc-pad:28px;padding-bottom:var(--pc-pad)}
-.price-card{position:relative;--mouse-x:50%;--mouse-y:50%;--glow-r1:800px;--glow-r2:600px;--glow-before:rgba(255,255,255,0.08);--glow-after:rgba(255,255,255,0.30)}
+.price-card{position:relative;--mouse-x:50%;--mouse-y:50%;--glow-r1:800px;--glow-r2:600px;--glow-before:rgba(255,255,255,0.08);--glow-after:rgba(255,255,255,0.30);--ring:3px}
 .price-card > *{position:relative;z-index:2}
 /* Spotlight hover glow (base) */
 .price-card::before,
-.price-card::after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .45s ease;pointer-events:none}
-.price-card::before{background:radial-gradient(var(--glow-r1) circle at var(--mouse-x) var(--mouse-y), var(--glow-before), transparent 40%);z-index:1}
-.price-card::after{background:radial-gradient(var(--glow-r2) circle at var(--mouse-x) var(--mouse-y), var(--glow-after), transparent 40%);z-index:0}
+.price-card::after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .45s ease;pointer-events:none;padding:var(--ring)}
+.price-card::before{background:radial-gradient(var(--glow-r1) circle at var(--mouse-x) var(--mouse-y), var(--glow-before), transparent 40%);z-index:1;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+.price-card::after{background:radial-gradient(var(--glow-r2) circle at var(--mouse-x) var(--mouse-y), var(--glow-after), transparent 40%);z-index:0;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
 .price-card:hover::before{opacity:1}
 .options-compare:hover .price-card::after{opacity:1}
 /* Subtle vs strong tuning */
