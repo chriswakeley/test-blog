@@ -122,7 +122,6 @@ permalink: /course/
 <!-- Laser Coaching Spotlight — Variant B: Card on edge (dark spotlight, simplified) -->
 <div class="container section laser-spotlight is-dark is-simple" id="laser-coaching">
   <div class="laser-card edge">
-    <div class="laser-edge" aria-hidden="true"></div>
     <!-- Simplified: keep just the three value pillars, with title and subheader above -->
     <div class="laser-copy">
       <span class="overline-label">Personalized support</span>

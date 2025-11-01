@@ -568,11 +568,13 @@ main{flex:1}
   background: rgba(255,255,255,.06);
   box-shadow: none;
   border-radius:12px;
-  padding:10px 12px;
+  padding:14px 10px; /* thinner sides, a bit more vertical */
+  min-height:120px; /* taller */
+  display:flex; flex-direction:column; justify-content:center;
 }
 .laser-spotlight.is-dark .feature-list.pillars .feature h3{ color:#F8FAFC }
 .laser-spotlight.is-dark .feature-list.pillars .feature p{ color:#ECF2F8; opacity:.9 }
-.laser-spotlight.is-dark .feature-list.pillars .feature .icon{ filter:none; opacity:.95 }
+.laser-spotlight.is-dark .feature-list.pillars .feature .icon{ filter:none; opacity:.95; width:24px; height:24px }
 /* Dark process list */
 .laser-spotlight.is-dark .how-steps li{
   background: rgba(255,255,255,.06);
@@ -585,13 +587,7 @@ main{flex:1}
 .laser-spotlight.is-dark .coach-avatar{ background: radial-gradient(80% 80% at 30% 30%, rgba(182,138,90,.35), rgba(182,138,90,.08)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08) }
 
 /* Animated laser accent (gentle) */
-.laser-spotlight .laser-card .laser-edge::after{
-  content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(182,138,90,0), rgba(182,138,90,.28), rgba(182,138,90,0));
-  transform: translateY(-100%);
-  animation: laserSweep 14s linear infinite;
-}
-@keyframes laserSweep{ 0%{ transform: translateY(-100%) } 50%{ transform: translateY(0) } 100%{ transform: translateY(100%) } }
-@media (prefers-reduced-motion: reduce){ .laser-spotlight .laser-card .laser-edge::after{ animation: none } }
+/* Laser edge accent removed for simplified variant */
 
 /* Spacing and layout refinements for readability */
 .laser-spotlight .laser-card{ padding:28px }
