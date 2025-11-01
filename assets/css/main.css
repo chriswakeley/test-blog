@@ -550,7 +550,12 @@ main{flex:1}
   background: linear-gradient(135deg, #3b2e2e 0%, #6a3e3e 50%, #3b2e2e 100%);
   color:#ECF2F8;
   border:0;
-  box-shadow: 0 10px 30px rgba(11,18,32,.5);
+  /* Neumorphic-style shadows on dark surface */
+  box-shadow:
+    -12px -12px 24px rgba(255,255,255,.04),
+    12px 12px 28px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(0,0,0,.22);
   overflow:hidden;
 }
 .laser-spotlight.is-dark h2{ color:#ECF2F8 }
@@ -563,11 +568,17 @@ main{flex:1}
 .laser-spotlight.is-dark .feature-list.pillars{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; margin-top:8px }
 .laser-spotlight.is-dark .feature-list.pillars .feature{
   background: rgba(255,255,255,.06);
-  box-shadow: none;
-  border-radius:12px;
+  border-radius:14px;
   padding:14px 10px; /* thinner sides, a bit more vertical */
   min-height:120px; /* taller */
   display:flex; flex-direction:column; justify-content:center;
+  /* Neumorphic tile shadows */
+  box-shadow:
+    -8px -8px 18px rgba(255,255,255,.04),
+    8px 8px 18px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.05),
+    inset 0 -1px 0 rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.04);
 }
 .laser-spotlight.is-dark .feature-list.pillars .feature h3{ color:#F8FAFC }
 .laser-spotlight.is-dark .feature-list.pillars .feature p{ color:#ECF2F8; opacity:.9 }
@@ -596,6 +607,10 @@ main{flex:1}
 @media (max-width: 900px){
   .laser-spotlight.is-dark .feature-list.pillars{ grid-template-columns:1fr }
 }
+
+/* Underline style for Laser Coaching title to match other sections */
+.laser-spotlight .laser-copy h2{ position:relative; padding-bottom:8px }
+.laser-spotlight .laser-copy h2::after{ content:""; position:absolute; left:0; bottom:0; width:56px; height:2px; background: var(--sb-gold) }
 
 /* Simple variant: just the three pillars */
 .laser-spotlight.is-simple .laser-card{ grid-template-columns: 1fr }
