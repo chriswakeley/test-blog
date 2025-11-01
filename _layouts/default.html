@@ -437,12 +437,12 @@
           tiltY += (targetTiltY - tiltY) * 0.12;
           tiltX += (targetTiltX - tiltX) * 0.12;
           const tFactor = isMobile ? 1 : 0; // only enable tilt on mobile widths
-          const addBgY = tFactor * (tiltY * 30) - 200 + mobileOffset/1.2;
-          const addMidY = tFactor * (tiltY * 18) - 80 + mobileOffset;
-          const addForeY = tFactor * (tiltY * -8) + 25 - mobileOffset;
-          const addBgX = tFactor * (tiltX * 16);
-          const addMidX = tFactor * (tiltX * 11);
-          const addForeX = tFactor * (tiltX * -5);
+          const addBgY = tFactor * (tiltY * 30) - 200 + mobileOffset/1;
+          const addMidY = tFactor * (tiltY * 18) - 80 + mobileOffset/0.5;
+          const addForeY = tFactor * (tiltY * -8) + 25 - mobileOffset/0.7;
+          const addBgX = tFactor * (tiltX * 10);
+          const addMidX = tFactor * (tiltX * 6);
+          const addForeX = tFactor * (tiltX * -3);
 
           const bg = stack.querySelector('.stones-bg, .parallax-layer.bg');
           const mid = stack.querySelector('.stones-mid, .parallax-layer.mid');
