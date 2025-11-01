@@ -424,7 +424,7 @@ main{flex:1}
 /* Align stones layers to bottom so they aren't cropped on mobile */
 .stones-parallax .parallax-layer{ background-position: left bottom }
 /* Smaller subtext variant under the title */
-.section-intro .course-kicker.small{font-size:16px; line-height:1.5; opacity:.9}
+.section-intro .course-kicker.small{font-size:16px; line-height:1.5; opacity:.9; font-weight:400}
 
 @media (max-width: 900px){
   /* Match home page feel and account for notches/safe areas */
