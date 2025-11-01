@@ -8,6 +8,7 @@ permalink: /course/
 <div class="container section">
   <div class="section-intro align-left" style="margin:0 0 18px 0">
     <h1 class="course-title">Stress Burner Blueprint</h1>
+    <p class="course-kicker">A five‑week, practice‑based path to lower stress, build steady energy, and make calm your default—without adding overwhelm.</p>
   </div>
   <div class="split">
     <div>

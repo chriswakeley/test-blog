@@ -388,27 +388,15 @@ main{flex:1}
 /* Footer */
 .sb-footer{background:transparent;border-top:1px solid rgba(0,0,0,.04);padding:28px 0;margin-top:56px;box-shadow: inset 0 1px 0 rgba(255,255,255,.65)}
 
-/* Subtle background wave for outcomes section */
-.outcomes-section{position:relative;isolation:isolate;overflow:hidden}
-.outcomes-section::before{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  left:50%; width:100vw; transform:translateX(-50%);
-  pointer-events:none;
-  z-index:-1;
-  /* Soft, full-bleed radial wash that fades at edges */
-  background:
-    radial-gradient(140% 80% at 0% 40%, rgba(182,138,90,.10), rgba(182,138,90,0) 60%),
-    radial-gradient(140% 80% at 100% 60%, rgba(111,141,123,.10), rgba(111,141,123,0) 60%);
-}
+/* Outcomes section background removed per request */
 
 /* Responsive */
 /* Split layout to pair media with features */
 .split{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
 .split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
 /* Skinny portrait media for side-by-side with timeline */
-.split .split-media.skinny{max-width:360px;justify-self:end}
+.split .split-media.skinny{max-width:360px;justify-self:end;align-self:stretch;display:flex}
+.split .split-media.skinny img{height:100%;object-fit:cover}
 
 @media (max-width: 900px){
   /* Match home page feel and account for notches/safe areas */
@@ -456,6 +444,7 @@ main{flex:1}
   .panel-media img{max-height:320px}
   .split{grid-template-columns:1fr}
   .split .split-media.skinny{max-width:none;justify-self:stretch}
+  .split .split-media.skinny img{height:auto}
 }
 
 /* Appear animations */
