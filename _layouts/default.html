@@ -414,8 +414,8 @@
           const isMobile = (window.innerWidth || 0) <= 900;
           const scale = isMobile ? 1.0 : 1.3;
           // Match hero depths (largest for far background)
-          const mBg = 700 * scale;
-          const mMid = 550 * scale;
+          const mBg = 300 * scale;
+          const mMid = 100 * scale;
           const mFore = -100 * scale;
           // Smooth tilt easing (match hero amplitudes)
           tiltY += (targetTiltY - tiltY) * 0.12;
@@ -423,7 +423,7 @@
           const tFactor = isMobile ? 1 : 0; // only enable tilt on mobile widths
           const addBgY = tFactor * (tiltY * 30);
           const addMidY = tFactor * (tiltY * 18);
-          const addForeY = tFactor * (tiltY * 8);
+          const addForeY = tFactor * (tiltY * 8) - 200;
           const addBgX = tFactor * (tiltX * 16);
           const addMidX = tFactor * (tiltX * 11);
           const addForeX = tFactor * (tiltX * 5);
