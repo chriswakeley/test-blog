@@ -7,7 +7,7 @@ permalink: /course/
 <!-- Page title & subheader as its own section -->
 <section class="section">
   <div class="container container-narrow">
-    <div class="section-intro align-left">
+    <div class="section-intro">
       <h1 class="course-title">Stress Burner Blueprint</h1>
       <p class="course-kicker small">A five‑week, practice‑based path to lower stress, build steady energy, and cultivate lasting calm.</p>
     </div>
@@ -17,6 +17,7 @@ permalink: /course/
 
 <!-- Title + Modules up front with side-by-side image on desktop -->
 <div class="container section">
+  <div class="course-panel">
   <div class="split">
     <div>
       <div class="module-flow">
@@ -77,6 +78,7 @@ permalink: /course/
         <img src="{{ '/assets/images/stonestack-midground.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" />
       </noscript>
     </div>
+  </div>
   </div>
 </div>
 <!-- Outcomes & benefits (staggered cloud layout, not cards) -->

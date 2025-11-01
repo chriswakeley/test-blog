@@ -491,6 +491,10 @@ main{flex:1}
 .hero .subtitle{animation:rise .44s ease-out .30s both}
 .hero .cta-row{animation:rise .44s ease-out .36s both}
 
+/* Course page: bordered panel around modules (match homepage Blueprint style) */
+.course-panel{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding:22px; background: var(--sb-warm);
+  box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
+
 /* Homepage Feature Panel (replaces Build calm section) */
 .feature-panel{ background: var(--sb-warm); padding: clamp(24px, 4vw, 48px) 0 }
 .feature-panel__inner{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding: clamp(28px, 5vw, 56px); background: var(--sb-warm); box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
