@@ -136,9 +136,12 @@ permalink: /course/
           <img class="icon" src="{{ '/assets/images/targeticon.svg' | relative_url }}" alt="" aria-hidden="true" />
           <h3>Targeted</h3>
           <p>Zero in on the one thing bottlenecking your progress.</p>
-        </div>
-      </div>
-    </div>
+        </li>
+        <li class="feature">
+          <img class="icon" src="{{ '/assets/images/bolticon.svg' | relative_url }}" alt="" aria-hidden="true" />
+          <h3>Fast</h3>
+          <p>Get unstuck in a focused 25–40 minute session.</p>
+        </li>
         <li class="feature">
           <img class="icon" src="{{ '/assets/images/check-no-background.svg' | relative_url }}" alt="" aria-hidden="true" />
           <h3>Follow‑through</h3>
