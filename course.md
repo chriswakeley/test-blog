@@ -4,15 +4,19 @@ title: Course
 permalink: /course/
 ---
 
-<!-- Page title & subheader as its own section -->
-<section class="section">
-  <div class="container container-narrow">
-    <div class="section-intro">
+<!-- Page title & subheader over parallax stones background -->
+<section class="section title-hero">
+  <div class="container container-narrow title-hero-inner">
+    <div class="parallax-stack stones-title-parallax" role="img" aria-label="Stacked stones balanced in calm water">
+      <div class="parallax-layer stones-bg" aria-hidden="true"></div>
+      <div class="parallax-layer stones-mid" aria-hidden="true"></div>
+      <div class="parallax-layer stones-fore" aria-hidden="true"></div>
+    </div>
+    <div class="section-intro align-left on-parallax">
       <h1 class="course-title">Stress Burner Blueprint</h1>
       <p class="course-kicker small">A five‑week, practice‑based path to lower stress, build steady energy, and cultivate lasting calm.</p>
     </div>
   </div>
-  
 </section>
 
 <!-- Title + Modules up front with side-by-side image on desktop -->
@@ -68,16 +72,7 @@ permalink: /course/
     </div>
       </div>
     </div>
-    <div class="split-media skinny" style="max-width:none;">
-      <div class="parallax-stack stones-parallax" role="img" aria-label="Stacked stones balanced in calm water">
-        <div class="parallax-layer stones-bg" aria-hidden="true"></div>
-        <div class="parallax-layer stones-mid" aria-hidden="true"></div>
-        <div class="parallax-layer stones-fore" aria-hidden="true"></div>
-      </div>
-      <noscript>
-        <img src="{{ '/assets/images/stonestack-midground.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" />
-      </noscript>
-    </div>
+    
   </div>
   </div>
 </div>
