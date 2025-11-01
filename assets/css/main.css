@@ -549,8 +549,8 @@ main{flex:1}
 
 /* Distinct dark variant inspired by the original concept */
 .laser-spotlight.is-dark .laser-card{
-  /* Replace radial with even, legible surface */
-  background: linear-gradient(135deg, #0B1220 0%, #1B2436 50%, #0B1220 100%);
+  /* Maroon spotlight: warm ink base with richer maroon midtone */
+  background: linear-gradient(135deg, #3b2e2e 0%, #6a3e3e 50%, #3b2e2e 100%);
   color:#ECF2F8;
   border:0;
   box-shadow: 0 10px 30px rgba(11,18,32,.5);
@@ -603,3 +603,8 @@ main{flex:1}
 @media (max-width: 900px){
   .laser-spotlight.is-dark .feature-list.pillars{ grid-template-columns:1fr }
 }
+
+/* Simple variant: just the three pillars */
+.laser-spotlight.is-simple .laser-card{ grid-template-columns: 1fr }
+.laser-spotlight.is-simple .laser-copy{ gap: 0 }
+.laser-spotlight.is-simple .pillars{ margin-top:0 }

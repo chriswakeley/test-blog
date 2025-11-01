@@ -119,15 +119,12 @@ permalink: /course/
   </div>
 </div>
 
-<!-- Laser Coaching Spotlight — Variant B: Card on edge (dark spotlight) -->
-<div class="container section laser-spotlight is-dark" id="laser-coaching">
+<!-- Laser Coaching Spotlight — Variant B: Card on edge (dark spotlight, simplified) -->
+<div class="container section laser-spotlight is-dark is-simple" id="laser-coaching">
   <div class="laser-card edge">
     <div class="laser-edge" aria-hidden="true"></div>
-    <!-- Left: persuasion copy and pillars -->
+    <!-- Simplified: keep just the three value pillars -->
     <div class="laser-copy">
-      <span class="overline-label">Personalized support</span>
-      <h2>Laser Coaching: clarity and momentum in one focused session</h2>
-      <p>A precision 1:1 session with Unyong to remove blockers fast—so you keep moving without the stress spiral.</p>
 
       <ul class="feature-list pillars">
         <li class="feature">
@@ -149,37 +146,7 @@ permalink: /course/
 
       
     </div>
-
-    <!-- Right: process, proof, coach card -->
-    <div class="laser-proof">
-      <ol id="laser-how" class="how-steps">
-        <li>
-          <div class="num" aria-hidden="true">1</div>
-          <div><strong>Pinpoint (5 min)</strong><div>Quick intake to identify your highest‑leverage move.</div></div>
-        </li>
-        <li>
-          <div class="num" aria-hidden="true">2</div>
-          <div><strong>Deep dive (35–40 min)</strong><div>Coaching + practices (breath, EFT, priorities) to clear the block.</div></div>
-        </li>
-        <li>
-          <div class="num" aria-hidden="true">3</div>
-          <div><strong>Lock in (7 days)</strong><div>Micro check‑ins and a tiny habit to cement the shift.</div></div>
-        </li>
-      </ol>
-
-      <figure class="quote-small">
-        <blockquote>“In 40 minutes we cut my overwhelm in half and I finally sent the proposal the same day.”</blockquote>
-        <figcaption>— J., Designer</figcaption>
-      </figure>
-
-      <div class="card coach-card">
-        <img class="coach-photo" src="{{ '/assets/images/unyong-kim-author.jpg' | relative_url }}" alt="Unyong Kim" loading="lazy" width="44" height="44" />
-        <div>
-          <strong>Unyong</strong>
-          <div>300+ focused sessions helping busy people de‑stress and move.</div>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </div>
 
