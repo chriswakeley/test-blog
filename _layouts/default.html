@@ -391,6 +391,95 @@
             .catch(() => { /* no-op if SVG fails to load */ });
         } catch { /* ignore */ }
       }
+
+      // Initialize layered parallax stacks (e.g., stones on course page)
+      (function initParallaxStacks(){
+        const stacks = Array.from(document.querySelectorAll('.parallax-stack'));
+        if (!stacks.length) return;
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+        const px = (n) => `${Math.round(n)}px`;
+        let ticking = false;
+        // Shared device tilt state
+        let tiltY = 0, tiltX = 0, targetTiltY = 0, targetTiltX = 0;
+        let beta0 = null, gamma0 = null;
+        let tiltEnabled = false;
+
+        const updateStack = (stack) => {
+          if (prefersReduced || !stack.isConnected) return;
+          const rect = stack.getBoundingClientRect();
+          const vh = window.innerHeight || 1;
+          // When the stack enters the viewport, progress from 0..1 over its height
+          const topProgress = clamp((vh - rect.top) / (rect.height || 1), 0, 1);
+          const t = topProgress;
+          const isMobile = (window.innerWidth || 0) <= 900;
+          const scale = isMobile ? 1.0 : 1.2;
+          // Depth factors
+          const mBg = 220 * scale;
+          const mMid = 150 * scale;
+          const mFore = 90 * scale;
+          // Smooth tilt easing
+          tiltY += (targetTiltY - tiltY) * 0.12;
+          tiltX += (targetTiltX - tiltX) * 0.12;
+          const tFactor = isMobile ? 1 : 0; // only enable tilt on mobile
+          const addBgY = tFactor * (tiltY * 28);
+          const addMidY = tFactor * (tiltY * 18);
+          const addForeY = tFactor * (tiltY * 10);
+          const addBgX = tFactor * (tiltX * 14);
+          const addMidX = tFactor * (tiltX * 10);
+          const addForeX = tFactor * (tiltX * 6);
+
+          const bg = stack.querySelector('.stones-bg, .parallax-layer.bg');
+          const mid = stack.querySelector('.stones-mid, .parallax-layer.mid');
+          const fore = stack.querySelector('.stones-fore, .parallax-layer.fore');
+          if (bg) { bg.style.setProperty('--scroll-y', px((t * mBg) + addBgY)); bg.style.setProperty('--bg-x', px(addBgX)); }
+          if (mid) { mid.style.setProperty('--scroll-y', px((t * mMid) + addMidY)); mid.style.setProperty('--bg-x', px(addMidX)); }
+          if (fore) { fore.style.setProperty('--scroll-y', px((t * mFore) + addForeY)); fore.style.setProperty('--bg-x', px(addForeX)); }
+        };
+
+        const onScroll = () => {
+          if (ticking) return; ticking = true;
+          requestAnimationFrame(() => {
+            stacks.forEach(updateStack);
+            ticking = false;
+          });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', () => { requestAnimationFrame(onScroll); }, { passive: true });
+        onScroll();
+
+        // Device orientation activation
+        const tryEnableTilt = async () => {
+          if (tiltEnabled || prefersReduced) return;
+          const isMobile = (window.innerWidth || 0) <= 900;
+          if (!isMobile) return;
+          try {
+            if (typeof window.DeviceOrientationEvent !== 'undefined' && typeof window.DeviceOrientationEvent.requestPermission === 'function') {
+              const res = await window.DeviceOrientationEvent.requestPermission();
+              if (res !== 'granted') return;
+            }
+            const onOrient = (e) => {
+              const beta = typeof e.beta === 'number' ? e.beta : 0;
+              const gamma = typeof e.gamma === 'number' ? e.gamma : 0;
+              if (beta0 === null) beta0 = beta;
+              if (gamma0 === null) gamma0 = gamma;
+              const dBeta = beta - beta0;
+              const dGamma = gamma - gamma0;
+              targetTiltY = clamp(dBeta / 30, -1, 1);
+              targetTiltX = clamp(dGamma / 30, -1, 1);
+              onScroll();
+            };
+            window.addEventListener('deviceorientation', onOrient, true);
+            tiltEnabled = true;
+          } catch {}
+        };
+        if (typeof window.DeviceOrientationEvent !== 'undefined' && typeof window.DeviceOrientationEvent.requestPermission !== 'function') {
+          tryEnableTilt();
+        }
+        const onceActivate = () => { tryEnableTilt(); window.removeEventListener('touchend', onceActivate); window.removeEventListener('click', onceActivate); };
+        window.addEventListener('touchend', onceActivate, { passive: true, once: true });
+        window.addEventListener('click', onceActivate, { once: true });
+      })();
     })();
   </script>
 </body>

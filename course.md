@@ -61,7 +61,14 @@ permalink: /course/
       </div>
     </div>
     <div class="split-media skinny" style="max-width:none;">
-      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" style="max-width:none; object-position:left;" />
+      <div class="parallax-stack stones-parallax" role="img" aria-label="Stacked stones balanced in calm water">
+        <div class="parallax-layer stones-bg" aria-hidden="true"></div>
+        <div class="parallax-layer stones-mid" aria-hidden="true"></div>
+        <div class="parallax-layer stones-fore" aria-hidden="true"></div>
+      </div>
+      <noscript>
+        <img src="{{ '/assets/images/stonestack-midground.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" />
+      </noscript>
     </div>
   </div>
 </div>
