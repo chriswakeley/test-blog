@@ -426,7 +426,7 @@ main{flex:1}
   .options-compare::before{content:none}
   .price-card{padding:0; --pc-pad:22px; padding-bottom: var(--pc-pad)}
   /* Ensure watercolor banners remain visible and similarly positioned on mobile */
-  .price-card.modules{ background-size:140% auto; background-position:center -30% }
+  .price-card.modules{ background-size:140% auto; background-position:center -130% }
   .price-card.coaching{ background-size:140% auto; background-position:center -10% }
   .brand .logo{ --logo-icon-size:40px }
   .grid.cols-3{grid-template-columns:1fr}
