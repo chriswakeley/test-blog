@@ -61,7 +61,7 @@ permalink: /course/
       </div>
     </div>
     <div class="split-media skinny">
-      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" style="max-width:none;" />
+      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" style="max-width:none; object-position:left;" />
     </div>
   </div>
 </div>
