@@ -491,6 +491,20 @@ main{flex:1}
 .hero .subtitle{animation:rise .44s ease-out .30s both}
 .hero .cta-row{animation:rise .44s ease-out .36s both}
 
+/* Homepage Feature Panel (replaces Build calm section) */
+.feature-panel{ background: var(--sb-warm); padding: clamp(24px, 4vw, 48px) 0 }
+.feature-panel__inner{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding: clamp(28px, 5vw, 56px); background:#fff; box-shadow: 0 12px 32px rgba(0,0,0,.05) }
+.feature-panel__title{ margin:0 0 8px; text-align:center; color:#6a3e3e; font-size: clamp(28px, 4vw, 40px); line-height:1.1 }
+.feature-panel__subtitle{ margin:0 0 28px; text-align:center; color:#6b5c5c }
+.feature-grid{ display:grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: clamp(20px, 3vw, 36px); align-items:stretch; margin-bottom: 28px }
+.feature-card{ display:flex; flex-direction:column; gap:10px; background:#fff; border-radius:14px; padding:24px; box-shadow: 0 12px 32px rgba(0,0,0,.06) }
+.feature-icon{ color: var(--sb-gold) }
+.feature-card .icon{ width:44px; height:44px; display:block }
+.feature-card__title{ margin:6px 0 2px; color:#6a3e3e; font-size:18px }
+.feature-list.bullets{ margin:8px 0 0; padding-left:18px; color: var(--sb-ink); line-height:1.6 }
+@media (max-width: 980px){ .feature-grid{ grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 640px){ .feature-grid{ grid-template-columns: 1fr } }
+
 /* Laser Coaching Spotlight (cohesive with site theme) */
 .laser-spotlight .laser-card{
   position:relative;

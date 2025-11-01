@@ -14,15 +14,58 @@ title: Home
   </div>
 </section>
 
-<section class="section gallery-left-warm">
-  <div class="container container-narrow">
-    {% include section-intro.html align='left' eyebrow="The Blueprint" title="Build calm into your day" text="Practical tools and gentle structure to reduce stress, prevent burnout, and make space for joy." %}
-    <div class="feature-list">
-      {% include feature.html icon="/assets/images/leaf.svg" title="On‑the‑spot stress reduction" text="Quick, practical tools you can use anywhere—no mat or special setup required." %}
-      {% include feature.html icon="/assets/images/calendar.svg" title="Prevent burnout before it starts" text="Build sustainable micro‑habits that protect your energy and restore clarity." %}
-      {% include feature.html icon="/assets/images/check.svg" title="Transform root‑cause habits" text="Shift patterns that keep stress stuck so you can enjoy more ease and flow." %}
+<!-- Feature Panel: replaces "Build calm into your day" section -->
+<section class="feature-panel">
+  <div class="feature-panel__inner container">
+    <h2 class="feature-panel__title">Unlock Your Inner Calm</h2>
+    <p class="feature-panel__subtitle">Dive deeper into Stress Burner</p>
+
+    <div class="feature-grid">
+      <!-- Card 1 -->
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <img class="icon" src="{{ '/assets/images/openbookicon.svg' | relative_url }}" alt="" />
+        </div>
+        <h3 class="feature-card__title">Modules &amp; Content</h3>
+        <ul class="feature-list bullets">
+          <li>5 weeks of video lessons</li>
+          <li>Downloadable worksheets</li>
+          <li>Audio meditations</li>
+        </ul>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <img class="icon" src="{{ '/assets/images/communityicon.svg' | relative_url }}" alt="" />
+        </div>
+        <h3 class="feature-card__title">Community &amp; Support</h3>
+        <ul class="feature-list bullets">
+          <li>Private forum access</li>
+          <li>Weekly group calls</li>
+          <li>Accountability partners</li>
+        </ul>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <img class="icon" src="{{ '/assets/images/planticon.svg' | relative_url }}" alt="" />
+        </div>
+        <h3 class="feature-card__title">Personal Transformation</h3>
+        <ul class="feature-list bullets">
+          <li>1:1 laser coaching session</li>
+          <li>Journaling prompts</li>
+          <li>Mindfulness practices</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="cta-row" style="justify-content:center">
+      <a href="/course/" class="btn">Explore All Features</a>
     </div>
   </div>
+  
 </section>
 
 <section class="section">
