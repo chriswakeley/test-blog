@@ -22,7 +22,7 @@ permalink: /course/
 <!-- Modules section -->
 <div class="container section">
   <div class="container-narrow modules-panel">
-    <div class="section-intro align-left">
+    <div class="section-intro">
       <h2>Inside the Blueprint</h2>
       <p>A five‑module path to build calm, focus, and momentum—one week at a time.</p>
     </div>
