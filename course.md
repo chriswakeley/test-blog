@@ -173,7 +173,7 @@ permalink: /course/
       </figure>
 
       <div class="card coach-card">
-        <div class="coach-avatar" aria-hidden="true"></div>
+        <img class="coach-photo" src="{{ '/assets/images/unyong-kim-author.jpg' | relative_url }}" alt="Unyong Kim" loading="lazy" width="44" height="44" />
         <div>
           <strong>Unyong</strong>
           <div>300+ focused sessions helping busy people de‑stress and move.</div>

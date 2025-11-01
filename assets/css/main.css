@@ -549,8 +549,8 @@ main{flex:1}
 
 /* Distinct dark variant inspired by the original concept */
 .laser-spotlight.is-dark .laser-card{
-  background:
-    radial-gradient(140% 140% at 0% 0%, rgba(69,225,197,0.06) 0%, rgba(27,36,54,1) 42%, rgba(11,18,32,1) 100%);
+  /* Replace radial with even, legible surface */
+  background: linear-gradient(135deg, #0B1220 0%, #1B2436 50%, #0B1220 100%);
   color:#ECF2F8;
   border:0;
   box-shadow: 0 10px 30px rgba(11,18,32,.5);
@@ -579,8 +579,9 @@ main{flex:1}
   box-shadow: none;
 }
 .laser-spotlight.is-dark .how-steps .num{ background: rgba(182,138,90,.18); color: var(--sb-gold) }
-.laser-spotlight.is-dark .quote-small{ background: rgba(255,255,255,.06); border-left-color: var(--sb-gold) }
-.laser-spotlight.is-dark .card.coach-card{ background: rgba(255,255,255,.05) }
+.laser-spotlight.is-dark .quote-small{ background: rgba(255,255,255,.06); border-left-color: var(--sb-gold); box-shadow:none }
+.laser-spotlight.is-dark .card.coach-card{ background: rgba(255,255,255,.05); box-shadow:none; border:1px solid rgba(255,255,255,.06) }
+.laser-spotlight.is-dark .coach-card strong{ color:#ECF2F8 }
 .laser-spotlight.is-dark .coach-avatar{ background: radial-gradient(80% 80% at 30% 30%, rgba(182,138,90,.35), rgba(182,138,90,.08)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08) }
 
 /* Animated laser accent (gentle) */
@@ -597,6 +598,8 @@ main{flex:1}
 .laser-spotlight .laser-copy{ display:flex; flex-direction:column; gap:10px }
 .laser-spotlight .laser-proof{ display:flex; flex-direction:column; gap:12px }
 .laser-spotlight .pillars{ margin-top:10px }
+/* Coach photo style for dark surface */
+.laser-spotlight .coach-photo{ width:44px; height:44px; border-radius:50%; object-fit:cover; display:block; box-shadow:0 1px 0 rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.06) }
 @media (max-width: 900px){
   .laser-spotlight.is-dark .feature-list.pillars{ grid-template-columns:1fr }
 }
