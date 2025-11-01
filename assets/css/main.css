@@ -689,7 +689,8 @@ main{flex:1}
     border-radius: 0 !important;
     align-items: flex-start !important;
     min-height: calc(100svh - 64px - 24px) !important;
-    padding: calc(24px + 64px) 0 44px !important;
+    /* Make text a bit lower and add horizontal padding like the homepage hero */
+    padding: calc(44px + 64px) calc(24px + env(safe-area-inset-right, 0px)) 48px calc(24px + env(safe-area-inset-left, 0px)) !important;
   }
   .title-hero .section-intro.on-parallax{ margin-top: 0 }
 }
