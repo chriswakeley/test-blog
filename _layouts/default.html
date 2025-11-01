@@ -301,6 +301,7 @@
           // Scale motion
           const isMobile = (window.innerWidth || 0) <= 900;
           const scale = isMobile ? 1.0 : 1.3;
+          const mobileOffset = isMobile ? 32 : 0;
           // Downward movement: flowers (least), foreground (more), background 0 (most)
           const mf = 60 * scale;    // flowers overlay (smallest)
           const m1 = 250 * scale;   // foreground (middle)
@@ -317,9 +318,9 @@
           const add0x = tFactor * (tiltX * 16); // was 30
           const add1x = tFactor * (tiltX * 11); // was 20
           const addFx = tFactor * (tiltX * 5);  // was 8
-          if (bg0) { bg0.style.setProperty('--scroll-y', px((t * m0) + add0y)); bg0.style.setProperty('--bg-x', px(add0x)); }
-          if (bg1) { bg1.style.setProperty('--scroll-y', px((t * m1) + add1y)); bg1.style.setProperty('--bg-x', px(add1x)); }
-          if (flowers) { flowers.style.setProperty('--scroll-y', px((t * mf) + addFy)); flowers.style.setProperty('--scroll-x', px(addFx)); }
+          if (bg0) { bg0.style.setProperty('--scroll-y', px((t * m0) + add0y + mobileOffset)); bg0.style.setProperty('--bg-x', px(add0x)); }
+          if (bg1) { bg1.style.setProperty('--scroll-y', px((t * m1) + add1y + mobileOffset)); bg1.style.setProperty('--bg-x', px(add1x)); }
+          if (flowers) { flowers.style.setProperty('--scroll-y', px((t * mf) + addFy + mobileOffset)); flowers.style.setProperty('--scroll-x', px(addFx)); }
           ticking2 = false;
         };
         const onScroll = () => { if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); } };
@@ -415,6 +416,7 @@
           const t = clamp((vh - rect.top) / travel, 0, 1);
           const isMobile = (window.innerWidth || 0) <= 900;
           const scale = isMobile ? 1.0 : 1.3;
+          const mobileOffset = isMobile ? 32 : 0;
           // Match hero depths (largest for far background)
           const mBg = 300 * scale;
           const mMid = 100 * scale;
@@ -433,9 +435,9 @@
           const bg = stack.querySelector('.stones-bg, .parallax-layer.bg');
           const mid = stack.querySelector('.stones-mid, .parallax-layer.mid');
           const fore = stack.querySelector('.stones-fore, .parallax-layer.fore');
-          if (bg) { bg.style.setProperty('--scroll-y', px((t * mBg) + addBgY)); bg.style.setProperty('--bg-x', px(addBgX)); }
-          if (mid) { mid.style.setProperty('--scroll-y', px((t * mMid) + addMidY)); mid.style.setProperty('--bg-x', px(addMidX)); }
-          if (fore) { fore.style.setProperty('--scroll-y', px((t * mFore) + addForeY)); fore.style.setProperty('--bg-x', px(addForeX)); }
+          if (bg) { bg.style.setProperty('--scroll-y', px((t * mBg) + addBgY + mobileOffset)); bg.style.setProperty('--bg-x', px(addBgX)); }
+          if (mid) { mid.style.setProperty('--scroll-y', px((t * mMid) + addMidY + mobileOffset)); mid.style.setProperty('--bg-x', px(addMidX)); }
+          if (fore) { fore.style.setProperty('--scroll-y', px((t * mFore) + addForeY + mobileOffset)); fore.style.setProperty('--bg-x', px(addForeX)); }
         };
 
         const onScroll = () => {
