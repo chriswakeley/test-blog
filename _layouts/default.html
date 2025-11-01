@@ -425,7 +425,7 @@
           tiltY += (targetTiltY - tiltY) * 0.12;
           tiltX += (targetTiltX - tiltX) * 0.12;
           const tFactor = isMobile ? 1 : 0; // only enable tilt on mobile widths
-          const addBgY = tFactor * (tiltY * 30) - 200 + mobileOffset/1.5;
+          const addBgY = tFactor * (tiltY * 30) - 200 + mobileOffset/1.2;
           const addMidY = tFactor * (tiltY * 18) - 80 + mobileOffset;
           const addForeY = tFactor * (tiltY * 8) + 25 - mobileOffset;
           const addBgX = tFactor * (tiltX * 16);
