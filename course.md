@@ -124,9 +124,9 @@ permalink: /course/
   <div class="laser-card edge">
     <!-- Simplified: keep just the three value pillars, with title and subheader above -->
     <div class="laser-copy">
-      <span class="overline-label">Personalized support</span>
-      <h2>Laser Coaching: clarity and momentum in one focused session</h2>
-      <p>A precision 1:1 session with Unyong to remove blockers fast—so you keep moving without the stress spiral.</p>
+  <span class="overline-label">Personalized support</span>
+  <h2>Laser Coaching</h2>
+  <p>A precision 1:1 session with Unyong to remove blockers fast—so you keep moving without the stress spiral.</p>
 
       <ul class="feature-list pillars">
         <li class="feature">

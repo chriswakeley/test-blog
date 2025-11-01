@@ -510,10 +510,7 @@ main{flex:1}
   background-position:center -10%;
   background-origin:border-box;
 }
-.laser-spotlight .laser-card::after{
-  content:""; position:absolute; right:10px; top:12px; bottom:12px; width:4px; border-radius:4px;
-  background:linear-gradient(180deg, rgba(182,138,90,.9), rgba(182,138,90,0)); opacity:.75;
-}
+/* Removed right-edge accent stripe for simplified variant */
 .laser-spotlight h2{font-size:32px; line-height:1.15}
 .laser-spotlight p{opacity:.95}
 .laser-spotlight .pillars{margin-top:8px}
@@ -560,7 +557,7 @@ main{flex:1}
 .laser-spotlight.is-dark p{ color:#ECF2F8; opacity:.9 }
 .laser-spotlight.is-dark .overline-label{ color: var(--sb-gold) }
 .laser-spotlight .laser-card.edge{ position:relative }
-.laser-spotlight .laser-card .laser-edge{ position:absolute; right:-1px; top:12px; bottom:12px; width:6px; border-radius:6px; background: linear-gradient(180deg, rgba(182,138,90,.9), rgba(182,138,90,0)); opacity:.85 }
+/* Removed .laser-edge element styles */
 .laser-spotlight .cta-row{ justify-content:flex-start }
 /* Dark pill tiles */
 .laser-spotlight.is-dark .feature-list.pillars{ grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; margin-top:8px }
