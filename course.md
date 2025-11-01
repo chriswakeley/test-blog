@@ -10,7 +10,7 @@ permalink: /course/
     <div>
       <div class="section-intro align-left" style="margin:0 0 18px 0">
         <h1 class="course-title">Stress Burner Blueprint</h1>
-        <p class="course-kicker small">A five‑week, practice‑based path to lower stress, build steady energy, and make calm your default—without adding overwhelm.</p>
+  <p class="course-kicker small">A five‑week, practice‑based path to lower stress, build steady energy, and make calm your default.</p>
       </div>
       <div class="module-flow">
     <!-- Step 1 -->
@@ -19,8 +19,8 @@ permalink: /course/
         <img src="{{ '/assets/images/module1icon.svg' | relative_url }}" alt="" />
       </div>
       <span class="step-num">Module 1</span>
-      <h3>Conscious breath</h3>
-      <p>Use breath to quickly shift state and lower stress load.</p>
+  <h3>Conscious breathing</h3>
+  <p>Use your breath to quickly shift state and lower your stress load.</p>
     </div>
     <!-- Step 2 -->
     <div class="step">
@@ -29,7 +29,7 @@ permalink: /course/
       </div>
       <span class="step-num">Module 2</span>
       <h3>Emotional Freedom Technique</h3>
-      <p>Gentle tapping patterns to calm the body‑mind in minutes.</p>
+  <p>Gentle tapping to calm your body‑mind in minutes.</p>
     </div>
     <!-- Step 3 -->
     <div class="step">
@@ -38,7 +38,7 @@ permalink: /course/
       </div>
       <span class="step-num">Module 3</span>
       <h3>Thoughts are things</h3>
-      <p>Shift your inner narrative to change how stress lands.</p>
+  <p>Shift your inner narrative so stress affects you less.</p>
     </div>
     <!-- Step 4 -->
     <div class="step">
@@ -56,12 +56,12 @@ permalink: /course/
       </div>
       <span class="step-num">Module 5</span>
       <h3>Integration</h3>
-      <p>Pull it all together and leverage your life right now.</p>
+  <p>Pull it all together and apply it to your life right now.</p>
     </div>
       </div>
     </div>
     <div class="split-media skinny">
-      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" />
+      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" style="max-width:none;" />
     </div>
   </div>
 </div>
@@ -70,7 +70,7 @@ permalink: /course/
   <div class="section-intro has-accent align-left">
     <span class="eyebrow">Outcomes</span>
     <h2>What you’ll walk away with</h2>
-    <p>Clarity, tools, and a calmer baseline—so stress no longer runs the day.</p>
+  <p>Clarity, tools, and a calmer baseline—so stress no longer runs your day.</p>
   </div>
   <div class="outcomes-cloud">
     <div class="outcome">
@@ -79,7 +79,7 @@ permalink: /course/
       </div>
       <div>
         <h3>On‑the‑spot relief</h3>
-        <p>Fast resets to downshift nervous‑system load in 2–5 minutes.</p>
+  <p>Fast resets to downshift your nervous system in 2–5 minutes.</p>
       </div>
     </div>
     <div class="outcome">
@@ -88,7 +88,7 @@ permalink: /course/
       </div>
       <div>
         <h3>Daily flow, not force</h3>
-        <p>Replace stress loops with tiny, elegant habits that are easy to keep.</p>
+  <p>Replace stress loops with tiny, elegant habits that are easy to stick with.</p>
       </div>
     </div>
     <div class="outcome">
@@ -106,7 +106,7 @@ permalink: /course/
       </div>
       <div>
         <h3>Clarity and calm</h3>
-        <p>Know what matters next and move through the day with less noise.</p>
+  <p>Know what matters next and move through your day with less noise.</p>
       </div>
     </div>
   </div>
@@ -117,7 +117,7 @@ permalink: /course/
   <div class="section-intro align-left" style="margin:0 0 10px 0">
     <span class="eyebrow">Choose your path</span>
     <h2>Two ways to take the Blueprint</h2>
-    <p>Pick the format that fits your season. You’ll receive a follow‑up email with your registration link after checkout.</p>
+  <p>Pick the format that fits your schedule. You’ll receive a follow‑up email with your registration link after checkout.</p>
   </div>
   <div class="options-compare">
     <!-- Left: Self-guided modules -->
@@ -126,7 +126,7 @@ permalink: /course/
         <div class="card-hero">
           <img class="hero-emblem" src="{{ '/assets/images/notebook.svg' | relative_url }}" alt="Notebook icon" />
         </div>
-        <h3 class="card-title">Blueprint (Self‑Directed)</h3>
+  <h3 class="card-title">Blueprint (Self‑Guided)</h3>
         <p class="card-price">$100</p>
         <p class="card-blurb">Stream the full program at your pace with simple, repeatable practices.</p>
         <ul class="features-plain">
