@@ -290,7 +290,7 @@
   let tiltEnabled = false;
 
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-        const px = (n) => `${Math.round(n)}px`;
+  const px = (n) => `${Number(n).toFixed(2)}px`;
         const updateParallax = () => {
           if (!heroSection || prefersReduced) { ticking2 = false; return; }
           const rect = heroSection.getBoundingClientRect();
@@ -399,21 +399,33 @@
         if (!stacks.length) return;
         const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-        const px = (n) => `${Math.round(n)}px`;
+  const px = (n) => `${Number(n).toFixed(2)}px`;
         let ticking = false;
         // Shared device tilt state
         let tiltY = 0, tiltX = 0, targetTiltY = 0, targetTiltX = 0;
         let beta0 = null, gamma0 = null;
         let tiltEnabled = false;
+        // Stable viewport base to avoid iOS toolbar-induced innerHeight jitter
+        let vhBase = window.innerHeight || 1;
+        let vwBase = window.innerWidth || 1;
+        const updateViewportBase = () => {
+          const h = window.innerHeight || 1;
+          const w = window.innerWidth || 1;
+          // Only update when there is a significant change (orientation swap etc.)
+          if (Math.abs(h - vhBase) > 120 || Math.abs(w - vwBase) > 80) {
+            vhBase = h; vwBase = w;
+          }
+        };
 
         const updateStack = (stack) => {
           if (prefersReduced || !stack.isConnected) return;
-          // Calculate progress from the stack's position in the viewport rather than page top
+          // Calculate progress from the stack's absolute position using a stable viewport base
+          const y = window.scrollY || window.pageYOffset || 0;
           const rect = stack.getBoundingClientRect();
-          const vh = window.innerHeight || 1;
-          const travel = (vh + (rect.height || 0)) || 1; // element traverses entire viewport
-          // Top at bottom => 0, bottom past top => 1
-          const t = clamp((vh - rect.top) / travel, 0, 1);
+          const stackTopAbs = y + rect.top;
+          const travel = (vhBase + (rect.height || 0)) || 1; // element traverses viewport base + its own height
+          // Top reaching bottom of stable viewport => 0; bottom crossing top => 1
+          const t = clamp((y + vhBase - stackTopAbs) / travel, 0, 1);
           const isMobile = (window.innerWidth || 0) <= 900;
           const scale = isMobile ? 0.7 : 1.0;
           const mobileOffset = isMobile ? 24 : 0;
@@ -427,10 +439,10 @@
           const tFactor = isMobile ? 1 : 0; // only enable tilt on mobile widths
           const addBgY = tFactor * (tiltY * 30) - 200 + mobileOffset/1.2;
           const addMidY = tFactor * (tiltY * 18) - 80 + mobileOffset;
-          const addForeY = tFactor * (tiltY * 8) + 25 - mobileOffset;
+          const addForeY = tFactor * (tiltY * -8) + 25 - mobileOffset;
           const addBgX = tFactor * (tiltX * 16);
           const addMidX = tFactor * (tiltX * 11);
-          const addForeX = tFactor * (tiltX * 5);
+          const addForeX = tFactor * (tiltX * -5);
 
           const bg = stack.querySelector('.stones-bg, .parallax-layer.bg');
           const mid = stack.querySelector('.stones-mid, .parallax-layer.mid');
@@ -448,7 +460,8 @@
           });
         };
         window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', () => { requestAnimationFrame(onScroll); }, { passive: true });
+  window.addEventListener('resize', () => { updateViewportBase(); requestAnimationFrame(onScroll); }, { passive: true });
+  window.addEventListener('orientationchange', () => { vhBase = window.innerHeight || vhBase; vwBase = window.innerWidth || vwBase; requestAnimationFrame(onScroll); }, { passive: true });
         onScroll();
 
         // Device orientation activation
