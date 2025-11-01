@@ -251,6 +251,8 @@ main{flex:1}
 /* Optional accent image behind section intro */
 .section-intro.has-accent{position:relative;isolation:isolate}
 .section-intro.has-accent::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-14px;width:min(900px,90%);height:220px;background:url('../images/chaos-order.png') center/cover no-repeat;opacity:.08;pointer-events:none;z-index:-1;background-image:image-set(url('../images/chaos-order.webp') type('image/webp') 1x, url('../images/chaos-order.png') type('image/png') 1x)}
+/* Disable accent background for Outcomes section intro only */
+.outcomes-section .section-intro.has-accent::after{ content: none !important }
 
 /* Editorial panel */
 .panel{display:grid;grid-template-columns:1.15fr 1fr;grid-template-areas:"media body";gap:28px;align-items:center;background:var(--sb-warm);border-radius:16px;padding:22px;box-shadow:-10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.05)}
@@ -610,8 +612,8 @@ main{flex:1}
 
 /* Distinct dark variant inspired by the original concept */
 .laser-spotlight.is-dark .laser-card{
-  /* Maroon spotlight: warm ink base with richer maroon midtone */
-  background: linear-gradient(135deg, #3b2e2e 0%, #6a3e3e 50%, #3b2e2e 100%);
+  /* Maroon spotlight: subtler gradient by bringing endpoints closer to midtone */
+  background: linear-gradient(135deg, #5f3c3c 0%, #6a3e3e 50%, #5f3c3c 100%);
   color:#ECF2F8;
   border:0;
   /* Neumorphic-style shadows on dark surface */
@@ -680,6 +682,15 @@ main{flex:1}
 .laser-spotlight.is-simple .laser-card{ grid-template-columns: 1fr }
 .laser-spotlight.is-simple .laser-copy{ gap: 10px }
 .laser-spotlight.is-simple .pillars{ margin-top:8px }
+
+/* Desktop: keep title/subheader left edge no farther left than modules panel (container-narrow width) */
+@media (min-width: 901px){
+  .title-hero .section-intro.on-parallax{
+    max-width: 860px; /* matches .container-narrow */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 /* Final mobile overrides placed after base rules to ensure they win the cascade */
 @media (max-width: 900px){
