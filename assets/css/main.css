@@ -320,14 +320,16 @@ main{flex:1}
 .option:hover .option-badge{box-shadow:-10px -10px 22px rgba(255,255,255,.9), 10px 10px 22px rgba(0,0,0,.11)}
 
 /* Pricing compare (two-column with dashed divider and labeled cards) */
-.options-compare{position:relative;display:grid;grid-template-columns:repeat(2, minmax(280px, 1fr));gap:56px;align-items:start}
+.options-compare{position:relative;display:grid;grid-template-columns:repeat(2, minmax(280px, 1fr));gap:56px;align-items:stretch}
+.options-compare > div{display:flex}
+.options-compare > div > .price-card{height:100%}
 .options-compare::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);border-left:2px dashed var(--sb-gold);opacity:.55;pointer-events:none}
 .overline-label{letter-spacing:.06em;text-transform:uppercase;color:var(--sb-gold);font-weight:700;font-size:.78rem;margin:0 0 10px 4px}
 .price-card{background:var(--sb-warm);border:1.5px solid var(--sb-gold);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:0;display:flex;flex-direction:column;gap:12px;overflow:hidden;--pc-pad:28px;padding-bottom:var(--pc-pad)}
 .price-card .card-title{font-size:24px;line-height:1.2;margin:.2rem 0 .2rem;color:var(--sb-gold);font-weight:700}
 .price-card .card-price{font-weight:800;font-size:1.5rem;margin:.2rem 0 .4rem}
 .price-card .card-blurb{opacity:.92;margin:.1rem 0 .6rem}
-.price-card .cta-row{justify-content:flex-start}
+.price-card .cta-row{justify-content:flex-start;margin-top:auto}
 /* Left card hero reserved area for emblem */
 .card-hero{position:relative;border-radius:0;overflow:hidden;min-height:180px;background:none}
 .card-hero .hero-emblem{position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);width:72px;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.12))}
@@ -341,14 +343,14 @@ main{flex:1}
   background-image:url('../images/greenwatercolorbanner.webp');
   background-repeat:no-repeat;
   background-size:100% auto; /* same width as card, height auto */
-  background-position:center 40%;
+  background-position:top center; /* anchor to top of card */
   background-origin:border-box;
 }
 .price-card.coaching{
   background-image:url('../images/watercolorcardbanner.webp');
   background-repeat:no-repeat;
   background-size:100% auto; /* same width as card, height auto */
-  background-position:center 20%;
+  background-position:top center; /* anchor to top of card */
   background-origin:border-box;
 }
 /* Apply side padding to content sections so media touches the inner border without covering it */
@@ -359,6 +361,9 @@ main{flex:1}
 .price-card .features-check,
 .price-card .subtle-divider,
 .price-card .cta-row{ padding-left: var(--pc-pad); padding-right: var(--pc-pad); }
+/* Allow features list to expand to fill remaining space so CTAs align at bottom */
+.price-card .features-plain,
+.price-card .features-check{ flex:1 1 auto; min-height:0 }
 /* Harmonize subsection heights for cross-card alignment */
 .price-card .card-title{ min-height: 2.4em }
 .price-card .card-price{ min-height: 1.6em }
