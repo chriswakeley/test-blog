@@ -318,8 +318,8 @@
           const add0x = tFactor * (tiltX * 16); // was 30
           const add1x = tFactor * (tiltX * 11); // was 20
           const addFx = tFactor * (tiltX * 5);  // was 8
-          if (bg0) { bg0.style.setProperty('--scroll-y', px((t * m0) + add0y + mobileOffset)); bg0.style.setProperty('--bg-x', px(add0x)); }
-          if (bg1) { bg1.style.setProperty('--scroll-y', px((t * m1) + add1y + mobileOffset)); bg1.style.setProperty('--bg-x', px(add1x)); }
+          if (bg0) { bg0.style.setProperty('--scroll-y', px((t * m0) + add0y + mobileOffset)); bg0.style.setProperty('--scroll-x', px(add0x)); }
+          if (bg1) { bg1.style.setProperty('--scroll-y', px((t * m1) + add1y + mobileOffset)); bg1.style.setProperty('--scroll-x', px(add1x)); }
           if (flowers) { flowers.style.setProperty('--scroll-y', px((t * mf) + addFy + mobileOffset)); flowers.style.setProperty('--scroll-x', px(addFx)); }
           ticking2 = false;
         };
@@ -435,9 +435,9 @@
           const bg = stack.querySelector('.stones-bg, .parallax-layer.bg');
           const mid = stack.querySelector('.stones-mid, .parallax-layer.mid');
           const fore = stack.querySelector('.stones-fore, .parallax-layer.fore');
-          if (bg) { bg.style.setProperty('--scroll-y', px((t * mBg) + addBgY + mobileOffset)); bg.style.setProperty('--bg-x', px(addBgX)); }
-          if (mid) { mid.style.setProperty('--scroll-y', px((t * mMid) + addMidY + mobileOffset)); mid.style.setProperty('--bg-x', px(addMidX)); }
-          if (fore) { fore.style.setProperty('--scroll-y', px((t * mFore) + addForeY + mobileOffset)); fore.style.setProperty('--bg-x', px(addForeX)); }
+          if (bg) { bg.style.setProperty('--scroll-y', px((t * mBg) + addBgY + mobileOffset)); bg.style.setProperty('--scroll-x', px(addBgX)); }
+          if (mid) { mid.style.setProperty('--scroll-y', px((t * mMid) + addMidY + mobileOffset)); mid.style.setProperty('--scroll-x', px(addMidX)); }
+          if (fore) { fore.style.setProperty('--scroll-y', px((t * mFore) + addForeY + mobileOffset)); fore.style.setProperty('--scroll-x', px(addForeX)); }
         };
 
         const onScroll = () => {

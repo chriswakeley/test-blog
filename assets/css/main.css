@@ -176,7 +176,7 @@ main{flex:1}
 .hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:calc(100svh - 64px - 24px);padding:calc(48px + 64px) 0 96px;background-image:none;overflow:hidden;z-index:0;border-radius:36px;background-color:var(--sb-warm);background-clip:padding-box;box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06)}
 .hero .container::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 /* Individual hero image layers for animation & parallax */
-.hero .bg-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;transform:scale(var(--base-scale)) translate3d(0, var(--scroll-y), 0);transform-origin:50% 50%;background-position:calc(50% + var(--bg-x, 0px)) center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:0;will-change:transform,opacity}
+.hero .bg-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--scroll-x:0px;transform:scale(var(--base-scale)) translate3d(var(--scroll-x), var(--scroll-y), 0);transform-origin:50% 50%;background-position:center center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:0;will-change:transform,opacity}
 .hero .bg-layer.bg-0{
   background-image:url('../images/hero-background-layer-0.png');
   background-image:image-set(
@@ -399,7 +399,7 @@ main{flex:1}
 .split .split-media.skinny img{height:100%;object-fit:cover}
 /* Generic layered parallax stack (reused on course page stones) */
 .parallax-stack{position:relative;display:block;width:100%;height:100%;min-height:560px}
-.parallax-stack .parallax-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--bg-x:0px;transform:scale(var(--base-scale)) translate3d(0, var(--scroll-y), 0);transform-origin:50% 50%;background-position:calc(0% + var(--bg-x)) center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:1;will-change:transform,opacity}
+.parallax-stack .parallax-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--scroll-x:0px;transform:scale(var(--base-scale)) translate3d(var(--scroll-x), var(--scroll-y), 0);transform-origin:50% 50%;background-position:center center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:1;will-change:transform,opacity}
 /* Stones stack specific backgrounds and depth scaling */
 .stones-parallax .stones-bg{
   z-index:0;
@@ -422,7 +422,7 @@ main{flex:1}
   background-image:image-set(url('../images/stonestack-foreground.webp') type('image/webp') 1x);
 }
 /* Align stones layers to bottom so they aren't cropped on mobile */
-.stones-parallax .parallax-layer{ background-position: calc(0% + var(--bg-x)) bottom }
+.stones-parallax .parallax-layer{ background-position: left bottom }
 /* Smaller subtext variant under the title */
 .section-intro .course-kicker.small{font-size:16px; line-height:1.5; opacity:.9}
 
