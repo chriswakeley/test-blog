@@ -395,7 +395,7 @@ main{flex:1}
 .split{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
 .split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
 /* Skinny portrait media for side-by-side with timeline */
-.split .split-media.skinny{max-width:420px;justify-self:end;align-self:stretch;display:flex}
+.split .split-media.skinny{max-width:420px;justify-self:end;align-self:stretch;display:flex;width:100%;min-width:0}
 .split .split-media.skinny img{height:100%;object-fit:cover}
 /* Generic layered parallax stack (reused on course page stones) */
 .parallax-stack{position:relative;display:block;width:100%;height:100%;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.06)}
