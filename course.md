@@ -138,8 +138,8 @@ permalink: /course/
   <div class="options-compare">
     <!-- Left: Self-guided modules -->
     <div>
-      <div class="price-card">
-        <div class="card-hero" style="background-image: url('{{ '/assets/images/greenwatercolorbanner.webp' | relative_url }}'); background-position: center 40%;">
+      <div class="price-card modules">
+        <div class="card-hero">
           <img class="hero-emblem" src="{{ '/assets/images/notebook.svg' | relative_url }}" alt="Notebook icon" />
         </div>
         <h3 class="card-title">Blueprint (Self‑Directed)</h3>
@@ -159,8 +159,8 @@ permalink: /course/
 
     <!-- Right: Blueprint + Coaching -->
     <div>
-      <div class="price-card">
-        <div class="media-band" style="background-image: url('{{ '/assets/images/watercolorcardbanner.webp' | relative_url }}'); background-position: center 20%;">
+      <div class="price-card coaching">
+        <div class="media-band">
           <img class="media-center" src="{{ '/assets/images/coachingicon.svg' | relative_url }}" alt="Coaching icon" />
         </div>
         <h3 class="card-title">Blueprint + Coaching</h3>
