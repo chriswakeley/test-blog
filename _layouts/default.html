@@ -415,7 +415,7 @@
           // Top at bottom => 0, bottom past top => 1
           const t = clamp((vh - rect.top) / travel, 0, 1);
           const isMobile = (window.innerWidth || 0) <= 900;
-          const scale = isMobile ? 1.0 : 1.0;
+          const scale = isMobile ? 0.7 : 1.0;
           const mobileOffset = isMobile ? 24 : 0;
           // Match hero depths (largest for far background)
           const mBg = 300 * scale;
