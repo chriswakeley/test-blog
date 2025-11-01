@@ -13,7 +13,7 @@ permalink: /course/
       <div class="parallax-layer stones-fore" aria-hidden="true"></div>
     </div>
     <div class="section-intro align-left on-parallax">
-      <h1 class="course-title">Stress Burner Blueprint</h1>
+  <h1 class="course-title">stress burner blueprint</h1>
       <p class="course-kicker small">A five‑week, practice‑based path to lower stress, build steady energy, and cultivate lasting calm.</p>
     </div>
   </div>
@@ -22,9 +22,9 @@ permalink: /course/
 <!-- Modules section -->
 <div class="container section">
   <div class="container-narrow modules-panel">
-    <div class="section-intro">
-      <span class="eyebrow">Modules</span>
+    <div class="section-intro align-left">
       <h2>Inside the Blueprint</h2>
+      <p>A five‑module path to build calm, focus, and momentum—one week at a time.</p>
     </div>
     <div class="module-flow">
     <!-- Step 1 -->

@@ -173,7 +173,7 @@ main{flex:1}
 /* Constrain hero visuals to the same width as primary content by moving background to the inner .container */
 .hero{position:relative;isolation:isolate;margin-top:24px}
 /* Layered backgrounds: foreground (1) over background (0) */
-.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:calc(100svh - 64px - 24px);padding:calc(48px + 64px) 0 96px;background-image:none;overflow:hidden;z-index:0;border-radius:36px;background-color:var(--sb-warm);background-clip:padding-box;box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06)}
+.hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:calc(100svh - 64px - 24px - 24px);padding:calc(48px + 64px) 0 96px;background-image:none;overflow:hidden;z-index:0;border-radius:36px;background-color:var(--sb-warm);background-clip:padding-box;box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06)}
 .hero .container::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 /* Individual hero image layers for animation & parallax */
 .hero .bg-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--scroll-x:0px;transform:scale(var(--base-scale)) translate3d(var(--scroll-x), var(--scroll-y), 0);transform-origin:50% 50%;background-position:center center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:0;will-change:transform,opacity}
@@ -234,7 +234,7 @@ main{flex:1}
 .section{padding:72px 0}
 .title-hero{ margin-top:24px }
 /* Remove top padding for the course title hero so it sits flush under the nav */
-.title-hero.section{ padding-top: 0 }
+.title-hero.section{ padding-top: 0; padding-bottom: 0 }
 .section-intro{margin:-8px 0 28px 0;text-align:center}
 .section-intro .eyebrow{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;display:block;margin-bottom:.25rem}
 .section-intro h2{font-size:40px;line-height:1.1;margin:0 0 .4rem}
