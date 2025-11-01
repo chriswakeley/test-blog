@@ -180,3 +180,28 @@ permalink: /course/
   </div>
   <p style="margin-top:12px; opacity:.9"><em>After checkout, you’ll receive an email with a link to complete your registration and get access.</em></p>
 </div>
+
+<script>
+  (function(){
+    const container = document.querySelector('.options-compare');
+    if(!container) return;
+    const setVars = (e) => {
+      const cards = container.querySelectorAll('.price-card');
+      for (const card of cards) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', x + 'px');
+        card.style.setProperty('--mouse-y', y + 'px');
+      }
+    };
+    container.addEventListener('mousemove', setVars);
+    container.addEventListener('mouseleave', () => {
+      const cards = container.querySelectorAll('.price-card');
+      for (const card of cards) {
+        card.style.removeProperty('--mouse-x');
+        card.style.removeProperty('--mouse-y');
+      }
+    });
+  })();
+  </script>
