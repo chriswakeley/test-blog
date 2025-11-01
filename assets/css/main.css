@@ -493,11 +493,12 @@ main{flex:1}
 
 /* Homepage Feature Panel (replaces Build calm section) */
 .feature-panel{ background: var(--sb-warm); padding: clamp(24px, 4vw, 48px) 0 }
-.feature-panel__inner{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding: clamp(28px, 5vw, 56px); background:#fff; box-shadow: 0 12px 32px rgba(0,0,0,.05) }
-.feature-panel__title{ margin:0 0 8px; text-align:center; color:#6a3e3e; font-size: clamp(28px, 4vw, 40px); line-height:1.1 }
+.feature-panel__inner{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding: clamp(28px, 5vw, 56px); background: var(--sb-warm); box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
+.feature-panel__title{ margin:0 0 8px; text-align:center; color:#6a3e3e; font-size: clamp(28px, 4vw, 40px); line-height:1.1; position:relative; padding-bottom:8px }
+.feature-panel__title::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:0; width:56px; height:2px; background: var(--sb-gold) }
 .feature-panel__subtitle{ margin:0 0 28px; text-align:center; color:#6b5c5c }
 .feature-grid{ display:grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: clamp(20px, 3vw, 36px); align-items:stretch; margin-bottom: 28px }
-.feature-card{ display:flex; flex-direction:column; gap:10px; background:#fff; border-radius:14px; padding:24px; box-shadow: 0 12px 32px rgba(0,0,0,.06) }
+.feature-card{ display:flex; flex-direction:column; gap:10px; background: var(--sb-warm); border-radius:14px; padding:24px; box-shadow: -8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08) }
 .feature-icon{ color: var(--sb-gold) }
 .feature-card .icon{ width:44px; height:44px; display:block }
 .feature-card__title{ margin:6px 0 2px; color:#6a3e3e; font-size:18px }

@@ -17,8 +17,8 @@ title: Home
 <!-- Feature Panel: replaces "Build calm into your day" section -->
 <section class="feature-panel">
   <div class="feature-panel__inner container">
-    <h2 class="feature-panel__title">Unlock Your Inner Calm</h2>
-    <p class="feature-panel__subtitle">Dive deeper into Stress Burner</p>
+    <h2 class="feature-panel__title">The Blueprint</h2>
+    <p class="feature-panel__subtitle">A five‑week, practice‑based path to reduce stress, build steady energy, and cultivate lasting calm.</p>
 
     <div class="feature-grid">
       <!-- Card 1 -->
