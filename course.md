@@ -75,7 +75,6 @@ permalink: /course/
       </div>
     </div>
   </div>
-</div>
 <!-- Outcomes & benefits (staggered cloud layout, not cards) -->
 <div class="container section outcomes-section">
   <div class="section-intro has-accent align-left">
