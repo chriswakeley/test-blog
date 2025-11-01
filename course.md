@@ -119,6 +119,71 @@ permalink: /course/
   </div>
 </div>
 
+<!-- Laser Coaching Spotlight — Variant B: Card on edge (bleeds into pricing) -->
+<div class="container section laser-spotlight" id="laser-coaching" style="padding-top:0;">
+  <div class="edge-card" style="background: radial-gradient(120% 120% at 0% 0%, rgba(69,225,197,0.12) 0%, rgba(27,36,54,1) 40%, rgba(11,18,32,1) 100%); color:#F8FAFC; border-radius:16px; box-shadow: 0 10px 30px rgba(11,18,32,.5); padding: 28px; display:flex; gap:28px; align-items:stretch; margin-top: -12px; margin-bottom:-36px; position:relative; overflow:hidden;">
+    <div class="edge-accent" aria-hidden="true" style="position:absolute; right:-1px; top:12px; bottom:12px; width:6px; background: linear-gradient(180deg, rgba(69,225,197,.9), rgba(69,225,197,0)); border-radius:6px;"></div>
+
+    <!-- Left: persuasion copy and pillars -->
+    <div class="spotlight-copy" style="flex:1 1 55%; max-width: 680px;">
+      <span class="eyebrow" style="color:#8DEAD9; display:block; letter-spacing:.04em; text-transform:uppercase; font-weight:600; margin-bottom:8px;">Personalized support</span>
+      <h2 style="margin:0 0 10px 0; color:#ECF2F8;">Laser Coaching: clarity and momentum in one focused session</h2>
+      <p style="opacity:.92; margin:0 0 16px 0;">A precision 1:1 session with Unyong to remove blockers fast—so you keep moving without the stress spiral.</p>
+
+      <ul class="pillars" style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px;">
+        <li style="display:flex; gap:10px; align-items:flex-start; background: rgba(255,255,255,.05); border-radius:12px; padding:10px 12px;">
+          <img src="{{ '/assets/images/targeticon.svg' | relative_url }}" alt="" width="20" height="20" aria-hidden="true" />
+          <div><strong style="display:block; color:#F8FAFC;">Targeted</strong><span style="opacity:.9;">Zero in on the one thing bottlenecking your progress.</span></div>
+        </li>
+        <li style="display:flex; gap:10px; align-items:flex-start; background: rgba(255,255,255,.05); border-radius:12px; padding:10px 12px;">
+          <img src="{{ '/assets/images/bolticon.svg' | relative_url }}" alt="" width="20" height="20" aria-hidden="true" />
+          <div><strong style="display:block; color:#F8FAFC;">Fast relief</strong><span style="opacity:.9;">45 minutes to shift state and map your next two actions.</span></div>
+        </li>
+        <li style="display:flex; gap:10px; align-items:flex-start; background: rgba(255,255,255,.05); border-radius:12px; padding:10px 12px;">
+          <img src="{{ '/assets/images/check-no-background.svg' | relative_url }}" alt="" width="20" height="20" aria-hidden="true" />
+          <div><strong style="display:block; color:#F8FAFC;">Follow‑through</strong><span style="opacity:.9;">7‑day micro check‑ins to keep momentum.</span></div>
+        </li>
+      </ul>
+
+      <div class="cta-row" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+        <a class="btn" href="{{ site.purchase_coaching_url | default: '#' }}" target="_blank" rel="noopener">Add Coaching to My Blueprint</a>
+        <a class="btn secondary" href="#laser-how">What happens in a laser session?</a>
+      </div>
+    </div>
+
+    <!-- Right: process, proof, coach card -->
+    <div class="spotlight-proof" style="flex:1 1 45%; display:flex; flex-direction:column; gap:14px;">
+      <ol id="laser-how" class="how-steps" style="list-style:none; counter-reset: step; margin:0; padding:0; display:grid; gap:10px;">
+        <li style="display:flex; gap:10px; background: rgba(255,255,255,.05); border-radius:12px; padding:12px;">
+          <div aria-hidden="true" style="min-width:28px; height:28px; border-radius:50%; background: rgba(69,225,197,.18); color:#8DEAD9; display:flex; align-items:center; justify-content:center; font-weight:700;">1</div>
+          <div><strong style="color:#F8FAFC;">Pinpoint (5 min)</strong><div style="opacity:.9;">Quick intake to identify your highest‑leverage move.</div></div>
+        </li>
+        <li style="display:flex; gap:10px; background: rgba(255,255,255,.05); border-radius:12px; padding:12px;">
+          <div aria-hidden="true" style="min-width:28px; height:28px; border-radius:50%; background: rgba(69,225,197,.18); color:#8DEAD9; display:flex; align-items:center; justify-content:center; font-weight:700;">2</div>
+          <div><strong style="color:#F8FAFC;">Deep dive (35–40 min)</strong><div style="opacity:.9;">Coaching + practices (breath, EFT, priorities) to clear the block.</div></div>
+        </li>
+        <li style="display:flex; gap:10px; background: rgba(255,255,255,.05); border-radius:12px; padding:12px;">
+          <div aria-hidden="true" style="min-width:28px; height:28px; border-radius:50%; background: rgba(69,225,197,.18); color:#8DEAD9; display:flex; align-items:center; justify-content:center; font-weight:700;">3</div>
+          <div><strong style="color:#F8FAFC;">Lock in (7 days)</strong><div style="opacity:.9;">Micro check‑ins and a tiny habit to cement the shift.</div></div>
+        </li>
+      </ol>
+
+      <figure class="quote" style="margin:6px 0 0 0; background: rgba(255,255,255,.06); border-left:3px solid #45E1C5; border-radius:12px; padding:12px;">
+        <blockquote style="margin:0; color:#ECF2F8;">“In 40 minutes we cut my overwhelm in half and I finally sent the proposal the same day.”</blockquote>
+        <figcaption style="opacity:.85; margin-top:8px;">— J., Designer</figcaption>
+      </figure>
+
+      <div class="coach-card" style="display:flex; gap:10px; align-items:center; background: rgba(255,255,255,.04); border-radius:12px; padding:12px;">
+        <div class="coach-avatar" aria-hidden="true" style="width:40px; height:40px; border-radius:50%; background: radial-gradient(80% 80% at 30% 30%, rgba(69,225,197,.4), rgba(69,225,197,.08)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);"></div>
+        <div>
+          <strong style="color:#F8FAFC;">Unyong</strong>
+          <div style="opacity:.9;">300+ focused sessions helping busy people de‑stress and move.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Options & pricing (redesigned two-column compare) -->
 <div class="container section">
   <div class="section-intro align-left" style="margin:0 0 10px 0">
