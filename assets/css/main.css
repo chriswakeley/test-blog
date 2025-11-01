@@ -401,9 +401,26 @@ main{flex:1}
 .parallax-stack{position:relative;display:block;width:100%;height:100%;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.06);min-height:560px}
 .parallax-stack .parallax-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--bg-x:0px;transform:scale(var(--base-scale)) translate3d(0, var(--scroll-y), 0);transform-origin:50% 50%;background-position:calc(0% + var(--bg-x)) center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:1;will-change:transform,opacity}
 /* Stones stack specific backgrounds and depth scaling */
-.stones-parallax .stones-bg{z-index:0;background-image:url('../images/stonestack-background.webp')}
-.stones-parallax .stones-mid{z-index:1;background-image:url('../images/stonestack-midground.webp')}
-.stones-parallax .stones-fore{z-index:2;background-image:url('../images/stonestack-foreground.webp')}
+.stones-parallax .stones-bg{
+  z-index:0;
+  /* Fallback for browsers without WebP support */
+  background-image:url('../images/stacked-stones.png');
+  /* Modern: prefer layered WebP */
+  background-image:-webkit-image-set(url('../images/stonestack-background.webp') type('image/webp') 1x);
+  background-image:image-set(url('../images/stonestack-background.webp') type('image/webp') 1x);
+}
+.stones-parallax .stones-mid{
+  z-index:1;
+  background-image:url('../images/stacked-stones.png');
+  background-image:-webkit-image-set(url('../images/stonestack-midground.webp') type('image/webp') 1x);
+  background-image:image-set(url('../images/stonestack-midground.webp') type('image/webp') 1x);
+}
+.stones-parallax .stones-fore{
+  z-index:2;
+  background-image:url('../images/stacked-stones.png');
+  background-image:-webkit-image-set(url('../images/stonestack-foreground.webp') type('image/webp') 1x);
+  background-image:image-set(url('../images/stonestack-foreground.webp') type('image/webp') 1x);
+}
 /* Smaller subtext variant under the title */
 .section-intro .course-kicker.small{font-size:16px; line-height:1.5; opacity:.9}
 
