@@ -6,7 +6,7 @@ permalink: /course/
 
 <!-- Page title & subheader over parallax stones background -->
 <section class="section title-hero">
-  <div class="container container-narrow title-hero-inner">
+  <div class="container title-hero-inner">
     <div class="parallax-stack stones-title-parallax" role="img" aria-label="Stacked stones balanced in calm water">
       <div class="parallax-layer stones-bg" aria-hidden="true"></div>
       <div class="parallax-layer stones-mid" aria-hidden="true"></div>
