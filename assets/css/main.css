@@ -407,6 +407,8 @@ main{flex:1}
 /* Split layout to pair media with features */
 .split{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
 .split .split-media img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
+/* Skinny portrait media for side-by-side with timeline */
+.split .split-media.skinny{max-width:360px;justify-self:end}
 
 @media (max-width: 900px){
   /* Match home page feel and account for notches/safe areas */
@@ -453,6 +455,7 @@ main{flex:1}
   .panel.image-right{grid-template-columns:1fr;grid-template-areas:"media" "body"}
   .panel-media img{max-height:320px}
   .split{grid-template-columns:1fr}
+  .split .split-media.skinny{max-width:none;justify-self:stretch}
 }
 
 /* Appear animations */

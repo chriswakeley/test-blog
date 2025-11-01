@@ -4,36 +4,14 @@ title: Course
 permalink: /course/
 ---
 
-<!-- Intro / Hook with stacked stones image -->
+<!-- Title + Modules up front with side-by-side image on desktop -->
 <div class="container section">
-  <div class="panel image-right" style="min-height:600px; align-items:stretch">
-  <div class="panel-body" style="display:flex; flex-direction:column; justify-content:center">
-      <div class="section-intro align-left" style="margin:0">
-        <h1 class="course-title">Stress Burner Blueprint</h1>
-        <p class="course-kicker">Build calm that lasts</p>
-        <p><strong>Five focused weeks.</strong> Turn stress into steady energy with simple practices that actually fit real life.</p>
-      </div>
-      <ul>
-        <li><strong>Bite‑sized lessons</strong> you can do anywhere</li>
-        <li><strong>On‑the‑spot resets</strong> to lower stress in minutes</li>
-        <li><strong>Tiny rituals</strong> that are easy to repeat (and keep)</li>
-      </ul>
-    </div>
-    <div class="panel-media" style="align-self:stretch">
-      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" style="display:block;width:100%;height:100%;max-height:none;object-fit:cover;object-position:bottom;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)" />
-    </div>
+  <div class="section-intro align-left" style="margin:0 0 18px 0">
+    <h1 class="course-title">Stress Burner Blueprint</h1>
   </div>
-</div>
-
-<!-- Course overview & structure -->
-<div class="container section">
-  <div class="section-intro align-left">
-    <span class="eyebrow">Overview</span>
-    <h2>Your five‑week journey</h2>
-    <p>A light, flowing structure—no heavy lifts. Learn, try, and integrate without overwhelm.</p>
-  </div>
-
-  <div class="module-flow">
+  <div class="split">
+    <div>
+      <div class="module-flow">
     <!-- Step 1 -->
     <div class="step">
       <div class="badge" aria-hidden="true">
@@ -78,6 +56,11 @@ permalink: /course/
       <span class="step-num">Module 5</span>
       <h3>Integration</h3>
       <p>Pull it all together and leverage your life right now.</p>
+    </div>
+      </div>
+    </div>
+    <div class="split-media skinny">
+      <img src="{{ '/assets/images/stacked-stones.webp' | relative_url }}" alt="Stacked stones balanced in calm water" loading="lazy" />
     </div>
   </div>
 </div>
