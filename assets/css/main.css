@@ -337,8 +337,20 @@ main{flex:1}
 .price-card .card-media{display:block;width:calc(100% + (2 * var(--pc-pad)));max-width:none;height:auto;margin-left:calc(-1 * var(--pc-pad));margin-right:calc(-1 * var(--pc-pad))}
 .media-band .media-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80px;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.12))}
 /* Card-specific watercolor backgrounds applied to the entire card */
-.price-card.modules{background-image:url('../images/greenwatercolorbanner.webp');background-repeat:no-repeat;background-size:cover;background-position:center 40%}
-.price-card.coaching{background-image:url('../images/watercolorcardbanner.webp');background-repeat:no-repeat;background-size:cover;background-position:center 20%}
+.price-card.modules{
+  background-image:url('../images/greenwatercolorbanner.webp');
+  background-repeat:no-repeat;
+  background-size:100% auto; /* same width as card, height auto */
+  background-position:center 40%;
+  background-origin:border-box;
+}
+.price-card.coaching{
+  background-image:url('../images/watercolorcardbanner.webp');
+  background-repeat:no-repeat;
+  background-size:100% auto; /* same width as card, height auto */
+  background-position:center 20%;
+  background-origin:border-box;
+}
 /* Apply side padding to content sections so media touches the inner border without covering it */
 .price-card .card-title,
 .price-card .card-price,
