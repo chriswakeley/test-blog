@@ -119,9 +119,10 @@ permalink: /course/
   </div>
 </div>
 
-<!-- Laser Coaching Spotlight — Variant B: Card on edge (cohesive styling) -->
-<div class="container section laser-spotlight" id="laser-coaching">
-  <div class="laser-card banner-coaching">
+<!-- Laser Coaching Spotlight — Variant B: Card on edge (dark spotlight) -->
+<div class="container section laser-spotlight is-dark" id="laser-coaching">
+  <div class="laser-card edge">
+    <div class="laser-edge" aria-hidden="true"></div>
     <!-- Left: persuasion copy and pillars -->
     <div class="laser-copy">
       <span class="overline-label">Personalized support</span>
@@ -146,7 +147,7 @@ permalink: /course/
         </li>
       </ul>
 
-      <div class="cta-row" style="justify-content:flex-start">
+      <div class="cta-row">
         <a class="btn" href="{{ site.purchase_coaching_url | default: '#' }}" target="_blank" rel="noopener">Add Coaching to My Blueprint</a>
         <a class="btn secondary" href="#laser-how">What happens in a laser session?</a>
       </div>
