@@ -326,24 +326,24 @@ main{flex:1}
 .options-compare::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);border-left:2px dashed var(--sb-gold);opacity:.55;pointer-events:none}
 .overline-label{letter-spacing:.06em;text-transform:uppercase;color:var(--sb-gold);font-weight:700;font-size:.78rem;margin:0 0 10px 4px}
 .price-card{background:var(--sb-warm);border:3px solid var(--sb-gold);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:0;display:flex;flex-direction:column;gap:12px;overflow:hidden;--pc-pad:28px;padding-bottom:var(--pc-pad)}
-.price-card .card-title{font-size:24px;line-height:1.2;margin:.2rem 0 .2rem;color:var(--sb-ink);font-weight:700}
+.price-card .card-title{font-size:24px;line-height:1.2;margin:.2rem 0 .2rem;color:var(--sb-ink);font-weight:700;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
 .price-card .card-price{font-weight:800;font-size:1.5rem;margin:.2rem 0 .4rem}
 .price-card .card-blurb{opacity:.92;margin:.1rem 0 .6rem}
 .price-card .cta-row{justify-content:flex-start;margin-top:auto}
 /* Left card hero reserved area for emblem */
-.card-hero{position:relative;border-radius:0;overflow:hidden;min-height:180px;background:none}
+.card-hero{position:relative;border-radius:0;overflow:hidden;min-height:210px;background:none}
 .card-hero .hero-emblem{position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);width:72px;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.12))}
 /* Right card reserved area for coaching icon */
-.media-band{position:relative;border-radius:0;overflow:hidden;min-height:180px;background:none}
+.media-band{position:relative;border-radius:0;overflow:hidden;min-height:210px;background:none}
 /* Full-bleed media: images extend to the inner edge of the card border without covering it */
 .price-card .card-media{display:block;width:calc(100% + (2 * var(--pc-pad)));max-width:none;height:auto;margin-left:calc(-1 * var(--pc-pad));margin-right:calc(-1 * var(--pc-pad))}
-.media-band .media-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80px;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.12))}
+.media-band .media-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:96px;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.12))}
 /* Card-specific watercolor backgrounds applied to the entire card */
 .price-card.modules{
   background-image:url('../images/greenwatercolorbanner.webp');
   background-repeat:no-repeat;
   background-size:100% auto; /* same width as card, height auto */
-  background-position:center -40%; /* move background up 40% */
+  background-position:center -200%; /* move background up 200% */
   background-origin:border-box;
 }
 .price-card.coaching{
@@ -366,7 +366,7 @@ main{flex:1}
 .price-card .features-check{ flex:1 1 auto; min-height:0 }
 /* Harmonize subsection heights for cross-card alignment */
 .price-card .card-title{ min-height: 2.4em }
-.price-card.coaching .card-title{ color: var(--sb-red) }
+.price-card.coaching .card-title{ color: var(--sb-gold) }
 .price-card .card-price{ min-height: 1.6em }
 .price-card .card-blurb{ line-height:1.6; min-height: 3.2em }
 /* Feature lists */
