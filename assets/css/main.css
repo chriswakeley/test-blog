@@ -232,6 +232,8 @@ main{flex:1}
 
 /* Sections */
 .section{padding:72px 0}
+/* Match homepage top spacing before the first hero content */
+.title-hero{ padding-top: calc(48px + 64px) }
 .section-intro{margin:-8px 0 28px 0;text-align:center}
 .section-intro .eyebrow{color:var(--sb-gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;display:block;margin-bottom:.25rem}
 .section-intro h2{font-size:40px;line-height:1.1;margin:0 0 .4rem}
@@ -492,7 +494,7 @@ main{flex:1}
 .hero .cta-row{animation:rise .44s ease-out .36s both}
 
 /* Course title hero with parallax inside container width */
-.title-hero .title-hero-inner{ position:relative; min-height:560px; display:flex; align-items:center; overflow:hidden; border-radius:36px; background: var(--sb-warm);
+.title-hero .title-hero-inner{ position:relative; min-height:640px; display:flex; align-items:center; overflow:hidden; border-radius:36px; background: var(--sb-warm);
   box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06) }
 .title-hero .course-title{ color:#fff }
 .title-hero .section-intro.on-parallax .course-kicker{ max-width: 60ch }
@@ -513,16 +515,19 @@ main{flex:1}
 }
 .stones-title-parallax .parallax-layer{ background-position: left bottom }
 
-/* Ensure each stones parallax layer maintains a 16:9 box and scales responsively */
+/* Make stones parallax layers taller than the container for richer parallax (140% height) */
 .stones-title-parallax .parallax-layer,
 .stones-parallax .parallax-layer{
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  height: auto;
+  position:absolute; left:0; right:0; bottom:auto; top:-20%;
+  width:100%; height:140%; aspect-ratio:auto;
 }
 
 /* Course page: bordered panel around modules (match homepage Blueprint style) */
 .course-panel{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding:22px; background: var(--sb-warm);
+  box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
+
+/* Specific modules section bordered panel */
+.modules-panel{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding:22px; background: var(--sb-warm);
   box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
 
 /* Homepage Feature Panel (replaces Build calm section) */

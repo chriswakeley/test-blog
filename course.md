@@ -21,7 +21,7 @@ permalink: /course/
 
 <!-- Modules section -->
 <div class="container section">
-  <div class="container-narrow">
+  <div class="container-narrow modules-panel">
     <div class="section-intro">
       <span class="eyebrow">Modules</span>
       <h2>Inside the Blueprint</h2>
