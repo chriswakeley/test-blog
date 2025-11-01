@@ -680,3 +680,16 @@ main{flex:1}
 .laser-spotlight.is-simple .laser-card{ grid-template-columns: 1fr }
 .laser-spotlight.is-simple .laser-copy{ gap: 10px }
 .laser-spotlight.is-simple .pillars{ margin-top:8px }
+
+/* Final mobile overrides placed after base rules to ensure they win the cascade */
+@media (max-width: 900px){
+  /* Course title hero: remove rounding and push text toward the top */
+  .title-hero{ margin-top: 0 !important }
+  .title-hero .title-hero-inner{
+    border-radius: 0 !important;
+    align-items: flex-start !important;
+    min-height: calc(100svh - 64px - 24px) !important;
+    padding: calc(24px + 64px) 0 44px !important;
+  }
+  .title-hero .section-intro.on-parallax{ margin-top: 0 }
+}
