@@ -323,25 +323,37 @@ main{flex:1}
 .options-compare{position:relative;display:grid;grid-template-columns:repeat(2, minmax(280px, 1fr));gap:56px;align-items:start}
 .options-compare::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);border-left:2px dashed var(--sb-gold);opacity:.55;pointer-events:none}
 .overline-label{letter-spacing:.06em;text-transform:uppercase;color:var(--sb-gold);font-weight:700;font-size:.78rem;margin:0 0 10px 4px}
-.price-card{background:var(--sb-warm);border:1.5px solid var(--sb-gold);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:28px;display:flex;flex-direction:column;gap:12px;overflow:hidden;--pc-pad:28px;padding-top:0}
+.price-card{background:var(--sb-warm);border:1.5px solid var(--sb-gold);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:0;display:flex;flex-direction:column;gap:12px;overflow:hidden;--pc-pad:28px}
 .price-card .card-title{font-size:24px;line-height:1.2;margin:.2rem 0 .2rem;color:var(--sb-gold);font-weight:700}
 .price-card .card-price{font-weight:800;font-size:1.5rem;margin:.2rem 0 .4rem}
 .price-card .card-blurb{opacity:.92;margin:.1rem 0 .6rem}
 .price-card .cta-row{justify-content:flex-start}
 /* Left card hero with watercolor banner and emblem */
-.card-hero{position:relative;border-radius:0;overflow:visible;min-height:0;background:none;box-shadow:none}
+.card-hero{position:relative;border-radius:0;overflow:hidden;min-height:180px;background-position:center;background-repeat:no-repeat;background-size:cover}
 .card-hero .hero-emblem{position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);width:72px;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.12))}
 /* Right card media band with red splash and centered gold lotus */
-.media-band{position:relative;border-radius:0;overflow:visible;background:none;box-shadow:none}
+.media-band{position:relative;border-radius:0;overflow:hidden;min-height:180px;background-position:center;background-repeat:no-repeat;background-size:cover}
 /* Full-bleed media: images extend to the inner edge of the card border without covering it */
 .price-card .card-media{display:block;width:calc(100% + (2 * var(--pc-pad)));max-width:none;height:auto;margin-left:calc(-1 * var(--pc-pad));margin-right:calc(-1 * var(--pc-pad))}
 .media-band .media-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80px;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.12))}
+/* Apply side padding to content sections so media touches the inner border without covering it */
+.price-card .card-title,
+.price-card .card-price,
+.price-card .card-blurb,
+.price-card .features-plain,
+.price-card .features-check,
+.price-card .subtle-divider,
+.price-card .cta-row{ padding-left: var(--pc-pad); padding-right: var(--pc-pad); }
+/* Harmonize subsection heights for cross-card alignment */
+.price-card .card-title{ min-height: 2.4em }
+.price-card .card-price{ min-height: 1.6em }
+.price-card .card-blurb{ line-height:1.6; min-height: 3.2em }
 /* Feature lists */
 .features-plain{list-style:none;padding:0;margin:.1rem 0 .4rem}
 .features-plain li{margin:.2rem 0}
 .features-check{list-style:none;padding:0;margin:.1rem 0 .4rem}
 .features-check li{position:relative;padding-left:28px;margin:.35rem 0}
-.features-check li::before{content:"✓";display:inline-grid;place-items:center;position:absolute;left:0;top:.1rem;width:20px;height:20px;border-radius:50%;background:#6a3e3e;color:var(--sb-gold);border:1px solid var(--sb-gold);font-size:.8rem;line-height:1}
+.features-check li::before{content:"";display:inline-block;position:absolute;left:0;top:.1rem;width:20px;height:20px;background:url('../images/check.svg') center/contain no-repeat}
 .subtle-divider{position:relative;margin:.6rem 0}
 .subtle-divider::before{content:"";display:block;width:64px;height:1px;margin:0 auto;background:linear-gradient(90deg, rgba(0,0,0,.06), rgba(0,0,0,.16), rgba(0,0,0,.06))}
 
@@ -398,7 +410,7 @@ main{flex:1}
   /* Pricing compare responsive */
   .options-compare{grid-template-columns:1fr;gap:24px}
   .options-compare::before{content:none}
-  .price-card{padding:22px; --pc-pad:22px}
+  .price-card{padding:0; --pc-pad:22px}
   .brand .logo{ --logo-icon-size:40px }
   .grid.cols-3{grid-template-columns:1fr}
   .features.cols-3{grid-template-columns:1fr}
