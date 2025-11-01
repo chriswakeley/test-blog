@@ -19,12 +19,14 @@ permalink: /course/
   </div>
 </section>
 
-<!-- Title + Modules up front with side-by-side image on desktop -->
+<!-- Modules section -->
 <div class="container section">
-  <div class="course-panel">
-  <div class="split">
-    <div>
-      <div class="module-flow">
+  <div class="container-narrow">
+    <div class="section-intro">
+      <span class="eyebrow">Modules</span>
+      <h2>Inside the Blueprint</h2>
+    </div>
+    <div class="module-flow">
     <!-- Step 1 -->
     <div class="step">
       <div class="badge" aria-hidden="true">
@@ -137,12 +139,9 @@ permalink: /course/
           <img class="icon" src="{{ '/assets/images/targeticon.svg' | relative_url }}" alt="" aria-hidden="true" />
           <h3>Targeted</h3>
           <p>Zero in on the one thing bottlenecking your progress.</p>
-        </li>
-        <li class="feature">
-          <img class="icon" src="{{ '/assets/images/bolticon.svg' | relative_url }}" alt="" aria-hidden="true" />
-          <h3>Fast relief</h3>
-          <p>45 minutes to shift state and map your next two actions.</p>
-        </li>
+        </div>
+      </div>
+    </div>
         <li class="feature">
           <img class="icon" src="{{ '/assets/images/check-no-background.svg' | relative_url }}" alt="" aria-hidden="true" />
           <h3>Follow‑through</h3>
