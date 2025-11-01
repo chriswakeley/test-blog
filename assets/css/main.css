@@ -404,7 +404,7 @@ main{flex:1}
 .split .split-media.skinny img{height:100%;object-fit:cover}
 /* Generic layered parallax stack (reused on course page stones) */
 .parallax-stack{position:relative;display:block;width:100%;height:100%;min-height:560px}
-.parallax-stack .parallax-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--scroll-x:0px;transform:scale(var(--base-scale)) translate3d(var(--scroll-x), var(--scroll-y), 0);transform-origin:50% 50%;background-position:center center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:1;will-change:transform,opacity}
+.parallax-stack .parallax-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--scroll-x:0px;transform:scale(var(--base-scale)) translate3d(var(--scroll-x), var(--scroll-y), 0);transform-origin:50% 50%;background-position:center center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:1;will-change:transform,opacity,filter}
 /* Stones stack specific backgrounds and depth scaling */
 .stones-parallax .stones-bg{
   z-index:0;
@@ -498,6 +498,10 @@ main{flex:1}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 /* Removed continuous float keyframes to disable subtle motion */
 
+/* Blur appear keyframes for stones layers */
+@keyframes fadeInSharp{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:blur(0)}}
+@keyframes fadeInToSoft{from{opacity:0;filter:blur(0)}to{opacity:1;filter:blur(3px)}}
+
 /* Staggered content animations */
 .hero .lotus{animation:rise .44s ease-out .16s both}
 .hero .tag{animation:rise .44s ease-out .20s both}
@@ -526,12 +530,14 @@ main{flex:1}
 .stones-title-parallax .stones-mid{
   background-image:-webkit-image-set(url('../images/stonestackmidground-wide.webp') type('image/webp') 1x);
   background-image:image-set(url('../images/stonestackmidground-wide.webp') type('image/webp') 1x);
-  opacity:0; animation: fadeInOpacity .5s ease-out .08s both;
+  /* Fade in and gently increase blur to 3px */
+  opacity:0; animation: fadeInToSoft .5s ease-out .02s both;
 }
 .stones-title-parallax .stones-fore{
   background-image:-webkit-image-set(url('../images/stonestackforeground-wide.webp') type('image/webp') 1x);
   background-image:image-set(url('../images/stonestackforeground-wide.webp') type('image/webp') 1x);
-  opacity:0; animation: fadeInOpacity .55s ease-out .12s both;
+  /* Fade in while resolving blur from 4px to 0px, in sync with other layers */
+  opacity:0; animation: fadeInSharp .55s ease-out .02s both;
 }
 .stones-title-parallax .parallax-layer{ background-position: right bottom }
 
@@ -547,7 +553,9 @@ main{flex:1}
   box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
 
 /* Specific modules section bordered panel */
-.modules-panel{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding:22px; background: var(--sb-warm);
+.modules-panel{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; 
+  /* Match homepage feature panel inner padding */
+  padding: clamp(28px, 5vw, 56px); background: var(--sb-warm);
   box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
 
 /* Center modules header and match homepage "The Blueprint" styles */
@@ -567,6 +575,9 @@ main{flex:1}
 .modules-panel .section-intro p{
   margin:0 0 28px; text-align:center; color:#6b5c5c
 }
+
+/* Harmonize spacing below header to mirror home panel grid spacing */
+.modules-panel .module-flow{ margin-top: 0 }
 
 /* Homepage Feature Panel (replaces Build calm section) */
 .feature-panel{ background: var(--sb-warm); padding: clamp(24px, 4vw, 48px) 0 }
