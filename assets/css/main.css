@@ -232,6 +232,7 @@ main{flex:1}
 
 /* Sections */
 .section{padding:72px 0}
+.title-hero{ margin-top:24px }
 /* Remove top padding for the course title hero so it sits flush under the nav */
 .title-hero.section{ padding-top: 0 }
 .section-intro{margin:-8px 0 28px 0;text-align:center}
@@ -433,6 +434,9 @@ main{flex:1}
   .container{padding-left:calc(24px + env(safe-area-inset-left, 0px)); padding-right:calc(24px + env(safe-area-inset-right, 0px))}
   /* Force course page containers to have side padding even if other CSS competes */
   .page-course .container,.page-course .container-narrow{padding-left:calc(24px + env(safe-area-inset-left, 0px)) !important; padding-right:calc(24px + env(safe-area-inset-right, 0px)) !important}
+  /* Mirror homepage behavior for the course title hero on mobile */
+  .title-hero{ margin-top:0 }
+  .title-hero .title-hero-inner{ border-radius:0 }
   .outcomes-cloud{grid-template-columns:1fr;gap:18px}
   .section-intro .course-title{font-size:38px}
   .section-intro .course-kicker{font-size:18px;margin-bottom:.5rem}
@@ -494,10 +498,10 @@ main{flex:1}
 .hero .cta-row{animation:rise .44s ease-out .36s both}
 
 /* Course title hero with parallax inside container width */
-.title-hero .title-hero-inner{ position:relative; min-height:760px; display:flex; align-items:center; overflow:hidden; border-radius:36px; background: var(--sb-warm);
+.title-hero .title-hero-inner{ position:relative; min-height:760px; display:flex; align-items:center; overflow:hidden; border-radius:36px; background: var(--sb-warm); max-width:1280px;
   box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06) }
 .title-hero .course-title{ color:#fff }
-.title-hero .section-intro.on-parallax .course-kicker{ max-width: 60ch }
+.title-hero .section-intro.on-parallax .course-kicker{ max-width: 60ch; color:#fff; opacity:.95 }
 .title-hero .title-hero-inner .parallax-stack{ position:absolute; inset:0; height:100%; min-height:0; z-index:0 }
 .title-hero .title-hero-inner .section-intro.on-parallax{ position:relative; z-index:1 }
 /* Use wide stones images for title background */
