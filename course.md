@@ -147,10 +147,7 @@ permalink: /course/
         </li>
       </ul>
 
-      <div class="cta-row">
-        <a class="btn" href="{{ site.purchase_coaching_url | default: '#' }}" target="_blank" rel="noopener">Add Coaching to My Blueprint</a>
-        <a class="btn secondary" href="#laser-how">What happens in a laser session?</a>
-      </div>
+      
     </div>
 
     <!-- Right: process, proof, coach card -->
