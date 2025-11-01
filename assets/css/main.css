@@ -686,7 +686,7 @@ main{flex:1}
 /* Desktop: keep title/subheader left edge no farther left than modules panel (container-narrow width) */
 @media (min-width: 901px){
   .title-hero .section-intro.on-parallax{
-    max-width: 860px; /* matches .container-narrow */
+    width: 860px; /* exactly match .container-narrow width so left edges align */
     margin-left: auto;
     margin-right: auto;
   }
