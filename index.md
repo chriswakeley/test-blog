@@ -62,7 +62,7 @@ title: Home
     </div>
 
     <div class="cta-row" style="justify-content:center">
-      <a href="/course/" class="btn">Explore All Features</a>
+      <a href="/course/" class="btn secondary">Explore All Features</a>
     </div>
   </div>
   
