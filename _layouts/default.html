@@ -407,10 +407,12 @@
 
         const updateStack = (stack) => {
           if (prefersReduced || !stack.isConnected) return;
-          // Match homepage approach: use overall page scroll normalized by viewport height
-          const y = window.scrollY || window.pageYOffset || 0;
-          const h = window.innerHeight || 1;
-          const t = clamp(y / h, 0, 1);
+          // Calculate progress from the stack's position in the viewport rather than page top
+          const rect = stack.getBoundingClientRect();
+          const vh = window.innerHeight || 1;
+          const travel = (vh + (rect.height || 0)) || 1; // element traverses entire viewport
+          // Top at bottom => 0, bottom past top => 1
+          const t = clamp((vh - rect.top) / travel, 0, 1);
           const isMobile = (window.innerWidth || 0) <= 900;
           const scale = isMobile ? 1.0 : 1.3;
           // Match hero depths (largest for far background)
