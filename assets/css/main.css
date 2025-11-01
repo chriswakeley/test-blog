@@ -606,5 +606,5 @@ main{flex:1}
 
 /* Simple variant: just the three pillars */
 .laser-spotlight.is-simple .laser-card{ grid-template-columns: 1fr }
-.laser-spotlight.is-simple .laser-copy{ gap: 0 }
-.laser-spotlight.is-simple .pillars{ margin-top:0 }
+.laser-spotlight.is-simple .laser-copy{ gap: 10px }
+.laser-spotlight.is-simple .pillars{ margin-top:8px }
