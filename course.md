@@ -25,6 +25,25 @@ permalink: /course/
   </div>
 </section>
 
+<script>
+  // Scroll reveal: animate sections below the title hero as they enter viewport
+  (function(){
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+    const sections = Array.from(document.querySelectorAll('.section, .feature-panel'))
+      .filter(el => !el.classList.contains('title-hero'));
+    sections.forEach(el => el.classList.add('reveal-on-scroll'));
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    sections.forEach(el => io.observe(el));
+  })();
+</script>
 <!-- Modules section -->
 <div class="container section">
   <div class="container-narrow modules-panel">

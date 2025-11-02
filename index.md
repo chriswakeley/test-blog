@@ -185,6 +185,23 @@ title: Home
     // Initial state
     updateDots();
   })();
+  // Scroll reveal: animate sections below hero as they enter viewport
+  (function(){
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+    const sections = Array.from(document.querySelectorAll('.section, .feature-panel'))
+      .filter(el => !el.classList.contains('hero') && !el.classList.contains('title-hero'));
+    sections.forEach(el => el.classList.add('reveal-on-scroll'));
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    sections.forEach(el => io.observe(el));
+  })();
   </script>
 
 <!-- Ready to choose your path: pull options cards from course page -->
