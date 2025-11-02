@@ -542,7 +542,7 @@ main{flex:1}
 .reveal-on-scroll{ opacity:0; transform: translateY(12px); will-change: opacity, transform }
 .reveal-on-scroll.is-visible{ animation: fadeRiseSharpen .6s ease-out .12s both }
 /* Optional stagger: apply to children when parent flagged */
-.reveal-stagger > *{ opacity:0; transform: translateY(12px); filter: blur(4px); will-change: opacity, transform, filter }
+.reveal-stagger > *{ opacity:0; transform: translateY(12px); will-change: opacity, transform }
 .reveal-stagger.is-visible > *{ animation: fadeRiseSharpen .6s ease-out 0s both }
 .reveal-stagger.is-visible > *:nth-child(1){ animation-delay: .00s }
 .reveal-stagger.is-visible > *:nth-child(2){ animation-delay: .06s }
