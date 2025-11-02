@@ -725,6 +725,8 @@ main{flex:1}
 .feature-card .icon{ width:44px; height:44px; display:block }
 .feature-card__title{ margin:6px 0 2px; color:#6a3e3e; font-size:18px }
 .feature-list.bullets{ margin:8px 0 0; padding-left:18px; color: var(--sb-ink); line-height:1.6 }
+/* Remove extra text indent on Blueprint subcards (lists inside feature-panel) */
+.feature-panel .feature-list.bullets{ padding-left:0; list-style-position: inside }
 @media (max-width: 980px){ .feature-grid{ grid-template-columns: repeat(2, 1fr) } }
 @media (max-width: 640px){ .feature-grid{ grid-template-columns: 1fr } }
 
