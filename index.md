@@ -247,7 +247,7 @@ title: Home
   <div class="container">
     <div class="panel image-right">
       <div class="panel-body">
-        <h2>Carry calm anywhere</h2>
+  <h2>Calm you can carry</h2>
         <p>Keep quick, practical resets at your fingertips—on your desk, in your bag, or wherever your day goes.</p>
         <ul class="feature-list bullets">
           <li>2–5 minute practices for busy moments</li>
