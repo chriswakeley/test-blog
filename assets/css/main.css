@@ -236,6 +236,12 @@ main{flex:1}
 /* Compact button size variant */
 .btn.small{ padding:10px 16px; min-height:40px; font-size:.95rem }
 
+/* Minimal white outline button for dark hero */
+.btn.ghost-white{ background:transparent; color:#fff; border:2px solid #fff; box-shadow:none }
+.btn.ghost-white:hover{ background: rgba(255,255,255,.12); color:#fff; box-shadow:none }
+.btn.ghost-white:active{ transform: translateY(2px) }
+.btn.ghost-white:focus-visible{ outline:2px solid #fff; outline-offset:2px }
+
 /* Sections */
 .section{padding:72px 0}
 .title-hero{ margin-top:24px }
@@ -637,6 +643,8 @@ main{flex:1}
 .title-hero .course-title{ color:#fff }
 /* Narrow subheader width slightly for improved legibility */
 .title-hero .section-intro.on-parallax .course-kicker{ max-width: 52ch; color:#fff; opacity:.95 }
+/* Align hero CTA left under subheader */
+.title-hero .section-intro.on-parallax .cta-row{ justify-content:flex-start }
 /* Slightly increase title and subheading sizes within the course title hero */
 .title-hero .section-intro .course-title{ font-size:56px }
 .title-hero .section-intro .course-kicker{ font-size:22px }

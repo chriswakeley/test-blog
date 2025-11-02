@@ -13,8 +13,18 @@ permalink: /course/
       <div class="parallax-layer stones-fore" aria-hidden="true"></div>
     </div>
     <div class="section-intro align-left on-parallax">
-  <h1 class="course-title">stress burner blueprint</h1>
-  <p class="course-kicker small">A five-week, practice-based path to release stress, build energy, and find your focus.</p>
+      <h1 class="course-title">stress burner blueprint</h1>
+      <p class="course-kicker small">A five-week, practice-based path to release stress, build energy, and find your focus.</p>
+      <div class="cta-row">
+        <a class="btn ghost-white" href="{{ site.student_portal_url | default: '#' }}">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M7 21V5a2 2 0 0 1 2-2h6v18" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 21h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="14" cy="8" r="1.2" fill="#fff"/>
+          </svg>
+          <span>Student Portal</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
