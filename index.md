@@ -212,8 +212,13 @@ title: Home
       const io = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting){
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
+            const container = entry.target;
+            // Mark container visible
+            container.classList.add('is-visible');
+            // Also mark any hidden descendants so they can animate individually
+            const hiddenKids = container.querySelectorAll('.reveal-on-scroll');
+            hiddenKids.forEach(node => node.classList.add('is-visible'));
+            obs.unobserve(container);
           }
         });
       }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });

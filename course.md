@@ -45,11 +45,14 @@ permalink: /course/
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
+          const container = entry.target;
+          container.classList.add('is-visible');
+          const hiddenKids = container.querySelectorAll('.reveal-on-scroll');
+          hiddenKids.forEach(node => node.classList.add('is-visible'));
+          obs.unobserve(container);
         }
       });
-  }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
+    }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
 
     staggerContainers.forEach(el => io.observe(el));
   };
