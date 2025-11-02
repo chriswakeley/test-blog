@@ -163,7 +163,7 @@ permalink: /course/
     <div>
       <div class="price-card modules">
         <div class="card-hero">
-          <img class="hero-emblem" src="{{ '/assets/images/notebook.svg' | relative_url }}" alt="Notebook icon" />
+          <img class="hero-emblem" src="{{ '/assets/images/openbookicon.svg' | relative_url }}" alt="Open book icon" />
         </div>
   <h3 class="card-title">Blueprint (Self‑Guided)</h3>
         <p class="card-price">$100</p>
