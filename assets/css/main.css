@@ -140,7 +140,7 @@ main{flex:1}
 .brand .logo-icon, .brand .logo-text{ transition: filter .22s ease }
 .brand .logo-icon{height:var(--logo-icon-size);width:auto;display:block;filter:drop-shadow(0 1px 0 rgba(255,255,255,.75))}
 .brand .logo-text{display:flex;flex-direction:column;line-height:1}
-.brand .logo-line{font-family:"Walkway", Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; font-weight:600; text-transform:none; letter-spacing:.02em; color:var(--sb-ink); font-size:calc(var(--logo-icon-size) / 2)}
+.brand .logo-line{font-family:"Walkway", Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif; font-weight:600; text-transform:none; letter-spacing:.02em; color:var(--sb-ink); font-size:calc(var(--logo-icon-size) / 1.8)}
 
 .nav{display:flex;gap:var(--nav-gap, 18px);flex-wrap:wrap;--nav-gap:18px}
 /* Rounded pill nav items with soft neuromorphic hover; no underline */
@@ -564,6 +564,9 @@ main{flex:1}
     fadeInOpacity .38s ease-out 0s both,
     sharpenFromSoft .45s ease-out .8s both;
 }
+.stones-title-parallax .stones-bg{ z-index: 0 }
+.stones-title-parallax .stones-mid{ z-index: 1 }
+.stones-title-parallax .stones-fore{ z-index: 2 }
 .stones-title-parallax .parallax-layer{ background-position: right bottom }
 
 /* Make stones parallax layers slightly taller than the container for richer parallax (113% height) */
@@ -651,7 +654,7 @@ main{flex:1}
 /* Tile styling mirrors .feature-card on homepage */
 .laser-spotlight .feature-list.pillars{ text-align:left }
 .laser-spotlight .feature-list.pillars .feature{ display:flex; flex-direction:column; gap:10px; background: var(--sb-warm); border-radius:14px; padding:24px; box-shadow: -8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08); text-align:left }
-.laser-spotlight .feature-list.pillars .feature .icon{ width:56px; height:56px; display:block }
+.laser-spotlight .feature-list.pillars .feature .icon{ width:48px; height:48px; display:block }
 .laser-spotlight .feature-list.pillars .feature h3{ margin:6px 0 2px; color:#6a3e3e; font-size:18px }
 .laser-spotlight .feature-list.pillars .feature p{ margin:0; color: var(--sb-ink); line-height:1.6; text-align:left }
 /* Ensure headings inside tiles are left-aligned even when parent copy is centered */
@@ -724,7 +727,7 @@ main{flex:1}
 }
 .laser-spotlight.is-dark .feature-list.pillars .feature h3{ color:#F8FAFC }
 .laser-spotlight.is-dark .feature-list.pillars .feature p{ color:#ECF2F8; opacity:.9 }
-.laser-spotlight.is-dark .feature-list.pillars .feature .icon{ filter:none; opacity:.95; width:56px; height:56px }
+.laser-spotlight.is-dark .feature-list.pillars .feature .icon{ filter:none; opacity:.95; width:48px; height:48px }
 /* Dark process list */
 .laser-spotlight.is-dark .how-steps li{
   background: rgba(255,255,255,.06);
