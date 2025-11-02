@@ -243,7 +243,7 @@ main{flex:1}
 .btn.ghost-white:hover{ background: rgba(255,255,255,.12); color:#fff; box-shadow:none }
 .btn.ghost-white:active{ transform: translateY(2px) }
 .btn.ghost-white:focus-visible{ outline:2px solid #fff; outline-offset:2px }
-.btn.ghost-white .icon{ filter: brightness(0) invert(1) }
+.btn.ghost-white .icon{ width:22px; height:22px; filter: brightness(0) invert(1) }
 
 /* Sections */
 .section{padding:72px 0}
@@ -657,6 +657,10 @@ main{flex:1}
 .title-hero .course-title{ color:#fff }
 /* Narrow subheader width slightly for improved legibility */
 .title-hero .section-intro.on-parallax .course-kicker{ max-width: 52ch; color:#fff; opacity:.95 }
+/* Animate CTA row to match title/subheader */
+.title-hero .section-intro .cta-row,
+.title-hero .section-intro.on-parallax .cta-row{ will-change: opacity, transform, filter }
+.title-hero .section-intro.on-parallax .cta-row{ filter: blur(4px); animation: fadeInOpacity .4s ease-out 0s both, rise .44s ease-out .36s both, sharpenFromSoft .45s ease-out .8s both }
 /* Align hero CTA left under subheader */
 .title-hero .section-intro.on-parallax .cta-row{ justify-content:flex-start }
 /* Slightly increase title and subheading sizes within the course title hero */
