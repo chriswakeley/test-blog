@@ -287,7 +287,7 @@ main{flex:1}
 .feature-list .feature .btn{grid-column:2}
 
 /* Outcomes cloud (non-card, staggered two-column list with circular badges) */
-.outcomes-cloud{display:grid;grid-template-columns:1fr 1fr;gap:22px 26px;align-items:start}
+.outcomes-cloud{display:grid;grid-template-columns:1fr 1fr;gap: clamp(20px, 3vw, 36px);align-items:start}
 .outcome{display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:start;position:relative}
 .outcome-badge{width:60px;height:60px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06)}
 .outcome-badge img, .outcome-badge svg{width:26px;height:26px;display:block;opacity:.95}
@@ -325,7 +325,7 @@ main{flex:1}
 .option:hover .option-badge{box-shadow:-10px -10px 22px rgba(255,255,255,.9), 10px 10px 22px rgba(0,0,0,.11)}
 
 /* Pricing compare (two-column with dashed divider and labeled cards) */
-.options-compare{position:relative;display:grid;grid-template-columns:repeat(2, minmax(280px, 1fr));gap:56px;align-items:stretch}
+.options-compare{position:relative;display:grid;grid-template-columns:repeat(2, minmax(280px, 1fr));gap: clamp(20px, 3vw, 36px);align-items:stretch}
 .options-compare > div{display:flex}
 .options-compare > div > .price-card{height:100%}
 .options-compare::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);border-left:2px dashed var(--sb-gold);opacity:.55;pointer-events:none}
@@ -539,17 +539,17 @@ main{flex:1}
   background-image:-webkit-image-set(url('../images/stonestackbackground-wide.webp') type('image/webp') 1x);
   background-image:image-set(url('../images/stonestackbackground-wide.webp') type('image/webp') 1x);
   /* Appear animation to match homepage hero */
-  /* Staggered fade: background finishes by 0.4s */
-  opacity:0; animation: fadeInOpacity .2s ease-out .2s both;
+  /* Staggered fade: background finishes by 0.5s with tighter offset */
+  opacity:0; animation: fadeInOpacity .4s ease-out .1s both;
 }
 .stones-title-parallax .stones-mid{
   background-image:-webkit-image-set(url('../images/stonestackmidground-wide.webp') type('image/webp') 1x);
   background-image:image-set(url('../images/stonestackmidground-wide.webp') type('image/webp') 1x);
   /* Step 1: fade all layers in together; Step 2: then increase blur to 3px */
   opacity:0; filter:blur(0);
-  /* Staggered fade: mid finishes by 0.4s */
+  /* Staggered fade: mid finishes by 0.5s with tighter offset */
   animation: 
-    fadeInOpacity .3s ease-out .1s both,
+    fadeInOpacity .45s ease-out .05s both,
     blurToSoft .35s ease-out .8s both;
 }
 .stones-title-parallax .stones-fore{
@@ -557,9 +557,9 @@ main{flex:1}
   background-image:image-set(url('../images/stonestackforeground-wide.webp') type('image/webp') 1x);
   /* Step 1: fade all layers in together; Step 2: then resolve blur from 4px to 0px */
   opacity:0; filter:blur(4px);
-  /* Staggered fade: foreground starts first and finishes by 0.4s */
+  /* Staggered fade: foreground starts first and finishes by 0.5s */
   animation: 
-    fadeInOpacity .4s ease-out 0s both,
+    fadeInOpacity .5s ease-out 0s both,
     sharpenFromSoft .45s ease-out .8s both;
 }
 .stones-title-parallax .parallax-layer{ background-position: right bottom }
@@ -624,7 +624,8 @@ main{flex:1}
   background:var(--sb-warm);
   border:3px solid var(--sb-gold);
   border-radius:16px;
-  padding:22px;
+  /* Match homepage feature panel inner padding */
+  padding: clamp(28px, 5vw, 56px);
   box-shadow:-10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.05);
   margin-top:-8px; /* nudge closer to outcomes */
   margin-bottom:-24px; /* visually tuck under pricing */
@@ -724,7 +725,7 @@ main{flex:1}
 /* Laser edge accent removed for simplified variant */
 
 /* Spacing and layout refinements for readability */
-.laser-spotlight .laser-card{ padding:28px }
+.laser-spotlight .laser-card{ padding: clamp(28px, 5vw, 56px) }
 .laser-spotlight .laser-copy{ display:flex; flex-direction:column; gap:10px }
 .laser-spotlight .laser-proof{ display:flex; flex-direction:column; gap:12px }
 .laser-spotlight .pillars{ margin-top:10px }
