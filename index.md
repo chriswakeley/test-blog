@@ -74,6 +74,82 @@ title: Home
   </div>
 </section>
 
+<!-- Stories/Testimonials band (distinct layout) -->
+<section class="section stories-band">
+  <div class="container">
+    <div class="section-intro">
+      <h2>Real days. Real results.</h2>
+      <p>Five short stories from busy people who found a calmer rhythm—and kept it.</p>
+    </div>
+
+    <div class="stories-grid">
+      <!-- Story 1 -->
+      <figure class="story">
+        <div class="story-photo-wrap">
+          <picture>
+            <source srcset="{{ '/assets/images/stock-yoga.webp' | relative_url }}" type="image/webp" />
+            <img class="story-photo" src="{{ '/assets/images/stock-yoga.png' | relative_url }}" alt="Ava practicing a quick breathing reset between calls" loading="lazy" />
+          </picture>
+        </div>
+        <blockquote class="story-quote">“Ten minutes at lunch and my afternoon doesn’t spiral anymore.”</blockquote>
+        <figcaption class="story-meta"><strong>Ava</strong> · Product Manager</figcaption>
+      </figure>
+
+      <!-- Story 2 -->
+      <figure class="story">
+        <div class="story-photo-wrap">
+          <picture>
+            <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp" />
+            <img class="story-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Ravi with his notebook after an evening unwind practice" loading="lazy" />
+          </picture>
+        </div>
+        <blockquote class="story-quote">“I finally sleep through the night—and I didn’t change my workload.”</blockquote>
+        <figcaption class="story-meta"><strong>Ravi</strong> · Tech Lead</figcaption>
+      </figure>
+
+      <!-- Story 3 -->
+      <figure class="story">
+        <div class="story-photo-wrap">
+          <picture>
+            <source srcset="{{ '/assets/images/clayobjects.webp' | relative_url }}" type="image/webp" />
+            <img class="story-photo" src="{{ '/assets/images/clayobjects.png' | relative_url }}" alt="Maya taking a calm moment with tea before a meeting" loading="lazy" />
+          </picture>
+        </div>
+        <blockquote class="story-quote">“Small, repeatable steps. I don’t ‘fall off’ anymore.”</blockquote>
+        <figcaption class="story-meta"><strong>Maya</strong> · Operations</figcaption>
+      </figure>
+
+      <!-- Story 4 -->
+      <figure class="story">
+        <div class="story-photo-wrap">
+          <picture>
+            <source srcset="{{ '/assets/images/stock-yoga.webp' | relative_url }}" type="image/webp" />
+            <img class="story-photo" src="{{ '/assets/images/stock-yoga.png' | relative_url }}" alt="Theo doing a standing reset between back-to-back meetings" loading="lazy" />
+          </picture>
+        </div>
+        <blockquote class="story-quote">“My team noticed I’m calmer. The work hasn’t changed—my response did.”</blockquote>
+        <figcaption class="story-meta"><strong>Theo</strong> · Team Lead</figcaption>
+      </figure>
+
+      <!-- Story 5 -->
+      <figure class="story">
+        <div class="story-photo-wrap">
+          <picture>
+            <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp" />
+            <img class="story-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Lina smiling after a short morning practice" loading="lazy" />
+          </picture>
+        </div>
+        <blockquote class="story-quote">“Five weeks in and I have energy after work again.”</blockquote>
+        <figcaption class="story-meta"><strong>Lina</strong> · Designer</figcaption>
+      </figure>
+    </div>
+
+    <div class="cta-row" style="justify-content:center; margin-top:20px">
+      <a href="/course/" class="btn secondary">See the path they used</a>
+    </div>
+  </div>
+</section>
+
 <section class="section gallery-right-warm">
   <div class="container container-narrow">
     {% include section-intro.html align='left' accent=true eyebrow="What you'll get" title="Course, coaching, and support" text="Focused weekly lessons, supportive group calls, and tools you can keep forever." %}

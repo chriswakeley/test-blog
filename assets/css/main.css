@@ -402,6 +402,61 @@ main{flex:1}
 
 /* Outcomes section background removed per request */
 
+/* Stories/Testimonials band (distinct layout) */
+.stories-band{ position:relative }
+.stories-band .section-intro{ margin-bottom: 22px }
+.stories-grid{
+  display:grid;
+  grid-template-columns: repeat(5, minmax(180px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: clamp(16px, 3vw, 28px);
+  align-items: end;
+}
+/* Stagger placement across two rows for a ribbon feel */
+.stories-grid .story:nth-child(1){ grid-row:2 }
+.stories-grid .story:nth-child(2){ grid-row:1 }
+.stories-grid .story:nth-child(3){ grid-row:2 }
+.stories-grid .story:nth-child(4){ grid-row:1 }
+.stories-grid .story:nth-child(5){ grid-row:2 }
+
+.story{ position:relative; display:flex; flex-direction:column; gap:10px; align-items:flex-start }
+.story-photo-wrap{
+  --rot: -3deg;
+  position:relative; border-radius:14px; background:#fff;
+  padding:10px; /* polaroid frame */
+  box-shadow: -8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.10);
+  transform: rotate(var(--rot));
+  transition: transform .18s ease, box-shadow .18s ease, filter .2s ease;
+}
+/* vary rotation for each tile */
+.story:nth-child(2) .story-photo-wrap{ --rot: 2deg }
+.story:nth-child(3) .story-photo-wrap{ --rot: -1deg }
+.story:nth-child(4) .story-photo-wrap{ --rot: 3deg }
+.story:nth-child(5) .story-photo-wrap{ --rot: -2deg }
+.story:hover .story-photo-wrap{ transform: rotate(calc(var(--rot) + 1deg)) translateY(-2px); box-shadow: -10px -10px 22px rgba(255,255,255,.9), 10px 10px 22px rgba(0,0,0,.12) }
+.story-photo{ display:block; width:100%; height:220px; object-fit:cover; border-radius:10px }
+
+/* quote bubble that avoids “formal box” feel */
+.story-quote{
+  position:relative; margin:8px 0 0; padding:10px 12px; border-radius:16px; max-width:28ch;
+  background: var(--sb-warm); color: var(--sb-ink); line-height:1.5; border:1px solid rgba(0,0,0,.06);
+  box-shadow: -6px -6px 14px rgba(255,255,255,.75), 6px 6px 14px rgba(0,0,0,.06);
+  font-style: italic;
+}
+.story-quote::after{
+  content:""; position:absolute; left:18px; top:-6px; width:12px; height:12px; background: var(--sb-warm);
+  border-left:1px solid rgba(0,0,0,.06); border-top:1px solid rgba(0,0,0,.06);
+  transform: rotate(45deg);
+}
+.story-meta{ opacity:.85 }
+
+/* Mobile: horizontal scroll ribbon with snap */
+@media (max-width: 900px){
+  .stories-grid{ display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px; margin-left:-24px; margin-right:-24px; padding-left:24px; }
+  .stories-grid .story{ flex:0 0 78vw; scroll-snap-align:center }
+  .story-photo{ height:52vw }
+}
+
 /* Responsive */
 /* Split layout to pair media with features */
 .split{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
