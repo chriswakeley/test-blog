@@ -539,7 +539,7 @@ main{flex:1}
   background-image:-webkit-image-set(url('../images/stonestackbackground-wide.webp') type('image/webp') 1x);
   background-image:image-set(url('../images/stonestackbackground-wide.webp') type('image/webp') 1x);
   /* Appear animation to match homepage hero */
-  /* Staggered fade: background finishes by 0.5s with tighter offset */
+  /* Staggered fade: background finishes last by ~0.50s */
   opacity:0; animation: fadeInOpacity .4s ease-out .1s both;
 }
 .stones-title-parallax .stones-mid{
@@ -547,9 +547,9 @@ main{flex:1}
   background-image:image-set(url('../images/stonestackmidground-wide.webp') type('image/webp') 1x);
   /* Step 1: fade all layers in together; Step 2: then increase blur to 3px */
   opacity:0; filter:blur(0);
-  /* Staggered fade: mid finishes by 0.5s with tighter offset */
+  /* Staggered fade: mid finishes before background (~0.45s) */
   animation: 
-    fadeInOpacity .45s ease-out .05s both,
+    fadeInOpacity .4s ease-out .05s both,
     blurToSoft .35s ease-out .8s both;
 }
 .stones-title-parallax .stones-fore{
@@ -557,9 +557,9 @@ main{flex:1}
   background-image:image-set(url('../images/stonestackforeground-wide.webp') type('image/webp') 1x);
   /* Step 1: fade all layers in together; Step 2: then resolve blur from 4px to 0px */
   opacity:0; filter:blur(4px);
-  /* Staggered fade: foreground starts first and finishes by 0.5s */
+  /* Staggered fade: foreground starts first and finishes earliest (~0.38s) */
   animation: 
-    fadeInOpacity .5s ease-out 0s both,
+    fadeInOpacity .38s ease-out 0s both,
     sharpenFromSoft .45s ease-out .8s both;
 }
 .stones-title-parallax .parallax-layer{ background-position: right bottom }
