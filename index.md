@@ -78,7 +78,7 @@ title: Home
 <section class="section stories-band">
   <div class="container">
     <div class="section-intro">
-      <h2>Real days. Real results.</h2>
+      <h2>Real people. Real results.</h2>
       <p>Five short stories from busy people who found a calmer rhythm—and kept it.</p>
     </div>
 
@@ -129,6 +129,61 @@ title: Home
     </div>
 
   </div>
+</section>
+
+<!-- Ready to choose your path: pull options cards from course page -->
+<section class="section">
+  <div class="container">
+    <div class="section-intro align-left" style="margin:0 0 10px 0">
+      <h2>Ready to choose your path?</h2>
+      <p>Pick the option that fits your schedule—self‑guided or with coaching support.</p>
+    </div>
+    <div class="options-compare">
+      <!-- Left: Self-guided modules -->
+      <div>
+        <div class="price-card modules">
+          <div class="card-hero">
+            <img class="hero-emblem" src="{{ '/assets/images/openbookicon.svg' | relative_url }}" alt="Open book icon" />
+          </div>
+          <h3 class="card-title">Blueprint (Self‑Guided)</h3>
+          <p class="card-price">$100</p>
+          <p class="card-blurb">Stream the full program at your pace with simple, repeatable practices.</p>
+          <ul class="features-plain">
+            <li>5 weeks of modules</li>
+            <li>Guided practices</li>
+            <li>Lifetime access</li>
+          </ul>
+          <div class="subtle-divider"></div>
+          <div class="cta-row">
+            <a class="btn secondary" href="{{ site.purchase_modules_url | default: '#' }}" target="_blank" rel="noopener">Purchase modules only</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Blueprint + Coaching -->
+      <div>
+        <div class="price-card coaching">
+          <div class="media-band">
+            <img class="media-center" src="{{ '/assets/images/coachingicon.svg' | relative_url }}" alt="Coaching icon" />
+          </div>
+          <h3 class="card-title">Blueprint + Coaching</h3>
+          <p class="card-price">$500</p>
+          <p class="card-blurb">All modules plus live group calls and a 1:1 laser session for momentum and support.</p>
+          <ul class="features-check">
+            <li>Weekly group coaching</li>
+            <li>1:1 laser coaching session</li>
+            <li>Recordings + lifetime access</li>
+          </ul>
+          <div class="subtle-divider"></div>
+          <div class="cta-row">
+            <a class="btn" href="{{ site.purchase_coaching_url | default: '#' }}" target="_blank" rel="noopener">Purchase coaching option</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:12px; opacity:.9"><em>After checkout, you’ll receive an email with a link to complete your registration and get access.</em></p>
+  </div>
+  
 </section>
 
 <section class="section gallery-right-warm">

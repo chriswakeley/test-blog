@@ -441,7 +441,7 @@ main{flex:1}
 .story:nth-child(4) .story-photo-wrap{ --rot: 3deg }
 .story:nth-child(5) .story-photo-wrap{ --rot: -2deg }
 .story:hover .story-photo-wrap{ transform: rotate(calc(var(--rot) + 1deg)) translateY(-2px); box-shadow: -10px -10px 22px rgba(255,255,255,.9), 10px 10px 22px rgba(0,0,0,.12) }
-.story-photo{ display:block; width:100%; aspect-ratio: 1 / 1; height:auto; object-fit:cover; border-radius:10px }
+.story-photo{ display:block; width:100%; aspect-ratio: 1 / 1; height:auto; object-fit:cover; object-position: top; border-radius:10px }
 
 /* quote bubble that avoids “formal box” feel */
 .stories-grid{ --story-quote-w: clamp(22ch, 36vw, 34ch) }
