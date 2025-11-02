@@ -303,15 +303,12 @@ main{flex:1}
 
 /* Course modules: vertical timeline with circular badges */
 /* Increase overall spacing for larger modules */
-.module-flow{position:relative;display:flex;flex-direction:column;gap:28px;margin-top:12px; --badge-size:120px; --line-width:2px; --line-tail-trim:2px}
+.module-flow{position:relative;display:flex;flex-direction:column;gap:28px;margin-top:12px; --badge-size:120px; --line-width:2px; --line-tail-trim:6px}
 /* Vertical connector line centered through badges */
 .module-flow::before{content:"";position:absolute;left:calc(var(--badge-size) / 2);top:calc(var(--badge-size) / 2);bottom:calc(var(--badge-size) / 2 + var(--line-tail-trim));width:var(--line-width);background:linear-gradient(180deg, rgba(154,12,12,.18), rgba(154,12,12,.06));z-index:0}
 /* Each step aligns text to the right of the badge */
 .module-flow .step{position:relative; z-index:1; text-align:left;padding-left:160px;min-height:120px}
-.module-flow .step:last-child::after{
-  content:""; position:absolute; left:calc(var(--badge-size) / 2 - var(--line-width) / 2); top:calc(var(--badge-size) / 2 - 2px); bottom:0; width:var(--line-width);
-  background: var(--sb-warm); pointer-events:none; z-index:2;
-}
+
 .module-flow .badge{position:absolute;left:0;top:0;width:120px;height:120px;border-radius:999px;background:var(--sb-warm);display:flex;align-items:center;justify-content:center;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.06);z-index:1}
 .module-flow .badge svg{width:72px;height:72px;display:block}
 .module-flow .badge img{width:72px;height:72px;display:block}
