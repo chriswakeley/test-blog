@@ -75,7 +75,7 @@ title: Home
 </section>
 
 <!-- Stories/Testimonials band (distinct layout) -->
-<section class="section stories-band">
+<section class="section stories-band" id="stories-band">
   <div class="container">
     <div class="section-intro">
       <h2>Real people. Real results.</h2>
@@ -83,17 +83,6 @@ title: Home
     </div>
 
     <div class="stories-grid">
-      <!-- Shari Goodwin -->
-      <figure class="story">
-        <div class="story-photo-wrap">
-          <picture>
-            <img class="story-photo" src="{{ '/assets/images/shari.webp' | relative_url }}" alt="Portrait of Shari Goodwin" loading="lazy" />
-          </picture>
-        </div>
-        <blockquote class="story-quote">“I left sessions feeling lighter and inspired.”</blockquote>
-        <figcaption class="story-meta"><strong>Shari Goodwin</strong> · Strategist &amp; Leadership Coach, Jaeger2</figcaption>
-      </figure>
-
       <!-- Paul Almeida -->
       <figure class="story">
         <div class="story-photo-wrap">
@@ -103,17 +92,6 @@ title: Home
         </div>
         <blockquote class="story-quote">“It worked for me and my students.”</blockquote>
         <figcaption class="story-meta"><strong>Paul Almeida</strong> · Dean of Georgetown Business School</figcaption>
-      </figure>
-
-      <!-- Ella Waide -->
-      <figure class="story">
-        <div class="story-photo-wrap">
-          <picture>
-            <img class="story-photo" src="{{ '/assets/images/ellawaide.webp' | relative_url }}" alt="Portrait of Ella Waide" loading="lazy" />
-          </picture>
-        </div>
-        <blockquote class="story-quote">“It was empowering to learn how much I could do on my own.”</blockquote>
-        <figcaption class="story-meta"><strong>Ella Waide</strong> · Civil Engineer, Solar Development, Kimley‑Horn</figcaption>
       </figure>
 
       <!-- Sara Ines Lara -->
@@ -126,10 +104,75 @@ title: Home
         <blockquote class="story-quote">“Simple yet effective techniques I use every day.”</blockquote>
         <figcaption class="story-meta"><strong>Sara Ines Lara</strong> · Founder &amp; Executive Director, Women for Conservation</figcaption>
       </figure>
+
+      <!-- Shari Goodwin -->
+      <figure class="story">
+        <div class="story-photo-wrap">
+          <picture>
+            <img class="story-photo" src="{{ '/assets/images/shari.webp' | relative_url }}" alt="Portrait of Shari Goodwin" loading="lazy" />
+          </picture>
+        </div>
+        <blockquote class="story-quote">“I left sessions feeling lighter and inspired.”</blockquote>
+        <figcaption class="story-meta"><strong>Shari Goodwin</strong> · Strategist &amp; Leadership Coach, Jaeger2</figcaption>
+      </figure>
+
+      <!-- Ella Waide -->
+      <figure class="story">
+        <div class="story-photo-wrap">
+          <picture>
+            <img class="story-photo" src="{{ '/assets/images/ellawaide.webp' | relative_url }}" alt="Portrait of Ella Waide" loading="lazy" />
+          </picture>
+        </div>
+        <blockquote class="story-quote">“It was empowering to learn how much I could do on my own.”</blockquote>
+        <figcaption class="story-meta"><strong>Ella Waide</strong> · Civil Engineer, Solar Development, Kimley‑Horn</figcaption>
+      </figure>
+    </div>
+
+    <div class="stories-controls" aria-hidden="true">
+      <button type="button" class="btn secondary small stories-prev" aria-label="Previous story">‹ Prev</button>
+      <button type="button" class="btn small stories-next" aria-label="Next story">Next ›</button>
     </div>
 
   </div>
 </section>
+
+<script>
+  (function(){
+    const band = document.getElementById('stories-band');
+    if (!band) return;
+    const grid = band.querySelector('.stories-grid');
+    const stories = grid ? Array.from(grid.querySelectorAll('.story')) : [];
+    const prev = band.querySelector('.stories-prev');
+    const next = band.querySelector('.stories-next');
+    if (!grid || stories.length <= 1 || !prev || !next) return;
+    const getActiveIndex = () => {
+      const rect = grid.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      let best = 0, bestD = Infinity;
+      for (let i = 0; i < stories.length; i++){
+        const r = stories[i].getBoundingClientRect();
+        const sc = r.left + r.width / 2;
+        const d = Math.abs(sc - cx);
+        if (d < bestD){ bestD = d; best = i; }
+      }
+      return best;
+    };
+    const scrollToIndex = (i) => {
+      if (!stories[i]) return;
+      stories[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    };
+    prev.addEventListener('click', () => {
+      const i = getActiveIndex();
+      const j = (i - 1 + stories.length) % stories.length;
+      scrollToIndex(j);
+    });
+    next.addEventListener('click', () => {
+      const i = getActiveIndex();
+      const j = (i + 1) % stories.length;
+      scrollToIndex(j);
+    });
+  })();
+  </script>
 
 <!-- Ready to choose your path: pull options cards from course page -->
 <section class="section">

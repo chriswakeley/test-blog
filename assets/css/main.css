@@ -233,6 +233,8 @@ main{flex:1}
 .btn.secondary{background:var(--sb-warm);color:var(--sb-red);border:0;box-shadow:-8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.05);transition: box-shadow .22s ease, transform .12s ease, background-color .18s ease}
 .btn.secondary:hover{box-shadow:-12px -12px 24px rgba(255,255,255,.92), 12px 12px 24px rgba(0,0,0,.11), inset 0 1px 0 rgba(255,255,255,.54), inset 0 -1px 0 rgba(0,0,0,.06)}
 .btn.secondary:active, .btn.secondary.is-pressed{transform:translateY(2px); box-shadow: inset 6px 6px 14px rgba(0,0,0,.14), inset -6px -6px 14px rgba(255,255,255,.25)}
+/* Compact button size variant */
+.btn.small{ padding:10px 16px; min-height:40px; font-size:.95rem }
 
 /* Sections */
 .section{padding:72px 0}
@@ -417,6 +419,8 @@ main{flex:1}
   margin-left: auto;
   margin-right: auto;
 }
+/* Mobile nav controls for stories */
+.stories-controls{ display:none }
 /* Stagger placement across two rows for a ribbon feel */
 .stories-grid .story:nth-child(1){ grid-row:2 }
 .stories-grid .story:nth-child(2){ grid-row:1 }
@@ -465,6 +469,7 @@ main{flex:1}
   .stories-grid .story{ flex:0 0 78vw; scroll-snap-align:center }
   .stories-grid{ --story-quote-w: calc(78vw - 20px) }
   .story-photo{ height:auto }
+  .stories-controls{ display:flex; justify-content:center; gap:12px; margin-top:8px }
 }
 
 /* Book band: polaroid book cover + copy */
