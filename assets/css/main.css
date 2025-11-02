@@ -424,7 +424,7 @@ main{flex:1}
 .stories-grid .story:nth-child(4){ grid-row:1 }
 .stories-grid .story:nth-child(5){ grid-row:2 }
 
-.story{ position:relative; display:flex; flex-direction:column; gap:10px; align-items:flex-start }
+.story{ position:relative; display:flex; flex-direction:column; gap:10px; align-items:center }
 .story-photo-wrap{
   --rot: -3deg;
   position:relative; border-radius:14px; background:#fff;
@@ -432,6 +432,8 @@ main{flex:1}
   box-shadow: -8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.10);
   transform: rotate(var(--rot));
   transition: transform .18s ease, box-shadow .18s ease, filter .2s ease;
+  /* match photo/quote block width */
+  width: var(--story-quote-w, clamp(22ch, 36vw, 34ch));
 }
 /* vary rotation for each tile */
 .story:nth-child(2) .story-photo-wrap{ --rot: 2deg }
@@ -442,23 +444,26 @@ main{flex:1}
 .story-photo{ display:block; width:100%; height:220px; object-fit:cover; border-radius:10px }
 
 /* quote bubble that avoids “formal box” feel */
+.stories-grid{ --story-quote-w: clamp(22ch, 36vw, 34ch) }
 .story-quote{
-  position:relative; margin:8px 0 0; padding:10px 12px; border-radius:16px; max-width:28ch;
+  position:relative; margin:8px 0 0; padding:12px 14px; border-radius:16px; width: var(--story-quote-w);
   background: var(--sb-warm); color: var(--sb-ink); line-height:1.5; border:1px solid rgba(0,0,0,.06);
   box-shadow: -6px -6px 14px rgba(255,255,255,.75), 6px 6px 14px rgba(0,0,0,.06);
   font-style: italic;
+  font-size: clamp(1.02rem, 1.2vw, 1.18rem);
 }
 .story-quote::after{
   content:""; position:absolute; left:18px; top:-6px; width:12px; height:12px; background: var(--sb-warm);
   border-left:1px solid rgba(0,0,0,.06); border-top:1px solid rgba(0,0,0,.06);
   transform: rotate(45deg);
 }
-.story-meta{ opacity:.85 }
+.story-meta{ opacity:.85; width: var(--story-quote-w); align-self: center; text-align: left }
 
 /* Mobile: horizontal scroll ribbon with snap */
 @media (max-width: 900px){
   .stories-grid{ display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px; margin-left:-24px; margin-right:-24px; padding-left:24px; }
   .stories-grid .story{ flex:0 0 78vw; scroll-snap-align:center }
+  .stories-grid{ --story-quote-w: calc(78vw - 20px) }
   .story-photo{ height:52vw }
 }
 
