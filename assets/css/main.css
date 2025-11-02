@@ -405,6 +405,8 @@ main{flex:1}
 /* Stories/Testimonials band (distinct layout) */
 .stories-band{ position:relative }
 .stories-band .section-intro{ margin-bottom: 22px }
+.stories-band .section-intro h2{ position:relative; padding-bottom:8px; text-align:center; color:#6a3e3e }
+.stories-band .section-intro h2::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:0; width:56px; height:2px; background: var(--sb-gold) }
 .stories-grid{
   display:grid;
   grid-template-columns: repeat(5, minmax(180px, 1fr));

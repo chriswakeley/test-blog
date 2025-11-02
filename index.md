@@ -144,9 +144,6 @@ title: Home
       </figure>
     </div>
 
-    <div class="cta-row" style="justify-content:center; margin-top:20px">
-      <a href="/course/" class="btn secondary">See the path they used</a>
-    </div>
   </div>
 </section>
 
