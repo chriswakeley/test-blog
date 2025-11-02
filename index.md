@@ -128,9 +128,11 @@ title: Home
       </figure>
     </div>
 
-    <div class="stories-controls" aria-hidden="true">
-      <button type="button" class="btn secondary small stories-prev" aria-label="Previous story">‹ Prev</button>
-      <button type="button" class="btn small stories-next" aria-label="Next story">Next ›</button>
+    <div class="stories-pagination" role="group" aria-label="Testimonials">
+      <button type="button" data-index="0" aria-label="Show Paul" aria-current="true"></button>
+      <button type="button" data-index="1" aria-label="Show Sara" aria-current="false"></button>
+      <button type="button" data-index="2" aria-label="Show Shari" aria-current="false"></button>
+      <button type="button" data-index="3" aria-label="Show Ella" aria-current="false"></button>
     </div>
 
   </div>
@@ -142,9 +144,8 @@ title: Home
     if (!band) return;
     const grid = band.querySelector('.stories-grid');
     const stories = grid ? Array.from(grid.querySelectorAll('.story')) : [];
-    const prev = band.querySelector('.stories-prev');
-    const next = band.querySelector('.stories-next');
-    if (!grid || stories.length <= 1 || !prev || !next) return;
+    const dots = Array.from(band.querySelectorAll('.stories-pagination button'));
+    if (!grid || stories.length <= 1 || dots.length !== stories.length) return;
     const getActiveIndex = () => {
       const rect = grid.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
@@ -161,16 +162,28 @@ title: Home
       if (!stories[i]) return;
       stories[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     };
-    prev.addEventListener('click', () => {
+    const updateDots = () => {
       const i = getActiveIndex();
-      const j = (i - 1 + stories.length) % stories.length;
-      scrollToIndex(j);
+      dots.forEach((btn, idx) => btn.setAttribute('aria-current', String(idx === i)));
+    };
+    // Click handlers for dots
+    dots.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
+        scrollToIndex(idx);
+      });
     });
-    next.addEventListener('click', () => {
-      const i = getActiveIndex();
-      const j = (i + 1) % stories.length;
-      scrollToIndex(j);
-    });
+    // Update active dot on scroll/resize
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { updateDots(); ticking = false; });
+    };
+    grid.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    // Initial state
+    updateDots();
   })();
   </script>
 
@@ -229,32 +242,27 @@ title: Home
   
 </section>
 
-<!-- Book band: take calm with you -->
+<!-- Book band: single card with image on the right -->
 <section class="section book-band">
   <div class="container">
-    <div class="section-intro">
-      <h2>Take calm with you</h2>
-      <p>Short, practical practices you can keep on your desk, in your bag, or on the go.</p>
-    </div>
-    <div class="book-feature">
-      <figure class="book-card">
-        <div class="story-photo-wrap" style="--rot: 0deg;">
-          <picture>
-            <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp">
-            <img class="book-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Stress Burner book cover" loading="lazy">
-          </picture>
-        </div>
-      </figure>
-      <div class="book-copy">
-        <blockquote class="story-quote">“Keep calm close by—small steps you can actually use.”</blockquote>
+    <div class="panel image-right">
+      <div class="panel-body">
+        <h2>Carry calm anywhere</h2>
+        <p>Keep quick, practical resets at your fingertips—on your desk, in your bag, or wherever your day goes.</p>
         <ul class="feature-list bullets">
-          <li>2–5 minute resets for real life</li>
-          <li>40+ bite‑size practices</li>
+          <li>2–5 minute practices for busy moments</li>
+          <li>40+ bite‑size tips and tools</li>
           <li>Build steady energy and focus</li>
         </ul>
         <div class="cta-row" style="justify-content:flex-start">
           <a class="btn secondary" href="https://www.amazon.com/Stress-Burner-Tips-Busy-People/dp/B0B92RJMGV" target="_blank" rel="noopener">Get the Book</a>
         </div>
+      </div>
+      <div class="panel-media">
+        <picture>
+          <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp">
+          <img class="book-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Stress Burner book cover" loading="lazy">
+        </picture>
       </div>
     </div>
   </div>
