@@ -49,7 +49,7 @@ permalink: /course/
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3, rootMargin: '0px 0px -25% 0px' });
+  }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
 
     staggerContainers.forEach(el => io.observe(el));
   };
