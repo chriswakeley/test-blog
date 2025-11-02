@@ -193,14 +193,20 @@ title: Home
 
       // Containers we want to reveal (but keep their own borders/titles visible)
       const staggerContainers = Array.from(document.querySelectorAll(
-        '.feature-grid, .stories-grid, .options-compare, .book-band .panel'
+        '.feature-grid, .stories-grid, .options-compare, .panel'
       ));
 
-      // Add stagger behavior to containers, and hide only their content children
+      // Add stagger behavior to containers, and hide only content while leaving headings visible
       staggerContainers.forEach(el => {
         el.classList.add('reveal-stagger');
-        const children = Array.from(el.children);
-        children.forEach(child => child.classList.add('reveal-on-scroll'));
+        let targets = [];
+        if (el.classList.contains('panel')){
+          // In panels, animate media and panel-body children except headings
+          targets = Array.from(el.querySelectorAll(':scope > .panel-media, :scope > .panel-body > :not(h1):not(h2):not(h3)'));
+        } else {
+          targets = Array.from(el.children);
+        }
+        targets.forEach(child => child.classList.add('reveal-on-scroll'));
       });
 
       const io = new IntersectionObserver((entries, obs) => {
@@ -210,7 +216,7 @@ title: Home
             obs.unobserve(entry.target);
           }
         });
-  }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
+      }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
 
       // Observe only the containers; titles and borders remain rendered
       staggerContainers.forEach(el => io.observe(el));
