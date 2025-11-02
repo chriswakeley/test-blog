@@ -185,19 +185,24 @@ title: Home
     // Initial state
     updateDots();
   })();
-  // Scroll reveal: animate sections below hero as they enter viewport
+  // Scroll reveal: keep titles/borders visible; animate content blocks below hero
   (function(){
     const initReveal = () => {
       const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReduced) return;
-      const sections = Array.from(document.querySelectorAll('.section, .feature-panel'))
-        .filter(el => !el.classList.contains('hero') && !el.classList.contains('title-hero'));
-      sections.forEach(el => el.classList.add('reveal-on-scroll'));
-      // Apply cascading reveal to key content groups within sections
+
+      // Containers we want to reveal (but keep their own borders/titles visible)
       const staggerContainers = Array.from(document.querySelectorAll(
         '.feature-grid, .stories-grid, .options-compare, .book-band .panel'
       ));
-      staggerContainers.forEach(el => el.classList.add('reveal-stagger'));
+
+      // Add stagger behavior to containers, and hide only their content children
+      staggerContainers.forEach(el => {
+        el.classList.add('reveal-stagger');
+        const children = Array.from(el.children);
+        children.forEach(child => child.classList.add('reveal-on-scroll'));
+      });
+
       const io = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting){
@@ -206,7 +211,9 @@ title: Home
           }
         });
       }, { threshold: 0.3, rootMargin: '0px 0px -25% 0px' });
-      [...sections, ...staggerContainers].forEach(el => io.observe(el));
+
+      // Observe only the containers; titles and borders remain rendered
+      staggerContainers.forEach(el => io.observe(el));
     };
     if (document.readyState === 'loading'){
       document.addEventListener('DOMContentLoaded', initReveal);

@@ -23,38 +23,43 @@ permalink: /course/
       </div>
     </div>
   </div>
-  (function(){
-    const initReveal = () => {
-      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) return;
-      const sections = Array.from(document.querySelectorAll('.section, .feature-panel'))
-        .filter(el => !el.classList.contains('title-hero'));
-      sections.forEach(el => el.classList.add('reveal-on-scroll'));
-      // Apply cascading reveal to key content groups within sections
-      const staggerContainers = Array.from(document.querySelectorAll(
-        '.module-flow, .outcomes-cloud, .options-compare, .feature-list.pillars'
-      ));
-      staggerContainers.forEach(el => el.classList.add('reveal-stagger'));
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting){
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.3, rootMargin: '0px 0px -25% 0px' });
-      [...sections, ...staggerContainers].forEach(el => io.observe(el));
-    };
-    if (document.readyState === 'loading'){
-      document.addEventListener('DOMContentLoaded', initReveal);
-    } else {
-      initReveal();
-    }
-  })();
+  </section>
+<script>
+(function(){
+  const initReveal = () => {
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    // Containers to reveal without hiding titles/borders
+    const staggerContainers = Array.from(document.querySelectorAll(
+      '.module-flow, .outcomes-cloud, .options-compare, .feature-list.pillars, .laser-spotlight .laser-card'
+    ));
+
+    // Prepare children: hide initially so they fade in; keep container (and its borders) visible
+    staggerContainers.forEach(el => {
+      el.classList.add('reveal-stagger');
+      const children = Array.from(el.children);
+      children.forEach(child => child.classList.add('reveal-on-scroll'));
+    });
+
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    [...sections, ...staggerContainers].forEach(el => io.observe(el));
-  })();
+    }, { threshold: 0.3, rootMargin: '0px 0px -25% 0px' });
+
+    staggerContainers.forEach(el => io.observe(el));
+  };
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+})();
 </script>
 <!-- Modules section -->
 <div class="container section">

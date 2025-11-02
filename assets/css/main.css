@@ -763,7 +763,7 @@ main{flex:1}
 .modules-panel .module-flow{ margin-top: 0 }
 
 /* Homepage Feature Panel (replaces Build calm section) */
-.feature-panel{ background: var(--sb-warm); padding: clamp(24px, 4vw, 48px) 0 }
+.feature-panel{ padding: clamp(24px, 4vw, 48px) 0 }
 .feature-panel__inner{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; padding: clamp(28px, 5vw, 56px); background: var(--sb-warm); box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
 .feature-panel__title{ margin:0 0 8px; text-align:center; color:#6a3e3e; font-size: clamp(28px, 4vw, 40px); line-height:1.1; position:relative; padding-bottom:8px }
 .feature-panel__title::after{ content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:0; width:56px; height:2px; background: var(--sb-gold) }
