@@ -126,7 +126,7 @@ permalink: /course/
 <div class="container section laser-spotlight is-dark is-simple" id="laser-coaching">
   <div class="laser-card edge">
     <div class="laser-copy">
-      <span class="overline-label">Personalized support</span>
+      
       <h2>Laser Coaching</h2>
       <p>A precision 1:1 session with Unyong to remove blockers fast—so you keep moving without the stress spiral.</p>
 
