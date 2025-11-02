@@ -428,7 +428,7 @@ main{flex:1}
 .story-photo-wrap{
   --rot: -3deg;
   position:relative; border-radius:14px; background:#fff;
-  padding:10px; /* polaroid frame */
+  padding:10px 10px 28px; /* polaroid frame with thicker bottom */
   box-shadow: -8px -8px 18px rgba(255,255,255,.85), 8px 8px 18px rgba(0,0,0,.10);
   transform: rotate(var(--rot));
   transition: transform .18s ease, box-shadow .18s ease, filter .2s ease;
@@ -441,7 +441,7 @@ main{flex:1}
 .story:nth-child(4) .story-photo-wrap{ --rot: 3deg }
 .story:nth-child(5) .story-photo-wrap{ --rot: -2deg }
 .story:hover .story-photo-wrap{ transform: rotate(calc(var(--rot) + 1deg)) translateY(-2px); box-shadow: -10px -10px 22px rgba(255,255,255,.9), 10px 10px 22px rgba(0,0,0,.12) }
-.story-photo{ display:block; width:100%; height:220px; object-fit:cover; border-radius:10px }
+.story-photo{ display:block; width:100%; aspect-ratio: 1 / 1; height:auto; object-fit:cover; border-radius:10px }
 
 /* quote bubble that avoids “formal box” feel */
 .stories-grid{ --story-quote-w: clamp(22ch, 36vw, 34ch) }
@@ -464,7 +464,7 @@ main{flex:1}
   .stories-grid{ display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px; margin-left:-24px; margin-right:-24px; padding-left:24px; }
   .stories-grid .story{ flex:0 0 78vw; scroll-snap-align:center }
   .stories-grid{ --story-quote-w: calc(78vw - 20px) }
-  .story-photo{ height:52vw }
+  .story-photo{ height:auto }
 }
 
 /* Responsive */

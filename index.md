@@ -120,7 +120,7 @@ title: Home
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
-            <img class="story-photo" src="{{ '/assets/images/sharineslara.webp' | relative_url }}" alt="Portrait of Sara Ines Lara" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/saraineslara.webp' | relative_url }}" alt="Portrait of Sara Ines Lara" loading="lazy" />
           </picture>
         </div>
         <blockquote class="story-quote">“Simple yet effective techniques I use every day.”</blockquote>
