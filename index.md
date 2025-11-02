@@ -87,8 +87,7 @@ title: Home
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
-            <source srcset="{{ '/assets/images/stock-yoga.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/stock-yoga.png' | relative_url }}" alt="Portrait of Shari Goodwin" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/shari.webp' | relative_url }}" alt="Portrait of Shari Goodwin" loading="lazy" />
           </picture>
         </div>
         <blockquote class="story-quote">“I left sessions feeling lighter and inspired.”</blockquote>
@@ -99,8 +98,7 @@ title: Home
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
-            <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Portrait of Paul Almeida" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/paulalmeida.webp' | relative_url }}" alt="Portrait of Paul Almeida" loading="lazy" />
           </picture>
         </div>
         <blockquote class="story-quote">“It worked for me and my students.”</blockquote>
@@ -111,8 +109,7 @@ title: Home
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
-            <source srcset="{{ '/assets/images/clayobjects.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/clayobjects.png' | relative_url }}" alt="Portrait of Ella Waide" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/ellawaide.webp' | relative_url }}" alt="Portrait of Ella Waide" loading="lazy" />
           </picture>
         </div>
         <blockquote class="story-quote">“It was empowering to learn how much I could do on my own.”</blockquote>
@@ -123,8 +120,7 @@ title: Home
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
-            <source srcset="{{ '/assets/images/stock-yoga.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/stock-yoga.png' | relative_url }}" alt="Portrait of Sara Ines Lara" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/sharineslara.webp' | relative_url }}" alt="Portrait of Sara Ines Lara" loading="lazy" />
           </picture>
         </div>
         <blockquote class="story-quote">“Simple yet effective techniques I use every day.”</blockquote>
