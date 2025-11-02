@@ -186,6 +186,37 @@ title: Home
   
 </section>
 
+<!-- Book band: take calm with you -->
+<section class="section book-band">
+  <div class="container">
+    <div class="section-intro">
+      <h2>Take calm with you</h2>
+      <p>Short, practical practices you can keep on your desk, in your bag, or on the go.</p>
+    </div>
+    <div class="book-feature">
+      <figure class="book-card">
+        <div class="story-photo-wrap" style="--rot: 0deg;">
+          <picture>
+            <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp">
+            <img class="book-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Stress Burner book cover" loading="lazy">
+          </picture>
+        </div>
+      </figure>
+      <div class="book-copy">
+        <blockquote class="story-quote">“Keep calm close by—small steps you can actually use.”</blockquote>
+        <ul class="feature-list bullets">
+          <li>2–5 minute resets for real life</li>
+          <li>40+ bite‑size practices</li>
+          <li>Build steady energy and focus</li>
+        </ul>
+        <div class="cta-row" style="justify-content:flex-start">
+          <a class="btn secondary" href="https://www.amazon.com/Stress-Burner-Tips-Busy-People/dp/B0B92RJMGV" target="_blank" rel="noopener">Get the Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section gallery-right-warm">
   <div class="container container-narrow">
     {% include section-intro.html align='left' accent=true eyebrow="What you'll get" title="Course, coaching, and support" text="Focused weekly lessons, supportive group calls, and tools you can keep forever." %}
