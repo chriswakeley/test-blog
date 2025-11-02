@@ -187,25 +187,32 @@ title: Home
   })();
   // Scroll reveal: animate sections below hero as they enter viewport
   (function(){
-    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-    const sections = Array.from(document.querySelectorAll('.section, .feature-panel'))
-      .filter(el => !el.classList.contains('hero') && !el.classList.contains('title-hero'));
-    sections.forEach(el => el.classList.add('reveal-on-scroll'));
-    // Apply cascading reveal to key content groups within sections
-    const staggerContainers = Array.from(document.querySelectorAll(
-      '.feature-grid, .stories-grid, .options-compare, .book-band .panel'
-    ));
-    staggerContainers.forEach(el => el.classList.add('reveal-stagger'));
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    [...sections, ...staggerContainers].forEach(el => io.observe(el));
+    const initReveal = () => {
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+      const sections = Array.from(document.querySelectorAll('.section, .feature-panel'))
+        .filter(el => !el.classList.contains('hero') && !el.classList.contains('title-hero'));
+      sections.forEach(el => el.classList.add('reveal-on-scroll'));
+      // Apply cascading reveal to key content groups within sections
+      const staggerContainers = Array.from(document.querySelectorAll(
+        '.feature-grid, .stories-grid, .options-compare, .book-band .panel'
+      ));
+      staggerContainers.forEach(el => el.classList.add('reveal-stagger'));
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3, rootMargin: '0px 0px -25% 0px' });
+      [...sections, ...staggerContainers].forEach(el => io.observe(el));
+    };
+    if (document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', initReveal);
+    } else {
+      initReveal();
+    }
   })();
   </script>
 
