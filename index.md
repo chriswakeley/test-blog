@@ -83,64 +83,52 @@ title: Home
     </div>
 
     <div class="stories-grid">
-      <!-- Story 1 -->
+      <!-- Shari Goodwin -->
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
             <source srcset="{{ '/assets/images/stock-yoga.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/stock-yoga.png' | relative_url }}" alt="Ava practicing a quick breathing reset between calls" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/stock-yoga.png' | relative_url }}" alt="Portrait of Shari Goodwin" loading="lazy" />
           </picture>
         </div>
-        <blockquote class="story-quote">“Ten minutes at lunch and my afternoon doesn’t spiral anymore.”</blockquote>
-        <figcaption class="story-meta"><strong>Ava</strong> · Product Manager</figcaption>
+        <blockquote class="story-quote">“I left sessions feeling lighter and inspired.”</blockquote>
+        <figcaption class="story-meta"><strong>Shari Goodwin</strong> · Strategist &amp; Leadership Coach, Jaeger2</figcaption>
       </figure>
 
-      <!-- Story 2 -->
+      <!-- Paul Almeida -->
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
             <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Ravi with his notebook after an evening unwind practice" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Portrait of Paul Almeida" loading="lazy" />
           </picture>
         </div>
-        <blockquote class="story-quote">“I finally sleep through the night—and I didn’t change my workload.”</blockquote>
-        <figcaption class="story-meta"><strong>Ravi</strong> · Tech Lead</figcaption>
+        <blockquote class="story-quote">“It worked for me and my students.”</blockquote>
+        <figcaption class="story-meta"><strong>Paul Almeida</strong> · Dean of Georgetown Business School</figcaption>
       </figure>
 
-      <!-- Story 3 -->
+      <!-- Ella Waide -->
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
             <source srcset="{{ '/assets/images/clayobjects.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/clayobjects.png' | relative_url }}" alt="Maya taking a calm moment with tea before a meeting" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/clayobjects.png' | relative_url }}" alt="Portrait of Ella Waide" loading="lazy" />
           </picture>
         </div>
-        <blockquote class="story-quote">“Small, repeatable steps. I don’t ‘fall off’ anymore.”</blockquote>
-        <figcaption class="story-meta"><strong>Maya</strong> · Operations</figcaption>
+        <blockquote class="story-quote">“It was empowering to learn how much I could do on my own.”</blockquote>
+        <figcaption class="story-meta"><strong>Ella Waide</strong> · Civil Engineer, Solar Development, Kimley‑Horn</figcaption>
       </figure>
 
-      <!-- Story 4 -->
+      <!-- Sara Ines Lara -->
       <figure class="story">
         <div class="story-photo-wrap">
           <picture>
             <source srcset="{{ '/assets/images/stock-yoga.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/stock-yoga.png' | relative_url }}" alt="Theo doing a standing reset between back-to-back meetings" loading="lazy" />
+            <img class="story-photo" src="{{ '/assets/images/stock-yoga.png' | relative_url }}" alt="Portrait of Sara Ines Lara" loading="lazy" />
           </picture>
         </div>
-        <blockquote class="story-quote">“My team noticed I’m calmer. The work hasn’t changed—my response did.”</blockquote>
-        <figcaption class="story-meta"><strong>Theo</strong> · Team Lead</figcaption>
-      </figure>
-
-      <!-- Story 5 -->
-      <figure class="story">
-        <div class="story-photo-wrap">
-          <picture>
-            <source srcset="{{ '/assets/images/stress-burner-book.webp' | relative_url }}" type="image/webp" />
-            <img class="story-photo" src="{{ '/assets/images/stress-burner-book.jpg' | relative_url }}" alt="Lina smiling after a short morning practice" loading="lazy" />
-          </picture>
-        </div>
-        <blockquote class="story-quote">“Five weeks in and I have energy after work again.”</blockquote>
-        <figcaption class="story-meta"><strong>Lina</strong> · Designer</figcaption>
+        <blockquote class="story-quote">“Simple yet effective techniques I use every day.”</blockquote>
+        <figcaption class="story-meta"><strong>Sara Ines Lara</strong> · Founder &amp; Executive Director, Women for Conservation</figcaption>
       </figure>
     </div>
 
