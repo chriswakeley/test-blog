@@ -442,6 +442,9 @@ main{flex:1}
   .outcomes-cloud{grid-template-columns:1fr;gap:18px}
   .section-intro .course-title{font-size:38px}
   .section-intro .course-kicker{font-size:18px;margin-bottom:.5rem}
+  /* Slight bump for the course title hero on mobile */
+  .title-hero .section-intro .course-title{font-size:40px}
+  .title-hero .section-intro .course-kicker{font-size:20px}
   /* Module flow responsive: vertical timeline with slightly smaller badges */
   .module-flow{gap:20px}
   .module-flow::before{left:44px; bottom:44px}
@@ -498,9 +501,9 @@ main{flex:1}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 /* Removed continuous float keyframes to disable subtle motion */
 
-/* Blur appear keyframes for stones layers */
-@keyframes fadeInSharp{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:blur(0)}}
-@keyframes fadeInToSoft{from{opacity:0;filter:blur(0)}to{opacity:1;filter:blur(3px)}}
+/* Blur-only keyframes for stones layers (run after fade completes) */
+@keyframes blurToSoft{from{filter:blur(0)}to{filter:blur(3px)}}
+@keyframes sharpenFromSoft{from{filter:blur(4px)}to{filter:blur(0)}}
 
 /* Staggered content animations */
 .hero .lotus{animation:rise .44s ease-out .16s both}
@@ -518,6 +521,9 @@ main{flex:1}
   box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06) }
 .title-hero .course-title{ color:#fff }
 .title-hero .section-intro.on-parallax .course-kicker{ max-width: 60ch; color:#fff; opacity:.95 }
+/* Slightly increase title and subheading sizes within the course title hero */
+.title-hero .section-intro .course-title{ font-size:56px }
+.title-hero .section-intro .course-kicker{ font-size:24px }
 .title-hero .title-hero-inner .parallax-stack{ position:absolute; inset:0; height:100%; min-height:0; z-index:0 }
 .title-hero .title-hero-inner .section-intro.on-parallax{ position:relative; z-index:1 }
 /* Use wide stones images for title background */
@@ -525,19 +531,25 @@ main{flex:1}
   background-image:-webkit-image-set(url('../images/stonestackbackground-wide.webp') type('image/webp') 1x);
   background-image:image-set(url('../images/stonestackbackground-wide.webp') type('image/webp') 1x);
   /* Appear animation to match homepage hero */
-  opacity:0; animation: fadeInOpacity .45s ease-out .02s both;
+  opacity:0; animation: fadeInOpacity .5s ease-out 0s both;
 }
 .stones-title-parallax .stones-mid{
   background-image:-webkit-image-set(url('../images/stonestackmidground-wide.webp') type('image/webp') 1x);
   background-image:image-set(url('../images/stonestackmidground-wide.webp') type('image/webp') 1x);
-  /* Fade in and gently increase blur to 3px */
-  opacity:0; animation: fadeInToSoft .5s ease-out .02s both;
+  /* Step 1: fade all layers in together; Step 2: then increase blur to 3px */
+  opacity:0; filter:blur(0);
+  animation: 
+    fadeInOpacity .5s ease-out 0s both,
+    blurToSoft .35s ease-out .5s both;
 }
 .stones-title-parallax .stones-fore{
   background-image:-webkit-image-set(url('../images/stonestackforeground-wide.webp') type('image/webp') 1x);
   background-image:image-set(url('../images/stonestackforeground-wide.webp') type('image/webp') 1x);
-  /* Fade in while resolving blur from 4px to 0px, in sync with other layers */
-  opacity:0; animation: fadeInSharp .55s ease-out .02s both;
+  /* Step 1: fade all layers in together; Step 2: then resolve blur from 4px to 0px */
+  opacity:0; filter:blur(4px);
+  animation: 
+    fadeInOpacity .5s ease-out 0s both,
+    sharpenFromSoft .45s ease-out .5s both;
 }
 .stones-title-parallax .parallax-layer{ background-position: right bottom }
 
