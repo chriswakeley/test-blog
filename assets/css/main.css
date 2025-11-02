@@ -235,12 +235,15 @@ main{flex:1}
 .btn.secondary:active, .btn.secondary.is-pressed{transform:translateY(2px); box-shadow: inset 6px 6px 14px rgba(0,0,0,.14), inset -6px -6px 14px rgba(255,255,255,.25)}
 /* Compact button size variant */
 .btn.small{ padding:10px 16px; min-height:40px; font-size:.95rem }
+/* Icon inside buttons */
+.btn .icon{ width:18px; height:18px; display:block }
 
 /* Minimal white outline button for dark hero */
 .btn.ghost-white{ background:transparent; color:#fff; border:2px solid #fff; box-shadow:none }
 .btn.ghost-white:hover{ background: rgba(255,255,255,.12); color:#fff; box-shadow:none }
 .btn.ghost-white:active{ transform: translateY(2px) }
 .btn.ghost-white:focus-visible{ outline:2px solid #fff; outline-offset:2px }
+.btn.ghost-white .icon{ filter: brightness(0) invert(1) }
 
 /* Sections */
 .section{padding:72px 0}
@@ -491,6 +494,17 @@ main{flex:1}
   .story-photo{ height:auto }
   .stories-controls{ display:flex; justify-content:center; gap:12px; margin-top:8px }
   .stories-pagination{ display:flex; justify-content:center; gap:10px; margin-top:8px }
+}
+
+/* Desktop: enforce 2x2 order: TL Paul, TR Sara, BL Shari, BR Ella */
+@media (min-width: 901px){
+  .stories-grid{ grid-template-columns: repeat(2, minmax(280px, 1fr)); grid-auto-rows: auto; align-items:start }
+  /* Reset any stagger from the ribbon variant */
+  .stories-grid .story{ grid-row:auto; grid-column:auto }
+  .stories-grid .story:nth-child(1){ grid-row:1; grid-column:1 }
+  .stories-grid .story:nth-child(2){ grid-row:1; grid-column:2 }
+  .stories-grid .story:nth-child(3){ grid-row:2; grid-column:1 }
+  .stories-grid .story:nth-child(4){ grid-row:2; grid-column:2 }
 }
 
 /* Book band: polaroid book cover + copy */
