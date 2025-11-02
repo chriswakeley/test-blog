@@ -14,7 +14,7 @@ permalink: /course/
     </div>
     <div class="section-intro align-left on-parallax">
   <h1 class="course-title">stress burner blueprint</h1>
-  <p class="course-kicker small">A five-week, practice-based path to lower stress, build steady energy, and reclaim your focus.</p>
+  <p class="course-kicker small">A five-week, practice-based path to release stress, build energy, and find your focus.</p>
     </div>
   </div>
 </section>
