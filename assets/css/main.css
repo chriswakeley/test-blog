@@ -554,7 +554,7 @@ main{flex:1}
   .title-hero .title-hero-inner{ border-radius:0; align-items:flex-start; min-height:calc(100svh - 64px - 24px); padding:calc(36px + 64px) 0 64px }
   /* Stones parallax: foreground layer uses intrinsic size on mobile */
   .stones-title-parallax .stones-fore,
-  .stones-parallax .stones-fore{ background-size:auto }
+  .stones-parallax .stones-fore{ background-size:250% }
 }
 
 /* Appear animations */
