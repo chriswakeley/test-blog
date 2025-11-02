@@ -540,18 +540,20 @@ main{flex:1}
 .book-band .feature-list.bullets{ padding-left:0; list-style-position: inside }
 /* Reveal-on-scroll base and visible states */
 .reveal-on-scroll{ opacity:0; transform: translateY(12px); filter: blur(4px); will-change: opacity, transform, filter }
-.reveal-on-scroll.is-visible{ animation: fadeInOpacity .4s ease-out 0s both, rise .44s ease-out .12s both, sharpenFromSoft .45s ease-out .8s both }
+.reveal-on-scroll.is-visible{ animation: fadeRiseSharpen .6s ease-out .12s both }
 /* Optional stagger: apply to children when parent flagged */
 .reveal-stagger > *{ opacity:0; transform: translateY(12px); filter: blur(4px); will-change: opacity, transform, filter }
-.reveal-stagger.is-visible > *{ animation: fadeInOpacity .4s ease-out 0s both, rise .44s ease-out .12s both, sharpenFromSoft .45s ease-out .8s both }
-.reveal-stagger.is-visible > *:nth-child(1){ animation-delay: .00s, .12s, .72s }
-.reveal-stagger.is-visible > *:nth-child(2){ animation-delay: .06s, .18s, .78s }
-.reveal-stagger.is-visible > *:nth-child(3){ animation-delay: .12s, .24s, .84s }
-.reveal-stagger.is-visible > *:nth-child(4){ animation-delay: .18s, .30s, .90s }
-.reveal-stagger.is-visible > *:nth-child(5){ animation-delay: .24s, .36s, .96s }
+.reveal-stagger.is-visible > *{ animation: fadeRiseSharpen .6s ease-out 0s both }
+.reveal-stagger.is-visible > *:nth-child(1){ animation-delay: .00s }
+.reveal-stagger.is-visible > *:nth-child(2){ animation-delay: .06s }
+.reveal-stagger.is-visible > *:nth-child(3){ animation-delay: .12s }
+.reveal-stagger.is-visible > *:nth-child(4){ animation-delay: .18s }
+.reveal-stagger.is-visible > *:nth-child(5){ animation-delay: .24s }
 @media (prefers-reduced-motion: reduce){
   .reveal-on-scroll, .reveal-stagger > *{ opacity:1 !important; transform:none !important; filter:none !important; animation:none !important }
 }
+/* Combined fade + rise + sharpen in a single keyframe for reveal */
+@keyframes fadeRiseSharpen{from{opacity:0;transform:translateY(12px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 /* Generic layered parallax stack (reused on course page stones) */
 .parallax-stack{position:relative;display:block;width:100%;height:100%;min-height:560px}
 .parallax-stack .parallax-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--scroll-x:0px;transform:scale(var(--base-scale)) translate3d(var(--scroll-x), var(--scroll-y), 0);transform-origin:50% 50%;background-position:center center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:1;will-change:transform,opacity,filter}

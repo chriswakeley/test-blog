@@ -33,6 +33,11 @@ permalink: /course/
     const sections = Array.from(document.querySelectorAll('.section, .feature-panel'))
       .filter(el => !el.classList.contains('title-hero'));
     sections.forEach(el => el.classList.add('reveal-on-scroll'));
+    // Apply cascading reveal to key content groups within sections
+    const staggerContainers = Array.from(document.querySelectorAll(
+      '.module-flow, .outcomes-cloud, .options-compare, .feature-list.pillars'
+    ));
+    staggerContainers.forEach(el => el.classList.add('reveal-stagger'));
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting){
@@ -41,7 +46,7 @@ permalink: /course/
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    sections.forEach(el => io.observe(el));
+    [...sections, ...staggerContainers].forEach(el => io.observe(el));
   })();
 </script>
 <!-- Modules section -->

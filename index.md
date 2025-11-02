@@ -192,6 +192,11 @@ title: Home
     const sections = Array.from(document.querySelectorAll('.section, .feature-panel'))
       .filter(el => !el.classList.contains('hero') && !el.classList.contains('title-hero'));
     sections.forEach(el => el.classList.add('reveal-on-scroll'));
+    // Apply cascading reveal to key content groups within sections
+    const staggerContainers = Array.from(document.querySelectorAll(
+      '.feature-grid, .stories-grid, .options-compare, .book-band .panel'
+    ));
+    staggerContainers.forEach(el => el.classList.add('reveal-stagger'));
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting){
@@ -200,7 +205,7 @@ title: Home
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    sections.forEach(el => io.observe(el));
+    [...sections, ...staggerContainers].forEach(el => io.observe(el));
   })();
   </script>
 
