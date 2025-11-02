@@ -233,7 +233,7 @@ permalink: /course/
         </ul>
         <div class="subtle-divider"></div>
         <div class="cta-row">
-          <a class="btn" href="{{ site.purchase_coaching_url | default: '#' }}" target="_blank" rel="noopener">Purchase coaching option</a>
+          <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Purchase coaching option</a>
         </div>
       </div>
     </div>
