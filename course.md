@@ -16,7 +16,7 @@ permalink: /course/
       <h1 class="course-title">stress burner blueprint</h1>
       <p class="course-kicker small">A five-week, practice-based path to release stress, build energy, and find your focus.</p>
       <div class="cta-row">
-        <a class="btn ghost-white" href="{{ site.student_portal_url | default: '#' }}">
+        <a class="btn ghost-white" href="https://stressburner.systeme.io/school/course/stressburnerblueprint/">
           <img class="icon" src="{{ '/assets/images/account_circle.svg' | relative_url }}" alt="" aria-hidden="true" />
           <span>Student Portal</span>
         </a>
