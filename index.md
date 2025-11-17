@@ -243,11 +243,22 @@ title: Home
     </div>
 
     <!-- Upcoming cohort panel -->
-    <div class="panel cohort-panel">
+    <div class="panel cohort-panel cohort-panel--grid">
+      <div class="cohort-calendar" aria-label="Course timeframe calendar: five consecutive weeks starting November 17">
+        <div class="cal-header"><span class="dot" aria-hidden="true"></span><span><strong>Nov–Dec</strong> • 5 weeks</span></div>
+        <div class="cal-weeks">
+          <div class="cal-week" aria-label="Week 1: November 17 to 23"><div class="wk-label">Week 1</div><div class="wk-dates">Nov 17–23</div></div>
+          <div class="cal-week" aria-label="Week 2: November 24 to 30"><div class="wk-label">Week 2</div><div class="wk-dates">Nov 24–30</div></div>
+          <div class="cal-week" aria-label="Week 3: December 1 to 7"><div class="wk-label">Week 3</div><div class="wk-dates">Dec 1–7</div></div>
+          <div class="cal-week" aria-label="Week 4: December 8 to 14"><div class="wk-label">Week 4</div><div class="wk-dates">Dec 8–14</div></div>
+          <div class="cal-week" aria-label="Week 5: December 15 to 21"><div class="wk-label">Week 5</div><div class="wk-dates">Dec 15–21</div></div>
+        </div>
+        <div class="cal-foot">Weekly live calls • recordings provided</div>
+      </div>
       <div class="panel-body">
         <span class="eyebrow">Upcoming Cohort</span>
         <h3>5‑week course starts November 17</h3>
-        <span class="details">Weekly live group calls · modules · 1:1 laser session</span>
+        <span class="details">Starts Nov 17 · Weekly live calls · 1:1 session · Lifetime access</span>
         <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Enroll — Nov 17 cohort</a>
       </div>
     </div>
@@ -273,13 +284,13 @@ title: Home
         </div>
       </div>
 
-      <!-- Right: Blueprint + Coaching -->
+      <!-- Right: 5‑Week Blueprint Course + Coaching -->
       <div>
         <div class="price-card coaching">
           <div class="media-band">
             <img class="media-center" src="{{ '/assets/images/coachingicon.svg' | relative_url }}" alt="Coaching icon" />
           </div>
-          <h3 class="card-title">Blueprint + Coaching</h3>
+          <h3 class="card-title">5‑Week Blueprint Course + Coaching</h3>
           <p class="card-price">$500</p>
           <p class="card-blurb">Scheduled 5‑week cohort starting <strong>Nov 17</strong>. Includes weekly live group calls, all modules, and a 1:1 laser session.</p>
           <ul class="features-check">
@@ -294,7 +305,7 @@ title: Home
         </div>
       </div>
     </div>
-    <p style="margin-top:12px; opacity:.9"><em>After checkout, you’ll receive an email with a link to complete your registration and get access.</em></p>
+    <p style="margin-top:12px; opacity:.9"><em>After checkout: complete registration from your welcome email, visit the community at <a href="https://stressburner.systeme.io/community/stress-burner-fall25" target="_blank" rel="noopener">stressburner.systeme.io/community/stress-burner-fall25</a>, and email <a href="mailto:{{ site.email }}">{{ site.email }}</a> with any questions.</em></p>
   </div>
   
 </section>

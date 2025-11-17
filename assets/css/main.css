@@ -794,12 +794,29 @@ main{flex:1}
 /* Cohort info panel styling (matches panel look with gold border) */
 .cohort-panel{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; background: var(--sb-warm); padding: clamp(20px, 3.5vw, 28px);
   box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
+.cohort-panel.cohort-panel--grid{ display:grid; grid-template-columns: 1.1fr 1.4fr; gap: clamp(14px, 2.5vw, 22px); align-items:center }
 .cohort-panel .panel-body{ display:flex; gap:12px; align-items:center; flex-wrap:wrap }
 .cohort-panel .panel-body .eyebrow{ font-size:12px; text-transform:uppercase; letter-spacing:.06em; color: var(--sb-red); background: rgba(255,255,255,.6); border:1px solid rgba(0,0,0,.06); border-radius:999px; padding:4px 8px }
 .cohort-panel .panel-body h3{ margin:0; font-size:20px; color:#6a3e3e; position:relative; padding-bottom:6px }
 .cohort-panel .panel-body h3::after{ content:""; position:absolute; left:0; bottom:0; width:48px; height:2px; background: var(--sb-gold) }
 .cohort-panel .panel-body .details{ opacity:.9 }
 .cohort-panel .panel-body .btn{ margin-left:auto }
+
+/* Mini calendar visual for cohort timeframe */
+.cohort-calendar{ background: #fff; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:12px; box-shadow: -6px -6px 14px rgba(255,255,255,.75), 6px 6px 14px rgba(0,0,0,.06) }
+.cohort-calendar .cal-header{ font-weight:800; color:#6a3e3e; margin:4px 0 10px; display:flex; align-items:center; gap:8px }
+.cohort-calendar .cal-header .dot{ width:8px; height:8px; border-radius:50%; background: var(--sb-gold); display:inline-block }
+.cohort-calendar .cal-weeks{ display:grid; grid-template-columns: repeat(5, 1fr); gap:8px }
+.cohort-calendar .cal-week{ position:relative; background: var(--sb-warm); border:1px solid rgba(0,0,0,.06); border-radius:10px; padding:8px }
+.cohort-calendar .cal-week::before{ content:""; position:absolute; left:8px; right:8px; top:6px; height:6px; border-radius:4px; background: var(--sb-gold); opacity:.9 }
+.cohort-calendar .wk-label{ margin-top:12px; font-weight:700; font-size:.8rem; color: var(--sb-ink) }
+.cohort-calendar .wk-dates{ font-size:.8rem; opacity:.85 }
+.cohort-calendar .cal-foot{ margin-top:10px; font-size:.85rem; opacity:.85 }
+
+@media (max-width: 900px){
+  .cohort-panel.cohort-panel--grid{ grid-template-columns: 1fr }
+  .cohort-calendar .cal-weeks{ grid-template-columns: repeat(3, 1fr) }
+}
 
 /* Laser Coaching Spotlight (cohesive with site theme) */
 .laser-spotlight .laser-card{
