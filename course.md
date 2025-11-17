@@ -32,7 +32,7 @@ permalink: /course/
 
     // Containers to reveal without hiding titles/borders
     const staggerContainers = Array.from(document.querySelectorAll(
-      '.module-flow, .outcomes-cloud, .options-compare, .feature-list.pillars, .laser-spotlight .laser-card'
+      '.module-flow, .outcomes-cloud, .options-compare, .feature-list.pillars, .laser-spotlight .laser-card, .cohort-panel'
     ));
 
     // Prepare children: hide initially so they fade in; keep container (and its borders) visible
@@ -196,17 +196,16 @@ permalink: /course/
   </div>
 </div>
 
-<!-- Upcoming cohort info band on course page -->
+<!-- Upcoming cohort panel on course page -->
 <div class="container section">
-  <div class="cohort-band" style="border:1px solid rgba(0,0,0,.08); border-radius:12px; padding:16px 18px; background:rgba(255,255,255,.6);">
-    <div class="cohort-inner" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+  <div class="panel cohort-panel">
+    <div class="panel-body">
       <span class="eyebrow">Upcoming Cohort</span>
-      <strong>5‑week course starts November 17</strong>
-      <span style="opacity:.9">Weekly live group calls + modules + 1:1 laser session</span>
-      <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener" style="margin-left:auto">Enroll — Nov 17 cohort</a>
+      <h3>5‑week course starts November 17</h3>
+      <span class="details">Weekly live group calls · modules · 1:1 laser session</span>
+      <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Enroll — Nov 17 cohort</a>
     </div>
   </div>
-  
 </div>
 
 <!-- Options & pricing (redesigned two-column compare) -->

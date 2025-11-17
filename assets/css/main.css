@@ -791,6 +791,16 @@ main{flex:1}
 @media (max-width: 980px){ .feature-grid{ grid-template-columns: repeat(2, 1fr) } }
 @media (max-width: 640px){ .feature-grid{ grid-template-columns: 1fr } }
 
+/* Cohort info panel styling (matches panel look with gold border) */
+.cohort-panel{ position:relative; border:2px solid var(--sb-gold); border-radius:12px; background: var(--sb-warm); padding: clamp(20px, 3.5vw, 28px);
+  box-shadow: -10px -10px 24px rgba(255,255,255,.85), 10px 10px 24px rgba(0,0,0,.10) }
+.cohort-panel .panel-body{ display:flex; gap:12px; align-items:center; flex-wrap:wrap }
+.cohort-panel .panel-body .eyebrow{ font-size:12px; text-transform:uppercase; letter-spacing:.06em; color: var(--sb-red); background: rgba(255,255,255,.6); border:1px solid rgba(0,0,0,.06); border-radius:999px; padding:4px 8px }
+.cohort-panel .panel-body h3{ margin:0; font-size:20px; color:#6a3e3e; position:relative; padding-bottom:6px }
+.cohort-panel .panel-body h3::after{ content:""; position:absolute; left:0; bottom:0; width:48px; height:2px; background: var(--sb-gold) }
+.cohort-panel .panel-body .details{ opacity:.9 }
+.cohort-panel .panel-body .btn{ margin-left:auto }
+
 /* Laser Coaching Spotlight (cohesive with site theme) */
 .laser-spotlight .laser-card{
   position:relative;

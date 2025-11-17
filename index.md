@@ -242,13 +242,13 @@ title: Home
       <p>Pick the option that fits your schedule—self‑guided anytime, or join the scheduled 5‑week cohort with coaching starting <strong>November 17</strong>.</p>
     </div>
 
-    <!-- Upcoming cohort info band -->
-    <div class="cohort-band" style="border:1px solid rgba(0,0,0,.08); border-radius:12px; padding:16px 18px; background:rgba(255,255,255,.6); margin:8px 0 18px">
-      <div class="cohort-inner" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+    <!-- Upcoming cohort panel -->
+    <div class="panel cohort-panel">
+      <div class="panel-body">
         <span class="eyebrow">Upcoming Cohort</span>
-        <strong>5‑week course starts November 17</strong>
-        <span style="opacity:.9">Weekly live group calls + modules + 1:1 laser session</span>
-        <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener" style="margin-left:auto">Enroll — Nov 17 cohort</a>
+        <h3>5‑week course starts November 17</h3>
+        <span class="details">Weekly live group calls · modules · 1:1 laser session</span>
+        <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Enroll — Nov 17 cohort</a>
       </div>
     </div>
     <div class="options-compare">

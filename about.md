@@ -7,7 +7,7 @@ permalink: /about/
 <div class="container section">
   <div class="grid cols-3">
     <div class="card">
-      <img alt="Portrait of the instructor smiling outdoors" src="{{ '/assets/images/unyong-kim-author.jpg' | relative_url }}" style="width:100%;border-radius:8px;" />
+      <img alt="Portrait of the instructor smiling outdoors" src="{{ '/assets/images/unyong-kim-author.webp' | relative_url }}" style="width:100%;border-radius:8px;" />
     </div>
     <div class="card" style="grid-column: span 2;">
       <h1>Meet Unyong Kim</h1>

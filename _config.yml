@@ -1,7 +1,7 @@
 title: "Stress Burner"
 description: "Reduce stress, prevent burnout, and reclaim joy with easy, elegant self-care."
 author: "Unyong Kim"
-email: ""
+email: "unyong@stressburner.me"
 url: "https://www.stressburner.me" # custom domain
 baseurl: "" # root of domain
 logo: "/assets/images/stress-burner-logo.svg"
@@ -54,7 +54,7 @@ nav:
     url: /contact/
 
 # External links
-purchase_url: https://stressburner.systeme.io/3c6ca66b
+purchase_url: https://stressburner.systeme.io/126ed7cc
 student_portal_url: https://stressburner.systeme.io/school/course/stressburnerblueprint/
-purchase_coaching_url: https://stressburner.systeme.io/3c6ca66b # TODO: update if a distinct coaching checkout URL exists
-purchase_modules_url: https://stressburner.systeme.io/3c6ca66b # TODO: update if a distinct self-directed modules URL exists
+purchase_coaching_url: https://stressburner.systeme.io/126ed7cc
+purchase_modules_url: https://stressburner.systeme.io/126ed7cc-f8323b20
