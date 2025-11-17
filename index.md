@@ -128,7 +128,7 @@ title: Home
       </figure>
     </div>
 
-    <div class="stories-pagination" role="group" aria-label="Testimonials">
+    <div class="stories-pagination" role="group" aria-label="Client comments">
       <button type="button" data-index="0" aria-label="Show Paul" aria-current="true"></button>
       <button type="button" data-index="1" aria-label="Show Sara" aria-current="false"></button>
       <button type="button" data-index="2" aria-label="Show Shari" aria-current="false"></button>
