@@ -239,7 +239,17 @@ title: Home
   <div class="container">
     <div class="section-intro align-left" style="margin:0 0 10px 0">
       <h2>Ready to choose your path?</h2>
-      <p>Pick the option that fits your schedule—self‑guided or with coaching support.</p>
+      <p>Pick the option that fits your schedule—self‑guided anytime, or join the scheduled 5‑week cohort with coaching starting <strong>November 17</strong>.</p>
+    </div>
+
+    <!-- Upcoming cohort info band -->
+    <div class="cohort-band" style="border:1px solid rgba(0,0,0,.08); border-radius:12px; padding:16px 18px; background:rgba(255,255,255,.6); margin:8px 0 18px">
+      <div class="cohort-inner" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+        <span class="eyebrow">Upcoming Cohort</span>
+        <strong>5‑week course starts November 17</strong>
+        <span style="opacity:.9">Weekly live group calls + modules + 1:1 laser session</span>
+        <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener" style="margin-left:auto">Enroll — Nov 17 cohort</a>
+      </div>
     </div>
     <div class="options-compare">
       <!-- Left: Self-guided modules -->
@@ -271,7 +281,7 @@ title: Home
           </div>
           <h3 class="card-title">Blueprint + Coaching</h3>
           <p class="card-price">$500</p>
-          <p class="card-blurb">All modules plus live group calls and a 1:1 laser session for momentum and support.</p>
+          <p class="card-blurb">Scheduled 5‑week cohort starting <strong>Nov 17</strong>. Includes weekly live group calls, all modules, and a 1:1 laser session.</p>
           <ul class="features-check">
             <li>Weekly group coaching</li>
             <li>1:1 laser coaching session</li>
@@ -279,7 +289,7 @@ title: Home
           </ul>
           <div class="subtle-divider"></div>
           <div class="cta-row">
-            <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Purchase coaching option</a>
+            <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Enroll — Nov 17 cohort</a>
           </div>
         </div>
       </div>
