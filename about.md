@@ -25,8 +25,7 @@ permalink: /about/
           <li>Trusted by executives, educators, and doers who serve others</li>
         </ul>
         <div class="cta-row" style="justify-content:flex-start">
-          <a class="btn" href="{{ site.purchase_url }}" target="_blank" rel="noopener">5‑Week Blueprint Course + Coaching</a>
-          <a class="btn secondary" href="{{ site.student_portal_url }}" target="_blank" rel="noopener">Student Portal</a>
+          <a class="btn" href="mailto:{{ site.email }}">Email Unyong</a>
         </div>
       </div>
     </div>
