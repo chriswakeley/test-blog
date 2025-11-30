@@ -146,26 +146,29 @@ title: Home
     const stories = grid ? Array.from(grid.querySelectorAll('.story')) : [];
     const dots = Array.from(band.querySelectorAll('.stories-pagination button'));
     if (!grid || stories.length <= 1 || dots.length !== stories.length) return;
-    const getActiveIndex = () => {
-      const rect = grid.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      let best = 0, bestD = Infinity;
-      for (let i = 0; i < stories.length; i++){
-        const r = stories[i].getBoundingClientRect();
-        const sc = r.left + r.width / 2;
-        const d = Math.abs(sc - cx);
-        if (d < bestD){ bestD = d; best = i; }
-      }
-      return best;
-    };
     const scrollToIndex = (i) => {
       if (!stories[i]) return;
       stories[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     };
-    const updateDots = () => {
-      const i = getActiveIndex();
-      dots.forEach((btn, idx) => btn.setAttribute('aria-current', String(idx === i)));
-    };
+    
+    // Use IntersectionObserver for performant scroll spying on mobile
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const idx = stories.indexOf(entry.target);
+            if (idx !== -1) {
+              dots.forEach((btn, i) => btn.setAttribute('aria-current', String(i === idx)));
+            }
+          }
+        });
+      }, {
+        root: grid,
+        threshold: 0.5
+      });
+      stories.forEach(story => observer.observe(story));
+    }
+
     // Click handlers for dots
     dots.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -173,17 +176,6 @@ title: Home
         scrollToIndex(idx);
       });
     });
-    // Update active dot on scroll/resize
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => { updateDots(); ticking = false; });
-    };
-    grid.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    // Initial state
-    updateDots();
   })();
   // Scroll reveal: keep titles/borders visible; animate content blocks below hero
   (function(){

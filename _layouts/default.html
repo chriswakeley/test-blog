@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="preload" href="{{ '/assets/images/hero-background-layer-0.webp' | relative_url }}" as="image" type="image/webp" fetchpriority="high">
   {% seo %}
   <link rel="icon" type="image/png" href="{{ '/assets/images/stressburner-faviconlogo.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/images/stressburner-faviconlogo.png' | relative_url }}">
@@ -111,12 +112,19 @@
       const fixedHeader = document.getElementById('sb-header-fixed');
       if (normalHeader && fixedHeader) {
         let ticking = false;
-  let lastY = window.scrollY || window.pageYOffset || 0;
-  const DELTA_MIN = 4;
-  const TOP_THRESH = 0; // swap back only at the true top
+        let lastY = window.scrollY || window.pageYOffset || 0;
+        const DELTA_MIN = 4;
+        const TOP_THRESH = 0; // swap back only at the true top
         const max = 180;
         let animatingIn = false;
         let pendingTopSwap = false;
+
+        // Cache header height to avoid reflows
+        let headerHeight = normalHeader.offsetHeight || 64;
+        window.addEventListener('resize', () => {
+          headerHeight = normalHeader.offsetHeight || 64;
+        }, { passive: true });
+
         // Helper: instant-hide the fixed header (no animation)
         const instantHideFixed = () => {
           fixedHeader.classList.add('no-anim');
@@ -188,7 +196,9 @@
           const dy = y - lastY;
           const fixedNavOpenBtn = fixedHeader.querySelector('.nav-toggle');
           const fixedNavOpen = !!(fixedNavOpenBtn && fixedNavOpenBtn.getAttribute('aria-expanded') === 'true');
-          const H = normalHeader.offsetHeight || 64;
+          
+          // Use cached height
+          const H = headerHeight;
           const TOP_BUFFER = H + 256; // testing: larger buffer to verify clone suppression
 
           if (y <= TOP_THRESH) {
@@ -296,21 +306,28 @@
         const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         let flowers = null;
         let ticking2 = false;
-  // Device tilt state (mobile additive parallax)
-  let tiltY = 0;          // smoothed [-1, 1] (front-back)
-  let tiltX = 0;          // smoothed [-1, 1] (left-right)
-  let targetTiltY = 0;    // instantaneous [-1, 1]
-  let targetTiltX = 0;    // instantaneous [-1, 1]
-  let beta0 = null;       // baseline beta (pitch)
-  let gamma0 = null;      // baseline gamma (roll)
-  let tiltEnabled = false;
+        // Device tilt state (mobile additive parallax)
+        let tiltY = 0;          // smoothed [-1, 1] (front-back)
+        let tiltX = 0;          // smoothed [-1, 1] (left-right)
+        let targetTiltY = 0;    // instantaneous [-1, 1]
+        let targetTiltX = 0;    // instantaneous [-1, 1]
+        let beta0 = null;       // baseline beta (pitch)
+        let gamma0 = null;      // baseline gamma (roll)
+        let tiltEnabled = false;
 
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-  const px = (n) => `${Number(n).toFixed(2)}px`;
+        const px = (n) => `${Number(n).toFixed(2)}px`;
+
+        // Cache hero height
+        let heroHeight = heroSection ? (heroSection.offsetHeight || 1) : 1;
+        window.addEventListener('resize', () => {
+          if(heroSection) heroHeight = heroSection.offsetHeight || 1;
+        }, { passive: true });
+
         const updateParallax = () => {
           if (!heroSection || prefersReduced) { ticking2 = false; return; }
-          const rect = heroSection.getBoundingClientRect();
-          const h = rect.height || 1;
+          // Use cached height
+          const h = heroHeight;
           // Progress based on page scroll so it starts as soon as the user scrolls even a little
           const y = window.scrollY || window.pageYOffset || 0;
           const t = clamp(y / h, 0, 1);
@@ -424,22 +441,40 @@
         // Stable viewport base to avoid iOS toolbar-induced innerHeight jitter
         let vhBase = window.innerHeight || 1;
         let vwBase = window.innerWidth || 1;
+        
+        // Cache stack dimensions
+        const stackCache = new Map();
+        const cacheStacks = () => {
+          const y = window.scrollY || window.pageYOffset || 0;
+          stacks.forEach(stack => {
+            const rect = stack.getBoundingClientRect();
+            stackCache.set(stack, {
+              top: rect.top + y,
+              height: rect.height
+            });
+          });
+        };
+        cacheStacks();
+
         const updateViewportBase = () => {
           const h = window.innerHeight || 1;
           const w = window.innerWidth || 1;
           // Only update when there is a significant change (orientation swap etc.)
           if (Math.abs(h - vhBase) > 120 || Math.abs(w - vwBase) > 80) {
             vhBase = h; vwBase = w;
+            cacheStacks(); // Re-cache on significant resize
           }
         };
 
         const updateStack = (stack) => {
           if (prefersReduced || !stack.isConnected) return;
+          const cached = stackCache.get(stack);
+          if (!cached) return;
+
           // Calculate progress from the stack's absolute position using a stable viewport base
           const y = window.scrollY || window.pageYOffset || 0;
-          const rect = stack.getBoundingClientRect();
-          const stackTopAbs = y + rect.top;
-          const travel = (vhBase + (rect.height || 0)) || 1; // element traverses viewport base + its own height
+          const stackTopAbs = cached.top;
+          const travel = (vhBase + cached.height) || 1; // element traverses viewport base + its own height
           // Top reaching bottom of stable viewport => 0; bottom crossing top => 1
           const t = clamp((y + vhBase - stackTopAbs) / travel, 0, 1);
           const isMobile = (window.innerWidth || 0) <= 900;
