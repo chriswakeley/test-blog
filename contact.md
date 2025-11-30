@@ -4,17 +4,11 @@ title: Contact
 permalink: /contact/
 ---
 
----
-layout: default
-title: Contact
-permalink: /contact/
----
-
 <section class="section" style="padding-top: 80px; min-height: 80vh;">
   <div class="container">
     <div class="section-intro">
       <span class="eyebrow">Contact</span>
-      <h2>We’re here to help</h2>
+      <h2>I’m here to help</h2>
       <p>Questions about the course, cohort, or portal? Reach out any time.</p>
     </div>
 
@@ -25,13 +19,13 @@ permalink: /contact/
         <div class="feature-icon" style="margin-bottom: 16px;">
            <img src="{{ '/assets/images/communityicon.svg' | relative_url }}" alt="" style="width: 48px; height: 48px;">
         </div>
-        <h3 style="font-size: 24px;">Student Support</h3>
-        <p>Need help with your account, the portal, or course materials? We're just an email away.</p>
+        <h3 style="font-size: 24px;">Questions & Support</h3>
+        <p>Whether you have a question about the course or need help with the portal, I'm here to help.</p>
         <ul class="feature-list bullets" style="margin-top: 16px; margin-bottom: 32px; padding-left: 0; list-style: none;">
           <li style="margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
           <li><strong>Response:</strong> Within 24 hours (Mon-Fri)</li>
         </ul>
-        <a class="btn" href="mailto:{{ site.email }}">Email Support</a>
+        <a class="btn" href="mailto:{{ site.email }}">Email Unyong</a>
       </div>
 
       <!-- Social Card -->
