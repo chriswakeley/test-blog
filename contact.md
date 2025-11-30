@@ -4,40 +4,57 @@ title: Contact
 permalink: /contact/
 ---
 
-<section class="section">
+---
+layout: default
+title: Contact
+permalink: /contact/
+---
+
+<section class="section" style="padding-top: 80px; min-height: 80vh;">
   <div class="container">
-    <div class="section-intro align-left">
+    <div class="section-intro">
       <span class="eyebrow">Contact</span>
       <h2>We’re here to help</h2>
-      <p class="lede">Questions about the course, cohort, or portal? Reach out any time.</p>
+      <p>Questions about the course, cohort, or portal? Reach out any time.</p>
     </div>
 
-    <div class="panel reveal-stagger">
-      <div class="panel-body">
-        <h3 style="margin-top:0">Quick links</h3>
-        <ul class="feature-list bullets">
-          <li>Email support: <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-          <li>Student Portal: <a href="{{ site.student_portal_url }}" target="_blank" rel="noopener">Log in</a></li>
-          <li>November Cohort Community: <a href="https://stressburner.systeme.io/community/stress-burner-fall25" target="_blank" rel="noopener">Introduce yourself</a></li>
+    <div class="grid reveal-stagger" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px; max-width: 960px; margin-left: auto; margin-right: auto;">
+      
+      <!-- Support Card -->
+      <div class="feature-card reveal-on-scroll" style="padding: 40px; align-items: flex-start;">
+        <div class="feature-icon" style="margin-bottom: 16px;">
+           <img src="{{ '/assets/images/communityicon.svg' | relative_url }}" alt="" style="width: 48px; height: 48px;">
+        </div>
+        <h3 style="font-size: 24px;">Student Support</h3>
+        <p>Need help with your account, the portal, or course materials? We're just an email away.</p>
+        <ul class="feature-list bullets" style="margin-top: 16px; margin-bottom: 32px; padding-left: 0; list-style: none;">
+          <li style="margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><strong>Response:</strong> Within 24 hours (Mon-Fri)</li>
         </ul>
-        <div class="cta-row" style="justify-content:flex-start">
-          <a class="btn" href="mailto:{{ site.email }}">Email us</a>
-          <a class="btn secondary" href="{{ site.student_portal_url }}" target="_blank" rel="noopener">Student Portal</a>
-          <a class="btn secondary" href="https://stressburner.systeme.io/community/stress-burner-fall25" target="_blank" rel="noopener">Community</a>
+        <a class="btn" href="mailto:{{ site.email }}">Email Support</a>
+      </div>
+
+      <!-- Social Card -->
+      <div class="feature-card reveal-on-scroll" style="padding: 40px; align-items: flex-start;">
+        <div class="feature-icon" style="margin-bottom: 16px;">
+           <img src="{{ '/assets/images/leaf.svg' | relative_url }}" alt="" style="width: 48px; height: 48px;">
+        </div>
+        <h3 style="font-size: 24px;">Connect & Follow</h3>
+        <p>Get daily tips, behind-the-scenes updates, and join the conversation.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; width: 100%;">
+            <a class="btn secondary small" href="https://www.instagram.com/stressburners/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn secondary small" href="https://www.facebook.com/StressBurners" target="_blank" rel="noopener">Facebook</a>
+            <a class="btn secondary small" href="https://www.linkedin.com/in/unyong-kim-01a39a6/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
-      <div class="panel-media">
-        <div class="card" style="padding:18px">
-          <h3 style="margin-top:0">Follow along</h3>
-          <p>Light updates, tips, and behind‑the‑scenes.</p>
-          <div class="cta-row" style="justify-content:flex-start">
-            <a class="btn secondary" href="https://www.instagram.com/stressburners/" target="_blank" rel="noopener" aria-label="Unyong on Instagram (opens in a new tab)">Instagram</a>
-            <a class="btn secondary" href="https://www.facebook.com/StressBurners" target="_blank" rel="noopener" aria-label="Unyong on Facebook (opens in a new tab)">Facebook</a>
-            <a class="btn secondary" href="https://www.linkedin.com/in/unyong-kim-01a39a6/" target="_blank" rel="noopener" aria-label="Unyong on LinkedIn (opens in a new tab)">LinkedIn</a>
-          </div>
-        </div>
-      </div>
+
     </div>
+
+    <!-- Portal Link -->
+    <div class="reveal-stagger" style="text-align: center; margin-top: 60px; opacity: 0.9;">
+        <p class="reveal-on-scroll">Already a student? <a href="{{ site.student_portal_url }}" target="_blank" rel="noopener" style="font-weight: 600; color: var(--sb-red); margin-left: 4px;">Log in to the Portal &rarr;</a></p>
+    </div>
+
   </div>
 </section>
 
@@ -45,11 +62,21 @@ permalink: /contact/
   (function(){
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
-    const containers = Array.from(document.querySelectorAll('.panel, .feature-list'));
-    containers.forEach(el => { el.classList.add('reveal-stagger'); Array.from(el.children).forEach(k => k.classList.add('reveal-on-scroll')); });
+    
+    const containers = Array.from(document.querySelectorAll('.reveal-stagger'));
+    
     const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => { if (e.isIntersecting){ const c = e.target; c.classList.add('is-visible'); c.querySelectorAll('.reveal-on-scroll').forEach(n => n.classList.add('is-visible')); obs.unobserve(c); }});
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          const container = entry.target;
+          container.classList.add('is-visible');
+          const hiddenKids = container.querySelectorAll('.reveal-on-scroll');
+          hiddenKids.forEach(node => node.classList.add('is-visible'));
+          obs.unobserve(container);
+        }
+      });
     }, { threshold: 0.2, rootMargin: '0px 0px -15% 0px' });
+
     containers.forEach(el => io.observe(el));
   })();
 </script>
