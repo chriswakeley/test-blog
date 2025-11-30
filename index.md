@@ -79,7 +79,7 @@ title: Home
   <div class="container">
     <div class="section-intro">
       <h2>Real people. Real results.</h2>
-      <p>Five short stories from busy people who found a calmer rhythm—and kept it.</p>
+      <p>Four short stories from busy people who found a calmer rhythm—and kept it.</p>
     </div>
 
     <div class="stories-grid">
@@ -319,7 +319,7 @@ title: Home
         <p>Keep quick, practical resets at your fingertips—on your desk, in your bag, or wherever your day goes.</p>
         <ul class="feature-list bullets">
           <li>2–5 minute practices for busy moments</li>
-          <li>40+ bite‑size tips and tools</li>
+          <li>25 bite‑size tips and tools</li>
           <li>Build steady energy and focus</li>
         </ul>
         <div class="cta-row" style="justify-content:flex-start">

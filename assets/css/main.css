@@ -978,3 +978,13 @@ main{flex:1}
   }
   .title-hero .section-intro.on-parallax{ margin-top: 0 }
 }
+
+/* About page: scale portrait similar to testimonial photo size */
+.page-about .panel-media img{
+  width: 100%;            /* allow responsive scaling within container */
+  height: auto;           /* override base height:100% */
+  max-width: clamp(220px, 36vw, 340px); /* approx story tile width */
+  max-height: 360px;      /* smaller than default 440px */
+  margin: 0 auto;         /* center in media column */
+  display: block;
+}

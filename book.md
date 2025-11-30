@@ -17,7 +17,7 @@ permalink: /book/
         <p>25 on‑the‑spot, off‑the‑mat tools to pivot from stress to release, flow, and connection. Practical and accessible—especially for busy leaders and changemakers.</p>
         <ul class="feature-list bullets">
           <li>2–5 minute practices for busy moments</li>
-          <li>40+ bite‑size tips and tools</li>
+          <li>25 bite‑size tips and tools</li>
           <li>Build steady energy and focus</li>
         </ul>
         <div class="cta-row" style="justify-content:flex-start">
