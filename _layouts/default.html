@@ -92,6 +92,20 @@
         });
       });
 
+      // Close nav menus when clicking outside
+      document.addEventListener('click', (e) => {
+        navToggles.forEach(btn => {
+          const targetId = btn.getAttribute('aria-controls');
+          const nav = targetId ? document.getElementById(targetId) : null;
+          if (!nav) return;
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          if (open && !nav.contains(e.target) && !btn.contains(e.target)) {
+            btn.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('open');
+          }
+        });
+      });
+
       // Progressive header blur/background on scroll (apply to both headers)
       const normalHeader = document.getElementById('sb-header-normal');
       const fixedHeader = document.getElementById('sb-header-fixed');
