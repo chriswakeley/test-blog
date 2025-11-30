@@ -125,8 +125,14 @@
 
           // Cache header height to avoid reflows
           let headerHeight = normalHeader.offsetHeight || 64;
+          let lastWinWidth = window.innerWidth;
           window.addEventListener('resize', () => {
-            headerHeight = normalHeader.offsetHeight || 64;
+            const w = window.innerWidth;
+            // Only update dimensions if width changes (ignore mobile URL bar vertical resize)
+            if (Math.abs(w - lastWinWidth) > 0) {
+              headerHeight = normalHeader.offsetHeight || 64;
+              lastWinWidth = w;
+            }
           }, { passive: true });
 
           // Helper: instant-hide the fixed header (no animation)
@@ -181,22 +187,30 @@
               }
             }
           });
+          
+          let lastT = -1;
           const applyVars = (el, t) => {
+            if (Math.abs(t - lastT) < 0.001) return;
+            lastT = t;
             el.style.setProperty('--header-bg', (0.75 * t).toFixed(3));
             el.style.setProperty('--header-blur', (8 * t).toFixed(2) + 'px');
             el.style.setProperty('--header-border', (0.06 * t).toFixed(3));
             el.style.setProperty('--header-shadow', t.toFixed(3));
           };
+          
+          // Initialize normal header styles once
+          normalHeader.style.setProperty('--header-bg', '0');
+          normalHeader.style.setProperty('--header-blur', '0px');
+          normalHeader.style.setProperty('--header-border', '0');
+          normalHeader.style.setProperty('--header-shadow', '0');
+
           const update = () => {
             const y = window.scrollY || window.pageYOffset || 0;
             const t = Math.max(0, Math.min(1, y / max));
-            // Keep the in-flow header visually neutral (no shadow/blur/background)
-            normalHeader.style.setProperty('--header-bg', '0');
-            normalHeader.style.setProperty('--header-blur', '0px');
-            normalHeader.style.setProperty('--header-border', '0');
-            normalHeader.style.setProperty('--header-shadow', '0');
+            
             // Animate effects only on the fixed clone
             applyVars(fixedHeader, t);
+            
             const dy = y - lastY;
             const fixedNavOpenBtn = fixedHeader.querySelector('.nav-toggle');
             const fixedNavOpen = !!(fixedNavOpenBtn && fixedNavOpenBtn.getAttribute('aria-expanded') === 'true');
@@ -325,8 +339,17 @@
 
         // Cache hero height
         let heroHeight = heroSection ? (heroSection.offsetHeight || 1) : 1;
+        let lastWinWidth = window.innerWidth;
         window.addEventListener('resize', () => {
-          if(heroSection) heroHeight = heroSection.offsetHeight || 1;
+          if(heroSection) {
+            const w = window.innerWidth;
+            // Only update height if width changes (ignore mobile URL bar vertical resize)
+            if (Math.abs(w - lastWinWidth) > 0) {
+              heroHeight = heroSection.offsetHeight || 1;
+              lastWinWidth = w;
+              requestAnimationFrame(updateParallax);
+            }
+          }
         }, { passive: true });
 
         const updateParallax = () => {
