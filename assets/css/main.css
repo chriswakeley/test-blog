@@ -627,9 +627,37 @@ main{flex:1}
   .hero h1{font-size:44px}
   .header-inner{gap:8px}
   .nav-toggle{display:block}
-  .nav{display:none;flex-direction:column;gap:0;background:#fff;position:absolute;top:64px;left:0;right:0;border-bottom:1px solid #eee}
+  /* Improved mobile nav: larger, friendlier, card-like */
+  .nav{
+    display:none;
+    flex-direction:column;
+    gap:12px;
+    background:var(--sb-warm);
+    position:absolute;
+    top:100%;
+    left:12px;
+    right:12px;
+    padding: 24px 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 24px;
+    z-index: 100;
+    margin-top: 8px;
+  }
   .nav.open{display:flex}
-  .nav-link{padding:14px 20px;border-bottom:1px solid #f0f0f0}
+  .nav-link{
+    padding:16px 24px;
+    border-bottom:none;
+    font-size: 1.2rem;
+    justify-content: center;
+    background: rgba(255,255,255,0.6);
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  .nav-link:active, .nav-link:hover{
+    background: #fff;
+    transform: scale(0.98);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
   .section{padding:48px 0}
   .panel{grid-template-columns:1fr;grid-template-areas:"media" "body";gap:16px}
   /* Ensure right-sided panels also stack vertically on mobile (override higher specificity) */
@@ -642,6 +670,13 @@ main{flex:1}
   /* Course title hero: mirror homepage mobile behavior */
   .title-hero{ margin-top:0 }
   .title-hero .title-hero-inner{ border-radius:0; align-items:flex-start; min-height:calc(100svh - 64px - 24px); padding:calc(36px + 64px) 0 64px }
+  /* About page hero: reduced height on mobile */
+  .page-about .title-hero .title-hero-inner{
+    min-height: 50vh !important;
+    align-items: center !important;
+    padding-top: 80px !important;
+    padding-bottom: 64px !important;
+  }
   /* Stones parallax: foreground layer uses intrinsic size on mobile */
   .stones-title-parallax .stones-fore,
   .stones-parallax .stones-fore{ background-size:250% }
