@@ -384,15 +384,15 @@
           
           if (bg0) { 
             const y0 = (t * m0) + add0y + mobileOffset;
-            bg0.style.transform = `scale(${baseScale}) translate3d(${add0x.toFixed(2)}px, ${y0.toFixed(2)}px, 0)`;
+            bg0.style.transform = `scale(${baseScale}) translate3d(${add0x}px, ${y0}px, 0)`;
           }
           if (bg1) { 
             const y1 = (t * m1) + add1y + mobileOffset;
-            bg1.style.transform = `scale(${baseScale}) translate3d(${add1x.toFixed(2)}px, ${y1.toFixed(2)}px, 0)`;
+            bg1.style.transform = `scale(${baseScale}) translate3d(${add1x}px, ${y1}px, 0)`;
           }
           if (flowers) { 
             const yf = (t * mf) + addFy + mobileOffset;
-            flowers.style.transform = `scale(${baseScale}) translate3d(${addFx.toFixed(2)}px, ${yf.toFixed(2)}px, 0)`;
+            flowers.style.transform = `scale(${baseScale}) translate3d(${addFx}px, ${yf}px, 0)`;
           }
           ticking2 = false;
         };
