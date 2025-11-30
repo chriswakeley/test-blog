@@ -23,7 +23,6 @@ permalink: /contact/
         <p>Whether you have a question about the course or need help with the portal, I'm here to help.</p>
         <ul class="feature-list bullets" style="margin-top: 16px; margin-bottom: 32px; padding-left: 0; list-style: none;">
           <li style="margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-          <li><strong>Response:</strong> Within 24 hours (Mon-Fri)</li>
         </ul>
         <a class="btn" href="mailto:{{ site.email }}">Email Unyong</a>
       </div>
