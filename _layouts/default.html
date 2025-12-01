@@ -336,20 +336,42 @@
 
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 
-        // Cache hero height
+        // Cache hero height and container position for fixed parallax
         let heroHeight = heroSection ? (heroSection.offsetHeight || 1) : 1;
+        let containerLeft = 0;
+        let containerTopAbsolute = 0;
         let lastWinWidth = window.innerWidth;
+
+        const updateDimensions = () => {
+          if (!heroSection) return;
+          heroHeight = heroSection.offsetHeight || 1;
+          const rect = heroContainer.getBoundingClientRect();
+          const scrollTop = window.scrollY || window.pageYOffset || 0;
+          containerLeft = rect.left;
+          containerTopAbsolute = rect.top + scrollTop;
+          
+          // Sync fixed layer dimensions to container
+          const w = heroContainer.offsetWidth + 'px';
+          const h = heroContainer.offsetHeight + 'px';
+          if (bg0) { bg0.style.width = w; bg0.style.height = h; }
+          if (bg1) { bg1.style.width = w; bg1.style.height = h; }
+          if (flowers) { flowers.style.width = w; flowers.style.height = h; }
+        };
+
         window.addEventListener('resize', () => {
           if(heroSection) {
             const w = window.innerWidth;
             // Only update height if width changes (ignore mobile URL bar vertical resize)
             if (Math.abs(w - lastWinWidth) > 0) {
-              heroHeight = heroSection.offsetHeight || 1;
               lastWinWidth = w;
+              updateDimensions();
               requestAnimationFrame(updateParallax);
             }
           }
         }, { passive: true });
+        
+        // Initial measurement
+        updateDimensions();
 
         const updateParallax = () => {
           if (!heroSection || prefersReduced) { ticking2 = false; return; }
@@ -381,17 +403,20 @@
           
           const baseScale = isMobile ? 1.12 : 1.06;
           
+          // Calculate screen position of container top
+          const screenTop = containerTopAbsolute - y;
+          
           if (bg0) { 
             const y0 = (t * m0) + add0y + mobileOffset;
-            bg0.style.transform = `scale(${baseScale}) translate3d(${add0x}px, ${y0}px, 0)`;
+            bg0.style.transform = `scale(${baseScale}) translate3d(${add0x + containerLeft}px, ${y0 + screenTop}px, 0)`;
           }
           if (bg1) { 
             const y1 = (t * m1) + add1y + mobileOffset;
-            bg1.style.transform = `scale(${baseScale}) translate3d(${add1x}px, ${y1}px, 0)`;
+            bg1.style.transform = `scale(${baseScale}) translate3d(${add1x + containerLeft}px, ${y1 + screenTop}px, 0)`;
           }
           if (flowers) { 
             const yf = (t * mf) + addFy + mobileOffset;
-            flowers.style.transform = `scale(${baseScale}) translate3d(${addFx}px, ${yf}px, 0)`;
+            flowers.style.transform = `scale(${baseScale}) translate3d(${addFx + containerLeft}px, ${yf + screenTop}px, 0)`;
           }
           ticking2 = false;
         };
@@ -458,6 +483,9 @@
               }
               heroContainer.appendChild(wrap);
               flowers = wrap;
+              // Sync dimensions immediately
+              flowers.style.width = heroContainer.offsetWidth + 'px';
+              flowers.style.height = heroContainer.offsetHeight + 'px';
               // Apply an initial parallax position now that flowers exist
               requestAnimationFrame(updateParallax);
             })

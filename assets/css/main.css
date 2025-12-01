@@ -180,7 +180,7 @@ main{flex:1}
 .hero .container{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:1280px;min-height:calc(100svh - 64px - 24px - 24px);padding:calc(48px + 64px) 0 96px;background-image:none;overflow:hidden;z-index:0;border-radius:36px;background-color:var(--sb-warm);background-clip:padding-box;box-shadow: -16px -16px 36px rgba(255,255,255,.85), 16px 16px 36px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.06)}
 .hero .container::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(80% 60% at 50% 45%, rgba(255,255,255,.24), rgba(255,255,255,.10) 45%, rgba(255,255,255,0) 75%);z-index:-1}
 /* Individual hero image layers for animation & parallax */
-.hero .bg-layer{position:absolute;inset:0;--base-scale:1.06;--scroll-y:0px;--scroll-x:0px;transform:scale(var(--base-scale)) translate3d(var(--scroll-x), var(--scroll-y), 0);transform-origin:50% 50%;background-position:center center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:0;will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.hero .bg-layer{position:fixed;top:0;left:0;width:100%;height:100%;border-radius:inherit;--base-scale:1.06;--scroll-y:0px;--scroll-x:0px;transform:scale(var(--base-scale)) translate3d(var(--scroll-x), var(--scroll-y), 0);transform-origin:50% 50%;background-position:center center;background-repeat:no-repeat;background-size:cover;pointer-events:none;opacity:0;will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .hero .bg-layer.bg-0{
   background-image:url('../images/hero-background-layer-0.png');
   background-image:image-set(
@@ -198,7 +198,7 @@ main{flex:1}
   z-index:-2;animation:fadeInOpacity .5s ease-out .08s both
 }
 /* Inline-placed flowers SVG overlay (injected via JS) */
-.hero .flowers-layer{position:absolute;inset:0;pointer-events:none;z-index:0;display:block;overflow:hidden;opacity:0;animation:fadeInOpacity .55s ease-out .12s both;will-change:transform,opacity;--scroll-y:0px;--scroll-x:0px;--flower-scale:1.06;transform:scale(var(--flower-scale)) translate3d(var(--scroll-x, 0px), var(--scroll-y), 0);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.hero .flowers-layer{position:fixed;top:0;left:0;width:100%;height:100%;border-radius:inherit;pointer-events:none;z-index:0;display:block;overflow:hidden;opacity:0;animation:fadeInOpacity .55s ease-out .12s both;will-change:transform,opacity;--scroll-y:0px;--scroll-x:0px;--flower-scale:1.06;transform:scale(var(--flower-scale)) translate3d(var(--scroll-x, 0px), var(--scroll-y), 0);backface-visibility:hidden;-webkit-backface-visibility:hidden}
 /* Match PNG background scaling: width fits container, height auto; overflow hidden clips excess */
 .hero .flowers-layer svg{position:absolute;inset:0;transform:none;width:100%;height:100%;display:block}
 /* Removed continuous SVG float animation for a calmer hero; parallax remains */
