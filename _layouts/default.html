@@ -414,18 +414,31 @@
           const baseX = containerLeft - scaleOffsetX;
           const baseY = (containerTop - y) - scaleOffsetY; // containerTop - scrollY for screen position
 
-          if (bg0) {
-            const y0 = (t * m0) + add0y + mobileOffset;
-            bg0.style.transform = `translate3d(${baseX + add0x}px, ${baseY + y0}px, 0) scale(${baseScale})`;
-          }
-          if (bg1) {
-            const y1 = (t * m1) + add1y + mobileOffset;
-            bg1.style.transform = `translate3d(${baseX + add1x}px, ${baseY + y1}px, 0) scale(${baseScale})`;
-          }
-          if (flowers) {
-            const yf = (t * mf) + addFy + mobileOffset;
-            flowers.style.transform = `translate3d(${baseX + addFx}px, ${baseY + yf}px, 0) scale(${baseScale})`;
-          }
+          // Container position on screen (for clip calculation)
+          const containerScreenTop = containerTop - y;
+          const borderRadius = 36;
+
+          // Helper to apply transform and clip-path for a layer
+          const applyLayer = (el, tx, ty) => {
+            if (!el) return;
+            el.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${baseScale})`;
+            // Calculate clip-path in local coords (before transform) that clips to container bounds
+            const clipLeft = (containerLeft - tx) / baseScale;
+            const clipTop = (containerScreenTop - ty) / baseScale;
+            const clipRight = containerWidth - (containerLeft + containerWidth - tx) / baseScale;
+            const clipBottom = containerHeight - (containerScreenTop + containerHeight - ty) / baseScale;
+            const clipRadius = borderRadius / baseScale;
+            el.style.clipPath = `inset(${clipTop}px ${clipRight}px ${clipBottom}px ${clipLeft}px round ${clipRadius}px)`;
+          };
+
+          const y0 = (t * m0) + add0y + mobileOffset;
+          applyLayer(bg0, baseX + add0x, baseY + y0);
+
+          const y1 = (t * m1) + add1y + mobileOffset;
+          applyLayer(bg1, baseX + add1x, baseY + y1);
+
+          const yf = (t * mf) + addFy + mobileOffset;
+          applyLayer(flowers, baseX + addFx, baseY + yf);
           ticking2 = false;
         };
         const onScroll = () => { if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); } };
