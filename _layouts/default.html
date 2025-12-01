@@ -339,20 +339,24 @@
         // Cache hero height and container position for fixed parallax
         let heroHeight = heroSection ? (heroSection.offsetHeight || 1) : 1;
         let containerLeft = 0;
-        let containerTopAbsolute = 0;
+        let containerTop = 0;
+        let containerWidth = 0;
+        let containerHeight = 0;
         let lastWinWidth = window.innerWidth;
 
         const updateDimensions = () => {
-          if (!heroSection) return;
+          if (!heroSection || !heroContainer) return;
           heroHeight = heroSection.offsetHeight || 1;
           const rect = heroContainer.getBoundingClientRect();
           const scrollTop = window.scrollY || window.pageYOffset || 0;
           containerLeft = rect.left;
-          containerTopAbsolute = rect.top + scrollTop;
-          
+          containerTop = rect.top + scrollTop; // absolute position
+          containerWidth = rect.width;
+          containerHeight = rect.height;
+
           // Sync fixed layer dimensions to container
-          const w = heroContainer.offsetWidth + 'px';
-          const h = heroContainer.offsetHeight + 'px';
+          const w = containerWidth + 'px';
+          const h = containerHeight + 'px';
           if (bg0) { bg0.style.width = w; bg0.style.height = h; }
           if (bg1) { bg1.style.width = w; bg1.style.height = h; }
           if (flowers) { flowers.style.width = w; flowers.style.height = h; }
@@ -402,21 +406,25 @@
           const addFx = tFactor * (tiltX * 5);  // was 8
           
           const baseScale = isMobile ? 1.12 : 1.06;
-          
-          // Calculate screen position of container top
-          const screenTop = containerTopAbsolute - y;
-          
-          if (bg0) { 
+
+          // Calculate position to center the scaled layer on the container
+          // With transform-origin: 0 0, scale expands right/down, so we offset to center it
+          const scaleOffsetX = containerWidth * (baseScale - 1) / 2;
+          const scaleOffsetY = containerHeight * (baseScale - 1) / 2;
+          const baseX = containerLeft - scaleOffsetX;
+          const baseY = (containerTop - y) - scaleOffsetY; // containerTop - scrollY for screen position
+
+          if (bg0) {
             const y0 = (t * m0) + add0y + mobileOffset;
-            bg0.style.transform = `scale(${baseScale}) translate3d(${add0x + containerLeft}px, ${y0 + screenTop}px, 0)`;
+            bg0.style.transform = `translate3d(${baseX + add0x}px, ${baseY + y0}px, 0) scale(${baseScale})`;
           }
-          if (bg1) { 
+          if (bg1) {
             const y1 = (t * m1) + add1y + mobileOffset;
-            bg1.style.transform = `scale(${baseScale}) translate3d(${add1x + containerLeft}px, ${y1 + screenTop}px, 0)`;
+            bg1.style.transform = `translate3d(${baseX + add1x}px, ${baseY + y1}px, 0) scale(${baseScale})`;
           }
-          if (flowers) { 
+          if (flowers) {
             const yf = (t * mf) + addFy + mobileOffset;
-            flowers.style.transform = `scale(${baseScale}) translate3d(${addFx + containerLeft}px, ${yf + screenTop}px, 0)`;
+            flowers.style.transform = `translate3d(${baseX + addFx}px, ${baseY + yf}px, 0) scale(${baseScale})`;
           }
           ticking2 = false;
         };
@@ -484,8 +492,8 @@
               heroContainer.appendChild(wrap);
               flowers = wrap;
               // Sync dimensions immediately
-              flowers.style.width = heroContainer.offsetWidth + 'px';
-              flowers.style.height = heroContainer.offsetHeight + 'px';
+              flowers.style.width = containerWidth + 'px';
+              flowers.style.height = containerHeight + 'px';
               // Apply an initial parallax position now that flowers exist
               requestAnimationFrame(updateParallax);
             })
