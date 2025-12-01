@@ -325,7 +325,6 @@
         const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         let flowers = null;
         let ticking2 = false;
-        let smoothedY = window.scrollY || window.pageYOffset || 0;
         // Device tilt state (mobile additive parallax)
         let tiltY = 0;          // smoothed [-1, 1] (front-back)
         let tiltX = 0;          // smoothed [-1, 1] (left-right)
@@ -356,18 +355,9 @@
           if (!heroSection || prefersReduced) { ticking2 = false; return; }
           // Use cached height
           const h = heroHeight;
-          
-          const targetY = window.scrollY || window.pageYOffset || 0;
-          // Smooth scroll interpolation
-          const diff = targetY - smoothedY;
-          if (Math.abs(diff) > 0.1) {
-            smoothedY += diff * 0.4;
-          } else {
-            smoothedY = targetY;
-          }
-
-          // Progress based on smoothed scroll
-          const t = clamp(smoothedY / h, 0, 1);
+          // Progress based on page scroll so it starts as soon as the user scrolls even a little
+          const y = window.scrollY || window.pageYOffset || 0;
+          const t = clamp(y / h, 0, 1);
           // Scale motion
           const isMobile = (window.innerWidth || 0) <= 900;
           const scale = isMobile ? 1.0 : 1.3;
@@ -403,14 +393,7 @@
             const yf = (t * mf) + addFy + mobileOffset;
             flowers.style.transform = `scale(${baseScale}) translate3d(${addFx}px, ${yf}px, 0)`;
           }
-          
-          // Keep loop running if not settled
-          if (Math.abs(targetY - smoothedY) > 0.1) {
-             requestAnimationFrame(updateParallax);
-             ticking2 = true;
-          } else {
-             ticking2 = false;
-          }
+          ticking2 = false;
         };
         const onScroll = () => { if (!ticking2) { ticking2 = true; requestAnimationFrame(updateParallax); } };
         window.addEventListener('scroll', onScroll, { passive: true });
