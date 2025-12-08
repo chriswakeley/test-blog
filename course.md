@@ -310,6 +310,7 @@ permalink: /course/
     
     <div style="text-align: center;">
       <div id="paypal-container-KDK2A7HGLV9Y4" style="display: inline-block; min-width: 250px; max-width: 100%;"></div>
+      <p style="font-size: 0.9rem; opacity: 0.85; margin-top: 12px;">You’ll be able to book your time immediately after checkout.</p>
     </div>
   </div>
 </div>
