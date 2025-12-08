@@ -231,27 +231,27 @@ title: Home
   <div class="container">
     <div class="section-intro align-left" style="margin:0 0 10px 0">
       <h2>Ready to choose your path?</h2>
-      <p>Pick the option that fits your schedule—self‑guided anytime, or join the scheduled 5‑week cohort with coaching starting <strong>November 17</strong>.</p>
+      <p>Pick the option that fits your schedule—self‑guided anytime, or join the scheduled 5‑week cohort with coaching starting <strong>January 12</strong>.</p>
     </div>
 
     <!-- Upcoming cohort panel -->
     <div class="panel cohort-panel cohort-panel--grid">
-      <div class="cohort-calendar" aria-label="Course timeframe calendar: five consecutive weeks starting November 17">
-        <div class="cal-header"><span class="dot" aria-hidden="true"></span><span><strong>Nov–Dec</strong> • 5 weeks</span></div>
+      <div class="cohort-calendar" aria-label="Course timeframe calendar: five consecutive weeks starting January 12">
+        <div class="cal-header"><span class="dot" aria-hidden="true"></span><span><strong>Jan–Feb</strong> • 5 weeks</span></div>
         <div class="cal-weeks">
-          <div class="cal-week" aria-label="Week 1: November 17 to 23"><div class="wk-label">Week 1</div><div class="wk-dates">Nov 17–23</div></div>
-          <div class="cal-week" aria-label="Week 2: November 24 to 30"><div class="wk-label">Week 2</div><div class="wk-dates">Nov 24–30</div></div>
-          <div class="cal-week" aria-label="Week 3: December 1 to 7"><div class="wk-label">Week 3</div><div class="wk-dates">Dec 1–7</div></div>
-          <div class="cal-week" aria-label="Week 4: December 8 to 14"><div class="wk-label">Week 4</div><div class="wk-dates">Dec 8–14</div></div>
-          <div class="cal-week" aria-label="Week 5: December 15 to 21"><div class="wk-label">Week 5</div><div class="wk-dates">Dec 15–21</div></div>
+          <div class="cal-week" aria-label="Week 1: January 12 to 18"><div class="wk-label">Week 1</div><div class="wk-dates">Jan 12–18</div></div>
+          <div class="cal-week" aria-label="Week 2: January 19 to 25"><div class="wk-label">Week 2</div><div class="wk-dates">Jan 19–25</div></div>
+          <div class="cal-week" aria-label="Week 3: January 26 to February 1"><div class="wk-label">Week 3</div><div class="wk-dates">Jan 26–Feb 1</div></div>
+          <div class="cal-week" aria-label="Week 4: February 2 to 8"><div class="wk-label">Week 4</div><div class="wk-dates">Feb 2–8</div></div>
+          <div class="cal-week" aria-label="Week 5: February 9 to 15"><div class="wk-label">Week 5</div><div class="wk-dates">Feb 9–15</div></div>
         </div>
         <div class="cal-foot">Weekly live calls • recordings provided</div>
       </div>
       <div class="panel-body">
         <span class="eyebrow">Upcoming Cohort</span>
-        <h3>5‑week course starts November 17</h3>
-        <span class="details">Starts Nov 17 · Weekly live calls · 1:1 session · Lifetime access</span>
-        <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Enroll — Nov 17 cohort</a>
+        <h3>5‑week course starts January 12</h3>
+        <span class="details">Starts Jan 12 · Weekly live calls · 1:1 session · Lifetime access</span>
+        <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Enroll — Jan 12 cohort</a>
       </div>
     </div>
     <div class="options-compare">
@@ -284,7 +284,7 @@ title: Home
           </div>
           <h3 class="card-title">5‑Week Blueprint Course + Coaching</h3>
           <p class="card-price">$500</p>
-          <p class="card-blurb">Scheduled 5‑week cohort starting <strong>Nov 17</strong>. Includes weekly live group calls, all modules, and a 1:1 laser session.</p>
+          <p class="card-blurb">Scheduled 5‑week cohort starting <strong>Jan 12</strong>. Includes weekly live group calls, all modules, and a 1:1 laser session.</p>
           <ul class="features-check">
             <li>Weekly group coaching</li>
             <li>1:1 laser coaching session</li>
@@ -292,7 +292,7 @@ title: Home
           </ul>
           <div class="subtle-divider"></div>
           <div class="cta-row">
-            <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Enroll — Nov 17 cohort</a>
+            <a class="btn" href="https://stressburner.systeme.io/126ed7cc" target="_blank" rel="noopener">Enroll — Jan 12 cohort</a>
           </div>
         </div>
       </div>
