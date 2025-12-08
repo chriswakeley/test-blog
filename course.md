@@ -192,6 +192,16 @@ permalink: /course/
           <p>7‑day micro check‑ins to keep momentum.</p>
         </li>
       </ul>
+      
+      <div style="margin-top: 2rem; display: flex; justify-content: center;">
+        <div id="paypal-container-KDK2A7HGLV9Y4"></div>
+      </div>
+      <script src="https://www.paypal.com/sdk/js?client-id=BAA4k3L9B8dsMfMiCpTfIy4nHZDdaeZJEmCqipFuXeON2Lfsbvboikv9NeQUaM4cogJ6QwUDQM6sJ2S9oQ&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+      <script>
+        paypal.HostedButtons({
+          hostedButtonId: "KDK2A7HGLV9Y4",
+        }).render("#paypal-container-KDK2A7HGLV9Y4")
+      </script>
     </div>
   </div>
 </div>
