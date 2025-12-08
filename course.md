@@ -274,14 +274,14 @@ permalink: /course/
 </div>
 
 <!-- Laser Coaching Section -->
-<div class="container section">
+<div class="container section" style="padding-top: 0;">
   <div class="section-intro align-left" style="margin:0 0 10px 0">
-    <span class="eyebrow">Need a quick boost?</span>
+    <span class="eyebrow">Want additional support?</span>
     <h2>Laser Coaching Session</h2>
     <p>Book a 30-minute 1:1 session to break through a specific blocker. Perfect for extra support or a quick tune-up.</p>
   </div>
   
-  <div class="price-card coaching" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 40px;">
+  <div class="price-card coaching" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 40px; background-image: none;">
     <div>
       <h3 class="card-title" style="color: var(--sb-ink); margin-bottom: 12px;">1:1 Laser Session</h3>
       <p class="card-blurb" style="margin-bottom: 20px;">A focused 30-minute video call to get you moving again.</p>
