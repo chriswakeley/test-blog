@@ -270,32 +270,49 @@ permalink: /course/
     </div>
   </div>
   
-  <!-- Laser Coaching Session Option -->
-  <div style="margin-top: 40px;">
-    <div class="price-card coaching" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 40px;">
-      <div>
-        <h3 class="card-title" style="color: var(--sb-ink); margin-bottom: 12px;">Laser Coaching Session</h3>
-        <p class="card-blurb" style="margin-bottom: 20px;">Book a 30-minute 1:1 session to break through a specific blocker. Perfect for extra support or a quick tune-up.</p>
-        <ul class="features-check">
-          <li>30-minute focused session</li>
-          <li>Actionable next steps</li>
-          <li>Recording provided</li>
-        </ul>
-      </div>
-      
-      <div style="text-align: center;">
-        <div id="paypal-container-KDK2A7HGLV9Y4" style="display: inline-block; min-width: 250px; max-width: 100%;"></div>
-      </div>
-      <script src="https://www.paypal.com/sdk/js?client-id=BAA4k3L9B8dsMfMiCpTfIy4nHZDdaeZJEmCqipFuXeON2Lfsbvboikv9NeQUaM4cogJ6QwUDQM6sJ2S9oQ&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
-      <script>
-        paypal.HostedButtons({
-          hostedButtonId: "KDK2A7HGLV9Y4",
-        }).render("#paypal-container-KDK2A7HGLV9Y4")
-      </script>
-    </div>
-  </div>
-
   <p style="margin-top:12px; opacity:.9"><em>After checkout: complete registration from your welcome email, visit the community at <a href="https://stressburner.systeme.io/community/stress-burner-fall25" target="_blank" rel="noopener">stressburner.systeme.io/community/stress-burner-fall25</a>, and email <a href="mailto:{{ site.email }}">{{ site.email }}</a> with any questions.</em></p>
 </div>
+
+<!-- Laser Coaching Section -->
+<div class="container section">
+  <div class="section-intro align-left" style="margin:0 0 10px 0">
+    <span class="eyebrow">Need a quick boost?</span>
+    <h2>Laser Coaching Session</h2>
+    <p>Book a 30-minute 1:1 session to break through a specific blocker. Perfect for extra support or a quick tune-up.</p>
+  </div>
+  
+  <div class="price-card coaching" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 40px;">
+    <div>
+      <h3 class="card-title" style="color: var(--sb-ink); margin-bottom: 12px;">1:1 Laser Session</h3>
+      <p class="card-blurb" style="margin-bottom: 20px;">A focused 30-minute video call to get you moving again.</p>
+      <ul class="features-check">
+        <li>30-minute focused session</li>
+        <li>Actionable next steps</li>
+        <li>Recording provided</li>
+      </ul>
+    </div>
+    
+    <div style="text-align: center;">
+      <div id="paypal-container-KDK2A7HGLV9Y4" style="display: inline-block; min-width: 250px; max-width: 100%;"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Hide unnecessary PayPal hosted button fields */
+  #paypal-form-fields-container-KDK2A7HGLV9Y4 .item-header,
+  #paypal-form-fields-container-KDK2A7HGLV9Y4 .item-description,
+  #paypal-form-fields-container-KDK2A7HGLV9Y4 .input-label,
+  #paypal-form-fields-container-KDK2A7HGLV9Y4 .selectContainer {
+    display: none !important;
+  }
+</style>
+
+<script src="https://www.paypal.com/sdk/js?client-id=BAA4k3L9B8dsMfMiCpTfIy4nHZDdaeZJEmCqipFuXeON2Lfsbvboikv9NeQUaM4cogJ6QwUDQM6sJ2S9oQ&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "KDK2A7HGLV9Y4",
+  }).render("#paypal-container-KDK2A7HGLV9Y4")
+</script>
 
 <!-- Removed glow hover script per request -->
