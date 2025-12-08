@@ -281,7 +281,23 @@ permalink: /course/
     <p>Book a 30-minute 1:1 session to break through a specific blocker. Perfect for extra support or a quick tune-up.</p>
   </div>
   
-  <div class="price-card coaching" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 40px; background-image: none;">
+  <style>
+    .laser-card-responsive {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 20px 40px !important;
+      background-image: none !important;
+    }
+    @media (max-width: 900px) {
+      .laser-card-responsive {
+        grid-template-columns: 1fr;
+        padding: 24px !important;
+      }
+    }
+  </style>
+  <div class="price-card coaching laser-card-responsive">
     <div>
       <h3 class="card-title" style="color: var(--sb-ink); margin-bottom: 12px;">1:1 Laser Session</h3>
       <p class="card-blurb" style="margin-bottom: 20px;">A focused 30-minute video call to get you moving again.</p>
