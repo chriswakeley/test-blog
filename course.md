@@ -270,16 +270,20 @@ permalink: /course/
     </div>
   </div>
   
-  <!-- Single Laser Coaching Session Option -->
-  <div style="max-width: 500px; margin: 40px auto 0;">
-    <div class="price-card coaching" style="border-color: var(--sb-ink); background: #fff;">
-      <div class="card-hero" style="min-height: 120px;">
-        <img class="hero-emblem" src="{{ '/assets/images/targeticon.svg' | relative_url }}" alt="Target icon" style="filter: none; width: 64px;" />
+  <!-- Laser Coaching Session Option -->
+  <div style="margin-top: 40px;">
+    <div class="price-card coaching" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 40px;">
+      <div>
+        <h3 class="card-title" style="color: var(--sb-ink); margin-bottom: 12px;">Laser Coaching Session</h3>
+        <p class="card-blurb" style="margin-bottom: 20px;">Book a 30-minute 1:1 session to break through a specific blocker. Perfect for extra support or a quick tune-up.</p>
+        <ul class="features-check">
+          <li>30-minute focused session</li>
+          <li>Actionable next steps</li>
+          <li>Recording provided</li>
+        </ul>
       </div>
-      <h3 class="card-title" style="text-align: center; color: var(--sb-ink);">Single Laser Coaching Session</h3>
-      <p class="card-blurb" style="text-align: center;">Book a 30-minute 1:1 session to break through a specific blocker. Perfect for extra support or a quick tune-up.</p>
       
-      <div style="margin-top: 1rem; text-align: center; padding-bottom: 20px;">
+      <div style="text-align: center;">
         <div id="paypal-container-KDK2A7HGLV9Y4" style="display: inline-block; min-width: 250px; max-width: 100%;"></div>
       </div>
       <script src="https://www.paypal.com/sdk/js?client-id=BAA4k3L9B8dsMfMiCpTfIy4nHZDdaeZJEmCqipFuXeON2Lfsbvboikv9NeQUaM4cogJ6QwUDQM6sJ2S9oQ&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
